@@ -1,0 +1,9 @@
+data/
+*.json
+!package.json
+.env
+token*.json
+credentials*.json
+__pycache__/
+*.pyc
+.venv/
