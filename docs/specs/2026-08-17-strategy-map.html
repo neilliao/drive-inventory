@@ -140,6 +140,34 @@
   .risk b { display: block; margin-bottom: 4px; font-size: 14.5px; }
 
   footer { margin-top: 52px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-soft); }
+
+  .duality { font-size: 14px; color: var(--ink-soft); border-left: 3px solid var(--accent); padding-left: 14px; margin: 22px 0 0; }
+
+  .rule-callout {
+    background: var(--accent-tint); border: 1px solid var(--accent); border-radius: 10px;
+    padding: 18px 22px; margin: 18px 0; font-size: 15px;
+  }
+  .rule-callout b { font-size: 17px; }
+  .rule-callout code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 14px;
+    background: var(--surface); border-radius: 6px; padding: 2px 8px;
+  }
+
+  .ledgers { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .ledger { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; font-size: 13.5px; }
+  .ledger .name { font-family: "Songti TC","Noto Serif TC",serif; font-size: 18px; font-weight: 700; color: var(--accent); margin: 0 0 6px; }
+  .ledger p { margin: 6px 0; }
+
+  .dual-zone { display: flex; gap: 0; border: 1.4px solid var(--accent); border-radius: 12px; overflow: hidden; margin: 16px 0 8px; }
+  .dual-zone > div { flex: 1; padding: 16px 18px; font-size: 13.5px; }
+  .dual-zone .zone-a { background: var(--surface); border-right: 1px dashed var(--line); }
+  .dual-zone .zone-b { background: var(--surface-2); }
+  .dual-zone b { display: block; font-size: 15px; margin-bottom: 4px; }
+  .dual-zone .hint { color: var(--ink-soft); font-size: 12.5px; }
+
+  ul.facts, ul.changes { font-size: 13.5px; color: var(--ink-soft); padding-left: 20px; }
+  ul.facts li, ul.changes li { margin: 5px 0; }
+  .status { font-size: 11.5px; font-weight: 700; color: var(--accent); letter-spacing: .08em; }
 </style>
 
 <div class="wrap">
@@ -269,6 +297,8 @@
     <figcaption>中軸由下而上：存的秩序 → 找的路徑 → 用的場景 → 目標。左側是權限護欄，右側是讓系統活著的兩個回饋迴路。</figcaption>
   </figure>
 
+  <p class="duality">兩種價值邏輯的界線：保存層走典藏邏輯——求完整，不要求每個檔案都有用；索引層與書架層走使用邏輯——組織投入的每一份產出，都要有明確的消費者。</p>
+
   <h2>五支柱</h2>
   <div class="pillars">
     <div class="pillar">
@@ -331,6 +361,43 @@
     </table>
   </div>
 
+  <h2>戰術定案：兩本帳</h2>
+  <p style="font-size:14px; max-width:70ch;">硬碟裡的東西其實只有兩種：辦活動生出來的（照片、錄音、名冊，每年一直來、越堆越多），和平常要用的（教材、聖歌、範本，不太會變但常有人找）。過去五年會亂，就是這兩種混在一起、又沒有制度接住。所以分成兩本帳，各管各的。</p>
+
+  <div class="rule-callout">
+    人只要記一條規矩：<b>檔案和資料夾的名字，開頭寫日期加活動名，放進當年的年份資料夾。</b><br>
+    格式 <code>YYYY-MM-DD活動名</code>，例：<code>2026-05-12靈隱寺三天法會</code>。只要日期寫對，系統每月自動把同一場活動的照片、錄音、文件串成總表上的同一列——找的人查表，不翻資料夾。
+  </div>
+
+  <div class="ledgers">
+    <div class="ledger">
+      <p class="name">活動帳</p>
+      <p>法會、班程、會議產生的檔案。各載體照舊分開存（照片進照片碟、錄音進錄音碟），只要名字開頭日期一致，事件總表自動串回一場活動。</p>
+      <p class="hint" style="color:var(--ink-soft)">事件總表草稿已產出：898 列，其中 121 場成功跨硬碟串起（19 場三種載體以上）。</p>
+    </div>
+    <div class="ledger">
+      <p class="name">資產帳</p>
+      <p>教材、聖歌、有聲書、範本。用目錄＋「現行版」管理，舊版歸舊檔；取用入口做成書架，一次上架一個主題。</p>
+      <p class="hint" style="color:var(--ink-soft)">已知版本飄移案例：「道務行程操持配合事宜」表單，A01 存 2019 版、實務引用 2022-06-02 修訂版——正本待定。</p>
+    </div>
+  </div>
+
+  <h2>雙區模板（重構終態）</h2>
+  <p style="font-size:14px; max-width:70ch;">由兩本帳反推，每顆硬碟的終態收斂成同一個樣子。整理這一次就夠了：以後每年只是多一個年份夾，十年後的結構跟明天一樣，不會再累積出下一次「五年沒動的亂」。</p>
+  <div class="dual-zone">
+    <div class="zone-a">
+      <b>資產區（編號資料夾）</b>
+      常用的教材、聖歌、範本。整理一次之後幾乎不動。
+      <div class="hint">例：H01.有聲書、H02.經典講述⋯</div>
+    </div>
+    <div class="zone-b">
+      <b>活動流（年份資料夾）</b>
+      歷年活動檔案，一年一格，每年自動長。
+      <div class="hint">例：H90.歷年活動/2026、/2027⋯</div>
+    </div>
+  </div>
+  <p class="aside-phase">完成判準兩句話：任何新檔案都有明顯而唯一的家；任何一場活動都能在總表查到一列。</p>
+
   <h2>權限矩陣</h2>
   <div class="table-scroll">
     <table>
@@ -344,14 +411,15 @@
   </div>
   <p class="aside-phase">窗口＝當然職：組長、區長、各區文書因職務自動加入 editors，初始名單從道籍系統職務資料生成、隨職務異動同步；窗口可提名加派幫手（由 admin 加入群組，名冊集中可對帳）。當然職窗口＝內容管理員：能放、能搬、能刪（刪除先進垃圾桶，30 天可復原）；加派幫手＝協作者：能放，不能刪搬；永久刪除只有管理員。減法開放的配套是留痕——巡檢加開每週異動偵測，刪除與搬移一週內上報、列出經手人，垃圾桶期限內一定來得及救回。目錄 Sheet 由工具生成，人不直接改格子，開放加註者讓每個讀者都能留言指錯。4D 開放前先清查 D10 財務——共用硬碟鎖不了單一資料夾，敏感件須先移出。</p>
 
-  <h2>階段路線</h2>
+  <h2>階段路線（2026-08-17 修訂版）</h2>
   <ol class="phases">
-    <li><b>索引整備</b>檔案地圖按權限層拆乾淨，建三張內容目錄<span class="dep">依賴：無，離線資料即可動工</span></li>
-    <li><b>權限上線</b>三個群組掛上硬碟（cloud／editors／lecturers）<span class="dep">依賴：管理控制台開群組</span></li>
-    <li><b>歸檔制度上線</b>窗口當然職上任（組長、區長、各區文書，可加派）、發一頁歸檔規則、巡檢開跑<span class="dep">依賴：名單從道籍職務資料生成</span></li>
-    <li><b>書架層</b>需求與使用證據拉動，一次上架一個<span class="dep">依賴：有人開口，或數據說話</span></li>
+    <li><b>命名規約＋事件總表</b><span class="status">進行中</span><br>一頁版規矩定稿發窗口；總表草稿已出，過目後移入 1A<span class="dep">依賴：無，已可動工</span></li>
+    <li><b>四顆硬碟收斂雙區模板</b><span class="status">H 進行中</span><br>H 骨架與去重已完成，搬移收尾後 I／J／K 照同一套滾<span class="dep">依賴：搬遷腳本一次跑完</span></li>
+    <li><b>資產帳開帳</b><br>範本目錄（定現行版）＋第一個書架：法會操持<span class="dep">素材已盤點：教材、講述錄音、範本三版本</span></li>
+    <li><b>權限與前門</b><br>三群組掛硬碟（cloud／editors／lecturers）＋道務平台各組頁（查活動＋常用範本＋業務夾捷徑）<span class="dep">依賴：管理控制台開群組；1A 檔案地圖先移除 3C/7G 列</span></li>
+    <li><b>巡檢常態化</b><br>月巡檢＋週異動偵測開跑，系統進入自轉<span class="dep">依賴：重構收尾後基準線穩定</span></li>
   </ol>
-  <p class="aside-phase">隨行工作：同層內去重——dry-run 清單批准後才動，進垃圾桶不永久刪。文獻典藏專案從階段 1 的活動事件總表接手：保存層是它的採集場，事件總表是它的採集地圖，候選件直接在表上圈選。</p>
+  <p class="aside-phase">隨行工作：同層內去重——dry-run 清單批准後才動，進垃圾桶不永久刪（H 的 199 檔已執行）。文獻典藏專案從事件總表接手：保存層是它的採集場，事件總表是它的採集地圖，候選件直接在表上圈選。窗口＝當然職（組長、區長、各區文書），名單從道籍職務資料生成。</p>
 
   <h2>刻意不做</h2>
   <ul class="nots">
@@ -367,7 +435,27 @@
     <div class="risk"><b>3C 正本（開講師層之前）</b>靈隱訓文母本與 C08 開壇訓文的版本關係要先定，否則書架會架在分支副本上。</div>
   </div>
 
+  <h2>決策異動紀錄（相對 2026-08-16）</h2>
+  <ul class="changes">
+    <li>新增 emei-editors 群組（讀寫分離）；窗口採當然職＋下放加派。</li>
+    <li>恢復做權限矩陣（原定不做；因讀寫分離與文獻流而必要）。</li>
+    <li>窗口權限由協作者上修為內容管理員（給幹部大空間），配套週異動偵測留痕。</li>
+    <li>「保存層不重排」修正為「不做一次性全面重排」；文獻需求可拉動局部重排，保存層定位增加「文獻典藏採集場」。</li>
+    <li>7G 凍結封存、不轉進件區（原功能由道籍系統承接）；不開中央進件區——整理責任回到各組各區。</li>
+    <li>去重規則：跨權限層的重複視為發行而非冗餘，只在同層內去重。</li>
+    <li>戰術視角由「整理存量」轉為「由日後運作反推」：兩本帳＋雙區模板（8/17 晚定案）。</li>
+  </ul>
+
+  <h2>已驗證的關鍵事實</h2>
+  <ul class="facts">
+    <li>近兩年全庫僅 469 筆有動（0.1%），熱點只有四處（D07 文書、C02 會議紀錄、G 法會、C08 開壇訓文）——冷區重構自由，且重構窗口在權限開放之前。</li>
+    <li>四顆未編碼硬碟：H 錄音 5,592 檔／164.7GB；I 音樂 5,867／27.6GB；J 照片 78,498／208.2GB；K 影音 6,091／895.2GB。</li>
+    <li>MD5 真重複 7,944 組、可省 34.7GB；同碟 29.7GB（這波做）、跨碟 5.0GB（個案判）。前 30 組僅佔 27.9%，長尾平均分散。</li>
+    <li>白陽聖訓有聲書 H＝mp3、K＝wmv，零重疊——同作品雙載體，書目表併列，不是重複。</li>
+    <li>日期鍵自動跨硬碟串接實測：121 場活動命中兩種以上載體、19 場三種以上；同日撞期僅 6 場，需名稱相似度輔助判斷。</li>
+  </ul>
+
   <footer>
-    2026-08-17 定稿・延伸自 2026-08-16 三層架構決策（保存層／索引層／書架層）・盤點基礎：11 顆共用硬碟，376,484 筆
+    2026-08-17 定稿（含晚間戰術定案）・延伸自 2026-08-16 三層架構決策（保存層／索引層／書架層）・盤點基礎：11 顆共用硬碟，376,484 筆・spec 正本：drive-inventory/docs/specs/
   </footer>
 </div>
