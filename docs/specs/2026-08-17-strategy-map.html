@@ -1,0 +1,373 @@
+<title>峨眉檔案治理地圖</title>
+<style>
+  :root {
+    --bg: #F1F2EE;
+    --surface: #FBFBF9;
+    --surface-2: #E9EBE4;
+    --ink: #22262A;
+    --ink-soft: #5A6168;
+    --line: #C9CDC3;
+    --accent: #33557E;
+    --accent-tint: #DFE6EE;
+    --seal: #A8402F;
+    --seal-ink: #FBFBF9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181B;
+      --surface: #1F2226;
+      --surface-2: #24282D;
+      --ink: #E8E7E2;
+      --ink-soft: #9BA1A8;
+      --line: #3A4046;
+      --accent: #8FAFD9;
+      --accent-tint: #2A3644;
+      --seal: #C25A45;
+      --seal-ink: #F5EFEA;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181B;
+    --surface: #1F2226;
+    --surface-2: #24282D;
+    --ink: #E8E7E2;
+    --ink-soft: #9BA1A8;
+    --line: #3A4046;
+    --accent: #8FAFD9;
+    --accent-tint: #2A3644;
+    --seal: #C25A45;
+    --seal-ink: #F5EFEA;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+    line-height: 1.65;
+    margin: 0;
+    padding: 0 20px 56px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+
+  .display, h1, h2 {
+    font-family: "Songti TC", "Noto Serif TC", "Source Han Serif TC", serif;
+  }
+
+  header.page { padding: 44px 0 8px; border-bottom: 1px solid var(--line); }
+  .eyebrow {
+    font-size: 13px; letter-spacing: .35em; color: var(--ink-soft);
+    text-transform: uppercase; margin: 0 0 10px;
+  }
+  h1 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 10px; font-weight: 700; text-wrap: balance; }
+  .creed {
+    font-size: clamp(15px, 2vw, 18px); color: var(--accent); font-weight: 600;
+    letter-spacing: .06em; margin: 0 0 26px;
+  }
+
+  h2 { font-size: 21px; margin: 46px 0 14px; }
+  h2 .no { color: var(--ink-soft); font-size: 14px; margin-right: 10px; letter-spacing: .1em; }
+
+  figure.map { margin: 30px 0 6px; overflow-x: auto; }
+  figure.map svg { min-width: 880px; width: 100%; height: auto; display: block; }
+  figcaption { font-size: 13px; color: var(--ink-soft); margin-top: 10px; }
+
+  /* SVG classes */
+  .node { fill: var(--surface); stroke: var(--line); }
+  .box-goal { fill: var(--surface); stroke: var(--accent); stroke-width: 1.4; }
+  .container { fill: var(--surface-2); stroke: var(--line); }
+  .rail { fill: var(--surface); stroke: var(--line); stroke-dasharray: none; }
+  .chip { fill: var(--surface); stroke: var(--line); }
+  .seal { fill: var(--seal); }
+  .t-title { font-size: 18px; font-weight: 700; fill: var(--ink); }
+  .t-h { font-size: 14px; font-weight: 700; fill: var(--ink); }
+  .t { font-size: 12.5px; fill: var(--ink); }
+  .t-s { font-size: 11.5px; fill: var(--ink-soft); }
+  .t-tag { font-size: 12.5px; font-weight: 700; fill: var(--accent); letter-spacing: .12em; }
+  .t-seal { font-size: 24px; font-weight: 700; fill: var(--seal-ink); font-family: "Songti TC","Noto Serif TC",serif; }
+  .t-lbl { font-size: 11.5px; fill: var(--ink-soft); paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
+  .t-lbl-a { font-size: 12px; font-weight: 600; fill: var(--accent); paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
+  .flow { stroke: var(--accent); stroke-width: 1.8; fill: none; }
+  .arrow { stroke: var(--ink-soft); stroke-width: 1.4; fill: none; }
+  .guard { stroke: var(--ink-soft); stroke-width: 1.2; stroke-dasharray: 4 4; fill: none; }
+  .m-accent { fill: var(--accent); }
+  .m-soft { fill: var(--ink-soft); }
+
+  /* pillar cards */
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 14px; }
+  .pillar {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 18px 18px 14px;
+  }
+  .pillar .name {
+    font-family: "Songti TC", "Noto Serif TC", serif;
+    font-size: 18px; font-weight: 700; color: var(--accent); margin: 0 0 2px;
+  }
+  .pillar .one { font-size: 13.5px; font-weight: 600; margin: 0 0 8px; }
+  .pillar ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink-soft); }
+  .pillar li { margin: 3px 0; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12.5px; letter-spacing: .12em; color: var(--ink-soft); font-weight: 600; }
+  td.who { font-weight: 700; white-space: nowrap; }
+  .table-scroll { overflow-x: auto; }
+
+  ol.phases { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; counter-reset: ph; }
+  ol.phases > li {
+    counter-increment: ph; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 10px; padding: 16px 18px; font-size: 13.5px;
+  }
+  ol.phases > li::before {
+    content: "階段 " counter(ph); display: block; font-size: 12px; letter-spacing: .18em;
+    color: var(--accent); font-weight: 700; margin-bottom: 6px;
+  }
+  ol.phases b { display: block; font-size: 15px; margin-bottom: 4px; }
+  ol.phases .dep { color: var(--ink-soft); font-size: 12.5px; margin-top: 6px; display: block; }
+  .aside-phase {
+    margin-top: 14px; font-size: 13.5px; color: var(--ink-soft);
+    border-left: 3px solid var(--accent); padding-left: 14px;
+  }
+
+  .nots { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+  .nots li {
+    font-size: 13px; color: var(--ink-soft); background: var(--surface-2);
+    border-radius: 999px; padding: 4px 14px;
+  }
+  .nots li::before { content: "✕ "; opacity: .6; }
+
+  .risks { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .risk { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; font-size: 13.5px; }
+  .risk b { display: block; margin-bottom: 4px; font-size: 14.5px; }
+
+  footer { margin-top: 52px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-soft); }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <p class="eyebrow">峨眉書院・雲端共用硬碟</p>
+    <h1>檔案治理策略地圖</h1>
+    <p class="creed">歸檔分散・索引集中・權限分層・秩序靠巡檢・投入跟著使用走</p>
+  </header>
+
+  <figure class="map">
+    <svg viewBox="0 0 1040 668" role="img" aria-label="策略地圖：中軸由下而上為存的秩序、找的路徑、使用場景到終極目標；左側為看的邊界（權限分層）護欄；右側為用的證據與活的機制兩個回饋迴路">
+      <defs>
+        <marker id="ma" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" />
+        </marker>
+        <marker id="ms" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-soft" />
+        </marker>
+      </defs>
+
+      <!-- 目標 -->
+      <rect class="box-goal" x="230" y="16" width="560" height="64" rx="10" />
+      <rect class="seal" x="246" y="26" width="44" height="44" rx="6" />
+      <text class="t-seal" x="268" y="58" text-anchor="middle">活</text>
+      <text class="t-title" x="304" y="44">道場的數位記憶持續活著</text>
+      <text class="t-s" x="304" y="64">資料被使用・秩序自持・不依賴單一人力</text>
+
+      <!-- 場景 → 目標 -->
+      <line class="flow" x1="297" y1="120" x2="297" y2="86" marker-end="url(#ma)" />
+      <line class="flow" x1="439" y1="120" x2="439" y2="86" marker-end="url(#ma)" />
+      <line class="flow" x1="581" y1="120" x2="581" y2="86" marker-end="url(#ma)" />
+      <line class="flow" x1="723" y1="120" x2="723" y2="86" marker-end="url(#ma)" />
+
+      <!-- 使用場景 -->
+      <text class="t-tag" x="230" y="114">用的場景</text>
+      <rect class="node" x="232" y="124" width="130" height="56" rx="8" />
+      <text class="t-h" x="297" y="157" text-anchor="middle">班程備課</text>
+      <rect class="node" x="374" y="124" width="130" height="56" rx="8" />
+      <text class="t-h" x="439" y="149" text-anchor="middle">法會・儀式</text>
+      <text class="t" x="439" y="167" text-anchor="middle">音樂準備</text>
+      <rect class="node" x="516" y="124" width="130" height="56" rx="8" />
+      <text class="t-h" x="581" y="149" text-anchor="middle">特刊・回顧</text>
+      <text class="t" x="581" y="167" text-anchor="middle">史料調閱</text>
+      <rect class="node" x="658" y="124" width="130" height="56" rx="8" />
+      <text class="t-h" x="723" y="157" text-anchor="middle">道親自修</text>
+
+      <!-- 索引 → 場景 -->
+      <line class="flow" x1="340" y1="242" x2="340" y2="188" marker-end="url(#ma)" />
+      <line class="flow" x1="510" y1="242" x2="510" y2="188" marker-end="url(#ma)" />
+      <line class="flow" x1="680" y1="242" x2="680" y2="188" marker-end="url(#ma)" />
+      <text class="t-lbl-a" x="510" y="219" text-anchor="middle">查目錄，不翻資料夾</text>
+
+      <!-- 索引層 -->
+      <rect class="container" x="230" y="246" width="560" height="110" rx="12" />
+      <text class="t-tag" x="246" y="272">找的路徑</text>
+      <text class="t-s" x="320" y="272">索引層：每張目錄綁定第一個消費者</text>
+      <rect class="chip" x="244" y="288" width="126" height="42" rx="8" />
+      <text class="t" x="307" y="313" text-anchor="middle">檔案地圖</text>
+      <rect class="chip" x="380" y="288" width="126" height="42" rx="8" />
+      <text class="t" x="443" y="313" text-anchor="middle">曲目總表</text>
+      <rect class="chip" x="516" y="288" width="126" height="42" rx="8" />
+      <text class="t" x="579" y="313" text-anchor="middle">有聲書書目表</text>
+      <rect class="chip" x="652" y="288" width="126" height="42" rx="8" />
+      <text class="t" x="715" y="313" text-anchor="middle">活動事件總表</text>
+
+      <!-- 保存 → 索引 -->
+      <line class="flow" x1="620" y1="426" x2="620" y2="362" marker-end="url(#ma)" />
+      <text class="t-lbl-a" x="632" y="398">工具掃描・目錄自動生成</text>
+
+      <!-- 保存層 -->
+      <rect class="container" x="230" y="430" width="560" height="130" rx="12" />
+      <text class="t-tag" x="246" y="456">存的秩序</text>
+      <text class="t-s" x="320" y="456">保存層：求完整・文獻典藏的採集場</text>
+      <rect class="node" x="246" y="472" width="176" height="62" rx="8" />
+      <text class="t-h" x="334" y="497" text-anchor="middle">單位工作硬碟</text>
+      <text class="t-s" x="334" y="516" text-anchor="middle">各組各區既有，日常隨放</text>
+      <rect class="node" x="548" y="472" width="176" height="62" rx="8" />
+      <text class="t-h" x="636" y="497" text-anchor="middle">正式區 9 顆編碼硬碟</text>
+      <text class="t-s" x="636" y="516" text-anchor="middle">編碼資料夾＝唯一的家</text>
+      <line class="flow" x1="424" y1="503" x2="544" y2="503" marker-end="url(#ma)" />
+      <text class="t-lbl-a" x="484" y="494" text-anchor="middle">誰產生，誰歸檔</text>
+      <text class="t-s" x="746" y="551">7G 人事：凍結封存，不開放</text>
+
+      <!-- 看的邊界（左護欄） -->
+      <rect class="rail" x="16" y="246" width="180" height="314" rx="12" />
+      <text class="t-tag" x="32" y="274">看的邊界</text>
+      <text class="t-s" x="32" y="292">Drive 原生角色分層</text>
+      <text class="t" x="32" y="318">全員　檢視者</text>
+      <text class="t" x="32" y="340">窗口　內容管理員</text>
+      <text class="t-s" x="32" y="357">（加派幫手＝協作者）</text>
+      <text class="t" x="32" y="380">講師壇主　＋3C 檢視</text>
+      <text class="t" x="32" y="402">文書組　內容管理員</text>
+      <text class="t" x="32" y="424">你＋admin　管理員</text>
+      <line class="guard" x1="32" y1="440" x2="180" y2="440" />
+      <text class="t-s" x="32" y="461">鐵則：索引放進對應</text>
+      <text class="t-s" x="32" y="478">層級的硬碟，讓群組</text>
+      <text class="t-s" x="32" y="495">授權自動管住索引</text>
+      <line class="guard" x1="196" y1="301" x2="226" y2="301" marker-end="url(#ms)" />
+      <line class="guard" x1="196" y1="495" x2="226" y2="495" marker-end="url(#ms)" />
+
+      <!-- 用的證據（右上迴路） -->
+      <rect class="rail" x="830" y="140" width="194" height="160" rx="12" />
+      <text class="t-tag" x="846" y="168">用的證據</text>
+      <text class="t-s" x="846" y="186">使用迴路・季度回看</text>
+      <text class="t" x="846" y="214">目錄開啟・內容點閱</text>
+      <text class="t" x="846" y="236">有人用 → 加碼書架</text>
+      <text class="t" x="846" y="258">沒人用 → 停止投入</text>
+      <text class="t-s" x="846" y="282">工具救不了沒有場景的資料</text>
+      <line class="arrow" x1="792" y1="152" x2="826" y2="164" marker-end="url(#ms)" />
+      <text class="t-lbl" x="812" y="144" text-anchor="middle">量測</text>
+      <polyline class="arrow" points="927,300 927,330 794,330" marker-end="url(#ms)" />
+      <text class="t-lbl" x="918" y="348" text-anchor="end">證據決定下一個書架</text>
+
+      <!-- 活的機制（右下迴路） -->
+      <rect class="rail" x="830" y="430" width="194" height="150" rx="12" />
+      <text class="t-tag" x="846" y="458">活的機制</text>
+      <text class="t-s" x="846" y="476">月巡檢＋週異動偵測</text>
+      <text class="t" x="846" y="504">掃描 → 巡檢報告</text>
+      <text class="t-s" x="846" y="522">新進・刪除・搬移・經手人</text>
+      <text class="t" x="846" y="546">給單位看自己</text>
+      <text class="t-s" x="846" y="564">不做跨單位排行</text>
+      <line class="arrow" x1="794" y1="470" x2="826" y2="470" marker-end="url(#ms)" />
+      <text class="t-lbl" x="810" y="462" text-anchor="middle">掃描</text>
+      <polyline class="arrow" points="927,584 927,616 334,616 334,568" marker-end="url(#ms)" />
+      <text class="t-lbl" x="630" y="610" text-anchor="middle">歸錯回派原單位修，文書組只接機械例外</text>
+    </svg>
+    <figcaption>中軸由下而上：存的秩序 → 找的路徑 → 用的場景 → 目標。左側是權限護欄，右側是讓系統活著的兩個回饋迴路。</figcaption>
+  </figure>
+
+  <h2>五支柱</h2>
+  <div class="pillars">
+    <div class="pillar">
+      <p class="name">存的秩序</p>
+      <p class="one">編碼結構是唯一的家</p>
+      <ul>
+        <li>誰產生，誰歸檔</li>
+        <li>存量只去重，不一次性重排</li>
+        <li>文獻需求可拉動局部重排</li>
+        <li>7G 凍結，不開中央進件區</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <p class="name">找的路徑</p>
+      <p class="one">找東西靠目錄，不翻資料夾</p>
+      <ul>
+        <li>檔案地圖＋三張內容目錄</li>
+        <li>分類只到編碼資料夾那層，檢索維度放目錄欄位</li>
+        <li>索引跟著權限層走</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <p class="name">看的邊界</p>
+      <p class="one">用 Drive 原生五級角色分層</p>
+      <ul>
+        <li>全員檢視者、窗口內容管理員</li>
+        <li>加派幫手協作者、永久刪除只留管理員</li>
+        <li>權限矩陣為對帳依據</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <p class="name">活的機制</p>
+      <p class="one">秩序用迴路收，不用牆擋</p>
+      <ul>
+        <li>月巡檢＋週異動偵測</li>
+        <li>刪搬留痕，30 天內救得回</li>
+        <li>歸錯回派原單位</li>
+        <li>報告給單位看自己，不排行</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <p class="name">用的證據</p>
+      <p class="one">投入只花在有人用的地方</p>
+      <ul>
+        <li>每張目錄綁定第一個消費者</li>
+        <li>使用量測，季度回看</li>
+        <li>證據決定書架層投入</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>權責分工</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>角色</th><th>承擔</th></tr>
+      <tr><td class="who">各組各區窗口</td><td>判斷值不值得留、放哪，自己歸檔進編碼資料夾</td></tr>
+      <tr><td class="who">文書組</td><td>機械修正、批次作業、SOP 執行——處理例外，不清理堆積</td></tr>
+      <tr><td class="who">制度設計者</td><td>制度設計、工具維護、巡檢報告判讀</td></tr>
+      <tr><td class="who">工具</td><td>掃描、目錄生成、巡檢報告、去重候選清單</td></tr>
+    </table>
+  </div>
+
+  <h2>權限矩陣</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>資產範圍</th><th>cloud 全員</th><th>editors 窗口</th><th>lecturers 講師壇主</th><th>文書組</th><th>管理者二人</th></tr>
+      <tr><td class="who">正式區全組織 9 顆</td><td>檢視者</td><td>內容管理員（幫手：協作者）</td><td>檢視者</td><td>內容管理員</td><td>管理員</td></tr>
+      <tr><td class="who">3C 文史</td><td>—</td><td>—</td><td>檢視者</td><td>內容管理員</td><td>管理員</td></tr>
+      <tr><td class="who">7G 人事（凍結）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>管理員</td></tr>
+      <tr><td class="who">索引目錄 Sheet</td><td>加註者</td><td>加註者</td><td>加註者</td><td>內容管理員</td><td>管理員</td></tr>
+      <tr><td class="who">單位工作硬碟</td><td colspan="5">各單位自管，不納入本矩陣</td></tr>
+    </table>
+  </div>
+  <p class="aside-phase">窗口＝當然職：組長、區長、各區文書因職務自動加入 editors，初始名單從道籍系統職務資料生成、隨職務異動同步；窗口可提名加派幫手（由 admin 加入群組，名冊集中可對帳）。當然職窗口＝內容管理員：能放、能搬、能刪（刪除先進垃圾桶，30 天可復原）；加派幫手＝協作者：能放，不能刪搬；永久刪除只有管理員。減法開放的配套是留痕——巡檢加開每週異動偵測，刪除與搬移一週內上報、列出經手人，垃圾桶期限內一定來得及救回。目錄 Sheet 由工具生成，人不直接改格子，開放加註者讓每個讀者都能留言指錯。4D 開放前先清查 D10 財務——共用硬碟鎖不了單一資料夾，敏感件須先移出。</p>
+
+  <h2>階段路線</h2>
+  <ol class="phases">
+    <li><b>索引整備</b>檔案地圖按權限層拆乾淨，建三張內容目錄<span class="dep">依賴：無，離線資料即可動工</span></li>
+    <li><b>權限上線</b>三個群組掛上硬碟（cloud／editors／lecturers）<span class="dep">依賴：管理控制台開群組</span></li>
+    <li><b>歸檔制度上線</b>窗口當然職上任（組長、區長、各區文書，可加派）、發一頁歸檔規則、巡檢開跑<span class="dep">依賴：名單從道籍職務資料生成</span></li>
+    <li><b>書架層</b>需求與使用證據拉動，一次上架一個<span class="dep">依賴：有人開口，或數據說話</span></li>
+  </ol>
+  <p class="aside-phase">隨行工作：同層內去重——dry-run 清單批准後才動，進垃圾桶不永久刪。文獻典藏專案從階段 1 的活動事件總表接手：保存層是它的採集場，事件總表是它的採集地圖，候選件直接在表上圈選。</p>
+
+  <h2>刻意不做</h2>
+  <ul class="nots">
+    <li>中央進件區</li>
+    <li>保存層一次性全面重排</li>
+    <li>搶跑書架層</li>
+    <li>動 7G 存量</li>
+  </ul>
+
+  <h2>兩個真正的風險</h2>
+  <div class="risks">
+    <div class="risk"><b>窗口動不動（階段 3）</b>當然職上任解決了名單，但掛名不等於會動。巡檢報告讓「哪個單位都沒進場」看得見；看見之後走成全，不加考核。</div>
+    <div class="risk"><b>3C 正本（開講師層之前）</b>靈隱訓文母本與 C08 開壇訓文的版本關係要先定，否則書架會架在分支副本上。</div>
+  </div>
+
+  <footer>
+    2026-08-17 定稿・延伸自 2026-08-16 三層架構決策（保存層／索引層／書架層）・盤點基礎：11 顆共用硬碟，376,484 筆
+  </footer>
+</div>
