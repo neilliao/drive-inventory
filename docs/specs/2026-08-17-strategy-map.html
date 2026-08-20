@@ -193,7 +193,109 @@
     <p class="readme">這份文件給沒有參與過討論的人看：不需要先懂技術名詞，照順序讀下去就懂。這是總藍圖：只講全景——六個工具各自的定位、現況、彼此怎麼相互支援。每個工具的細部做法在各自的子策略地圖。</p>
   </header>
 
-  <h2>全景：峨眉的六個數位工具</h2>
+  <h2>策略地圖：策略 → 戰術 → 戰技</h2>
+  <figure class="map">
+    <svg viewBox="0 0 1040 640" role="img" aria-label="總策略地圖：頂端是目標「峨眉活的史」，中層四個戰術（存、找、傳、承），底層六個工具是戰技；左側是三條護欄，右側是兩個讓系統活著的迴路">
+      <defs>
+        <marker id="tm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" />
+        </marker>
+        <marker id="ts" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-soft" />
+        </marker>
+      </defs>
+
+      <!-- 目標（策略） -->
+      <rect class="box-goal" x="230" y="16" width="560" height="76" rx="10" />
+      <rect class="seal" x="246" y="30" width="48" height="48" rx="6" />
+      <text class="t-seal" x="270" y="62" text-anchor="middle">史</text>
+      <text class="t-title" x="308" y="46">為峨眉修一部活的史</text>
+      <text class="t-s" x="308" y="66">每一天的紀錄即時入冊、彼此連結；每一份奉獻被記得、</text>
+      <text class="t-s" x="308" y="82">繼續成全後人——而且整套不繫於任何一個人</text>
+
+      <!-- 戰術 → 目標 -->
+      <line class="flow" x1="300" y1="140" x2="300" y2="96" marker-end="url(#tm)" />
+      <line class="flow" x1="446" y1="140" x2="446" y2="96" marker-end="url(#tm)" />
+      <line class="flow" x1="592" y1="140" x2="592" y2="96" marker-end="url(#tm)" />
+      <line class="flow" x1="738" y1="140" x2="738" y2="96" marker-end="url(#tm)" />
+
+      <!-- 戰術層 -->
+      <text class="t-tag" x="230" y="134">戰術（達成目標的四條路）</text>
+      <rect class="node" x="232" y="144" width="136" height="92" rx="10" />
+      <text class="t-h" x="248" y="172">存</text>
+      <text class="t-s" x="248" y="192">正本各歸其家：</text>
+      <text class="t-s" x="248" y="208">人有主檔、檔案有</text>
+      <text class="t-s" x="248" y="224">編號、個資進系統</text>
+      <rect class="node" x="378" y="144" width="136" height="92" rx="10" />
+      <text class="t-h" x="394" y="172">找</text>
+      <text class="t-s" x="394" y="192">三把鑰匙串一切：</text>
+      <text class="t-s" x="394" y="208">人＝編號、事＝日期</text>
+      <text class="t-s" x="394" y="224">活動名、理＝詞條</text>
+      <rect class="node" x="524" y="144" width="136" height="92" rx="10" />
+      <text class="t-h" x="540" y="172">傳</text>
+      <text class="t-s" x="540" y="192">發一次就到位：</text>
+      <text class="t-s" x="540" y="208">選圈或選條件，</text>
+      <text class="t-s" x="540" y="224">該收到的人收到</text>
+      <rect class="node" x="670" y="144" width="136" height="92" rx="10" />
+      <text class="t-h" x="686" y="172">承</text>
+      <text class="t-s" x="686" y="192">故事的生命週期：</text>
+      <text class="t-s" x="686" y="208">素材→特刊→課題</text>
+      <text class="t-s" x="686" y="224">→人物誌，永流傳</text>
+
+      <!-- 戰技 → 戰術 -->
+      <line class="flow" x1="510" y1="304" x2="510" y2="240" marker-end="url(#tm)" />
+      <text class="t-lbl-a" x="510" y="276" text-anchor="middle">工具是載具——戰術決定它們怎麼組合，缺哪個補哪個，換代不換路</text>
+
+      <!-- 戰技層：六工具 -->
+      <rect class="container" x="230" y="308" width="560" height="152" rx="12" />
+      <text class="t-tag" x="246" y="334">戰技（六個工具，各自有子策略地圖）</text>
+      <rect class="chip" x="246" y="348" width="168" height="44" rx="8" />
+      <text class="t" x="330" y="375" text-anchor="middle">道籍系統（管人）</text>
+      <rect class="chip" x="426" y="348" width="168" height="44" rx="8" />
+      <text class="t" x="510" y="375" text-anchor="middle">知識庫（管檔案）</text>
+      <rect class="chip" x="606" y="348" width="168" height="44" rx="8" />
+      <text class="t" x="690" y="375" text-anchor="middle">LINE 小幫手（觸角）</text>
+      <rect class="chip" x="246" y="402" width="168" height="44" rx="8" />
+      <text class="t" x="330" y="429" text-anchor="middle">道務平台（前門）</text>
+      <rect class="chip" x="426" y="402" width="168" height="44" rx="8" />
+      <text class="t" x="510" y="429" text-anchor="middle">媒體（出口）</text>
+      <rect class="chip" x="606" y="402" width="168" height="44" rx="8" />
+      <text class="t" x="690" y="429" text-anchor="middle">文獻平台（藏經閣）</text>
+
+      <!-- 左護欄 -->
+      <rect class="rail" x="16" y="144" width="196" height="316" rx="12" />
+      <text class="t-tag" x="32" y="172">護欄（不可越的線）</text>
+      <text class="t" x="32" y="202">不繫於任何一人</text>
+      <text class="t-s" x="32" y="220">SOP 與交接性是完整的一部分</text>
+      <text class="t" x="32" y="250">文書組時間必須變少</text>
+      <text class="t-s" x="32" y="268">變多＝修系統，不是加人</text>
+      <text class="t" x="32" y="298">權限跟著職務走</text>
+      <text class="t-s" x="32" y="316">換人做，權限自動換</text>
+      <text class="t" x="32" y="346">個資用系統管</text>
+      <text class="t-s" x="32" y="364">不落地成檔案散在硬碟</text>
+      <line class="guard" x1="212" y1="290" x2="228" y2="290" marker-end="url(#ts)" />
+
+      <!-- 右迴路 -->
+      <rect class="rail" x="830" y="144" width="194" height="140" rx="12" />
+      <text class="t-tag" x="846" y="172">投入的閘門</text>
+      <text class="t-s" x="846" y="190">使用證據決定力氣往哪放</text>
+      <text class="t" x="846" y="218">有人走的路做深</text>
+      <text class="t" x="846" y="244">沒人走的保留不擴建</text>
+      <text class="t-s" x="846" y="270">是排序的尺，不是成績單</text>
+      <line class="arrow" x1="810" y1="190" x2="826" y2="190" marker-end="url(#ts)" />
+
+      <rect class="rail" x="830" y="308" width="194" height="152" rx="12" />
+      <text class="t-tag" x="846" y="336">秩序靠機器</text>
+      <text class="t" x="846" y="364">月巡檢自動歸位</text>
+      <text class="t" x="846" y="390">名單隨職務自動同步</text>
+      <text class="t" x="846" y="416">品質壞了清存量＋堵源頭</text>
+      <text class="t-s" x="846" y="442">人只做判斷，機器做整理</text>
+      <line class="arrow" x1="810" y1="380" x2="826" y2="380" marker-end="url(#ts)" />
+    </svg>
+    <figcaption>讀法：目標只有一個——為峨眉修一部活的史。往下是四條戰術：存（東西各有正本）、找（三把鑰匙串起一切）、傳（訊息精準到人）、承（故事變課題永流傳）。最底層的六個工具是戰技——載具而已，戰術決定它們怎麼組合；工具會換代，四條路不會。左邊是四條不可越的護欄，右邊兩個迴路讓整套自己轉：投入跟著使用走、秩序交給機器。</figcaption>
+  </figure>
+
+  <h2>全景：峨眉的六個數位工具（戰技層）</h2>
   <p style="font-size:14px; max-width:70ch; color:var(--ink-soft);">峨眉的資訊建設一共六個工具，各管各的、互相引用、不重複存資料。知識庫位置在正中間。每個工具各自有（或將有）自己往下鑽的子策略地圖，本圖是總圖，子圖目錄見文末。</p>
   <figure class="map">
     <svg viewBox="0 0 1040 430" role="img" aria-label="六個系統的關係圖：道籍系統管人，知識庫管檔案；道務平台是內部前門、道峨眉是對外門面、文獻平台是未來的典藏出版，三者都從知識庫取材">
