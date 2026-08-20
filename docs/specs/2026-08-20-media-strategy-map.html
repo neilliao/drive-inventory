@@ -1,0 +1,193 @@
+<title>峨眉媒體策略地圖</title>
+<style>
+  :root {
+    --bg: #F1F2EE; --surface: #FBFBF9; --surface-2: #E9EBE4;
+    --ink: #22262A; --ink-soft: #5A6168; --line: #C9CDC3;
+    --accent: #33557E; --accent-tint: #DFE6EE; --seal: #A8402F; --seal-ink: #FBFBF9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181B; --surface: #1F2226; --surface-2: #24282D;
+      --ink: #E8E7E2; --ink-soft: #9BA1A8; --line: #3A4046;
+      --accent: #8FAFD9; --accent-tint: #2A3644; --seal: #C25A45; --seal-ink: #F5EFEA;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181B; --surface: #1F2226; --surface-2: #24282D;
+    --ink: #E8E7E2; --ink-soft: #9BA1A8; --line: #3A4046;
+    --accent: #8FAFD9; --accent-tint: #2A3644; --seal: #C25A45; --seal-ink: #F5EFEA;
+  }
+  body { background: var(--bg); color: var(--ink); margin: 0; padding: 0 20px 56px;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif; line-height: 1.75; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1, h2 { font-family: "Songti TC","Noto Serif TC","Source Han Serif TC",serif; text-wrap: balance; }
+  header.page { padding: 44px 0 8px; border-bottom: 1px solid var(--line); }
+  .eyebrow { font-size: 13px; letter-spacing: .35em; color: var(--ink-soft); margin: 0 0 10px; }
+  h1 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 10px; font-weight: 700; }
+  .creed { font-size: clamp(14px, 1.8vw, 16px); color: var(--accent); font-weight: 600; margin: 0 0 12px; max-width: 64ch; }
+  .readme { font-size: 13px; color: var(--ink-soft); margin: 0 0 30px; border-left: 3px solid var(--accent); padding-left: 14px; max-width: 64ch; }
+  h2 { font-size: 21px; margin: 46px 0 14px; }
+  .lede { font-size: 14.5px; color: var(--ink-soft); max-width: 68ch; margin: -6px 0 18px; }
+  figure.map { margin: 26px 0 6px; overflow-x: auto; }
+  figure.map svg { min-width: 880px; width: 100%; height: auto; display: block; }
+  figcaption { font-size: 13px; color: var(--ink-soft); margin-top: 10px; max-width: 76ch; }
+  .node { fill: var(--surface); stroke: var(--line); }
+  .container { fill: var(--surface-2); stroke: var(--line); }
+  .box-goal { fill: var(--surface); stroke: var(--accent); stroke-width: 1.4; }
+  .chip { fill: var(--surface); stroke: var(--line); }
+  .seal { fill: var(--seal); }
+  .rail { fill: var(--surface); stroke: var(--line); }
+  .t-title { font-size: 17px; font-weight: 700; fill: var(--ink); }
+  .t-h { font-size: 13.5px; font-weight: 700; fill: var(--ink); }
+  .t { font-size: 12.5px; fill: var(--ink); }
+  .t-s { font-size: 11.5px; fill: var(--ink-soft); }
+  .t-tag { font-size: 13px; font-weight: 700; fill: var(--accent); }
+  .t-seal { font-size: 22px; font-weight: 700; fill: var(--seal-ink); font-family: "Songti TC","Noto Serif TC",serif; }
+  .t-lbl-a { font-size: 12px; font-weight: 600; fill: var(--accent); paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
+  .flow { stroke: var(--accent); stroke-width: 1.8; fill: none; }
+  .arrow { stroke: var(--ink-soft); stroke-width: 1.4; fill: none; }
+  .guard { stroke: var(--ink-soft); stroke-width: 1.2; stroke-dasharray: 4 4; fill: none; }
+  .m-accent { fill: var(--accent); }
+  .m-soft { fill: var(--ink-soft); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; font-size: 13.5px; }
+  .card b { display: block; margin-bottom: 4px; font-size: 14.5px; }
+  .rule-callout { background: var(--accent-tint); border: 1px solid var(--accent); border-radius: 10px;
+    padding: 18px 22px; margin: 18px 0; font-size: 15px; }
+  .seal-callout { background: var(--seal); color: var(--seal-ink); border-radius: 10px;
+    padding: 18px 22px; margin: 18px 0; font-size: 15px; font-weight: 700;
+    font-family: "Songti TC","Noto Serif TC",serif; }
+  .aside-phase { margin-top: 14px; font-size: 13.5px; color: var(--ink-soft);
+    border-left: 3px solid var(--accent); padding-left: 14px; max-width: 76ch; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-soft); font-weight: 600; }
+  td.who { font-weight: 700; white-space: nowrap; }
+  .table-scroll { overflow-x: auto; }
+  footer { margin-top: 52px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-soft); }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <p class="eyebrow">峨眉書院・媒體（道峨眉起）</p>
+    <h1>峨眉媒體策略地圖</h1>
+    <p class="creed">讓這寶貴大道對人的影響，被看見、被聽見——對外是門面，對內是年輕世代記錄當代的入口。</p>
+    <p class="readme">位階：這是「<a href="https://claude.ai/code/artifact/5702040b-b689-4458-a830-f3893fb12e70" target="_blank" rel="noopener" style="color:var(--accent)">峨眉資訊藍圖</a>」（總圖）底下的子地圖——六個數位工具中「媒體出口」那一個的深潛版。目前唯一的出口是道峨眉季刊，未來會有頻道、Podcast。</p>
+  </header>
+
+  <h2>為什麼有這一塊</h2>
+  <p class="lede">道場的故事如果只留在檔案庫，外面的人看不見、年輕人接不上。媒體這一塊做兩件事：把大道藉人藉事的影響講給外面聽（門面），同時讓年輕世代在採訪、寫心得的過程中認識前人（採集即傳承）——記錄的人自己先被成全了。</p>
+
+  <h2>策略地圖</h2>
+  <figure class="map">
+    <svg viewBox="0 0 1040 560" role="img" aria-label="媒體策略地圖：頂端目標是大道的影響被看見；中層是故事線（編一次、多出口）；底層是會換代的出口（季刊、頻道、Podcast）；左側護欄是真實與考據，右側是採集回流與觸及回看兩個迴路">
+      <defs>
+        <marker id="mm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" />
+        </marker>
+        <marker id="mn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-soft" />
+        </marker>
+      </defs>
+
+      <rect class="box-goal" x="230" y="16" width="560" height="72" rx="10" />
+      <rect class="seal" x="246" y="28" width="46" height="46" rx="6" />
+      <text class="t-seal" x="269" y="58" text-anchor="middle">彰</text>
+      <text class="t-title" x="306" y="46">大道的影響被看見、被聽見</text>
+      <text class="t-s" x="306" y="68">外面的人看得懂，年輕人接得上，前人的犧牲奉獻有人記得</text>
+
+      <line class="flow" x1="510" y1="132" x2="510" y2="92" marker-end="url(#mm)" />
+
+      <rect class="container" x="230" y="136" width="560" height="150" rx="12" />
+      <text class="t-tag" x="246" y="162">戰術：故事線（不換代的資產）</text>
+      <text class="t-s" x="246" y="180">一條故事＝藉哪個人、哪件事、印證哪個理、想傳達什麼</text>
+      <rect class="chip" x="246" y="194" width="255" height="76" rx="8" />
+      <text class="t-h" x="262" y="220">編一次</text>
+      <text class="t-s" x="262" y="240">素材從知識庫取，考據掛</text>
+      <text class="t-s" x="262" y="258">三把鑰匙（人・事・理）</text>
+      <rect class="chip" x="519" y="194" width="255" height="76" rx="8" />
+      <text class="t-h" x="535" y="220">多形式輸出</text>
+      <text class="t-s" x="535" y="240">同一條線出成文章、音頻、</text>
+      <text class="t-s" x="535" y="258">影片、課題，不重新考據</text>
+
+      <line class="flow" x1="510" y1="336" x2="510" y2="290" marker-end="url(#mm)" />
+      <text class="t-lbl-a" x="510" y="316" text-anchor="middle">出口會換代，故事線不換——投資放在線上，不押在任何平台上</text>
+
+      <rect class="container" x="230" y="340" width="560" height="120" rx="12" />
+      <text class="t-tag" x="246" y="366">戰技：出口（會換代的載具）</text>
+      <rect class="box-goal" x="246" y="380" width="168" height="64" rx="8" />
+      <text class="t-h" x="330" y="406" text-anchor="middle">道峨眉季刊</text>
+      <text class="t-s" x="330" y="426" text-anchor="middle">運轉中，2022 起 70+ 頁</text>
+      <rect class="chip" x="426" y="380" width="168" height="64" rx="8" />
+      <text class="t-h" x="510" y="406" text-anchor="middle">頻道（未來）</text>
+      <text class="t-s" x="510" y="426" text-anchor="middle">702 補號</text>
+      <rect class="chip" x="606" y="380" width="168" height="64" rx="8" />
+      <text class="t-h" x="690" y="406" text-anchor="middle">Podcast（未來）</text>
+      <text class="t-s" x="690" y="426" text-anchor="middle">703 補號</text>
+
+      <rect class="rail" x="16" y="136" width="196" height="324" rx="12" />
+      <text class="t-tag" x="32" y="164">護欄</text>
+      <text class="t" x="32" y="194">真實優先於流量</text>
+      <text class="t-s" x="32" y="212">有觀察、有思考、有溫度；</text>
+      <text class="t-s" x="32" y="230">不做心靈雞湯、不追演算法</text>
+      <text class="t" x="32" y="260">故事必掛出處</text>
+      <text class="t-s" x="32" y="278">考據回連知識庫的素材，</text>
+      <text class="t-s" x="32" y="296">人物掛道籍編號</text>
+      <text class="t" x="32" y="326">個資與隱私</text>
+      <text class="t-s" x="32" y="344">當事人同意才公開；</text>
+      <text class="t-s" x="32" y="362">往生者照片先審後刊</text>
+      <line class="guard" x1="212" y1="240" x2="228" y2="240" marker-end="url(#mn)" />
+
+      <rect class="rail" x="830" y="136" width="194" height="150" rx="12" />
+      <text class="t-tag" x="846" y="164">採集迴路</text>
+      <text class="t" x="846" y="192">每期訪談、心得做完</text>
+      <text class="t" x="846" y="218">照日期歸年夾入庫</text>
+      <text class="t-s" x="846" y="244">＝當代史料自動累積；</text>
+      <text class="t-s" x="846" y="262">記錄的年輕人自己先被成全</text>
+      <line class="arrow" x1="810" y1="200" x2="826" y2="200" marker-end="url(#mn)" />
+
+      <rect class="rail" x="830" y="340" width="194" height="120" rx="12" />
+      <text class="t-tag" x="846" y="368">觸及回看</text>
+      <text class="t" x="846" y="396">季度看：誰在讀、讀什麼</text>
+      <text class="t" x="846" y="422">有人看的主題做深</text>
+      <text class="t-s" x="846" y="444">是選題的尺，不是成績單</text>
+      <line class="arrow" x1="810" y1="396" x2="826" y2="396" marker-end="url(#mn)" />
+    </svg>
+    <figcaption>讀法：目標是大道的影響被看見。戰術只有一條——把投資放在「故事線」這個不換代的資產上：編一次，文章、音頻、影片、課題多形式輸出。底層的季刊、頻道、Podcast 都是出口，會換代；換平台不用重新考據，因為故事線帶著完整的出處。左邊三條護欄：真實優先於流量、故事必掛出處、個資先審後刊。右邊兩個迴路：每期採訪自動變成當代史料入庫（採集即傳承），觸及數據只當選題的尺。</figcaption>
+  </figure>
+
+  <h2>雙身分：門面，同時是採集端</h2>
+  <div class="cards">
+    <div class="card"><b>對外：門面</b>dao.emsy.tw 開放搜尋收錄（全系統唯一對外開放的入口），給大眾與道親看當期內容。網域裡其他系統一律不給搜尋引擎看。</div>
+    <div class="card"><b>對內：當代採集端</b>年輕世代做訪談、寫修道心得、記錄道場點滴——這些就是未來的文獻。每期做完，素材照日期歸年夾自動入庫，不用另外「交檔案」。</div>
+  </div>
+
+  <h2>這片拼圖的接口</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>接誰</th><th>卡榫：流的是什麼</th></tr>
+      <tr><td class="who">知識庫</td><td>素材從知識庫取（查活動總表拿照片錄音）；成品與訪談素材回流歸年夾＝雙向</td></tr>
+      <tr><td class="who">道籍系統</td><td>故事裡的人物掛道籍編號——寫誰的故事，他的影響力就累積在他的編號上</td></tr>
+      <tr><td class="who">文獻平台（未來）</td><td>季刊的訪談與人物故事是文獻策展的現成素材；策展後的人物誌反過來供媒體引用</td></tr>
+      <tr><td class="who">資訊流</td><td>新一期出刊，經單一發布口通知該收到的人（LINE＋信箱＋平台留底）</td></tr>
+    </table>
+  </div>
+
+  <h2>現況與下一步</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>項目</th><th>現況</th><th>下一步</th></tr>
+      <tr><td class="who">道峨眉季刊</td><td>運轉中：2022 年起 70+ 頁，Google 收錄推進中</td><td>照常出刊；素材改從知識庫取、掛三把鑰匙</td></tr>
+      <tr><td class="who">工作碟 701道峨眉</td><td>既有，待統一改名</td><td>知識庫第 1 步一起改名＋建 90 年夾骨架</td></tr>
+      <tr><td class="who">故事線機制</td><td>概念已定，未開帳</td><td>從下一本特刊或下一個課題開始，第一條故事線照格式編</td></tr>
+      <tr><td class="who">頻道／Podcast</td><td>未排</td><td>等故事線累積出存貨再開出口——先有內容，再開頻道</td></tr>
+    </table>
+  </div>
+
+  <h2>紅線</h2>
+  <div class="seal-callout">先有故事，再開出口。沒有存貨就開頻道，等於逼自己為了餵平台而製造內容——那是流量的邏輯，不是傳道的邏輯。出口永遠跟著故事線的存貨走。</div>
+
+  <footer>
+    2026-08-20 製圖・總圖：峨眉資訊藍圖・出口現況：道峨眉季刊（dao.emsy.tw）・工作碟：EM：峨眉書院：701道峨眉
+  </footer>
+</div>
