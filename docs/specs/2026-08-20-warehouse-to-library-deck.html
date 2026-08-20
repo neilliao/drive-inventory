@@ -1,0 +1,255 @@
+<title>倉庫變圖書館</title>
+<style>
+  :root {
+    --bg: #F1F2EE;
+    --surface: #FBFBF9;
+    --surface-2: #E9EBE4;
+    --ink: #22262A;
+    --ink-soft: #5A6168;
+    --line: #C9CDC3;
+    --accent: #33557E;
+    --accent-tint: #DFE6EE;
+    --seal: #A8402F;
+    --seal-ink: #FBFBF9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181B; --surface: #1F2226; --surface-2: #24282D;
+      --ink: #E8E7E2; --ink-soft: #9BA1A8; --line: #3A4046;
+      --accent: #8FAFD9; --accent-tint: #2A3644; --seal: #C25A45; --seal-ink: #F5EFEA;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181B; --surface: #1F2226; --surface-2: #24282D;
+    --ink: #E8E7E2; --ink-soft: #9BA1A8; --line: #3A4046;
+    --accent: #8FAFD9; --accent-tint: #2A3644; --seal: #C25A45; --seal-ink: #F5EFEA;
+  }
+  html { scroll-snap-type: y proximity; }
+  body {
+    background: var(--bg); color: var(--ink); margin: 0;
+    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+    line-height: 1.75;
+  }
+  section.slide {
+    min-height: 100svh; scroll-snap-align: start;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 48px 24px; box-sizing: border-box;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .inner { max-width: 620px; margin: 0 auto; width: 100%; }
+  .no {
+    position: absolute; top: 20px; right: 24px;
+    font-size: 12px; color: var(--ink-soft); letter-spacing: .1em;
+  }
+  .kicker {
+    font-size: 14px; font-weight: 700; color: var(--accent);
+    letter-spacing: .2em; margin: 0 0 14px;
+  }
+  h1, h2 { font-family: "Songti TC", "Noto Serif TC", "Source Han Serif TC", serif; text-wrap: balance; }
+  h1 { font-size: clamp(40px, 9vw, 64px); margin: 0 0 18px; line-height: 1.25; }
+  h2 { font-size: clamp(26px, 6vw, 38px); margin: 0 0 20px; line-height: 1.35; }
+  p.big { font-size: clamp(17px, 4.2vw, 21px); margin: 0 0 14px; }
+  p.soft { font-size: clamp(15px, 3.8vw, 17px); color: var(--ink-soft); margin: 0 0 12px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 16px 20px; margin: 10px 0; font-size: clamp(15px, 3.8vw, 17px);
+  }
+  .card b { color: var(--accent); }
+  .rule {
+    background: var(--accent-tint); border: 1.4px solid var(--accent); border-radius: 14px;
+    padding: 22px 24px; font-size: clamp(17px, 4.4vw, 22px); font-weight: 700; margin: 16px 0;
+    font-family: "Songti TC", "Noto Serif TC", serif;
+  }
+  .rule small { display: block; font-weight: 400; font-family: "PingFang TC","Noto Sans TC",sans-serif; font-size: clamp(14px, 3.4vw, 15px); color: var(--ink-soft); margin-top: 10px; }
+  .seal-box {
+    background: var(--seal); color: var(--seal-ink); border-radius: 14px;
+    padding: 22px 24px; font-size: clamp(16px, 4.2vw, 20px); font-weight: 700; margin: 16px 0;
+    font-family: "Songti TC", "Noto Serif TC", serif;
+  }
+  .flow { font-size: clamp(18px, 4.6vw, 24px); font-weight: 700; text-align: center; margin: 24px 0; font-family: "Songti TC","Noto Serif TC",serif; }
+  .flow span { color: var(--accent); }
+  .shelf { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 14px 0; }
+  .shelf div {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    padding: 10px 12px; font-size: clamp(13px, 3.4vw, 15px);
+  }
+  .shelf div b { display: block; font-size: clamp(14px, 3.6vw, 16px); }
+  .shelf div.dc { border-color: var(--accent); }
+  footer.slidefoot { font-size: 13px; color: var(--ink-soft); margin-top: 26px; }
+  .hint { text-align: center; color: var(--ink-soft); font-size: 13px; margin-top: 32px; }
+</style>
+
+<section class="slide">
+  <div class="inner">
+    <p class="kicker">峨眉書院・文書組</p>
+    <h1>倉庫變圖書館</h1>
+    <p class="big">峨眉的數位家園要整修了。這份簡報用十幾頁，把整件事講清楚。</p>
+    <p class="hint">往下滑 ↓</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">2 / 15</span>
+  <div class="inner">
+    <p class="kicker">現在的困擾</p>
+    <h2>東西都在，但找不到</h2>
+    <p class="big">三十幾年來的照片、錄音、文件，一共三十七萬多筆，都好好存在雲端硬碟裡。</p>
+    <p class="big">問題是：要找一樣東西，常常翻很久才找到，或者只有某一位前賢知道放在哪。他不在，就沒人找得到了。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">3 / 15</span>
+  <div class="inner">
+    <p class="kicker">我們要做的事</p>
+    <h2>把倉庫改建成圖書館</h2>
+    <p class="big">東西還是那些東西，一樣都不會丟。</p>
+    <p class="big">改變的是：每一樣東西有固定的家、有目錄可以查，誰都不用再靠記憶找東西。</p>
+    <p class="soft">家具我們先設好、舊物我們先歸位，大家只要入住。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">4 / 15</span>
+  <div class="inner">
+    <p class="kicker">六個幫手</p>
+    <h2>各管一件事，不重複</h2>
+    <div class="card"><b>道籍系統</b>：管人的資料，道親、職務、法會名單</div>
+    <div class="card"><b>LINE 小幫手</b>：在每個人手機裡，查詢、報到、收通知</div>
+    <div class="card"><b>雲端圖書館</b>：管檔案，照片、錄音、文件的家</div>
+    <div class="card"><b>道務平台</b>：內部的大門，找東西從這裡進</div>
+    <div class="card"><b>道峨眉季刊</b>：對外的窗口，也記錄當代的故事</div>
+    <div class="card"><b>文獻平台</b>（未來）：峨眉的藏經閣</div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">5 / 15</span>
+  <div class="inner">
+    <p class="kicker">圖書館長什麼樣子</p>
+    <h2>十座書架，各有編號</h2>
+    <div class="shelf">
+      <div><b>101 公開</b>範本、食譜、經典</div>
+      <div><b>102 課題</b>班程教材</div>
+      <div class="dc"><b>103 文史</b>道務紀錄（點傳師）</div>
+      <div><b>104 各國</b>國際道場</div>
+      <div><b>105 美工</b>設計素材</div>
+      <div><b>106 錄音</b>有聲書、講述</div>
+      <div><b>107 音樂</b>聖歌的家</div>
+      <div><b>108 照片</b>照片的家</div>
+      <div><b>109 影音</b>影片、動畫</div>
+      <div class="dc"><b>110 會議</b>會議紀錄（點傳師）</div>
+    </div>
+    <p class="soft">每個組、每個區，另外都有自己的工作桌，自己的東西自己管。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">6 / 15</span>
+  <div class="inner">
+    <p class="kicker">大家唯一要記的</p>
+    <h2>一條規矩</h2>
+    <div class="rule">
+      檔名開頭寫日期加活動名，放進當年的資料夾。
+      <small>例如：2026-05-12靈隱寺三天法會。只要日期寫對，系統每個月自動把同一場活動的照片、錄音、文件串在一起。</small>
+    </div>
+    <p class="soft">就這一條。其他的，機器來。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">7 / 15</span>
+  <div class="inner">
+    <p class="kicker">找東西</p>
+    <h2>查表，不翻資料夾</h2>
+    <p class="big">想找某一場法會的照片？打開活動總表，找到那一列，照片、錄音、文件的連結全在上面。</p>
+    <p class="soft">目前已經串好一百二十一場活動，最早到 1968 年。以後每個月自動增加。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">8 / 15</span>
+  <div class="inner">
+    <p class="kicker">誰能看什麼</p>
+    <h2>簡單三句話</h2>
+    <div class="card">有職務的前賢，大部分都能看</div>
+    <div class="card">自己組、自己區的桌子，自己管</div>
+    <div class="card">文史和會議紀錄，點傳師才能看</div>
+    <p class="soft">刪掉的東西會先進垃圾桶，三十天內都救得回來，不用怕按錯。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">9 / 15</span>
+  <div class="inner">
+    <p class="kicker">沒空整理怎麼辦</p>
+    <h2>沒關係，有掃地機器人</h2>
+    <p class="big">機器每個月自動掃描、自動分類，文書組一個人花半小時確認就好。</p>
+    <p class="big">大家只要檔名寫日期，整齊是機器維持的，不靠任何人的自覺。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">10 / 15</span>
+  <div class="inner">
+    <p class="kicker">迷路了怎麼辦</p>
+    <h2>三個地方有路標</h2>
+    <div class="card">每顆硬碟第一格是「00 這裡放什麼」，點進去就有說明</div>
+    <div class="card">說明會發口袋卡，你常用的就三個地方</div>
+    <div class="card">問 LINE 小幫手，或直接問文書組</div>
+    <p class="soft">來問不丟臉。你的問題會讓路標越立越好。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">11 / 15</span>
+  <div class="inner">
+    <p class="kicker">訊息怎麼收到</p>
+    <h2>公告發一次，該收的人都收到</h2>
+    <p class="big">以後活動通知不再靠群組轉來轉去。承辦的人發一次，該收到的人 LINE 跟信箱自動收到。</p>
+    <p class="soft">舊公告在道務平台都查得到，不用爬群組紀錄。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">12 / 15</span>
+  <div class="inner">
+    <p class="kicker">這一切最終為了什麼</p>
+    <h2>人會離開，故事會留下</h2>
+    <div class="flow">素材 <span>→</span> 特刊 <span>→</span> 課題 <span>→</span> 人物誌</div>
+    <p class="big">當一位前人歸空，我們一天就能整理出他一生在道場的紀錄，編成紀念特刊，再變成班程的課題。</p>
+    <p class="big">後人永遠查得到：今天的峨眉，是誰一磚一瓦、犧牲奉獻建起來的。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">13 / 15</span>
+  <div class="inner">
+    <p class="kicker">我們的承諾</p>
+    <h2>系統是來省時間的</h2>
+    <div class="seal-box">這套系統要讓大家花更少的時間找檔案，把時間留給辦活動、陪伴人、成全人。如果反而更忙，那是系統要修，不是人要更努力。</div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">14 / 15</span>
+  <div class="inner">
+    <p class="kicker">接下來會發生的事</p>
+    <h2>五步，不急不亂</h2>
+    <div class="card"><b>1</b>　開好新櫃子（新的硬碟和骨架）</div>
+    <div class="card"><b>2</b>　舊物搬家（機器列清單，確認後才搬）</div>
+    <div class="card"><b>3</b>　清點個資（名冊類先收好，才開放）</div>
+    <div class="card"><b>4</b>　發鑰匙（每個人拿到自己該有的權限）</div>
+    <div class="card"><b>5</b>　請大家入住（說明會見）</div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">15 / 15</span>
+  <div class="inner">
+    <h1>一起把峨眉的<br>故事留下來</h1>
+    <p class="big">有任何問題，問 LINE 小幫手，或找文書組。</p>
+    <footer class="slidefoot">峨眉書院文書組・2026</footer>
+  </div>
+</section>

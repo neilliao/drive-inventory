@@ -1,0 +1,236 @@
+<title>峨眉數位一盤棋</title>
+<style>
+  :root {
+    --bg: #F1F2EE; --surface: #FBFBF9; --surface-2: #E9EBE4;
+    --ink: #22262A; --ink-soft: #5A6168; --line: #C9CDC3;
+    --accent: #33557E; --accent-tint: #DFE6EE; --seal: #A8402F; --seal-ink: #FBFBF9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181B; --surface: #1F2226; --surface-2: #24282D;
+      --ink: #E8E7E2; --ink-soft: #9BA1A8; --line: #3A4046;
+      --accent: #8FAFD9; --accent-tint: #2A3644; --seal: #C25A45; --seal-ink: #F5EFEA;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181B; --surface: #1F2226; --surface-2: #24282D;
+    --ink: #E8E7E2; --ink-soft: #9BA1A8; --line: #3A4046;
+    --accent: #8FAFD9; --accent-tint: #2A3644; --seal: #C25A45; --seal-ink: #F5EFEA;
+  }
+  html { scroll-snap-type: y proximity; }
+  body { background: var(--bg); color: var(--ink); margin: 0;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif; line-height: 1.75; }
+  section.slide { min-height: 100svh; scroll-snap-align: start; display: flex; flex-direction: column;
+    justify-content: center; padding: 48px 24px; box-sizing: border-box; border-bottom: 1px solid var(--line); position: relative; }
+  .inner { max-width: 640px; margin: 0 auto; width: 100%; }
+  .no { position: absolute; top: 20px; right: 24px; font-size: 12px; color: var(--ink-soft); letter-spacing: .1em; }
+  .kicker { font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: .2em; margin: 0 0 14px; }
+  h1, h2 { font-family: "Songti TC","Noto Serif TC","Source Han Serif TC",serif; text-wrap: balance; }
+  h1 { font-size: clamp(38px, 9vw, 62px); margin: 0 0 18px; line-height: 1.25; }
+  h2 { font-size: clamp(25px, 6vw, 36px); margin: 0 0 20px; line-height: 1.35; }
+  p.big { font-size: clamp(17px, 4.2vw, 20px); margin: 0 0 14px; }
+  p.soft { font-size: clamp(14px, 3.8vw, 16px); color: var(--ink-soft); margin: 0 0 12px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 18px; margin: 9px 0; font-size: clamp(14px, 3.8vw, 16px); }
+  .card b { color: var(--accent); }
+  .rule { background: var(--accent-tint); border: 1.4px solid var(--accent); border-radius: 14px;
+    padding: 20px 22px; font-size: clamp(16px, 4.2vw, 20px); font-weight: 700; margin: 16px 0;
+    font-family: "Songti TC","Noto Serif TC",serif; }
+  .rule small { display: block; font-weight: 400; font-family: "PingFang TC","Noto Sans TC",sans-serif;
+    font-size: clamp(13px, 3.4vw, 15px); color: var(--ink-soft); margin-top: 10px; }
+  .seal-box { background: var(--seal); color: var(--seal-ink); border-radius: 14px; padding: 20px 22px;
+    font-size: clamp(15px, 4vw, 19px); font-weight: 700; margin: 16px 0; font-family: "Songti TC","Noto Serif TC",serif; }
+  .flow { font-size: clamp(17px, 4.4vw, 23px); font-weight: 700; text-align: center; margin: 22px 0;
+    font-family: "Songti TC","Noto Serif TC",serif; }
+  .flow span { color: var(--accent); }
+  .hint { text-align: center; color: var(--ink-soft); font-size: 13px; margin-top: 32px; }
+  footer.slidefoot { font-size: 13px; color: var(--ink-soft); margin-top: 26px; }
+  table { border-collapse: collapse; width: 100%; font-size: clamp(13px, 3.6vw, 15px); }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--ink-soft); font-weight: 600; font-size: 12.5px; }
+  td.w { font-weight: 700; white-space: nowrap; }
+</style>
+
+<section class="slide">
+  <div class="inner">
+    <p class="kicker">峨眉書院・文書組報告</p>
+    <h1>峨眉數位一盤棋</h1>
+    <p class="big">檔案整理要動工了。但它不是一件單獨的工程，是一盤棋裡的一步。這份報告先看全盤，再看這一步。</p>
+    <p class="hint">往下滑 ↓</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">2 / 17</span>
+  <div class="inner">
+    <p class="kicker">我們在解決什麼</p>
+    <h2>三個真實的問題</h2>
+    <div class="card"><b>東西找不到</b>：三十七萬筆檔案存在雲端，但找一樣東西靠翻、靠問、靠某個人的記憶</div>
+    <div class="card"><b>訊息傳不到</b>：活動通知靠群組轉來轉去，該知道的沒收到、不該的重複收</div>
+    <div class="card"><b>故事留不住</b>：前人歸空，編一本紀念特刊要翻三個月；照片裡的人，認得的人一年比一年少</div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">3 / 17</span>
+  <div class="inner">
+    <p class="kicker">一句話戰略</p>
+    <h2>為峨眉修一部活的史</h2>
+    <p class="big">不是等週年慶才回頭翻箱倒櫃，而是每一天的活動、每一段訓文、每一位前賢的footprint，即時入冊、彼此連結。</p>
+    <p class="soft">數位和 AI 不是目的，是修史的加速器。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">4 / 17</span>
+  <div class="inner">
+    <p class="kicker">全盤：六個幫手</p>
+    <h2>各管一件事，互相引用，不重複存</h2>
+    <div class="card"><b>道籍系統</b>：人的正本。道親、職務、法會班程名單（已運轉）</div>
+    <div class="card"><b>LINE 小幫手</b>：伸進每個人手機的觸角（已運轉）</div>
+    <div class="card"><b>雲端圖書館</b>：檔案的正本。照片、錄音、文件、史料（這次動工）</div>
+    <div class="card"><b>道務平台</b>：內部前門，查活動、拿範本（下一波）</div>
+    <div class="card"><b>道峨眉季刊</b>：對外窗口＋年輕世代記錄當代的入口（已運轉）</div>
+    <div class="card"><b>文獻平台</b>：藏經閣，策展後永久典藏（未來，先有內容再蓋）</div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">5 / 17</span>
+  <div class="inner">
+    <p class="kicker">分工的鐵則</p>
+    <h2>一種東西，只有一個家</h2>
+    <p class="big">人的資料只住道籍系統，檔案只住圖書館，兩邊不重複存，用同一把鑰匙互相引用。</p>
+    <p class="big">照片只有一個家、聖歌只有一個家、會議紀錄只有一個家。找的人永遠知道去哪裡。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">6 / 17</span>
+  <div class="inner">
+    <p class="kicker">這一波動什麼</p>
+    <h2>把倉庫改建成圖書館</h2>
+    <p class="big">十座編號書架（101 公開到 110 會議），加上每組每區自己的工作桌。東西一樣不丟，但每一樣有固定的家、有目錄可查。</p>
+    <p class="soft">向大家溝通的說法：家具設好、舊物歸位，大家只要入住。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">7 / 17</span>
+  <div class="inner">
+    <p class="kicker">全體只要配合一件事</p>
+    <h2>一條規矩</h2>
+    <div class="rule">
+      檔名開頭寫日期加活動名，放進當年的資料夾。
+      <small>只要日期寫對，系統每個月自動把同一場活動的照片、錄音、文件串成總表上的一列。實測 121 場活動自動串接成功，幾乎不花人力。</small>
+    </div>
+    <p class="soft">沒空整理也沒關係：機器每月自動掃、自動分，文書組一人半小時確認。整齊靠機器，不靠自覺。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">8 / 17</span>
+  <div class="inner">
+    <p class="kicker">權限</p>
+    <h2>誰能看什麼，跟著職務走</h2>
+    <div class="card">有職務的前賢：圖書館和各單位桌子都能看（道場無商業機密，跨組透明）</div>
+    <div class="card">組長、副組長＋文書：能放、能搬、能刪（刪了三十天內救得回）</div>
+    <div class="card">文史與會議紀錄：點傳師專屬</div>
+    <p class="soft">名單從道籍系統自動帶出，換人做組長，權限自動跟著換。開放之前先做一件事：名冊類個資全部收進管制，不留裸奔窗口。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">9 / 17</span>
+  <div class="inner">
+    <p class="kicker">訊息傳遞</p>
+    <h2>公告發一次，該收的人都收到</h2>
+    <p class="big">承辦的人只發一次、選對象，機器分三路送：LINE 推到手機、正式函走信箱、平台留底供查。</p>
+    <p class="big">對象可以選「圈」（某組、某區、點傳師），也可以選「條件」：像靈隱青年營隊，由道籍系統撈出適齡、參加過營隊的名單，精準送達。</p>
+    <p class="soft">沒綁 LINE 的長輩不會漏接：名單按區拆給窗口，一人三五個名字，精準去邀。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">10 / 17</span>
+  <div class="inner">
+    <p class="kicker">北極星</p>
+    <h2>人會離開，故事會留下</h2>
+    <div class="flow">素材 <span>→</span> 特刊 <span>→</span> 課題 <span>→</span> 人物誌</div>
+    <p class="big">前人歸空，一天拉出他一生在道場的完整紀錄：年表、活動、照片、錄音、文字。編成特刊，再變成班程課題，後人一代一代講下去。</p>
+    <p class="soft">講他課題的班程，本身又是新的紀錄，掛著他的名字入庫。他的影響力看得見，而且持續累積。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">11 / 17</span>
+  <div class="inner">
+    <p class="kicker">給點傳師的一層</p>
+    <h2>訓文印證索引</h2>
+    <p class="big">仙佛在訓文裡，常藉一個人的一生、一件事來印證一個道理。這層關係目前只存在讀過的人心中。</p>
+    <p class="big">以後讀訓文時隨手記一筆：哪段訓文、印證哪個道理、藉哪個人哪件事。累積起來，寫特刊查人，連仙佛怎麼講他都列得出來；編課題查道理，印證的段落和真實事例一次到齊。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">12 / 17</span>
+  <div class="inner">
+    <p class="kicker">故事與媒體</p>
+    <h2>出口會換代，故事線不換</h2>
+    <p class="big">季刊、未來的頻道、Podcast，都只是出口。後面那條故事線：藉哪個人、哪件事、印證什麼道理、想傳達什麼，編好一次，就能輸出成文章、音頻、影片、課題。</p>
+    <p class="soft">彰顯這寶貴大道對大家的影響，靠的是故事，不是平台。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">13 / 17</span>
+  <div class="inner">
+    <p class="kicker">我們的紅線</p>
+    <h2>系統是來省時間的</h2>
+    <div class="seal-box">上線之後，文書組花在找檔案、整理檔案的時間必須變少，省下來的時間去辦活動、成全人。如果反而更忙，是系統要修，不是人要更努力。</div>
+    <p class="soft">配套：文書組例行維運每月不超過半天；任何要新增的人工作業，先問機器能不能做。</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">14 / 17</span>
+  <div class="inner">
+    <p class="kicker">建設順序</p>
+    <h2>一步一步來，不搶快</h2>
+    <div class="card"><b>現在</b>：圖書館整修五步（開櫃、搬家、清個資、發鑰匙、入住）</div>
+    <div class="card"><b>接著</b>：道務平台開各組頁，當內部前門</div>
+    <div class="card"><b>然後</b>：文獻策展第一批，有了內容再蓋文獻平台</div>
+    <div class="card"><b>一直做</b>：道籍收尾、季刊出刊、機器月巡檢</div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">15 / 17</span>
+  <div class="inner">
+    <p class="kicker">需要各位幹部的</p>
+    <h2>三件事</h2>
+    <div class="card"><b>一</b>　帶頭守那一條規矩：檔名寫日期。幹部做，大家就做</div>
+    <div class="card"><b>二</b>　組長、區長因職務自動成為歸檔窗口，權限自動到位，不用申請</div>
+    <div class="card"><b>三</b>　說明會幫忙帶動，讓自己單位的人知道去哪、問誰</div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">16 / 17</span>
+  <div class="inner">
+    <p class="kicker">請各位知悉或裁示</p>
+    <h2>三個決定</h2>
+    <div class="card">單位工作硬碟開放給有職務的前賢互看（道場無商業機密，透明互信；個資先出清才開放）</div>
+    <div class="card">會議紀錄獨立成碟：幹部寫，點傳師看，同時是未來查大事的史料</div>
+    <div class="card">舊人事硬碟封存，新的個資一律由道籍系統管理，不再散成檔案</div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="no">17 / 17</span>
+  <div class="inner">
+    <h1>倉庫變圖書館<br>故事永流傳</h1>
+    <p class="big">今天的峨眉是前人一磚一瓦建起來的。這套系統，是為了讓後人永遠知道這件事。</p>
+    <footer class="slidefoot">峨眉書院文書組・2026</footer>
+  </div>
+</section>
