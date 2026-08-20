@@ -1,0 +1,195 @@
+<title>藍圖看圖指南</title>
+<style>
+  :root {
+    --bg: #F1F2EE; --surface: #FBFBF9; --surface-2: #E9EBE4;
+    --ink: #22262A; --ink-soft: #5A6168; --line: #C9CDC3;
+    --accent: #33557E; --accent-tint: #DFE6EE; --seal: #A8402F; --seal-ink: #FBFBF9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181B; --surface: #1F2226; --surface-2: #24282D;
+      --ink: #E8E7E2; --ink-soft: #9BA1A8; --line: #3A4046;
+      --accent: #8FAFD9; --accent-tint: #2A3644; --seal: #C25A45; --seal-ink: #F5EFEA;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181B; --surface: #1F2226; --surface-2: #24282D;
+    --ink: #E8E7E2; --ink-soft: #9BA1A8; --line: #3A4046;
+    --accent: #8FAFD9; --accent-tint: #2A3644; --seal: #C25A45; --seal-ink: #F5EFEA;
+  }
+  body { background: var(--bg); color: var(--ink); margin: 0; padding: 0 20px 56px;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif; line-height: 1.75; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1, h2 { font-family: "Songti TC","Noto Serif TC","Source Han Serif TC",serif; text-wrap: balance; }
+  header.page { padding: 44px 0 8px; border-bottom: 1px solid var(--line); }
+  .eyebrow { font-size: 13px; letter-spacing: .35em; color: var(--ink-soft); margin: 0 0 10px; }
+  h1 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 10px; font-weight: 700; }
+  .creed { font-size: clamp(14px, 1.8vw, 16px); color: var(--accent); font-weight: 600; margin: 0 0 12px; max-width: 64ch; }
+  .readme { font-size: 13px; color: var(--ink-soft); margin: 0 0 30px; border-left: 3px solid var(--accent); padding-left: 14px; max-width: 64ch; }
+  h2 { font-size: 21px; margin: 46px 0 14px; }
+  .lede { font-size: 14.5px; color: var(--ink-soft); max-width: 68ch; margin: -6px 0 18px; }
+  figure.map { margin: 26px 0 6px; overflow-x: auto; }
+  figure.map svg { min-width: 880px; width: 100%; height: auto; display: block; }
+  figcaption { font-size: 13px; color: var(--ink-soft); margin-top: 10px; max-width: 76ch; }
+  .node { fill: var(--surface); stroke: var(--line); }
+  .box-goal { fill: var(--surface); stroke: var(--accent); stroke-width: 1.4; }
+  .container { fill: var(--surface-2); stroke: var(--line); }
+  .chip { fill: var(--surface); stroke: var(--line); }
+  .seal { fill: var(--seal); }
+  .t-title { font-size: 17px; font-weight: 700; fill: var(--ink); }
+  .t-h { font-size: 13.5px; font-weight: 700; fill: var(--ink); }
+  .t { font-size: 12.5px; fill: var(--ink); }
+  .t-s { font-size: 11.5px; fill: var(--ink-soft); }
+  .t-tag { font-size: 13px; font-weight: 700; fill: var(--accent); }
+  .t-seal { font-size: 20px; font-weight: 700; fill: var(--seal-ink); font-family: "Songti TC","Noto Serif TC",serif; }
+  .t-seal-s { font-size: 15px; font-weight: 700; fill: var(--seal-ink); font-family: "Songti TC","Noto Serif TC",serif; }
+  .flow { stroke: var(--accent); stroke-width: 1.8; fill: none; }
+  .guide { stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 4 4; fill: none; }
+  .shelf { stroke: var(--ink-soft); stroke-width: 3; fill: none; }
+  .m-accent { fill: var(--accent); }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-soft); font-weight: 600; }
+  td.who { font-weight: 700; white-space: nowrap; }
+  .table-scroll { overflow-x: auto; }
+  .rule-callout { background: var(--accent-tint); border: 1px solid var(--accent); border-radius: 10px;
+    padding: 18px 22px; margin: 18px 0; font-size: 15px; }
+  .aside-phase { margin-top: 14px; font-size: 13.5px; color: var(--ink-soft);
+    border-left: 3px solid var(--accent); padding-left: 14px; max-width: 76ch; }
+  .seal-inline { display:inline-block; background:var(--seal); color:var(--seal-ink); border-radius:6px; padding:1px 10px; font-family:"Songti TC","Noto Serif TC",serif; font-weight:700; }
+  footer { margin-top: 52px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-soft); }
+  a { color: var(--accent); }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <p class="eyebrow">峨眉書院・地圖家族</p>
+    <h1>藍圖看圖指南</h1>
+    <p class="creed">圖上一共三套詞。它們不是三個理論，是三個不同的問題各配一組答案：怎麼打、出事找誰、工具是什麼性質。</p>
+    <p class="readme">給第一次看「<a href="https://claude.ai/code/artifact/5702040b-b689-4458-a830-f3893fb12e70" target="_blank" rel="noopener">峨眉資訊藍圖</a>」和四張子圖的人。先讀這頁，再回去看圖，每個詞都會落在你預期的位置上。</p>
+  </header>
+
+  <h2>一張圖看三套詞</h2>
+  <figure class="map">
+    <svg viewBox="0 0 1040 560" role="img" aria-label="看圖指南：縱向三個高度是戰略戰術戰技，紅印掛在三個工具身上，底部貨架分儲存媒體管道三格">
+      <defs><marker id="ga" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" /></marker></defs>
+
+      <!-- 縱向層次標籤 -->
+      <text class="t-tag" x="28" y="52">① 戰略：要贏什麼</text>
+      <line class="guide" x1="28" y1="62" x2="296" y2="62" />
+      <text class="t-tag" x="28" y="168">② 戰術：分幾路走</text>
+      <line class="guide" x1="28" y1="178" x2="236" y2="178" />
+      <text class="t-tag" x="28" y="306">③ 戰技：用什麼工具</text>
+      <line class="guide" x1="28" y1="316" x2="216" y2="316" />
+
+      <!-- ① 戰略 -->
+      <rect class="box-goal" x="300" y="24" width="440" height="64" rx="10" />
+      <rect class="seal" x="316" y="36" width="40" height="40" rx="6" />
+      <text class="t-seal" x="336" y="63" text-anchor="middle">史</text>
+      <text class="t-title" x="372" y="52">為峨眉修一部活的史</text>
+      <text class="t-s" x="372" y="74">目標只有一個，整個家族共用</text>
+
+      <!-- ② 戰術 -->
+      <line class="flow" x1="380" y1="140" x2="380" y2="92" marker-end="url(#ga)" />
+      <line class="flow" x1="660" y1="140" x2="660" y2="92" marker-end="url(#ga)" />
+      <rect class="container" x="250" y="144" width="120" height="56" rx="10" />
+      <text class="t-h" x="310" y="168" text-anchor="middle">存</text>
+      <text class="t-s" x="310" y="188" text-anchor="middle">東西存得住</text>
+      <rect class="container" x="390" y="144" width="120" height="56" rx="10" />
+      <text class="t-h" x="450" y="168" text-anchor="middle">找</text>
+      <text class="t-s" x="450" y="188" text-anchor="middle">要用找得到</text>
+      <rect class="container" x="530" y="144" width="120" height="56" rx="10" />
+      <text class="t-h" x="590" y="168" text-anchor="middle">傳</text>
+      <text class="t-s" x="590" y="188" text-anchor="middle">訊息送到人</text>
+      <rect class="container" x="670" y="144" width="120" height="56" rx="10" />
+      <text class="t-h" x="730" y="168" text-anchor="middle">承</text>
+      <text class="t-s" x="730" y="188" text-anchor="middle">後人接得起</text>
+
+      <!-- ③ 戰技 -->
+      <line class="flow" x1="450" y1="278" x2="450" y2="204" marker-end="url(#ga)" />
+      <line class="flow" x1="590" y1="278" x2="590" y2="204" marker-end="url(#ga)" />
+      <rect class="chip" x="216" y="282" width="104" height="44" rx="10" />
+      <text class="t" x="268" y="309" text-anchor="middle">知識庫</text>
+      <rect class="chip" x="330" y="282" width="104" height="44" rx="10" />
+      <text class="t" x="382" y="309" text-anchor="middle">道籍系統</text>
+      <rect class="chip" x="454" y="282" width="104" height="44" rx="10" />
+      <text class="t" x="506" y="309" text-anchor="middle">道峨眉</text>
+      <rect class="chip" x="568" y="282" width="104" height="44" rx="10" />
+      <text class="t" x="620" y="309" text-anchor="middle">文獻平台</text>
+      <rect class="chip" x="692" y="282" width="100" height="44" rx="10" />
+      <text class="t" x="742" y="309" text-anchor="middle">LINE</text>
+      <rect class="chip" x="802" y="282" width="100" height="44" rx="10" />
+      <text class="t" x="852" y="309" text-anchor="middle">Gmail</text>
+      <rect class="chip" x="912" y="282" width="104" height="44" rx="10" />
+      <text class="t" x="964" y="309" text-anchor="middle">道務平台</text>
+
+      <!-- 印（責任名牌）掛在工具上 -->
+      <rect class="seal" x="298" y="266" width="30" height="30" rx="6" />
+      <text class="t-seal-s" x="313" y="287" text-anchor="middle">活</text>
+      <rect class="seal" x="412" y="266" width="30" height="30" rx="6" />
+      <text class="t-seal-s" x="427" y="287" text-anchor="middle">傳</text>
+      <rect class="seal" x="548" y="266" width="30" height="30" rx="6" />
+      <text class="t-seal-s" x="563" y="287" text-anchor="middle">彰</text>
+      <path class="shelf" d="M 458 262 L 458 256 L 668 256 L 668 262" />
+      <text class="t-tag" x="836" y="252">Ⓐ 印＝責任名牌：出事找誰</text>
+      <line class="guide" x1="830" y1="258" x2="586" y2="262" />
+      <text class="t-s" x="836" y="272">史＝活＋傳＋彰，拼起來剛好蓋滿目標</text>
+
+      <!-- 貨架（三層分類） -->
+      <path class="shelf" d="M 216 352 L 216 360 L 434 360 L 434 352" />
+      <text class="t-h" x="325" y="384" text-anchor="middle">儲存層</text>
+      <text class="t-s" x="325" y="404" text-anchor="middle">管正本</text>
+      <path class="shelf" d="M 454 352 L 454 360 L 672 360 L 672 352" />
+      <text class="t-h" x="563" y="384" text-anchor="middle">媒體層</text>
+      <text class="t-s" x="563" y="404" text-anchor="middle">說故事</text>
+      <path class="shelf" d="M 692 352 L 692 360 L 1016 360 L 1016 352" />
+      <text class="t-h" x="854" y="384" text-anchor="middle">管道層</text>
+      <text class="t-s" x="854" y="404" text-anchor="middle">送信、開門</text>
+      <text class="t-tag" x="28" y="384">Ⓑ 層＝工具貨架</text>
+      <text class="t-s" x="28" y="404">只講性質，不講責任</text>
+      <line class="guide" x1="150" y1="380" x2="212" y2="380" />
+
+      <!-- 底部總結 -->
+      <rect class="container" x="216" y="440" width="800" height="88" rx="10" />
+      <text class="t-h" x="236" y="468">同一個工具，三套詞各看它一眼：</text>
+      <text class="t" x="236" y="492">道籍系統 → 在「戰技」高度（③）・身上掛「傳」的印（Ⓐ）・放在「儲存層」貨架（Ⓑ）</text>
+      <text class="t" x="236" y="514">道務平台 → 在「戰技」高度（③）・身上沒有印・放在「管道層」貨架（Ⓑ）→ 所以它只有實作地圖</text>
+    </svg>
+    <figcaption>縱向高度＝怎麼打（①②③）；紅色方印＝出事找誰（只有三塊）；底部貨架＝工具性質（三格）。工具可以同時服務好幾條路（總圖有完整連線，這裡省略），但每個工具最多掛一塊印。</figcaption>
+  </figure>
+
+  <h2>三套詞對照表</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>這套詞</th><th>回答的問題</th><th>成員</th><th>在圖上的樣子</th></tr>
+      <tr><td class="who">戰略／戰術／戰技</td><td>怎麼打（由上而下三個高度）</td><td>修史 → 存找傳承 → 各工具</td><td>金字塔的三層高度</td></tr>
+      <tr><td class="who">印</td><td>出事找誰（責任分三塊）</td><td>史＝活＋傳＋彰</td><td>紅色方印，只掛在知識庫、道籍、媒體三家</td></tr>
+      <tr><td class="who">層</td><td>工具是什麼性質（同類放一起）</td><td>儲存層・媒體層・管道層</td><td>工具底下的三格貨架</td></tr>
+    </table>
+  </div>
+  <p class="aside-phase">家裡的比喻：家要顧好（戰略），每天有買菜煮飯洗碗倒垃圾四件事（戰術），用冰箱瓦斯爐洗碗機（戰技）；分工按「區」不按「事」——廚房歸媽媽、客廳歸爸爸（印）；家電行把工具分成廚電、視聽、清潔三櫃（層）。做事不限區、出事只找一人、貨架只管分類。</p>
+
+  <h2>撞字說明：圖上有兩個「傳」</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>哪個傳</th><th>意思</th><th>住在哪</th></tr>
+      <tr><td class="who">戰術的「傳」</td><td>送信的傳——訊息送到人手上</td><td>總圖四條路之一（LINE、Gmail、平台都在幫它）</td></tr>
+      <tr><td class="who">印的「傳」</td><td>傳承的傳——修行的軌跡一代代接下去</td><td>道籍系統掛的責任名牌</td></tr>
+    </table>
+  </div>
+  <div class="rule-callout">
+    <b>換字提案（待 Neil 拍板）：</b>把道籍的印從「傳」改成「<span class="seal-inline">脈</span>」——法脈的脈，人與人接續的軌跡。改完三印為 <span class="seal-inline">活</span><span class="seal-inline">脈</span><span class="seal-inline">彰</span>，與戰術「存找傳承」四字零重疊，撞字永久消失。備選：「續」「緣」。或不換字、只在圖上加小字註記「傳（送達）／傳（承）」。拍板後一次掃全家族。
+  </div>
+
+  <h2>三個常見誤會</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>誤會</th><th>正解</th></tr>
+      <tr><td>印是第四個層次？</td><td>不是。印掛在戰略被切成三塊之後的每一塊上，是責任記號，不是新高度</td></tr>
+      <tr><td>層＝戰術？</td><td>不是。存找傳承是「事」，儲存媒體管道是「工具的性質」。知識庫一個工具就同時跑存、找、承三件事</td></tr>
+      <tr><td>沒掛印的工具不重要？</td><td>不是。門和郵差天天在用，只是它們可以換——換了之後史一塊都不缺，所以責任不記在它們頭上</td></tr>
+    </table>
+  </div>
+
+  <footer>2026-08-20・地圖家族的說明書・母圖：峨眉資訊藍圖</footer>
+</div>
