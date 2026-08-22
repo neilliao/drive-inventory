@@ -33,6 +33,22 @@
   .flow { stroke: var(--primary); stroke-width: 2; fill: none; }
   .flow-up { stroke: var(--deep); stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
   .m { fill: var(--primary); } .md { fill: var(--deep); }
+  .box-goal { fill: var(--tint); stroke: var(--primary); stroke-width: 1.5; }
+  .node { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
+  .container { fill: var(--tint-2); stroke: var(--line); }
+  .tchip { fill: var(--card); stroke: var(--line); }
+  .rail { fill: var(--card); stroke: var(--line); }
+  .sealbox { fill: var(--seal); }
+  .t-title { font-size: 17px; font-weight: 700; fill: var(--ink); }
+  .t { font-size: 12.5px; fill: var(--ink); }
+  .t-s2 { font-size: 11.5px; fill: var(--sub); }
+  .t-tag { font-size: 13px; font-weight: 700; fill: var(--deep); }
+  .t-seal { font-size: 22px; font-weight: 700; fill: #fff; font-family: "Songti TC","Noto Serif TC",serif; }
+  .t-lbl-a { font-size: 12px; font-weight: 600; fill: var(--deep); paint-order: stroke; stroke: var(--page); stroke-width: 5px; stroke-linejoin: round; }
+  .guard { stroke: var(--sub); stroke-width: 1.2; stroke-dasharray: 4 4; fill: none; }
+  .arrow { stroke: var(--sub); stroke-width: 1.4; fill: none; }
+  .m-accent { fill: var(--primary); }
+  .m-soft { fill: var(--sub); }
 
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .hub { height: 100%; background: var(--card); border: 1px solid var(--line); border-radius: 16px;
@@ -190,57 +206,141 @@
     </div>
   </div>
 
-  <h2>策略地圖：四條路，撐一個目標</h2>
+  <h2>策略地圖：戰略 → 戰術 → 戰技</h2>
+  <p class="cap" style="margin:0 0 14px">讀法：最上面是目標（戰略），中間四條路是打法（戰術），掛在底下的小卡是實際招式（戰技）——一個工具可以出現在好幾條路上。左邊是不可越的邊界，右邊是讓系統自己轉的迴路。</p>
   <figure class="map">
-    <svg viewBox="0 0 1040 312" role="img" aria-label="策略地圖：頂端目標是為峨眉修一部活的史，下方四條路存找傳承各有進度與負責工具，箭頭由下往上撐起目標">
+    <svg viewBox="0 0 1040 640" role="img" aria-label="總策略地圖：頂端是目標「峨眉活的史」，中層四個戰術（存、找、傳、承），底層六個工具是戰技；左側是三條護欄，右側是兩個讓系統活著的迴路">
       <defs>
-        <marker id="sm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="m"/></marker>
+        <marker id="tm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" />
+        </marker>
+        <marker id="ts" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-soft" />
+        </marker>
       </defs>
 
-      <rect class="st-key" x="200" y="16" width="640" height="80" rx="14"/>
-      <rect x="222" y="32" width="48" height="48" rx="8" fill="var(--seal)"/>
-      <text x="246" y="66" text-anchor="middle" fill="#fff" style="font-size:26px;font-weight:700;font-family:'Songti TC','Noto Serif TC',serif">史</text>
-      <text class="t-name" x="288" y="52" style="font-size:17px">為峨眉修一部活的史</text>
-      <text class="t-note" x="288" y="78">每天的紀錄即時入冊、彼此連結——而且整套不靠任何一個人</text>
+      <!-- 目標（策略） -->
+      <rect class="box-goal" x="230" y="16" width="560" height="76" rx="10" />
+      <rect class="sealbox" x="246" y="30" width="48" height="48" rx="6" />
+      <text class="t-seal" x="270" y="62" text-anchor="middle">史</text>
+      <text class="t-title" x="308" y="46">為峨眉修一部活的史</text>
+      <text class="t-s2" x="308" y="66">每一天的紀錄即時入冊、彼此連結；每一份奉獻被記得、</text>
+      <text class="t-s2" x="308" y="82">繼續成全後人——而且整套不繫於任何一個人</text>
 
-      <line class="flow" x1="132" y1="150" x2="240" y2="100" marker-end="url(#sm)"/>
-      <line class="flow" x1="388" y1="150" x2="450" y2="100" marker-end="url(#sm)"/>
-      <line class="flow" x1="652" y1="150" x2="590" y2="100" marker-end="url(#sm)"/>
-      <line class="flow" x1="908" y1="150" x2="800" y2="100" marker-end="url(#sm)"/>
+      <!-- 戰術 → 目標 -->
+      <line class="flow" x1="300" y1="140" x2="300" y2="96" marker-end="url(#tm)" />
+      <line class="flow" x1="446" y1="140" x2="446" y2="96" marker-end="url(#tm)" />
+      <line class="flow" x1="592" y1="140" x2="592" y2="96" marker-end="url(#tm)" />
+      <line class="flow" x1="738" y1="140" x2="738" y2="96" marker-end="url(#tm)" />
 
-      <rect class="st-box" x="16" y="154" width="232" height="128" rx="14"/>
-      <text class="t-word" x="36" y="192">存</text>
-      <text class="t-note" x="36" y="218">每份正本都有家</text>
-      <rect x="36" y="232" width="150" height="9" rx="4.5" fill="var(--tint)"/>
-      <rect x="36" y="232" width="90" height="9" rx="4.5" fill="var(--primary)"/>
-      <text class="t-name" x="196" y="241">60%</text>
-      <text class="t-note" x="36" y="266">知識庫・道籍系統</text>
+      <!-- 戰術層 -->
+      <text class="t-tag" x="230" y="134">戰術（達成目標的四條路）</text>
+      <rect class="node" x="232" y="144" width="136" height="92" rx="10" />
+      <text class="t-word" x="248" y="176">存</text>
+      <text class="t-s2" x="248" y="192">正本各歸其家：</text>
+      <text class="t-s2" x="248" y="208">編號與個資進系統</text>
+      <rect class="node" x="378" y="144" width="136" height="92" rx="10" />
+      <text class="t-word" x="394" y="176">找</text>
+      <text class="t-s2" x="394" y="192">三把鑰匙：人＝編號</text>
+      <text class="t-s2" x="394" y="208">事＝日期、理＝詞條</text>
+      <rect class="node" x="524" y="144" width="136" height="92" rx="10" />
+      <text class="t-word" x="540" y="176">傳</text>
+      <text class="t-s2" x="540" y="192">發一次就到位：</text>
+      <text class="t-s2" x="540" y="208">選圈或選條件送達</text>
+      <rect class="node" x="670" y="144" width="136" height="92" rx="10" />
+      <text class="t-word" x="686" y="176">承</text>
+      <text class="t-s2" x="686" y="192">故事的生命週期：</text>
+      <text class="t-s2" x="686" y="208">素材→課題→人物誌</text>
 
-      <rect class="st-box" x="264" y="154" width="232" height="128" rx="14"/>
-      <text class="t-word" x="284" y="192">找</text>
-      <text class="t-note" x="284" y="218">人名、日期、主題都查得到</text>
-      <rect x="284" y="232" width="150" height="9" rx="4.5" fill="var(--tint)"/>
-      <rect x="284" y="232" width="60" height="9" rx="4.5" fill="var(--primary)"/>
-      <text class="t-name" x="444" y="241">40%</text>
-      <text class="t-note" x="284" y="266">編號當鑰匙・目錄總表</text>
 
-      <rect class="st-box" x="512" y="154" width="232" height="128" rx="14"/>
-      <text class="t-word" x="532" y="192">傳</text>
-      <text class="t-note" x="532" y="218">發一次，該收到的都收到</text>
-      <rect x="532" y="232" width="150" height="9" rx="4.5" fill="var(--tint)"/>
-      <rect x="532" y="232" width="53" height="9" rx="4.5" fill="var(--primary)"/>
-      <text class="t-name" x="692" y="241">35%</text>
-      <text class="t-note" x="532" y="266">LINE・信箱・平台留底</text>
+      <rect x="240" y="222" width="100" height="6" rx="3" fill="var(--tint)" />
+      <rect x="240" y="222" width="60" height="6" rx="3" fill="var(--primary)" />
+      <text class="t-s2" x="360" y="228" text-anchor="end">60%</text>
+      <rect x="386" y="222" width="100" height="6" rx="3" fill="var(--tint)" />
+      <rect x="386" y="222" width="40" height="6" rx="3" fill="var(--seal)" />
+      <text class="t-s2" x="506" y="228" text-anchor="end">40%</text>
+      <rect x="532" y="222" width="100" height="6" rx="3" fill="var(--tint)" />
+      <rect x="532" y="222" width="35" height="6" rx="3" fill="var(--seal)" />
+      <text class="t-s2" x="652" y="228" text-anchor="end">35%</text>
+      <rect x="678" y="222" width="100" height="6" rx="3" fill="var(--tint)" />
+      <rect x="678" y="222" width="20" height="6" rx="3" fill="var(--seal)" />
+      <text class="t-s2" x="798" y="228" text-anchor="end">20%</text>
 
-      <rect class="st-box" x="760" y="154" width="232" height="128" rx="14"/>
-      <text class="t-word" x="780" y="192">承</text>
-      <text class="t-note" x="780" y="218">故事編一次，多種形式流傳</text>
-      <rect x="780" y="232" width="150" height="9" rx="4.5" fill="var(--tint)"/>
-      <rect x="780" y="232" width="30" height="9" rx="4.5" fill="var(--primary)"/>
-      <text class="t-name" x="940" y="241">20%</text>
-      <text class="t-note" x="780" y="266">季刊・文獻平台</text>
+      <!-- 戰技掛戰術：四欄對齊 -->
+      <line class="flow" x1="300" y1="256" x2="300" y2="240" marker-end="url(#tm)" transform="rotate(180 300 248)" />
+      <line class="flow" x1="446" y1="256" x2="446" y2="240" marker-end="url(#tm)" transform="rotate(180 446 248)" />
+      <line class="flow" x1="592" y1="256" x2="592" y2="240" marker-end="url(#tm)" transform="rotate(180 592 248)" />
+      <line class="flow" x1="738" y1="256" x2="738" y2="240" marker-end="url(#tm)" transform="rotate(180 738 248)" />
+
+      <rect class="container" x="232" y="260" width="136" height="76" rx="10" />
+      <rect class="tchip" x="236" y="268" width="128" height="26" rx="6" />
+      <text class="t-s2" x="300" y="286" text-anchor="middle">道籍：人的正本</text>
+      <rect class="tchip" x="236" y="298" width="128" height="26" rx="6" />
+      <text class="t-s2" x="300" y="316" text-anchor="middle">知識庫：檔案的家</text>
+
+      <rect class="container" x="378" y="260" width="136" height="106" rx="10" />
+      <rect class="tchip" x="382" y="268" width="128" height="26" rx="6" />
+      <text class="t-s2" x="446" y="286" text-anchor="middle">知識庫：目錄總表</text>
+      <rect class="tchip" x="382" y="298" width="128" height="26" rx="6" />
+      <text class="t-s2" x="446" y="316" text-anchor="middle">道籍：編號當鑰匙</text>
+      <rect class="tchip" x="382" y="328" width="128" height="26" rx="6" />
+      <text class="t-s2" x="446" y="346" text-anchor="middle">道務平台：前門</text>
+
+      <rect class="container" x="524" y="260" width="136" height="166" rx="10" />
+      <rect class="tchip" x="528" y="268" width="128" height="26" rx="6" />
+      <text class="t-s2" x="592" y="286" text-anchor="middle">LINE：推到手機</text>
+      <rect class="tchip" x="528" y="298" width="128" height="26" rx="6" />
+      <text class="t-s2" x="592" y="316" text-anchor="middle">Gmail：寄正式件</text>
+      <rect class="tchip" x="528" y="328" width="128" height="26" rx="6" />
+      <text class="t-s2" x="592" y="346" text-anchor="middle">平台公告：留底</text>
+      <rect class="tchip" x="528" y="358" width="128" height="26" rx="6" />
+      <text class="t-s2" x="592" y="376" text-anchor="middle">道籍：受眾名單</text>
+      <rect class="tchip" x="528" y="388" width="128" height="26" rx="6" />
+      <text class="t-s2" x="592" y="406" text-anchor="middle">媒體：對外觸及</text>
+
+      <rect class="container" x="670" y="260" width="136" height="136" rx="10" />
+      <rect class="tchip" x="674" y="268" width="128" height="26" rx="6" />
+      <text class="t-s2" x="738" y="286" text-anchor="middle">媒體：故事線</text>
+      <rect class="tchip" x="674" y="298" width="128" height="26" rx="6" />
+      <text class="t-s2" x="738" y="316" text-anchor="middle">文獻平台：典藏</text>
+      <rect class="tchip" x="674" y="328" width="128" height="26" rx="6" />
+      <text class="t-s2" x="738" y="346" text-anchor="middle">知識庫：素材庫</text>
+      <rect class="tchip" x="674" y="358" width="128" height="26" rx="6" />
+      <text class="t-s2" x="738" y="376" text-anchor="middle">道籍：足跡累積</text>
+
+      <text class="t-lbl-a" x="510" y="452" text-anchor="middle">戰技掛在戰術下——一個工具可以出現在多條路上：媒體串傳與承，道籍撐起全部四條，工具換代、四條路不換</text>
+
+      <!-- 左護欄 -->
+      <rect class="rail" x="16" y="144" width="196" height="316" rx="12" />
+      <text class="t-tag" x="32" y="172">護欄（不可越的線）</text>
+      <text class="t" x="32" y="202">不繫於任何一人</text>
+      <text class="t-s2" x="32" y="220">SOP 與交接性是完整的一部分</text>
+      <text class="t" x="32" y="250">文書組時間必須變少</text>
+      <text class="t-s2" x="32" y="268">變多＝修系統，不是加人</text>
+      <text class="t" x="32" y="298">權限跟著職務走</text>
+      <text class="t-s2" x="32" y="316">換人做，權限自動換</text>
+      <text class="t" x="32" y="346">個資用系統管</text>
+      <text class="t-s2" x="32" y="364">不落地成檔案散在硬碟</text>
+      <line class="guard" x1="212" y1="290" x2="228" y2="290" marker-end="url(#ts)" />
+
+      <!-- 右迴路 -->
+      <rect class="rail" x="830" y="144" width="194" height="140" rx="12" />
+      <text class="t-tag" x="846" y="172">投入的閘門</text>
+      <text class="t-s2" x="846" y="190">使用證據決定力氣往哪放</text>
+      <text class="t" x="846" y="218">有人走的路做深</text>
+      <text class="t" x="846" y="244">沒人走的保留不擴建</text>
+      <text class="t-s2" x="846" y="270">是排序的尺，不是成績單</text>
+      <line class="arrow" x1="810" y1="190" x2="826" y2="190" marker-end="url(#ts)" />
+
+      <rect class="rail" x="830" y="308" width="194" height="152" rx="12" />
+      <text class="t-tag" x="846" y="336">秩序靠機器</text>
+      <text class="t" x="846" y="364">月巡檢自動歸位</text>
+      <text class="t" x="846" y="390">名單隨職務自動同步</text>
+      <text class="t" x="846" y="416">品質壞了清存量＋堵源頭</text>
+      <text class="t-s2" x="846" y="442">人只做判斷，機器做整理</text>
+      <line class="arrow" x1="810" y1="380" x2="826" y2="380" marker-end="url(#ts)" />
     </svg>
-    <figcaption class="cap">由下往上讀：四條路各自推進，一起撐住頂端的目標。每條路怎麼走，見底下各子地圖（子地圖說的「上承總圖戰術」就是指這四條路）。</figcaption>
+    <figcaption class="cap">由下往上讀：工具（戰技）撐起四條路（戰術），四條路撐起目標——藍色箭頭＝誰撐誰。戰術框裡的小橫條＝進度條（覆蓋條）：這條路走了多遠，藍＝已過半、紅＝未過半（粗估，每季校準；紅不全是落後，有的是排程未到）。左＝護欄，右＝讓系統自己轉的兩個迴路。</figcaption>
   </figure>
 
   <h2>接下來蓋什麼？</h2>
