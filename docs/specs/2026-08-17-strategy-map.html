@@ -1,624 +1,263 @@
 <title>峨眉資訊藍圖</title>
 <style>
   :root {
-    --bg: #f3faf7;
-    --surface: #ffffff;
-    --surface-2: #eef6f2;
-    --ink: #1f3b2c;
-    --ink-soft: #4c655a;
-    --line: #d6e8de;
-    --accent: #26715f;
-    --accent-tint: #e7f3ef;
-    --seal: #A8402F;
-    --seal-ink: #ffffff;
+    --page: #f3faf7; --card: #ffffff; --tint: #e7f3ef; --tint-2: #eef6f2;
+    --ink: #1f3b2c; --sub: #4c655a; --line: #d6e8de;
+    --deep: #26715f; --primary: #2f8d78; --seal: #a8402f;
+    --chip-em-bg: #ecfdf5; --chip-em-tx: #047857; --chip-em-bd: #a7f3d0;
+    --chip-am-bg: #fffbeb; --chip-am-tx: #b45309; --chip-am-bd: #fde68a;
+    --chip-gy-bg: #f3f4f6; --chip-gy-tx: #4b5563; --chip-gy-bd: #e5e7eb;
   }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
-    line-height: 1.7;
-    margin: 0;
-    padding: 0 20px 56px;
+  * { box-sizing: border-box; }
+  body { background: var(--page); color: var(--ink); margin: 0; padding: 0 20px 72px;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+    line-height: 1.7; font-variant-numeric: tabular-nums; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  h1, h2, .num { font-family: "Songti TC","Noto Serif TC","Source Han Serif TC",serif; }
+  header.page { padding: 44px 0 20px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: .35em; color: var(--sub); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 5vw, 44px); margin: 0 0 12px; font-weight: 700; text-wrap: balance; }
+  .oneline { font-size: clamp(15px, 2vw, 18px); color: var(--deep); font-weight: 700; margin: 0; }
+  h2 { font-size: clamp(20px, 3vw, 24px); margin: 56px 0 16px; text-wrap: balance; }
+  .cap { font-size: 13px; color: var(--sub); margin: 10px 0 0; max-width: 60ch; }
+
+  figure.map { margin: 0; overflow-x: auto; }
+  figure.map svg { min-width: 860px; width: 100%; height: auto; display: block; }
+  .st-box { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
+  .st-key { fill: var(--tint); stroke: var(--primary); stroke-width: 1.5; }
+  .st-engine { fill: var(--card); stroke: var(--deep); stroke-width: 1.5; }
+  .t-emoji { font-size: 26px; }
+  .t-word { font-size: 24px; font-weight: 700; fill: var(--deep); font-family: "Songti TC","Noto Serif TC",serif; }
+  .t-name { font-size: 14px; font-weight: 700; fill: var(--ink); }
+  .t-note { font-size: 12px; fill: var(--sub); }
+  .flow { stroke: var(--primary); stroke-width: 2; fill: none; }
+  .flow-up { stroke: var(--deep); stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+  .m { fill: var(--primary); } .md { fill: var(--deep); }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .hub { height: 100%; background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 1px 2px rgba(31,59,44,.04); }
+  .hub .top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .hub .name { font-size: 16.5px; font-weight: 700; }
+  .hub .emoji { font-size: 24px; }
+  .hub .say { font-size: 13.5px; color: var(--sub); }
+  .chip { font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
+  .c-em { background: var(--chip-em-bg); color: var(--chip-em-tx); border-color: var(--chip-em-bd); }
+  .c-am { background: var(--chip-am-bg); color: var(--chip-am-tx); border-color: var(--chip-am-bd); }
+  .c-gy { background: var(--chip-gy-bg); color: var(--chip-gy-tx); border-color: var(--chip-gy-bd); }
+
+  .prog { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .p-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+  .p-word { font-size: 26px; font-weight: 700; font-family: "Songti TC","Noto Serif TC",serif; color: var(--deep); }
+  .p-num { font-size: 30px; font-weight: 700; font-family: "Songti TC","Noto Serif TC",serif; }
+  .p-say { font-size: 12.5px; color: var(--sub); margin-top: 4px; }
+  .bar { height: 8px; border-radius: 4px; background: var(--tint); margin-top: 10px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--primary); border-radius: 4px; }
+
+  .steps { display: flex; align-items: stretch; gap: 0; overflow-x: auto; }
+  .step { flex: 1; min-width: 150px; background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 14px 16px; }
+  .step .when { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: .06em; }
+  .step .what { font-size: 15px; font-weight: 700; margin-top: 2px; }
+  .step .why { font-size: 12.5px; color: var(--sub); margin-top: 2px; }
+  .arrow-h { align-self: center; padding: 0 6px; color: var(--primary); font-size: 18px; flex: none; }
+  .always { margin-top: 12px; background: var(--tint-2); border: 1px solid var(--line); border-radius: 12px;
+    padding: 10px 16px; font-size: 13.5px; color: var(--sub); }
+
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .rule { background: var(--card); border: 1.5px solid var(--seal); border-radius: 16px; padding: 18px; }
+  .rule .t { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .rule .s { font-size: 13.5px; color: var(--sub); }
+
+  .star { background: var(--card); border: 1.5px solid var(--seal); border-radius: 16px;
+    padding: 26px 28px; text-align: center; }
+  .star .seal { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+    background: var(--seal); color: #fff; border-radius: 8px; font-size: 24px; font-weight: 700;
+    font-family: "Songti TC","Noto Serif TC",serif; margin-bottom: 12px; }
+  .star .big { font-size: clamp(16px, 2.4vw, 19px); font-weight: 700; max-width: 34em; margin: 0 auto; text-wrap: balance; }
+  .star .small { font-size: 13px; color: var(--sub); margin-top: 8px; }
+
+  .links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .links a { display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 16px; text-decoration: none; color: var(--ink); font-size: 14.5px; font-weight: 700; }
+  .links a:hover { border-color: var(--primary); color: var(--deep); }
+  .links a small { font-weight: 400; color: var(--sub); font-size: 12px; }
+  .lgroup { display: flex; flex-direction: column; gap: 6px; }
+  .links a.child { border-style: dashed; font-size: 13.5px; padding: 9px 16px 9px 26px; font-weight: 600; }
+
+  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line);
+    font-size: 12px; color: var(--sub); text-align: center; }
+  @media (max-width: 700px) {
+    .grid, .prog, .rules, .links { grid-template-columns: 1fr; }
+    .prog { grid-template-columns: 1fr 1fr; }
   }
-  .wrap { max-width: 1080px; margin: 0 auto; }
-
-  .display, h1, h2 {
-    font-family: "Songti TC", "Noto Serif TC", "Source Han Serif TC", serif;
-  }
-
-  header.page { padding: 44px 0 8px; border-bottom: 1px solid var(--line); }
-  .eyebrow {
-    font-size: 13px; letter-spacing: .35em; color: var(--ink-soft);
-    text-transform: uppercase; margin: 0 0 10px;
-  }
-  h1 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 10px; font-weight: 700; text-wrap: balance; }
-  .creed {
-    font-size: clamp(14px, 1.8vw, 16px); color: var(--accent); font-weight: 600;
-    margin: 0 0 26px; max-width: 62ch;
-  }
-  .readme {
-    font-size: 13px; color: var(--ink-soft); margin: 0 0 30px;
-    border-left: 3px solid var(--accent); padding-left: 14px; max-width: 62ch;
-  }
-
-  h2 { font-size: 21px; margin: 46px 0 14px; }
-  h2 .no { color: var(--ink-soft); font-size: 14px; margin-right: 10px; letter-spacing: .1em; }
-  .lede { font-size: 14.5px; color: var(--ink-soft); max-width: 68ch; margin: -6px 0 18px; }
-
-  figure.map { margin: 30px 0 6px; overflow-x: auto; }
-  figure.map svg { min-width: 900px; width: 100%; height: auto; display: block; }
-  figcaption { font-size: 13px; color: var(--ink-soft); margin-top: 10px; }
-
-  /* SVG classes */
-  .node { fill: var(--surface); stroke: var(--line); }
-  .box-goal { fill: var(--surface); stroke: var(--accent); stroke-width: 1.4; }
-  .container { fill: var(--surface-2); stroke: var(--line); }
-  .rail { fill: var(--surface); stroke: var(--line); }
-  .chip { fill: var(--surface); stroke: var(--line); }
-  .seal { fill: var(--seal); }
-  .t-title { font-size: 17px; font-weight: 700; fill: var(--ink); }
-  .t-h { font-size: 13.5px; font-weight: 700; fill: var(--ink); }
-  .t { font-size: 12.5px; fill: var(--ink); }
-  .t-s { font-size: 11.5px; fill: var(--ink-soft); }
-  .t-tag { font-size: 13px; font-weight: 700; fill: var(--accent); }
-  .t-seal { font-size: 22px; font-weight: 700; fill: var(--seal-ink); font-family: "Songti TC","Noto Serif TC",serif; }
-  .t-lbl { font-size: 12px; fill: var(--ink-soft); paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
-  .t-lbl-a { font-size: 12px; font-weight: 600; fill: var(--accent); paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
-  .flow { stroke: var(--accent); stroke-width: 1.8; fill: none; }
-  .arrow { stroke: var(--ink-soft); stroke-width: 1.4; fill: none; }
-  .guard { stroke: var(--ink-soft); stroke-width: 1.2; stroke-dasharray: 4 4; fill: none; }
-  .m-accent { fill: var(--accent); }
-  .m-soft { fill: var(--ink-soft); }
-  .m-seal { fill: var(--seal); }
-  .flow-seal { stroke: var(--seal); stroke-width: 1.8; fill: none; }
-  .box-gate { fill: var(--surface); stroke: var(--seal); stroke-width: 1.4; }
-  .box-new { fill: var(--accent-tint); stroke: var(--accent); }
-  .box-off { fill: none; stroke: var(--ink-soft); stroke-dasharray: 5 4; }
-  .shelf { stroke: var(--ink-soft); stroke-width: 3; }
-  .newtag { fill: var(--seal); }
-  .t-new { font-size: 10.5px; font-weight: 700; fill: var(--seal-ink); }
-
-  /* pillar cards */
-  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
-  .pillar {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
-    padding: 18px 18px 14px;
-  }
-  .pillar .name {
-    font-family: "Songti TC", "Noto Serif TC", serif;
-    font-size: 18px; font-weight: 700; color: var(--accent); margin: 0 0 2px;
-  }
-  .pillar .one { font-size: 13.5px; font-weight: 600; margin: 0 0 8px; }
-  .pillar ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink-soft); }
-  .pillar li { margin: 4px 0; }
-
-  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
-  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { font-size: 12.5px; color: var(--ink-soft); font-weight: 600; }
-  td.who { font-weight: 700; white-space: nowrap; }
-  .table-scroll { overflow-x: auto; }
-
-  ol.phases { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; counter-reset: ph; }
-  ol.phases > li {
-    counter-increment: ph; background: var(--surface); border: 1px solid var(--line);
-    border-radius: 10px; padding: 16px 18px; font-size: 13.5px;
-  }
-  ol.phases > li::before {
-    content: "第 " counter(ph) " 步"; display: block; font-size: 12px;
-    color: var(--accent); font-weight: 700; margin-bottom: 6px;
-  }
-  ol.phases b { display: block; font-size: 15px; margin-bottom: 4px; }
-  ol.phases .dep { color: var(--ink-soft); font-size: 12.5px; margin-top: 6px; display: block; }
-  .aside-phase {
-    margin-top: 14px; font-size: 13.5px; color: var(--ink-soft);
-    border-left: 3px solid var(--accent); padding-left: 14px; max-width: 70ch;
-  }
-
-  .nots { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
-  .nots li {
-    font-size: 13px; color: var(--ink-soft); background: var(--surface-2);
-    border-radius: 999px; padding: 4px 14px;
-  }
-  .nots li::before { content: "✕ "; opacity: .6; }
-
-  .risks { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
-  .risk { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; font-size: 13.5px; }
-  .risk b { display: block; margin-bottom: 4px; font-size: 14.5px; }
-
-  footer { margin-top: 52px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-soft); }
-
-  .duality { font-size: 14px; color: var(--ink-soft); border-left: 3px solid var(--accent); padding-left: 14px; margin: 22px 0 0; max-width: 68ch; }
-
-  .rule-callout {
-    background: var(--accent-tint); border: 1px solid var(--accent); border-radius: 10px;
-    padding: 18px 22px; margin: 18px 0; font-size: 15px;
-  }
-  .rule-callout b { font-size: 17px; }
-  .rule-callout code {
-    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 14px;
-    background: var(--surface); border-radius: 6px; padding: 2px 8px;
-  }
-
-  .ledgers { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
-  .ledger { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; font-size: 13.5px; }
-  .ledger .name { font-family: "Songti TC","Noto Serif TC",serif; font-size: 18px; font-weight: 700; color: var(--accent); margin: 0 0 6px; }
-  .ledger p { margin: 6px 0; }
-
-  .dual-zone { display: flex; gap: 0; border: 1.4px solid var(--accent); border-radius: 12px; overflow: hidden; margin: 16px 0 8px; }
-  .dual-zone > div { flex: 1; padding: 16px 18px; font-size: 13.5px; }
-  .dual-zone .zone-a { background: var(--surface); border-right: 1px dashed var(--line); }
-  .dual-zone .zone-b { background: var(--surface-2); }
-  .dual-zone b { display: block; font-size: 15px; margin-bottom: 4px; }
-  .dual-zone .hint { color: var(--ink-soft); font-size: 12.5px; }
-
-  ul.facts, ul.changes, ul.done { font-size: 13.5px; color: var(--ink-soft); padding-left: 20px; }
-  ul.facts li, ul.changes li, ul.done li { margin: 6px 0; }
-  ul.done li b { color: var(--ink); }
-  .status { font-size: 11.5px; font-weight: 700; color: var(--accent); }
-  .status-new { font-size: 11px; font-weight: 700; color: var(--seal); border: 1px solid var(--seal); border-radius: 999px; padding: 1px 9px; margin-left: 8px; }
-  .tac { display:inline-block; padding:2px 14px; border:1px solid var(--line); border-radius:999px; margin:0 6px 4px 0; font-size:13px; color:var(--ink-soft); }
-  .tac.on { background:var(--accent-tint); border-color:var(--accent); color:var(--ink); font-weight:700; }
-  .seal-inline { display:inline-block; background:var(--seal); color:var(--seal-ink); border-radius:6px; padding:1px 10px; font-family:"Songti TC","Noto Serif TC",serif; font-weight:700; }
 </style>
 
 <div class="wrap">
   <header class="page">
     <p class="eyebrow">峨眉書院・文書組</p>
     <h1>峨眉資訊藍圖</h1>
-    <p class="creed">道場的紀錄與運作全面數位化：人的資料有正本、檔案找得到、對內有前門、對外有門面、史料傳得下去——而且整套不依賴任何一個人。</p>
-    <p class="readme">看不懂圖上的詞（戰術、印、層）？先讀 <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-map-legend.html" target="_blank" rel="noopener" style="color:var(--accent)">看圖指南</a>。這份文件給沒有參與過討論的人看：不需要先懂技術名詞，照順序讀下去就懂。這是總藍圖：只講全景——六個工具各自的定位、現況、彼此怎麼相互支援。每個工具的細部做法在各自的子策略地圖。</p>
+    <p class="oneline">把道場每天發生的事：記下來、找得到、送出去、傳下去。</p>
   </header>
 
-  <h2>策略地圖：策略 → 戰術 → 戰技</h2>
+  <h2>一場活動，會經過哪五站？</h2>
   <figure class="map">
-    <svg viewBox="0 0 1040 640" role="img" aria-label="總策略地圖：頂端是目標「峨眉活的史」，中層四個戰術（存、找、傳、承），底層六個工具是戰技；左側是三條護欄，右側是兩個讓系統活著的迴路">
+    <svg viewBox="0 0 1040 320" role="img" aria-label="一場活動的旅程：發生、存進知識庫、從道務平台找到、用LINE與信箱傳出去、寫成故事傳承；道籍系統在下方當名單引擎">
       <defs>
-        <marker id="tm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" />
-        </marker>
-        <marker id="ts" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" class="m-soft" />
-        </marker>
+        <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="m"/></marker>
+        <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="md"/></marker>
       </defs>
 
-      <!-- 目標（策略） -->
-      <rect class="box-goal" x="230" y="16" width="560" height="76" rx="10" />
-      <rect class="seal" x="246" y="30" width="48" height="48" rx="6" />
-      <text class="t-seal" x="270" y="62" text-anchor="middle">史</text>
-      <text class="t-title" x="308" y="46">為峨眉修一部活的史</text>
-      <text class="t-s" x="308" y="66">每一天的紀錄即時入冊、彼此連結；每一份奉獻被記得、</text>
-      <text class="t-s" x="308" y="82">繼續成全後人——而且整套不繫於任何一個人</text>
+      <rect class="st-box" x="16" y="36" width="176" height="124" rx="14"/>
+      <text class="t-emoji" x="36" y="76">🎪</text>
+      <text class="t-name" x="36" y="106">活動發生</text>
+      <text class="t-note" x="36" y="128">法會、班程、參訪⋯</text>
+      <text class="t-note" x="36" y="146">照片和紀錄產生了</text>
 
-      <!-- 戰術 → 目標 -->
-      <line class="flow" x1="300" y1="140" x2="300" y2="96" marker-end="url(#tm)" />
-      <line class="flow" x1="446" y1="140" x2="446" y2="96" marker-end="url(#tm)" />
-      <line class="flow" x1="592" y1="140" x2="592" y2="96" marker-end="url(#tm)" />
-      <line class="flow" x1="738" y1="140" x2="738" y2="96" marker-end="url(#tm)" />
+      <line class="flow" x1="192" y1="98" x2="218" y2="98" marker-end="url(#a)"/>
 
-      <!-- 戰術層 -->
-      <text class="t-tag" x="230" y="134">戰術（達成目標的四條路）</text>
-      <rect class="node" x="232" y="144" width="136" height="92" rx="10" />
-      <text class="t-h" x="248" y="172">存</text>
-      <text class="t-s" x="248" y="192">正本各歸其家：</text>
-      <text class="t-s" x="248" y="208">編號與個資進系統</text>
-      <rect class="node" x="378" y="144" width="136" height="92" rx="10" />
-      <text class="t-h" x="394" y="172">找</text>
-      <text class="t-s" x="394" y="192">三把鑰匙：人＝編號</text>
-      <text class="t-s" x="394" y="208">事＝日期、理＝詞條</text>
-      <rect class="node" x="524" y="144" width="136" height="92" rx="10" />
-      <text class="t-h" x="540" y="172">傳</text>
-      <text class="t-s" x="540" y="192">發一次就到位：</text>
-      <text class="t-s" x="540" y="208">選圈或選條件送達</text>
-      <rect class="node" x="670" y="144" width="136" height="92" rx="10" />
-      <text class="t-h" x="686" y="172">承</text>
-      <text class="t-s" x="686" y="192">故事的生命週期：</text>
-      <text class="t-s" x="686" y="208">素材→課題→人物誌</text>
+      <rect class="st-key" x="222" y="36" width="176" height="124" rx="14"/>
+      <text class="t-word" x="242" y="72">存</text>
+      <text class="t-emoji" x="352" y="74" text-anchor="end">📥</text>
+      <text class="t-name" x="242" y="106">知識庫</text>
+      <text class="t-note" x="242" y="128">檔案的家：每份資料</text>
+      <text class="t-note" x="242" y="146">有固定位置，不再亂丟</text>
 
+      <line class="flow" x1="398" y1="98" x2="424" y2="98" marker-end="url(#a)"/>
 
-      <rect x="240" y="222" width="100" height="6" rx="3" fill="var(--surface-2)" />
-      <rect x="240" y="222" width="60" height="6" rx="3" fill="var(--accent)" />
-      <text class="t-s" x="360" y="228" text-anchor="end">60%</text>
-      <rect x="386" y="222" width="100" height="6" rx="3" fill="var(--surface-2)" />
-      <rect x="386" y="222" width="40" height="6" rx="3" fill="var(--seal)" />
-      <text class="t-s" x="506" y="228" text-anchor="end">40%</text>
-      <rect x="532" y="222" width="100" height="6" rx="3" fill="var(--surface-2)" />
-      <rect x="532" y="222" width="35" height="6" rx="3" fill="var(--seal)" />
-      <text class="t-s" x="652" y="228" text-anchor="end">35%</text>
-      <rect x="678" y="222" width="100" height="6" rx="3" fill="var(--surface-2)" />
-      <rect x="678" y="222" width="20" height="6" rx="3" fill="var(--seal)" />
-      <text class="t-s" x="798" y="228" text-anchor="end">20%</text>
+      <rect class="st-key" x="428" y="36" width="176" height="124" rx="14"/>
+      <text class="t-word" x="448" y="72">找</text>
+      <text class="t-emoji" x="558" y="74" text-anchor="end">🔎</text>
+      <text class="t-name" x="448" y="106">道務平台</text>
+      <text class="t-note" x="448" y="128">前門服務台：不用問人</text>
+      <text class="t-note" x="448" y="146">自己就找得到</text>
 
-      <!-- 戰技掛戰術：四欄對齊 -->
-      <line class="flow" x1="300" y1="256" x2="300" y2="240" marker-end="url(#tm)" transform="rotate(180 300 248)" />
-      <line class="flow" x1="446" y1="256" x2="446" y2="240" marker-end="url(#tm)" transform="rotate(180 446 248)" />
-      <line class="flow" x1="592" y1="256" x2="592" y2="240" marker-end="url(#tm)" transform="rotate(180 592 248)" />
-      <line class="flow" x1="738" y1="256" x2="738" y2="240" marker-end="url(#tm)" transform="rotate(180 738 248)" />
+      <line class="flow" x1="604" y1="98" x2="630" y2="98" marker-end="url(#a)"/>
 
-      <rect class="container" x="232" y="260" width="136" height="76" rx="10" />
-      <rect class="chip" x="236" y="268" width="128" height="26" rx="6" />
-      <text class="t-s" x="300" y="286" text-anchor="middle">道籍：人的正本</text>
-      <rect class="chip" x="236" y="298" width="128" height="26" rx="6" />
-      <text class="t-s" x="300" y="316" text-anchor="middle">知識庫：檔案的家</text>
+      <rect class="st-key" x="634" y="36" width="176" height="124" rx="14"/>
+      <text class="t-word" x="654" y="72">傳</text>
+      <text class="t-emoji" x="764" y="74" text-anchor="end">📣</text>
+      <text class="t-name" x="654" y="106">LINE＋信箱</text>
+      <text class="t-note" x="654" y="128">發一次，該收到的人</text>
+      <text class="t-note" x="654" y="146">都收到，公告留得住</text>
 
-      <rect class="container" x="378" y="260" width="136" height="106" rx="10" />
-      <rect class="chip" x="382" y="268" width="128" height="26" rx="6" />
-      <text class="t-s" x="446" y="286" text-anchor="middle">知識庫：目錄總表</text>
-      <rect class="chip" x="382" y="298" width="128" height="26" rx="6" />
-      <text class="t-s" x="446" y="316" text-anchor="middle">道籍：編號當鑰匙</text>
-      <rect class="chip" x="382" y="328" width="128" height="26" rx="6" />
-      <text class="t-s" x="446" y="346" text-anchor="middle">道務平台：前門</text>
+      <line class="flow" x1="810" y1="98" x2="836" y2="98" marker-end="url(#a)"/>
 
-      <rect class="container" x="524" y="260" width="136" height="166" rx="10" />
-      <rect class="chip" x="528" y="268" width="128" height="26" rx="6" />
-      <text class="t-s" x="592" y="286" text-anchor="middle">LINE：推到手機</text>
-      <rect class="chip" x="528" y="298" width="128" height="26" rx="6" />
-      <text class="t-s" x="592" y="316" text-anchor="middle">Gmail：寄正式件</text>
-      <rect class="chip" x="528" y="328" width="128" height="26" rx="6" />
-      <text class="t-s" x="592" y="346" text-anchor="middle">平台公告：留底</text>
-      <rect class="chip" x="528" y="358" width="128" height="26" rx="6" />
-      <text class="t-s" x="592" y="376" text-anchor="middle">道籍：受眾名單</text>
-      <rect class="chip" x="528" y="388" width="128" height="26" rx="6" />
-      <text class="t-s" x="592" y="406" text-anchor="middle">媒體：對外觸及</text>
+      <rect class="st-key" x="840" y="36" width="184" height="124" rx="14"/>
+      <text class="t-word" x="860" y="72">承</text>
+      <text class="t-emoji" x="1004" y="74" text-anchor="end">📖</text>
+      <text class="t-name" x="860" y="106">季刊 → 文獻平台</text>
+      <text class="t-note" x="860" y="128">寫成故事給大家看，</text>
+      <text class="t-note" x="860" y="146">再永久保存給後人</text>
 
-      <rect class="container" x="670" y="260" width="136" height="136" rx="10" />
-      <rect class="chip" x="674" y="268" width="128" height="26" rx="6" />
-      <text class="t-s" x="738" y="286" text-anchor="middle">媒體：故事線</text>
-      <rect class="chip" x="674" y="298" width="128" height="26" rx="6" />
-      <text class="t-s" x="738" y="316" text-anchor="middle">文獻平台：典藏</text>
-      <rect class="chip" x="674" y="328" width="128" height="26" rx="6" />
-      <text class="t-s" x="738" y="346" text-anchor="middle">知識庫：素材庫</text>
-      <rect class="chip" x="674" y="358" width="128" height="26" rx="6" />
-      <text class="t-s" x="738" y="376" text-anchor="middle">道籍：足跡累積</text>
+      <rect class="st-engine" x="278" y="226" width="484" height="70" rx="14"/>
+      <text class="t-emoji" x="300" y="270">🪪</text>
+      <text class="t-name" x="344" y="256">道籍系統（名單引擎）</text>
+      <text class="t-note" x="344" y="278">誰能看、該通知誰、這個人是誰——都問它</text>
 
-      <text class="t-lbl-a" x="510" y="452" text-anchor="middle">戰技掛在戰術下——一個工具可以出現在多條路上：媒體串傳與承，道籍撐起全部四條，工具換代、四條路不換</text>
-
-      <!-- 左護欄 -->
-      <rect class="rail" x="16" y="144" width="196" height="316" rx="12" />
-      <text class="t-tag" x="32" y="172">護欄（不可越的線）</text>
-      <text class="t" x="32" y="202">不繫於任何一人</text>
-      <text class="t-s" x="32" y="220">SOP 與交接性是完整的一部分</text>
-      <text class="t" x="32" y="250">文書組時間必須變少</text>
-      <text class="t-s" x="32" y="268">變多＝修系統，不是加人</text>
-      <text class="t" x="32" y="298">權限跟著職務走</text>
-      <text class="t-s" x="32" y="316">換人做，權限自動換</text>
-      <text class="t" x="32" y="346">個資用系統管</text>
-      <text class="t-s" x="32" y="364">不落地成檔案散在硬碟</text>
-      <line class="guard" x1="212" y1="290" x2="228" y2="290" marker-end="url(#ts)" />
-
-      <!-- 右迴路 -->
-      <rect class="rail" x="830" y="144" width="194" height="140" rx="12" />
-      <text class="t-tag" x="846" y="172">投入的閘門</text>
-      <text class="t-s" x="846" y="190">使用證據決定力氣往哪放</text>
-      <text class="t" x="846" y="218">有人走的路做深</text>
-      <text class="t" x="846" y="244">沒人走的保留不擴建</text>
-      <text class="t-s" x="846" y="270">是排序的尺，不是成績單</text>
-      <line class="arrow" x1="810" y1="190" x2="826" y2="190" marker-end="url(#ts)" />
-
-      <rect class="rail" x="830" y="308" width="194" height="152" rx="12" />
-      <text class="t-tag" x="846" y="336">秩序靠機器</text>
-      <text class="t" x="846" y="364">月巡檢自動歸位</text>
-      <text class="t" x="846" y="390">名單隨職務自動同步</text>
-      <text class="t" x="846" y="416">品質壞了清存量＋堵源頭</text>
-      <text class="t-s" x="846" y="442">人只做判斷，機器做整理</text>
-      <line class="arrow" x1="810" y1="380" x2="826" y2="380" marker-end="url(#ts)" />
+      <line class="flow-up" x1="480" y1="226" x2="500" y2="164" marker-end="url(#b)"/>
+      <line class="flow-up" x1="640" y1="226" x2="700" y2="164" marker-end="url(#b)"/>
     </svg>
-    <figcaption>由下往上讀：工具（戰技）撐起四條路（戰術），四條路撐起目標——藍色箭頭＝誰撐誰。戰術框裡的小橫條＝進度條（覆蓋條）：這條路走了多遠，藍＝已過半、紅＝未過半（粗估，每季校準；紅不全是落後，有的是排程未到）。左＝護欄，右＝讓系統自己轉的兩個迴路。</figcaption>
-  </figure>
-  <figure class="map">
-    <svg viewBox="0 0 1040 130" role="img" aria-label="紅印勾稽：史等於活加脈加彰">
-      <rect class="seal" x="160" y="24" width="56" height="56" rx="8" /><text class="t-seal" x="188" y="62" text-anchor="middle">史</text>
-      <text class="t-title" x="252" y="60" text-anchor="middle">＝</text>
-      <rect class="seal" x="292" y="24" width="56" height="56" rx="8" /><text class="t-seal" x="320" y="62" text-anchor="middle">活</text>
-      <text class="t-s" x="320" y="102" text-anchor="middle">知識庫：記憶＝地基</text>
-      <text class="t-title" x="392" y="60" text-anchor="middle">＋</text>
-      <rect class="seal" x="432" y="24" width="56" height="56" rx="8" /><text class="t-seal" x="460" y="62" text-anchor="middle">脈</text>
-      <text class="t-s" x="460" y="102" text-anchor="middle">道籍：人的法脈＝骨</text>
-      <text class="t-title" x="532" y="60" text-anchor="middle">＋</text>
-      <rect class="seal" x="572" y="24" width="56" height="56" rx="8" /><text class="t-seal" x="600" y="62" text-anchor="middle">彰</text>
-      <text class="t-s" x="600" y="102" text-anchor="middle">媒體：故事＝面容</text>
-      <text class="t-s" x="800" y="62">子圖開頭都標「上承哪幾條戰術」＋自己的印</text>
-    </svg>
-  </figure>
-  <div class="rule-callout">
-    <b>這部史誰在修：文書組。</b>它的手臂從道場初期就一直在變寬，而且一隻都沒收回：法會文書（抄黑板、錄訓文＝第一手史料的採集）→ 加上道務文書（會議紀錄＝辦事順手長出史料）→ 現在加上修史（把七十年順手留下的收整成秩序）。三隻手臂今天都還在手上——修史不是文書組的新業務，是本行的自覺化。
-  </div>
-
-  <h2>全景：峨眉的六個數位工具（戰技層）</h2>
-  <p class="lede">六個工具各管各的、互相引用、不重複存。三層定位一張表：</p>
-  <div class="table-scroll">
-    <table>
-      <tr><th>層</th><th>做什麼</th><th>成員</th></tr>
-      <tr><td class="who">儲存層</td><td>管資產的正本</td><td>道籍（人）・知識庫（檔案）</td></tr>
-      <tr><td class="who">媒體層</td><td>說故事</td><td>道峨眉（當期，像雜誌）・文獻平台（典藏，像藏經閣）</td></tr>
-      <tr><td class="who">管道層</td><td>送信、開門</td><td>LINE・Gmail・道務平台</td></tr>
-    </table>
-  </div>
-  <p class="lede">每個工具有自己的子策略地圖（目錄見文末）。工具之間的關係圖：</p>
-  <figure class="map">
-    <svg viewBox="0 0 1040 430" role="img" aria-label="六個系統的關係圖：道籍系統管人，知識庫管檔案；道務平台是內部前門、道峨眉是對外門面、文獻平台是未來的典藏出版，三者都從知識庫取材">
-      <defs>
-        <marker id="pa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" />
-        </marker>
-        <marker id="pg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" class="m-soft" />
-        </marker>
-      </defs>
-
-      <rect class="node" x="36" y="30" width="230" height="88" rx="10" />
-      <text class="t-h" x="52" y="56">LINE 小幫手（隨身觸角）</text>
-      <text class="t-s" x="52" y="76">道籍系統伸進每個人手機的介面：</text>
-      <text class="t-s" x="52" y="94">查詢、報到、通知提醒</text>
-
-      <line class="flow" x1="150" y1="122" x2="150" y2="156" marker-end="url(#pa)" />
-
-      <rect class="node" x="36" y="160" width="230" height="104" rx="10" />
-      <text class="t-h" x="52" y="186">道籍系統</text>
-      <text class="t-s" x="52" y="206">管「人」的正本：道親、職務、</text>
-      <text class="t-s" x="52" y="224">法會班程名單</text>
-      <text class="t-s" x="52" y="248">內部使用，禁止搜尋引擎收錄</text>
-
-      <rect class="box-goal" x="390" y="150" width="260" height="124" rx="10" />
-      <text class="t-h" x="406" y="178">知識庫／文獻庫（第二部）</text>
-      <text class="t-s" x="406" y="198">管「檔案」的正本：照片、錄音、</text>
-      <text class="t-s" x="406" y="216">影音、文件、史料</text>
-      <text class="t-s" x="406" y="240">25 顆硬碟＋各種目錄總表，</text>
-      <text class="t-s" x="406" y="258">內容不外流，靠三個出口見人</text>
-
-      <rect class="node" x="770" y="30" width="234" height="96" rx="10" />
-      <text class="t-h" x="786" y="56">道務平台（內部前門）</text>
-      <text class="t-s" x="786" y="76">Google Site，各組頁：查活動、</text>
-      <text class="t-s" x="786" y="94">常用範本、業務夾捷徑</text>
-      <text class="t-s" x="786" y="114">不存資料，只放入口和捷徑</text>
-
-      <rect class="node" x="770" y="166" width="234" height="96" rx="10" />
-      <text class="t-h" x="786" y="192">道峨眉季刊（門面＋採集）</text>
-      <text class="t-s" x="786" y="212">dao.emsy.tw，2022 年起 70+ 頁</text>
-      <text class="t-s" x="786" y="230">對外開放搜尋；對內是年輕世代</text>
-      <text class="t-s" x="786" y="250">做訪談、寫心得的當代記錄入口</text>
-
-      <rect class="node" x="770" y="302" width="234" height="96" rx="10" />
-      <text class="t-h" x="786" y="328">文獻平台（未來）</text>
-      <text class="t-s" x="786" y="348">仿慈濟大藏經：時間軸、人物誌、</text>
-      <text class="t-s" x="786" y="366">相片牆、口述歷史</text>
-      <text class="t-s" x="786" y="386">先有內容再蓋平台，策展後上架</text>
-
-      <line class="flow" x1="270" y1="205" x2="386" y2="205" marker-end="url(#pa)" />
-      <text class="t-lbl-a" x="328" y="196" text-anchor="middle">權限名單（第 4 步接上）</text>
-      <line class="guard" x1="386" y1="232" x2="270" y2="232" marker-end="url(#pg)" />
-      <line class="guard" x1="270" y1="248" x2="386" y2="248" marker-end="url(#pg)" />
-      <text class="t-lbl" x="328" y="224" text-anchor="middle">檔案與場次互相引用</text>
-      <text class="t-lbl" x="328" y="268" text-anchor="middle">（還沒接，虛線＝未來）</text>
-
-      <line class="flow" x1="654" y1="182" x2="766" y2="90" marker-end="url(#pa)" />
-      <text class="t-lbl-a" x="700" y="118" text-anchor="middle">內部的人從前門查</text>
-
-      <line class="flow" x1="654" y1="206" x2="766" y2="206" marker-end="url(#pa)" />
-      <text class="t-lbl-a" x="710" y="198" text-anchor="middle">素材從這裡取</text>
-      <line class="flow" x1="766" y1="228" x2="654" y2="228" marker-end="url(#pa)" />
-      <text class="t-lbl" x="678" y="244" text-anchor="middle">每期訪談心得回流歸檔＝新史料</text>
-
-      <line class="flow" x1="654" y1="248" x2="766" y2="342" marker-end="url(#pa)" />
-      <text class="t-lbl-a" x="700" y="312" text-anchor="middle">策展選件後出版</text>
-
-      <path class="guard" d="M 150 264 C 150 400, 500 415, 766 384" marker-end="url(#pg)" />
-      <text class="t-lbl" x="440" y="402" text-anchor="middle">人物誌、大事記的骨架掛道籍編號反查</text>
-    </svg>
-    <figcaption>實線＝已接或近期接上，虛線＝規劃中。道籍與知識庫目前零互引：第一條真正的線是第 4 步的權限名單，之後靠場次編號與人物欄互引把虛線變實線（驗收判準已定，排程置後）。</figcaption>
+    <figcaption class="cap">每一站有一個幫手負責。底下的道籍系統是共用引擎：權限和名單它說了算。</figcaption>
   </figure>
 
-  <h2>六個工具的現況與下一步</h2>
-  <div class="table-scroll">
-    <table>
-      <tr><th>工具</th><th>現況</th><th>下一步</th></tr>
-      <tr><td class="who">道籍系統（儲存層）</td><td>運轉中：功能大致做齊，進入收尾鞏固期</td><td>收尾既有模組、觀察使用率；未來可複製給友單位。<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daoji-system-strategy-map.html" target="_blank" rel="noopener" style="color:var(--accent)">→ 道籍系統策略地圖（子圖）</a></td></tr>
-      <tr><td class="who">LINE 小幫手（管道層）</td><td>運轉中</td><td>跟著道籍系統的功能一起長</td></tr>
-      <tr><td class="who">知識庫／文獻庫（儲存層）</td><td>藍圖定稿，動工前</td><td>照五步路線圖施工：開碟→搬家→個資出清→發鑰匙→入住。<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-knowledge-base-strategy-map.html" target="_blank" rel="noopener" style="color:var(--accent)">→ 知識庫策略地圖（子圖）</a></td></tr>
-      <tr><td class="who">道務平台（管道層）</td><td>草稿站已建：視覺定稿、六頁導覽、四卡入口；首頁公告管理已出書面設計規格，待審閱</td><td>知識庫第 4 步之後接資料夾、設權限、發布。<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daowu-platform-implementation-map.html" target="_blank" rel="noopener" style="color:var(--accent)">→ 道務平台實作地圖（子圖）</a>　<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-22-announcement-management-spec.html" target="_blank" rel="noopener" style="color:var(--accent)">→ 首頁公告管理設計規格</a></td></tr>
-      <tr><td class="who">道峨眉季刊（媒體層）</td><td>運轉中：70+ 頁，Google 收錄推進中</td><td>照常出刊；素材之後改從知識庫取</td></tr>
-      <tr><td class="who">文獻平台（媒體層）</td><td>未動工（刻意：先有內容再蓋平台）；收錄標準與雛形已定稿</td><td>等知識庫策展出第一批內容再蓋。<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-literature-platform-implementation-map.html" target="_blank" rel="noopener" style="color:var(--accent)">→ 文獻平台實作地圖（子圖）</a></td></tr>
-    </table>
+  <h2>六個幫手，各管什麼？</h2>
+  <div class="grid">
+    <div class="hub">
+      <div class="top"><span class="name">🪪 道籍系統</span><span class="chip c-em">運轉中</span></div>
+      <div class="say">人的戶口本。每個人的資料只有一份正本，職務換了、權限自動跟著換。</div>
+    </div>
+    <div class="hub">
+      <div class="top"><span class="name">📥 知識庫</span><span class="chip c-am">搬家施工中</span></div>
+      <div class="say">檔案的家。從「倉庫」整理成「圖書館」：每份檔案有地址，用人名、日期、主題都找得到。</div>
+    </div>
+    <div class="hub">
+      <div class="top"><span class="name">🔎 道務平台</span><span class="chip c-am">門面蓋好，還沒開門</span></div>
+      <div class="say">前門服務台。表單、紀錄、公告從這裡進。等知識庫搬好家再開門，才不會白接一次。</div>
+    </div>
+    <div class="hub">
+      <div class="top"><span class="name">📣 LINE 小幫手</span><span class="chip c-em">運轉中</span></div>
+      <div class="say">送信的。重要的事推到手機上；正式的事走信箱。發的人只發一次。</div>
+    </div>
+    <div class="hub">
+      <div class="top"><span class="name">📖 道峨眉季刊</span><span class="chip c-em">運轉中</span></div>
+      <div class="say">說故事的。把道場的事講給外面聽；年輕人採訪寫心得，記錄的人自己先被成全。</div>
+    </div>
+    <div class="hub">
+      <div class="top"><span class="name">🏛️ 文獻平台</span><span class="chip c-gy">先有內容再蓋</span></div>
+      <div class="say">藏經閣。前人的故事永久典藏——人物誌、時間軸、口述歷史。內容備齊才動工。</div>
+    </div>
   </div>
 
-  <h2>資訊怎麼傳到人身上</h2>
-  <p style="font-size:14px; max-width:70ch; color:var(--ink-soft);">知識庫管「存」，不管「傳」。現況的痛：訊息靠各 LINE 群人工轉發，該知道的沒收到、不該收的重複收、舊公告要爬群組紀錄。解法是<b>單一發布口</b>：發布的人只發一次、選「給誰」，機器分三路送到：</p>
-  <div class="table-scroll">
-    <table>
-      <tr><th>角色</th><th>做什麼</th></tr>
-      <tr><td class="who">發布的人</td><td>寫一次、選群組（全體有職務者／點傳師／某組／某區）、勾管道——就結束了</td></tr>
-      <tr><td class="who">道籍系統</td><td>名單引擎：群組裡現在是誰它最清楚，職務異動自動跟上</td></tr>
-      <tr><td class="who">LINE 小幫手</td><td>推短通知、提醒、要行動的（道親的主要介質）</td></tr>
-      <tr><td class="who">Gmail 群組信箱</td><td>寄正式的：開會通知、附件公文、要留痕的（主要給幹部與對外）。Google 群組天生自帶信箱，寄群組地址＝全員收到</td></tr>
-      <tr><td class="who">道務平台</td><td>公告欄留底，事後查得到，不用爬群組</td></tr>
-      <tr><td class="who">知識庫</td><td>跟活動相關的公告隨活動流歸年夾</td></tr>
-    </table>
-  </div>
-  <p class="aside-phase"><b>零新基建：</b>23 個群組一魚三吃——道籍同步一次名單，三處同時到位：</p>
-  <div class="table-scroll">
-    <table>
-      <tr><th>用在</th><th>管什麼</th></tr>
-      <tr><td class="who">Drive 權限</td><td>這份檔案誰能看</td></tr>
-      <tr><td class="who">LINE 推播</td><td>推給誰</td></tr>
-      <tr><td class="who">Email 名單</td><td>寄給誰</td></tr>
-    </table>
-  </div>
-  <p class="aside-phase">排程掛道籍 backlog＋道務平台公告欄（第 4 步後開組頁時一起做），不進五步、不算新工程。</p>
-  <div class="table-scroll">
-    <table>
-      <tr><th>受眾選法</th><th>用在</th><th>引擎</th></tr>
-      <tr><td class="who">選圈（群組）</td><td>公告、檔案權限——名單跟職務走</td><td>23 個群組</td></tr>
-      <tr><td class="who">選條件（動態名單）</td><td>青年營隊這類「一種人」</td><td>道籍撈年齡・區・參與史（行為＝最好的標籤，越用越準）</td></tr>
-    </table>
-  </div>
-  <p class="aside-phase">沒綁 LINE 的不會漏接：名單按區拆給窗口，一人三五個名字精準去邀。撈受眾＝動用個資，只在道籍的權限與稽核內做。</p>
-  <p class="lede"><b>實體會議是原生管道</b>，數位掛在它的月節奏上（會後 48 小時寄發歸檔），不另創節奏：</p>
-  <div class="table-scroll">
-    <table>
-      <tr><th>實體會議（原生）</th><th>對應數位群組</th><th>數位補強</th></tr>
-      <tr><td class="who">策劃會（幹部）</td><td>窗口＋經理＋點傳師</td><td>紀錄歸 209會議碟</td></tr>
-      <tr><td class="who">聯絡圈（講師壇主）</td><td>講師群＋壇主群</td><td>摘要 Gmail 寄發＋平台留底</td></tr>
-      <tr><td class="who">小聯絡圈（基層）</td><td>各區群組</td><td>窗口轉達＋LINE 重點推播</td></tr>
-    </table>
-  </div>
-  <p class="aside-phase">數位補實體做不到的三件事：缺席補課・留底可查・精準到人。一場月會動線：開會 → 紀錄 → 寄發留底（傳）→ 歸 209 碟（存）→ 查大事（找）→ 進特刊課題（承）。哪圈對哪群為初排，待校。</p>
-
-  <h2>建設順序</h2>
-  <figure class="map">
-    <svg viewBox="0 0 1040 206" role="img" aria-label="建設順序時間軸：現在做知識庫五步施工，接著開道務平台各組頁與窗口制度，然後文獻策展並蓋文獻平台，排後面是道籍與知識庫的接線；底下一條持續進行的常態工作">
-      <rect class="box-goal" x="16" y="16" width="232" height="92" rx="10" />
-      <text class="t-tag" x="32" y="42">現在</text>
-      <text class="t-h" x="32" y="64">知識庫五步施工</text>
-      <text class="t-s" x="32" y="84">本文件第二部的主體</text>
-
-      <line class="flow" x1="248" y1="62" x2="266" y2="62" marker-end="url(#pa)" />
-
-      <rect class="node" x="270" y="16" width="238" height="92" rx="10" />
-      <text class="t-tag" x="286" y="42">接著</text>
-      <text class="t-h" x="286" y="64">道務平台各組頁＋窗口制度</text>
-      <text class="t-s" x="286" y="84">就是五步的第 4、5 步</text>
-
-      <line class="flow" x1="508" y1="62" x2="526" y2="62" marker-end="url(#pa)" />
-
-      <rect class="node" x="530" y="16" width="238" height="92" rx="10" />
-      <text class="t-tag" x="546" y="42">然後</text>
-      <text class="t-h" x="546" y="64">文獻策展 → 蓋文獻平台</text>
-      <text class="t-s" x="546" y="84">先有內容再蓋平台</text>
-
-      <line class="flow" x1="768" y1="62" x2="786" y2="62" marker-end="url(#pa)" />
-
-      <rect class="node" x="790" y="16" width="234" height="92" rx="10" />
-      <text class="t-tag" x="806" y="42">排後面</text>
-      <text class="t-h" x="806" y="64">道籍×知識庫接線</text>
-      <text class="t-s" x="806" y="84">怎麼驗收已定好，先不動工</text>
-
-      <rect class="rail" x="16" y="136" width="1008" height="52" rx="10" />
-      <text class="t-h" x="32" y="162">一直做</text>
-      <text class="t-s" x="120" y="162">道籍系統收尾鞏固　・　季刊照常出刊　・　月巡檢（知識庫上線後每月自動跑）</text>
-    </svg>
-  </figure>
-
-  <h2>什麼時候才算「完整建立」</h2>
-  <p style="font-size:14px; max-width:70ch; color:var(--ink-soft);">藍圖畫完不等於系統活著。六個工具目前真正活著的是三個（道籍、LINE、季刊），另外三個還在施工或排隊。整體算「完整建立」要看得到三個訊號，外加一個結構性條件：</p>
-  <div class="risks">
-    <div class="risk"><b>訊號一：巡檢自己轉</b>知識庫的每月檢查連續兩期不用人催就跑完、報告有人看。</div>
-    <div class="risk"><b>訊號二：前門有人走</b>道務平台的各組頁真的有人點進來查活動、拿範本。</div>
-    <div class="risk"><b>訊號三：制度接住人</b>歸檔窗口制度跑過兩三場活動，檔案照規矩進了家。</div>
-    <div class="risk"><b>結構條件：不繫於一人</b>目前整套的工具維護、制度設計、報告判讀都繫在一個人身上。真正的完整包含交接性：SOP 與教學手冊到位，換人也能轉。</div>
+  <h2>四件事，做到哪了？</h2>
+  <div class="prog">
+    <div class="p-card">
+      <span class="p-word">存</span>　<span class="p-num">60<small>%</small></span>
+      <div class="p-say">正本各歸其家</div>
+      <div class="bar"><i style="width:60%"></i></div>
+    </div>
+    <div class="p-card">
+      <span class="p-word">找</span>　<span class="p-num">40<small>%</small></span>
+      <div class="p-say">人名、日期、主題都查得到</div>
+      <div class="bar"><i style="width:40%"></i></div>
+    </div>
+    <div class="p-card">
+      <span class="p-word">傳</span>　<span class="p-num">35<small>%</small></span>
+      <div class="p-say">發一次就到位</div>
+      <div class="bar"><i style="width:35%"></i></div>
+    </div>
+    <div class="p-card">
+      <span class="p-word">承</span>　<span class="p-num">20<small>%</small></span>
+      <div class="p-say">故事傳得下去</div>
+      <div class="bar"><i style="width:20%"></i></div>
+    </div>
   </div>
 
-  <h2>紅線：文書組的時間必須變少</h2>
-  <p style="font-size:14px; max-width:70ch; color:var(--ink-soft);">這套系統的目的，是把人從整理檔案裡放出來，去辦活動、去成全人。如果上線之後文書組花在檔案上的時間反而變多，不管系統多漂亮都算失敗。這條紅線用三個機器自己量得到的數字看（不叫任何人填工時表），每季跟使用回顧一起看一眼：</p>
-  <div class="table-scroll">
-    <table>
-      <tr><th>指標</th><th>方向</th><th>誰在量</th></tr>
-      <tr><td class="who">機器自動歸位率</td><td>要往上</td><td>月巡檢報告自帶（自動分好 vs 需要人工判的比例）</td></tr>
-      <tr><td class="who">被問路次數</td><td>要往下</td><td>文書組隨手記的提問表</td></tr>
-      <tr><td class="who">巡檢例外件數</td><td>要往下</td><td>月巡檢報告自帶（歸錯、需人工修的）</td></tr>
-    </table>
+  <h2>接下來蓋什麼？</h2>
+  <div class="steps">
+    <div class="step"><div class="when">現在</div><div class="what">知識庫搬家</div><div class="why">開碟→搬檔→出清個資→發鑰匙</div></div>
+    <span class="arrow-h">→</span>
+    <div class="step"><div class="when">接著</div><div class="what">道務平台開門</div><div class="why">接資料、設權限、發布</div></div>
+    <span class="arrow-h">→</span>
+    <div class="step"><div class="when">然後</div><div class="what">策展說故事</div><div class="why">選出第一批內容，再蓋文獻平台</div></div>
+    <span class="arrow-h">→</span>
+    <div class="step"><div class="when">最後</div><div class="what">全部接起來</div><div class="why">道籍×知識庫互相連結</div></div>
   </div>
-  <div class="table-scroll">
-    <table>
-      <tr><th>紅線配套</th><th>規則</th></tr>
-      <tr><td class="who">維運預算</td><td>文書組例行維運每月 ≤ 半天。超標＝系統的 bug：修系統（改規則、補路標、加自動化），永遠不是加人</td></tr>
-      <tr><td class="who">加碼兩問</td><td>任何人提議新增「人要做的事」，先答：機器能不能做？不做會怎樣？答不出來就不加</td></tr>
-    </table>
-  </div>
-  <p class="aside-phase">系統最大的敵人不是亂，是好意的加碼。</p>
+  <div class="always">一直在做：季刊照常出刊・道籍系統收尾鞏固・（知識庫上線後）每月自動巡檢</div>
 
-  <h2>交接與培訓：這套東西怎麼傳給下一個人</h2>
-  <p class="lede">整套系統目前繫在一個人身上——這是「完整建立」判準裡承認過的結構風險，但一直沒有解法。解法從拆解開始：不找一個「接班人」接下全部，而是拆成三種角色，各自的門檻差很多：</p>
-  <div class="cards">
-    <div class="card"><b>操作的人（門檻低）</b>文書組例行：每月批准搬移清單（半小時）、辦說明會、記錄誰來問路。能力需求：會用雲端硬碟、照口袋卡做事。<b>現在就能交</b>——口袋卡跟 00 說明檔就是他的教材。</div>
-    <div class="card"><b>判讀的人（真正要培養）</b>看懂月巡檢報告、紅線三指標，決定例外怎麼處理、規則要不要調。能力需求：讀得懂這幾張策略地圖、有「口徑、正本、權責」的資料治理直覺。<b>這是培訓的主對象</b>——從歸檔窗口裡找有感覺的人，先當半年批准人，再帶著看報告。</div>
-    <div class="card"><b>維護工具的人（可以借力）</b>改腳本、修系統。能力需求：不必會寫程式——會跟 AI 協作、照施工 spec 把事說清楚就夠（這套系統本來就是這樣蓋起來的）。所有 spec、藍圖、施工單都是白話文件，就是為了這一天。</div>
-  </div>
-  <div class="rule-callout">
-    <b>交接性驗收：</b>每半年演練一次——沒參與過建置的前賢，只靠文件（藍圖＋口袋卡＋施工 spec）獨立跑完一輪月巡檢批准。做得到＝交接性成立；卡住的地方＝文件該補的洞。<br>
-    <small style="color:var(--ink-soft)">配套：教學手冊・影子期（跟跑兩期再接手）・每季把「來問的問題」回寫口袋卡。培訓不是辦一堂課，是讓文件強到新人敢自己動手。</small>
+  <h2>兩條鐵則</h2>
+  <div class="rules">
+    <div class="rule">
+      <div class="t">🚦 文書組要更輕鬆</div>
+      <div class="s">系統上線後，整理檔案的時間必須變少。變多了就是系統的錯——修系統，永遠不是加人。</div>
+    </div>
+    <div class="rule">
+      <div class="t">🔑 不能只有一個人會</div>
+      <div class="s">文件要寫到「沒參與過的人，照著做也能接手」。每半年演練一次，卡住的地方就是文件的洞。</div>
+    </div>
   </div>
 
-  <h2>北極星：一個人的故事怎麼永流傳</h2>
-  <p style="font-size:14px; max-width:70ch; color:var(--ink-soft);">整套系統存在的最終理由：前人歸空，組織不因此失去他——他的奉獻換一種形式留下來，繼續成全後面的人。</p>
-  <figure class="map">
-    <svg viewBox="0 0 1040 340" role="img" aria-label="生命週期圖：素材、特刊、課題、人物誌四站依序前進，課題被講授時產生新活動紀錄迴流回素材；上方是可更換的媒體出口；底部是北極星驗收">
-      <rect class="rail" x="250" y="16" width="540" height="44" rx="10" />
-      <text class="t" x="520" y="43" text-anchor="middle">出口（會換代）：季刊・頻道・Podcast・課題</text>
-      <line class="guard" x1="395" y1="106" x2="395" y2="64" marker-end="url(#pg)" />
-      <line class="guard" x1="645" y1="106" x2="645" y2="64" marker-end="url(#pg)" />
-      <text class="t-lbl" x="520" y="88" text-anchor="middle">同一條故事線，多種形式輸出</text>
-
-      <rect class="node" x="16" y="110" width="224" height="78" rx="10" />
-      <text class="t-h" x="32" y="138">素材</text>
-      <text class="t-s" x="32" y="158">平時每場活動</text>
-      <text class="t-s" x="32" y="176">照規矩歸檔</text>
-      <line class="flow" x1="240" y1="149" x2="266" y2="149" marker-end="url(#pa)" />
-      <rect class="node" x="270" y="110" width="224" height="78" rx="10" />
-      <text class="t-h" x="286" y="138">特刊</text>
-      <text class="t-s" x="286" y="158">歸空當天，素材包</text>
-      <text class="t-s" x="286" y="176">一天拉齊，編成紀念</text>
-      <line class="flow" x1="494" y1="149" x2="520" y2="149" marker-end="url(#pa)" />
-      <rect class="node" x="524" y="110" width="224" height="78" rx="10" />
-      <text class="t-h" x="540" y="138">課題</text>
-      <text class="t-s" x="540" y="158">行誼編成課題包進 102</text>
-      <text class="t-s" x="540" y="176">每屆班程都能講</text>
-      <line class="flow" x1="748" y1="149" x2="774" y2="149" marker-end="url(#pa)" />
-      <rect class="node" x="778" y="110" width="224" height="78" rx="10" />
-      <text class="t-h" x="794" y="138">人物誌</text>
-      <text class="t-s" x="794" y="158">文獻平台永久典藏</text>
-      <text class="t-s" x="794" y="176">後人查得到源頭</text>
-
-      <polyline class="flow" points="636,188 636,232 128,232 128,192" marker-end="url(#pa)" />
-      <text class="t-lbl-a" x="382" y="224" text-anchor="middle">講他課題的班程＝新的活動，掛著他的編號再入庫——影響力持續累積</text>
-
-      <rect class="box-gate" x="16" y="264" width="1008" height="56" rx="10" />
-      <text class="t-h" x="36" y="288">北極星驗收</text>
-      <text class="t" x="36" y="310">任何一位前人歸空，一天之內拉出完整素材包：年表＋活動清單＋照片＋錄音＋文字，全附連結</text>
-    </svg>
-    <figcaption>誠實的界線：系統拉得齊「有記載的」；照片裡沒標名字的人，要等文獻平台的人物標記工程。系統的職責是把「找」從三個月變三天，把人力留給「寫」，以及喪禮與活動安排這些更重要的事。</figcaption>
-  </figure>
-
-  <h2>第四條軸：訓文印證索引</h2>
-  <p style="font-size:14px; max-width:70ch; color:var(--ink-soft);">仙佛在訓文裡常藉一個人、一件事來印證一個道理——這層關係目前只存在讀過的人腦中。解法：讀訓文的人隨手在一張表上加一列，把三把鑰匙掛上去。</p>
-  <figure class="map">
-    <svg viewBox="0 0 1040 220" role="img" aria-label="訓文印證索引：中央是一段訓文，三條線分別連到人（道籍編號）、事（日期活動名）、理（辭典詞條）">
-      <rect class="box-goal" x="60" y="76" width="300" height="68" rx="10" />
-      <text class="t-h" x="80" y="104">一段訓文</text>
-      <text class="t-s" x="80" y="126">出處連結＋段落，誰註記的</text>
-
-      <line class="flow" x1="360" y1="94" x2="600" y2="46" marker-end="url(#pa)" />
-      <line class="flow" x1="360" y1="110" x2="600" y2="110" marker-end="url(#pa)" />
-      <line class="flow" x1="360" y1="126" x2="600" y2="176" marker-end="url(#pa)" />
-
-      <rect class="chip" x="604" y="20" width="380" height="50" rx="8" />
-      <text class="t-h" x="624" y="42">藉的人</text>
-      <text class="t-s" x="624" y="60">道籍編號——寫特刊查人，仙佛怎麼講他都列得出</text>
-      <rect class="chip" x="604" y="86" width="380" height="50" rx="8" />
-      <text class="t-h" x="624" y="108">藉的事</text>
-      <text class="t-s" x="624" y="126">日期＋活動名——串回總表那一場的照片錄音</text>
-      <rect class="chip" x="604" y="152" width="380" height="50" rx="8" />
-      <text class="t-h" x="624" y="174">印證的理</text>
-      <text class="t-s" x="624" y="192">辭典詞條——編課題查理，例證一次到齊</text>
-    </svg>
-    <figcaption>這張表跟訓文一起住 202 文史（點傳師層）；被選進課題的引文才進 102 對大家開放。三把鑰匙到齊：人＝道籍編號、事＝日期活動名、理＝辭典詞條。</figcaption>
-  </figure>
-
-
-  <h2>子策略地圖目錄</h2>
-  <p class="lede">總圖到此為止。往下鑽的子地圖照三層分類——儲存層管資產的正本、媒體層說故事（當期與典藏兩種節奏）、管道層送東西開門。管道本身沒有自己的資產與目標，整層共用一張策略（就是上面「資訊怎麼傳到人身上」那一節），不逐條成圖：</p>
-  <div class="table-scroll">
-    <table>
-      <tr><th>層</th><th>成員</th><th>子地圖</th></tr>
-      <tr><td class="who">儲存層（管資產）</td><td>道籍系統（人）</td><td><a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daoji-system-strategy-map.html" target="_blank" rel="noopener" style="color:var(--accent)">道籍系統策略地圖</a>　✅</td></tr>
-      <tr><td class="who"></td><td>知識庫／文獻庫（檔案）</td><td><a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-knowledge-base-strategy-map.html" target="_blank" rel="noopener" style="color:var(--accent)">峨眉知識庫策略地圖</a>　✅</td></tr>
-      <tr><td class="who">媒體層（說故事）</td><td>道峨眉起（當期，像雜誌；未來頻道、Podcast）</td><td><a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-media-strategy-map.html" target="_blank" rel="noopener" style="color:var(--accent)">峨眉媒體策略地圖</a>　✅</td></tr>
-      <tr><td class="who"></td><td>文獻平台（典藏，像藏經閣——素材正本在知識庫，上架的是策展後的呈現）</td><td><a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-literature-platform-implementation-map.html" target="_blank" rel="noopener" style="color:var(--accent)">文獻平台實作地圖</a>　✅</td></tr>
-      <tr><td class="who">管道層（傳遞與入口）</td><td>LINE 小幫手（推）、Gmail 群組信箱（寄）、道務平台公告欄（留底）</td><td>整層策略＝本圖「資訊怎麼傳到人身上」節，不另立圖</td></tr>
-      <tr><td class="who"></td><td>道務平台（門：各組頁與捷徑）</td><td>管道層唯一有實作要規劃的。<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daowu-platform-implementation-map.html" target="_blank" rel="noopener" style="color:var(--accent)">→ 道務平台實作地圖（子圖）</a></td></tr>
-      <tr><td class="who"></td><td>└ 首頁公告管理（道務平台第一支細部規格）</td><td><a href="https://neilliao.github.io/drive-inventory/specs/2026-08-22-announcement-management-spec.html" target="_blank" rel="noopener" style="color:var(--accent)">首頁公告管理設計規格</a>　✅ 對話設計已確認，待審閱書面規格</td></tr>
-    </table>
+  <h2>什麼時候算成功？</h2>
+  <div class="star">
+    <div class="seal">史</div>
+    <p class="big">有一天，一位前人歸空。一天之內，就能整理出他一生的紀錄——年表、活動、照片、錄音、文字。</p>
+    <p class="small">做得到這件事，整套系統就成了。這就是「為峨眉修一部活的史」。</p>
   </div>
 
-  <footer>
-    總藍圖 2026-08-22 更新（新增首頁公告管理設計規格連結）・六工具全景與相互支援範圍・各工具細部見子策略地圖・正本：drive-inventory/docs/specs/
-  </footer>
+  <h2>想看細節？</h2>
+  <div class="links">
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daoji-system-strategy-map.html">🪪 道籍系統 <small>策略地圖</small></a>
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-knowledge-base-strategy-map.html">📥 知識庫 <small>策略地圖・五步施工</small></a>
+    <div class="lgroup">
+      <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daowu-platform-implementation-map.html">🔎 道務平台 <small>實作地圖</small></a>
+      <a class="child" href="https://neilliao.github.io/drive-inventory/specs/2026-08-22-announcement-management-spec.html">└ 首頁公告管理 <small>設計規格</small></a>
+    </div>
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-media-strategy-map.html">📖 媒體（季刊） <small>策略地圖</small></a>
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-literature-platform-implementation-map.html">🏛️ 文獻平台 <small>實作地圖</small></a>
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-map-legend.html">🧭 看圖指南 <small>子地圖的名詞解釋</small></a>
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map-full.html">📄 完整詳版 <small>2026-08-20 定稿全文</small></a>
+  </div>
+
+  <footer>峨眉資訊藍圖・2026-08-22 精簡版・完整論述見「完整詳版」・正本：drive-inventory/docs/specs/</footer>
 </div>
