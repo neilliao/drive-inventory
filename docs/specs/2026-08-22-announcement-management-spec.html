@@ -185,6 +185,7 @@
     <h1>首頁公告管理設計規格</h1>
     <div class="meta-row">
       <span class="chip chip-am">對話設計已逐段確認</span>
+      <span class="chip chip-em">GAS 嵌入 prototype 已確認</span>
       <span class="chip chip-gy">等待審閱書面規格</span>
       <span class="meta-item">2026-08-22</span>
       <span class="meta-item">取代 2026-08-08 整合設計文件中的公告相關章節</span>
@@ -346,9 +347,10 @@
         <div class="check-row"><span class="check-mark">✓</span><span>核准並實際發布</span></div>
         <div class="check-row"><span class="check-mark">✓</span><span>決定是否置頂及置頂順序</span></div>
         <div class="check-row"><span class="check-mark">✓</span><span>核准內容或附件異動</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>保留投稿原稿後代為編輯，建立可追溯的新版本</span></div>
         <div class="check-row"><span class="check-mark">✓</span><span>實際下架或取消發布</span></div>
       </div>
-      <p style="font-size:13px; color:var(--ink-sub);">投稿人可以<strong style="color:var(--ink-sub);">提出</strong>置頂、發布時間、下架時間、取消發布與內容異動的建議或申請，但不能直接改變會員端內容。</p>
+      <p style="font-size:13px; color:var(--ink-sub);">投稿人可以<strong style="color:var(--ink-sub);">提出</strong>置頂、發布時間、下架時間、取消發布與內容異動的建議或申請，但不能直接改變會員端內容。平台管理員與文書組可代為編輯；原稿不得覆蓋，代編說明必填並記錄修改人與時間。文書組仍不能自行發布。</p>
     </div>
   </section>
 
@@ -412,7 +414,7 @@
         <li>投稿者填寫公告內容、建議發布設定、置頂建議、附件與相關資料夾。</li>
         <li>送出後狀態改為「待審核」，Google Sites 不會立即顯示。</li>
         <li>管理員收到 LINE 即時提醒。</li>
-        <li>管理員可核准、調整發布設定，或填寫原因退回。</li>
+        <li>管理員可核准、代為編輯、調整發布設定，或填寫原因退回；代編會保留原稿並建立工作版本。</li>
         <li>核准且到達發布時間後，公告才進入 Google Sites 會員端。</li>
       </ol>
     </div>
@@ -442,19 +444,30 @@
           <span class="field-tag">標題</span><span class="field-tag">摘要</span><span class="field-tag">詳細說明</span>
           <span class="field-tag">投稿單位類型</span><span class="field-tag">投稿單位ID</span><span class="field-tag">投稿人ID</span>
           <span class="field-tag">建議發布時間</span><span class="field-tag">實際發布時間</span>
+          <span class="field-tag">活動／報名截止時間</span><span class="field-tag">置頂截止時間</span>
           <span class="field-tag">建議下架時間</span><span class="field-tag">實際下架時間</span>
           <span class="field-tag">是否申請置頂</span><span class="field-tag">置頂申請原因</span>
           <span class="field-tag">是否置頂</span><span class="field-tag">置頂順序</span>
           <span class="field-tag">是否長期公告</span><span class="field-tag">下次檢視日</span>
           <span class="field-tag">審核人ID</span><span class="field-tag">審核時間</span><span class="field-tag">退回原因</span>
+          <span class="field-tag">原始版本號</span><span class="field-tag">工作版本號</span><span class="field-tag">發布版本號</span>
           <span class="field-tag">建立時間</span><span class="field-tag">最後更新時間</span>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="fg-head"><span class="name">公告版本</span><span class="note">原稿、代編與發布版本均保留</span></div>
+        <div class="field-list">
+          <span class="field-tag">公告編號</span><span class="field-tag">版本號</span><span class="field-tag">版本類型</span>
+          <span class="field-tag">標題快照</span><span class="field-tag">摘要快照</span><span class="field-tag">詳細說明快照</span>
+          <span class="field-tag">日期設定快照</span><span class="field-tag">編輯人ID</span><span class="field-tag">編輯時間</span><span class="field-tag">代編說明</span>
         </div>
       </div>
 
       <div class="field-group">
         <div class="fg-head"><span class="name">公告附件</span><span class="note">一對多，一列一項檔案</span></div>
         <div class="field-list">
-          <span class="field-tag">公告編號</span><span class="field-tag">Drive檔案ID</span><span class="field-tag">顯示名稱</span>
+          <span class="field-tag">公告編號</span><span class="field-tag">版本號</span><span class="field-tag">Drive檔案ID</span><span class="field-tag">顯示名稱</span>
           <span class="field-tag">檔案類型</span><span class="field-tag">用途說明</span><span class="field-tag">來源位置</span>
           <span class="field-tag">顯示順序</span><span class="field-tag">權限檢查結果</span><span class="field-tag">最後檢查時間</span>
         </div>
@@ -463,7 +476,7 @@
       <div class="field-group">
         <div class="fg-head"><span class="name">公告資料夾</span><span class="note">一對多，一列一個相關資料夾</span></div>
         <div class="field-list">
-          <span class="field-tag">公告編號</span><span class="field-tag">Drive資料夾ID</span><span class="field-tag">顯示名稱</span>
+          <span class="field-tag">公告編號</span><span class="field-tag">版本號</span><span class="field-tag">Drive資料夾ID</span><span class="field-tag">顯示名稱</span>
           <span class="field-tag">用途說明</span><span class="field-tag">所屬知識庫位置</span><span class="field-tag">是否允許內容持續更新</span>
           <span class="field-tag">顯示順序</span><span class="field-tag">權限檢查結果</span><span class="field-tag">最後檢查時間</span>
         </div>
@@ -488,7 +501,7 @@
       <p style="margin-bottom:10px;">投稿時可填：</p>
       <ul style="margin-bottom:14px;">
         <li>標題、分類、摘要與詳細說明。</li>
-        <li>建議發布時間與建議下架時間。</li>
+        <li>建議發布時間、置頂截止時間、公告下架時間，以及可選填的活動／報名截止時間。</li>
         <li>是否申請置頂及置頂原因。</li>
         <li>是否屬於長期公告；長期公告的建議檢視週期。</li>
         <li>多個檔案附件；一個或多個相關資料夾。</li>
@@ -567,25 +580,17 @@
   <!-- 11. Sites 呈現 -->
   <section class="blk" id="s11">
     <div class="sec-head"><span class="sec-no">11</span><h2>Google Sites 首頁呈現</h2></div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
-      <div class="card">
-        <div class="chip chip-am" style="margin-bottom:10px;">重要公告</div>
-        <ul>
-          <li>最多 <strong>3 則</strong>已發布且仍在有效期間內的置頂公告</li>
-          <li>依平台管理員設定的置頂順序排列</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="chip chip-em" style="margin-bottom:10px;">最新消息</div>
-        <ul>
-          <li>最多 <strong>3 則</strong>已發布且仍在有效期間內的非置頂公告</li>
-          <li>依實際發布時間由新到舊排列</li>
-          <li>已置頂公告不在此重複出現</li>
-        </ul>
-      </div>
+    <div class="card" style="margin-bottom:14px;">
+      <ul>
+        <li>「重要公告」最多 3 則，「最新消息」最多 3 則；兩區都採<strong>逐條橫式列表</strong>，不使用三欄置頂卡片。</li>
+        <li>置頂公告以淡暖色底、左側紅印線與文字標籤區分；依平台管理員設定的順序排列。</li>
+        <li>最新消息依實際發布時間由新到舊排列；已置頂公告不在最新消息重複出現。</li>
+        <li>列表向會員顯示發布日期、置頂截止、公告下架，以及適用時的活動／報名截止日期。</li>
+      </ul>
     </div>
     <div class="card stack">
-      <p>每則公告顯示：分類標籤、標題、實際發布日期、投稿單位、簡短摘要，以及「查看詳情／附件」入口。首頁可顯示附件與相關資料夾的數量，詳細項目在展開或詳情檢視中呈現。</p>
+      <p>首頁以 GAS HTML Service Web App 嵌入。點擊公告後，不使用抽屜、浮層或另一套假導覽；同一嵌入區由列表切換為詳情，並提供「返回最新消息」。附件與資料夾才以新分頁開啟。</p>
+      <p>詳情閱讀順序固定為：標題與投稿單位 → 公告正文 → 發布／置頂／下架／活動期限 → 附件與相關資料。日期不重複放在詳情標題上方；長期公告顯示「無固定下架日」。</p>
       <div class="callout callout-info"><span class="ico">🎨</span><span>首頁維持既定<strong>外交官主題、深綠與暖色水墨視覺</strong>；本設計不重開整體視覺方向。</span></div>
     </div>
   </section>
@@ -660,7 +665,10 @@
         <div class="check-row"><span class="check-mark">✓</span><span>投稿送出後不會直接出現在首頁，管理員核准後才發布</span></div>
         <div class="check-row"><span class="check-mark">✓</span><span>新投稿與公告異動申請能建立 LINE 提醒，提醒不含全文與附件</span></div>
         <div class="check-row"><span class="check-mark">✓</span><span>投稿人可提出置頂、異動、下架與取消發布申請，但無法直接執行</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>平台管理員可代編；原稿、工作版本、發布版本與代編說明均可追溯</span></div>
         <div class="check-row"><span class="check-mark">✓</span><span>首頁最多顯示 3 則置頂與 3 則最新，且不重複</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>置頂與最新消息均為橫式列表；點入詳情後能在同一嵌入區返回列表</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>會員可在列表與詳情辨識公告下架日期；詳情日期位於正文之後</span></div>
         <div class="check-row"><span class="check-mark">✓</span><span>長期置頂公告有下次檢視日與提醒</span></div>
         <div class="check-row"><span class="check-mark">✓</span><span>一則公告可包含多個檔案及多個相關資料夾，排列與用途顯示正確</span></div>
         <div class="check-row"><span class="check-mark">✓</span><span>相關資料夾只提供開啟入口，不在首頁自動展開內容</span></div>
@@ -729,6 +737,32 @@
       </ul>
       <p style="font-size:13px; color:var(--ink-sub);">地圖應同時註明：限定消息留在原組／區管道；站台不保存正本；不做中心資料夾同步；不使用 Calendar。</p>
     </div>
+  </section>
+
+  <!-- 19. 實作責任邊界 -->
+  <section class="blk" id="s19">
+    <div class="sec-head"><span class="sec-no">19</span><h2>實作責任與交接邊界</h2></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+      <div class="card">
+        <h3 class="sub">Codex／道務平台端</h3>
+        <ul>
+          <li>Google Sheet 欄位與狀態契約。</li>
+          <li>唯讀 GAS 公告輸出服務與 RWD 嵌入畫面。</li>
+          <li>橫式列表、同區詳情切換、日期與附件呈現。</li>
+          <li>本地測試、Google Sites 草稿嵌入與會員／未授權驗證。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="sub">CC／道籍系統端</h3>
+        <ul>
+          <li>「道務平台管理」卡片與公告管理後台。</li>
+          <li>投稿、代編、版本、審核、置頂、異動與下架流程。</li>
+          <li>角色與範圍判斷、Sheet 寫入整合及 LINE 提醒。</li>
+          <li>依本規格輸出固定公告 ID、狀態、版本與日期欄位。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout callout-warn"><span class="ico">↔</span><span>兩端只透過本規格定義的 Sheet 欄位、公告狀態與版本號銜接。Codex 不修改道籍系統程式；CC 不另建第二份公告資料來源或改寫 GAS 會員端呈現。任何欄位變更須先更新本正本規格。</span></div>
   </section>
 
   <footer class="page">
