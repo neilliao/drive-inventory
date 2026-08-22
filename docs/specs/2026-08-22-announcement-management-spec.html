@@ -443,9 +443,9 @@
           <span class="field-tag">公告編號</span><span class="field-tag">狀態</span><span class="field-tag">分類</span>
           <span class="field-tag">標題</span><span class="field-tag">摘要</span><span class="field-tag">詳細說明</span>
           <span class="field-tag">投稿單位類型</span><span class="field-tag">投稿單位ID</span><span class="field-tag">投稿單位名稱</span><span class="field-tag">投稿人ID</span>
-          <span class="field-tag">建議發布時間</span><span class="field-tag">實際發布時間</span>
+          <span class="field-tag">建議發布時間</span><span class="field-tag">發布時間</span>
           <span class="field-tag">活動／報名截止時間</span><span class="field-tag">置頂截止時間</span>
-          <span class="field-tag">建議下架時間</span><span class="field-tag">實際下架時間</span>
+          <span class="field-tag">建議下架時間</span><span class="field-tag">公告下架時間</span>
           <span class="field-tag">是否申請置頂</span><span class="field-tag">置頂申請原因</span>
           <span class="field-tag">是否置頂</span><span class="field-tag">置頂順序</span>
           <span class="field-tag">是否長期公告</span><span class="field-tag">下次檢視日</span>
@@ -500,7 +500,8 @@
       </div>
     </div>
 
-    <div class="callout callout-warn" style="margin-top:16px;"><span class="ico">🔒</span><span>會員端不輸出管理欄位、投稿人 ID、審核人 ID 或操作紀錄。</span></div>
+    <div class="callout callout-info" style="margin-top:16px;"><span class="ico">🕒</span><span>所有時間欄由道籍系統以 ISO 8601 含 <code>+08:00</code> 寫入，例如 <code>2026-08-22T09:00:00+08:00</code>；GAS 依絕對時間解析。</span></div>
+    <div class="callout callout-warn" style="margin-top:12px;"><span class="ico">🔒</span><span>GAS 只讀取「核准發布」、已到發布時間且未到公告下架時間的發布版本。會員端不輸出管理欄位、投稿人 ID、審核人 ID、操作紀錄或未發布版本。</span></div>
   </section>
 
   <!-- 8. 投稿欄位與管理建議 -->
