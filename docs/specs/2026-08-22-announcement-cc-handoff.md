@@ -4,6 +4,15 @@
 
 正本規格：[`2026-08-22-announcement-management-spec.html`](2026-08-22-announcement-management-spec.html)
 
+## 已建立的公告 Sheet
+
+- 名稱：`峨眉道務平台－公告資料主表`
+- Spreadsheet ID：`18I-CoOIfm_ebQk9W4OSuN5iqIcTuEPfmYxrAvgyJJLI`
+- 連結：<https://docs.google.com/spreadsheets/d/18I-CoOIfm_ebQk9W4OSuN5iqIcTuEPfmYxrAvgyJJLI/edit>
+- 建立狀態：六個分頁與欄名已核對，時區為 `Asia/Taipei`；尚未變更分享權限，也尚未連接正式 GAS／Google Sites。
+
+CC 應將上述 Spreadsheet ID 寫入公告模組設定；若 CC 執行身分不是 Sheet 擁有者，須由平台管理者另行授予該執行身分最小必要權限。
+
 ## 目的
 
 由 CC 統一實作道籍系統內的公告管理後台；Codex 負責 Google Sheet 資料契約、唯讀 GAS 公告模組、Google Sites 草稿嵌入與平台端驗證。兩端不得各自建立公告資料來源。
