@@ -165,7 +165,7 @@
   .dg-t-s { font-size: 11px; fill: var(--ink-sub); font-family: "Noto Sans TC", sans-serif; }
   .dg-flow { stroke: var(--primary); stroke-width: 1.6; fill: none; }
   .dg-flow-danger { stroke: var(--danger); stroke-width: 1.4; fill: none; stroke-dasharray: 5 4; }
-  .dg-lbl { font-size: 11px; fill: var(--ink-sub); font-family: "Noto Sans TC", sans-serif; }
+  .dg-lbl { font-size: 11px; fill: var(--ink-sub); font-family: "PingFang TC","Noto Sans TC", sans-serif; paint-order: stroke; stroke: var(--page); stroke-width: 4px; stroke-linejoin: round; }
 
   footer.page {
     margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--border);
@@ -288,10 +288,10 @@
 
         <line class="dg-flow" x1="240" y1="63" x2="356" y2="63" marker-end="url(#ar)"/>
         <line class="dg-flow" x1="356" y1="80" x2="240" y2="80" marker-end="url(#ar)"/>
-        <text class="dg-lbl" x="248" y="52" text-anchor="start">伺服端讀寫（瀏覽器端無寫入憑證）</text>
+        <text class="dg-lbl" x="298" y="52" text-anchor="middle">伺服端讀寫</text>
 
         <line class="dg-flow" x1="240" y1="270" x2="356" y2="270" marker-end="url(#ar)"/>
-        <text class="dg-lbl" x="248" y="258">連結檔案／資料夾（不複製）</text>
+        <text class="dg-lbl" x="298" y="258" text-anchor="middle">連結，不複製</text>
 
         <line class="dg-flow" x1="580" y1="63" x2="696" y2="63" marker-end="url(#ar)"/>
         <text class="dg-lbl" x="588" y="52">已核准＋有效期間內</text>
@@ -305,7 +305,7 @@
           </marker>
         </defs>
       </svg>
-      <figcaption>第一階段不建立另一套公告資料庫：道籍系統是統一操作入口，Sheet 是唯一資料來源，兩者不得形成需要人工同步的兩份清單。Google Sites 不直接存取 Sheet，也不提供任何寫入功能。</figcaption>
+      <figcaption>第一階段不建立另一套公告資料庫：道籍系統是統一操作入口，Sheet 是唯一資料來源，兩者不得形成需要人工同步的兩份清單。Google Sites 不直接存取 Sheet，也不提供任何寫入功能；瀏覽器端不持有 Sheet 寫入憑證。公告只「連結」Drive 的檔案與資料夾，不複製。</figcaption>
     </figure>
   </section>
 
@@ -357,7 +357,7 @@
     <div class="sec-head"><span class="sec-no">6</span><h2>公告狀態與流程</h2></div>
 
     <figure class="diagram" style="margin-bottom:18px;">
-      <svg viewBox="0 0 940 220" role="img" aria-label="狀態流程圖：草稿到待審核，待審核分岔為退回修改（回到草稿修改後重新送出）或核准發布，核准發布再到已下架；另有取消發布可從已發布觸發">
+      <svg viewBox="0 0 940 256" role="img" aria-label="狀態流程圖：草稿到待審核，待審核分岔為退回修改（回到草稿修改後重新送出）或核准發布，核准發布再到已下架；另有取消發布可從已發布觸發">
         <rect class="dg-box" x="20" y="70" width="150" height="70" rx="12"/>
         <text class="dg-t-h" x="95" y="110" text-anchor="middle">草稿</text>
 
@@ -378,7 +378,7 @@
         <text class="dg-t-s" x="525" y="218" text-anchor="middle" style="fill:var(--danger)">附原因，回投稿者</text>
 
         <path class="dg-flow-danger" d="M 440 195 C 300 195, 260 160, 245 145" marker-end="url(#ar2d)"/>
-        <text class="dg-lbl" x="250" y="165">修改後重新送出</text>
+        <text class="dg-lbl" x="330" y="214" text-anchor="middle">修改後重新送出</text>
 
         <line class="dg-flow" x1="610" y1="40" x2="666" y2="40" marker-end="url(#ar2)"/>
 
