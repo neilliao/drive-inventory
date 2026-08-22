@@ -1,21 +1,9 @@
 <title>道務平台實作地圖</title>
 <style>
   :root {
-    --bg: #F1F2EE; --surface: #FBFBF9; --surface-2: #E9EBE4;
-    --ink: #22262A; --ink-soft: #5A6168; --line: #C9CDC3;
-    --accent: #33557E; --accent-tint: #DFE6EE; --seal: #A8402F; --seal-ink: #FBFBF9;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #16181B; --surface: #1F2226; --surface-2: #24282D;
-      --ink: #E8E7E2; --ink-soft: #9BA1A8; --line: #3A4046;
-      --accent: #8FAFD9; --accent-tint: #2A3644; --seal: #C25A45; --seal-ink: #F5EFEA;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #16181B; --surface: #1F2226; --surface-2: #24282D;
-    --ink: #E8E7E2; --ink-soft: #9BA1A8; --line: #3A4046;
-    --accent: #8FAFD9; --accent-tint: #2A3644; --seal: #C25A45; --seal-ink: #F5EFEA;
+    --bg: #f3faf7; --surface: #ffffff; --surface-2: #eef6f2;
+    --ink: #1f3b2c; --ink-soft: #4c655a; --line: #d6e8de;
+    --accent: #26715f; --accent-tint: #e7f3ef; --seal: #A8402F; --seal-ink: #ffffff;
   }
   body { background: var(--bg); color: var(--ink); margin: 0; padding: 0 20px 56px;
     font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif; line-height: 1.75; }
@@ -69,7 +57,7 @@
     <p class="eyebrow">峨眉書院・管道層</p>
     <h1>道務平台實作地圖</h1>
     <p class="creed">站台是門，資料住在知識庫——內部的人一個入口，找到所有東西。</p>
-    <p class="readme">「<a href="https://claude.ai/code/artifact/5702040b-b689-4458-a830-f3893fb12e70" target="_blank" rel="noopener">峨眉資訊藍圖</a>」（母圖）底下的子地圖，管道層唯一有實作要規劃的工具。整併自 Google Sites 草稿專案（google-sites-blueprint／sites-content-map／implementation-status 三份文件）。</p>
+    <p class="readme">「<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html" target="_blank" rel="noopener">峨眉資訊藍圖</a>」（母圖）底下的子地圖，管道層唯一有實作要規劃的工具。整併自 Google Sites 草稿專案（google-sites-blueprint／sites-content-map／implementation-status 三份文件）。</p>
   </header>
 
   <div class="rule-callout">
@@ -188,7 +176,7 @@
       <tr><th>狀態</th><th>內容</th></tr>
       <tr><td class="who">已完成</td><td>草稿站「峨眉書院平台」・視覺定稿（外交官主題、深綠主色、暖色水墨橫幅、四張水墨入口卡）・六頁導覽建齊・「A.辦道」試作頁（桌機＋手機預覽通過）</td></tr>
       <tr><td class="who">尚未做</td><td>接實際表單・嵌資料夾・嵌行事曆・填聯絡窗口・設定並驗證權限・一般帳號驗收・發布</td></tr>
-      <tr><td class="who">公告欄（例外，設計已跑在建置前面）</td><td>書面設計規格已出，等待審閱——投稿/審核/置頂/異動/下架流程、Sheet 資料模型、LINE 通知、Sites 呈現規則全定案；建置本身仍跟其他項目一起排在知識庫第 4 步之後。<a href="https://claude.ai/code/artifact/e8e82fa5-bb66-4261-b56e-2cc4c958533f" target="_blank" rel="noopener">→ 首頁公告管理設計規格（子子圖）</a></td></tr>
+      <tr><td class="who">公告欄（例外，設計已跑在建置前面）</td><td>書面設計規格已出，等待審閱——投稿/審核/置頂/異動/下架流程、Sheet 資料模型、LINE 通知、Sites 呈現規則全定案；建置本身仍跟其他項目一起排在知識庫第 4 步之後。<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-22-announcement-management-spec.html" target="_blank" rel="noopener">→ 首頁公告管理設計規格（子子圖）</a></td></tr>
     </table>
   </div>
   <p class="aside-phase">「尚未做」整批刻意排在知識庫第 4 步之後：權限群組跟新碟都到位了，門才有東西可接。先接舊碟＝之後全部重換一次連結，白工。公告欄是唯一先把設計做完的例外——因為它牽涉道籍系統後台新增卡片，需要跟道籍那邊的實作排程對齊，不能等到最後一刻才想。</p>

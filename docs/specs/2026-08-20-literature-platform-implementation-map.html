@@ -1,0 +1,227 @@
+<title>文獻平台實作地圖</title>
+<style>
+  :root {
+    --bg: #f3faf7; --surface: #ffffff; --surface-2: #eef6f2;
+    --ink: #1f3b2c; --ink-soft: #4c655a; --line: #d6e8de;
+    --accent: #26715f; --accent-tint: #e7f3ef; --seal: #A8402F; --seal-ink: #ffffff;
+  }
+  body { background: var(--bg); color: var(--ink); margin: 0; padding: 0 20px 56px;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif; line-height: 1.75; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1, h2 { font-family: "Songti TC","Noto Serif TC","Source Han Serif TC",serif; text-wrap: balance; }
+  header.page { padding: 44px 0 8px; border-bottom: 1px solid var(--line); }
+  .eyebrow { font-size: 13px; letter-spacing: .35em; color: var(--ink-soft); margin: 0 0 10px; }
+  h1 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 10px; font-weight: 700; }
+  .creed { font-size: clamp(14px, 1.8vw, 16px); color: var(--accent); font-weight: 600; margin: 0 0 12px; max-width: 64ch; }
+  .readme { font-size: 13px; color: var(--ink-soft); margin: 0 0 30px; border-left: 3px solid var(--accent); padding-left: 14px; max-width: 64ch; }
+  h2 { font-size: 21px; margin: 46px 0 14px; }
+  .lede { font-size: 14.5px; color: var(--ink-soft); max-width: 68ch; margin: -6px 0 18px; }
+  figure.map { margin: 26px 0 6px; overflow-x: auto; }
+  figure.map svg { min-width: 880px; width: 100%; height: auto; display: block; }
+  figcaption { font-size: 13px; color: var(--ink-soft); margin-top: 10px; max-width: 76ch; }
+  .node { fill: var(--surface); stroke: var(--line); }
+  .container { fill: var(--surface-2); stroke: var(--line); }
+  .box-goal { fill: var(--surface); stroke: var(--accent); stroke-width: 1.4; }
+  .chip { fill: var(--surface); stroke: var(--line); }
+  .t-title { font-size: 17px; font-weight: 700; fill: var(--ink); }
+  .t-h { font-size: 13.5px; font-weight: 700; fill: var(--ink); }
+  .t { font-size: 12.5px; fill: var(--ink); }
+  .t-s { font-size: 11.5px; fill: var(--ink-soft); }
+  .t-tag { font-size: 13px; font-weight: 700; fill: var(--accent); }
+  .flow { stroke: var(--accent); stroke-width: 1.8; fill: none; }
+  .m-accent { fill: var(--accent); }
+  .bar-track { fill: var(--surface); stroke: var(--line); }
+  .bar-fill { fill: var(--accent); }
+  .bar-red { fill: var(--seal); }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-soft); font-weight: 600; }
+  td.who { font-weight: 700; white-space: nowrap; }
+  .table-scroll { overflow-x: auto; }
+  .rule-callout { background: var(--accent-tint); border: 1px solid var(--accent); border-radius: 10px;
+    padding: 18px 22px; margin: 18px 0; font-size: 15px; }
+  .aside-phase { margin-top: 14px; font-size: 13.5px; color: var(--ink-soft);
+    border-left: 3px solid var(--accent); padding-left: 14px; max-width: 76ch; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; font-size: 13.5px; }
+  .card b { display: block; margin-bottom: 4px; font-size: 14.5px; }
+  footer { margin-top: 52px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-soft); }
+  .tac { display:inline-block; padding:2px 14px; border:1px solid var(--line); border-radius:999px; margin:0 6px 4px 0; font-size:13px; color:var(--ink-soft); }
+  .tac.on { background:var(--accent-tint); border-color:var(--accent); color:var(--ink); font-weight:700; }
+  .seal-inline { display:inline-block; background:var(--seal); color:var(--seal-ink); border-radius:6px; padding:1px 10px; font-family:"Songti TC","Noto Serif TC",serif; font-weight:700; }
+  a { color: var(--accent); }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <p class="eyebrow">峨眉書院・媒體層</p>
+    <h1>文獻平台實作地圖</h1>
+    <p class="creed">峨眉的大藏經——先有內容，再蓋平台。素材正本住知識庫，報導庫是正本，平台只是展示的殼。</p>
+    <p class="readme">「<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html" target="_blank" rel="noopener">峨眉資訊藍圖</a>」（母圖）→「<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-media-strategy-map.html" target="_blank" rel="noopener">峨眉媒體策略地圖</a>」底下的實作子圖。整併自 emei-archive 專案 2026-06 架構決議（收錄標準／路線圖／執行計畫／雛形）。</p>
+  </header>
+
+  <div class="rule-callout">
+    <b>上承媒體圖戰術：</b><span class="tac on">故事線</span>（對應總圖的 <span class="tac on">傳</span><span class="tac on">承</span>）<br>
+    文獻平台不另持印——<span class="seal-inline">彰</span> 由媒體層兩家合持：道峨眉管當期（像雜誌），文獻平台管典藏（像藏經閣）。<br>
+    <small style="color:var(--ink-soft)">殼可換的證明：報導庫（Sheet）＋照片影片（Drive）是正本，平台死了典藏不死——所以是實作地圖，不是策略地圖。</small>
+  </div>
+
+  <h2>實作地圖</h2>
+  <figure class="map">
+    <svg viewBox="0 0 1040 520" role="img" aria-label="文獻平台實作地圖：頂端目標「考據過的故事存得住被看見」，往下三條戰術（收錄的秩序、內容的積累、平台的殼），每條下掛戰技；左側護欄，右側兩個迴路">
+      <defs><marker id="wa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" /></marker></defs>
+
+      <rect class="box-goal" x="260" y="16" width="520" height="64" rx="10" />
+      <text class="t-title" x="520" y="44" text-anchor="middle">考據過的故事，存得住、被看見</text>
+      <text class="t-s" x="520" y="66" text-anchor="middle">文字＋照片＋影音三位一體（仿慈濟大藏經）・一庫多切面</text>
+
+      <line class="flow" x1="330" y1="118" x2="330" y2="84" marker-end="url(#wa)" />
+      <line class="flow" x1="520" y1="118" x2="520" y2="84" marker-end="url(#wa)" />
+      <line class="flow" x1="710" y1="118" x2="710" y2="84" marker-end="url(#wa)" />
+
+      <text class="t-tag" x="238" y="112">戰術（三條路）</text>
+
+      <!-- tactic 1 -->
+      <rect class="container" x="238" y="120" width="180" height="86" rx="10" />
+      <text class="t-h" x="328" y="144" text-anchor="middle">收錄的秩序</text>
+      <text class="t-s" x="328" y="162" text-anchor="middle">標準、表單、署名</text>
+      <rect class="bar-track" x="256" y="176" width="120" height="10" rx="5" />
+      <rect class="bar-fill" x="256" y="176" width="72" height="10" rx="5" />
+      <text class="t-s" x="384" y="185">60%</text>
+
+      <!-- tactic 2 -->
+      <rect class="container" x="430" y="120" width="180" height="86" rx="10" />
+      <text class="t-h" x="520" y="144" text-anchor="middle">內容的積累</text>
+      <text class="t-s" x="520" y="162" text-anchor="middle">策展選件＋種子資料</text>
+      <rect class="bar-track" x="448" y="176" width="120" height="10" rx="5" />
+      <rect class="bar-red" x="448" y="176" width="4" height="10" rx="2" />
+      <text class="t-s" x="576" y="185">0%</text>
+
+      <!-- tactic 3 -->
+      <rect class="container" x="622" y="120" width="180" height="86" rx="10" />
+      <text class="t-h" x="712" y="144" text-anchor="middle">平台的殼</text>
+      <text class="t-s" x="712" y="162" text-anchor="middle">展示與審核，殼可換</text>
+      <rect class="bar-track" x="640" y="176" width="120" height="10" rx="5" />
+      <rect class="bar-red" x="640" y="176" width="4" height="10" rx="2" />
+      <text class="t-s" x="768" y="185">0%</text>
+
+      <line class="flow" x1="328" y1="238" x2="328" y2="210" marker-end="url(#wa)" />
+      <line class="flow" x1="520" y1="238" x2="520" y2="210" marker-end="url(#wa)" />
+      <line class="flow" x1="712" y1="238" x2="712" y2="210" marker-end="url(#wa)" />
+
+      <text class="t-tag" x="238" y="234">戰技（掛在各自的路下）</text>
+
+      <!-- tech column 1 -->
+      <rect class="chip" x="244" y="242" width="168" height="30" rx="15" /><text class="t" x="328" y="262" text-anchor="middle">收錄標準＋缺口清單</text>
+      <rect class="chip" x="244" y="280" width="168" height="30" rx="15" /><text class="t" x="328" y="300" text-anchor="middle">安全表單，不裸改庫</text>
+      <rect class="chip" x="244" y="318" width="168" height="30" rx="15" /><text class="t" x="328" y="338" text-anchor="middle">署名欄＝功勞看得見</text>
+
+      <!-- tech column 2 -->
+      <rect class="chip" x="436" y="242" width="168" height="30" rx="15" /><text class="t" x="520" y="262" text-anchor="middle">活動總表圈選史料</text>
+      <rect class="chip" x="436" y="280" width="168" height="30" rx="15" /><text class="t" x="520" y="300" text-anchor="middle">高價值區 202・208</text>
+      <rect class="chip" x="436" y="318" width="168" height="30" rx="15" /><text class="t" x="520" y="338" text-anchor="middle">道籍骨架當種子</text>
+
+      <!-- tech column 3 -->
+      <rect class="chip" x="628" y="242" width="168" height="30" rx="15" /><text class="t" x="712" y="262" text-anchor="middle">審核層：品質＋隱私</text>
+      <rect class="chip" x="628" y="280" width="168" height="30" rx="15" /><text class="t" x="712" y="300" text-anchor="middle">一報導庫多切面</text>
+      <rect class="chip" x="628" y="318" width="168" height="30" rx="15" /><text class="t" x="712" y="338" text-anchor="middle">前後端分離</text>
+
+      <!-- left rail -->
+      <rect class="node" x="20" y="120" width="190" height="228" rx="10" />
+      <text class="t-h" x="115" y="146" text-anchor="middle">護欄（不可越）</text>
+      <text class="t" x="36" y="176">・未審不公開</text>
+      <text class="t" x="36" y="202">・人臉只分群不存模板</text>
+      <text class="t" x="36" y="228">・不對齊中心不等中心</text>
+      <text class="t" x="36" y="254">・個資進系統不進檔案</text>
+      <text class="t-s" x="36" y="288">往生者與道親照片，</text>
+      <text class="t-s" x="36" y="308">一律先審再上</text>
+
+      <!-- right rails -->
+      <rect class="node" x="828" y="120" width="192" height="106" rx="10" />
+      <text class="t-h" x="924" y="146" text-anchor="middle">輸出要早迴路</text>
+      <text class="t-s" x="844" y="172">填一筆馬上看得到——</text>
+      <text class="t-s" x="844" y="192">看不到成果沒人撐</text>
+      <rect class="node" x="828" y="242" width="192" height="106" rx="10" />
+      <text class="t-h" x="924" y="268" text-anchor="middle">採集即傳承</text>
+      <text class="t-s" x="844" y="294">季刊每期訪談心得</text>
+      <text class="t-s" x="844" y="314">回流歸檔＝新史料</text>
+
+      <!-- bottom note -->
+      <rect class="container" x="238" y="386" width="564" height="60" rx="10" />
+      <text class="t-h" x="520" y="412" text-anchor="middle">底座：報導庫（Sheet）＋照片影片（Drive）＝正本</text>
+      <text class="t-s" x="520" y="434" text-anchor="middle">平台＝殼，可換——這就是幸福農場的反面</text>
+      <line class="flow" x1="520" y1="386" x2="520" y2="356" marker-end="url(#wa)" />
+    </svg>
+    <figcaption>由下往上讀：戰技撐三條路，三條路撐「考據過的故事存得住、被看見」。收錄的秩序 60%＝標準、登錄表、雛形已定稿；兩條 0% 是刻意的——內容等知識庫策展，殼等內容（先有內容再蓋平台）。左＝護欄，右＝兩個迴路。</figcaption>
+  </figure>
+
+  <h2>三位一體：一條故事，三種媒材</h2>
+  <p class="lede">仿慈濟大藏經的核心不是「三個庫」，是「一個故事三個面」——同一件事的文字、照片、影音互相勾稽，看到其中一種就能找到另外兩種。勾稽靠的是同一組鑰匙：</p>
+  <figure class="map">
+    <svg viewBox="0 0 1040 330" role="img" aria-label="三位一體勾稽：文字、照片、影音三種媒材掛在報導庫同一筆故事上，靠人事理三把鑰匙互相反查">
+      <defs><marker id="wt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" /></marker></defs>
+      <rect class="node" x="120" y="30" width="220" height="70" rx="10" />
+      <text class="t-h" x="230" y="58" text-anchor="middle">文字</text>
+      <text class="t-s" x="230" y="80" text-anchor="middle">考據文稿・原話摘錄・訓文</text>
+      <rect class="node" x="410" y="30" width="220" height="70" rx="10" />
+      <text class="t-h" x="520" y="58" text-anchor="middle">照片</text>
+      <text class="t-s" x="520" y="80" text-anchor="middle">206照片碟（Drive 正本）</text>
+      <rect class="node" x="700" y="30" width="220" height="70" rx="10" />
+      <text class="t-h" x="810" y="58" text-anchor="middle">影音</text>
+      <text class="t-s" x="810" y="80" text-anchor="middle">204錄音・207影音碟</text>
+      <line class="flow" x1="230" y1="104" x2="440" y2="168" marker-end="url(#wt)" />
+      <line class="flow" x1="520" y1="104" x2="520" y2="164" marker-end="url(#wt)" />
+      <line class="flow" x1="810" y1="104" x2="600" y2="168" marker-end="url(#wt)" />
+      <rect class="box-goal" x="330" y="172" width="380" height="76" rx="10" />
+      <text class="t-h" x="520" y="200" text-anchor="middle">報導庫的同一筆故事</text>
+      <text class="t-s" x="520" y="224" text-anchor="middle">三種媒材掛同一組鑰匙，缺哪一面看缺口清單</text>
+      <text class="t-s" x="520" y="286" text-anchor="middle">鑰匙＝人（道籍編號）・事（日期＋活動名）・理（詞條）</text>
+      <text class="t-s" x="520" y="308" text-anchor="middle">所以看到一張照片，能反查到那一天的文字與錄音——這才是大藏經，不是三個資料夾</text>
+    </svg>
+    <figcaption>媒材正本各住各的碟（206、204、207），報導庫只放鑰匙與連結——三位一體是「勾稽在一起」，不是「搬到一起」。</figcaption>
+  </figure>
+
+  <h2>同路人的做法（2026-08-21 Neil 提供）</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>專案</th><th>它做對什麼</th><th>我們取什麼</th></tr>
+      <tr><td class="who">拾光·Echo</td><td>語音訪談（含方言）＋證據門控五階段：事實抽取→章節策劃→撰寫→審校→卡片化。「不亂編比寫得好重要」</td><td>收錄面的訪談流水線——長輩用說的，轉錄後過審核層再入庫，與本圖審核層同構</td></tr>
+      <tr><td class="who">時光展柜</td><td>一段口述變微型人生展覽：時間線＋地點＋人物＋舊物＋原話摘錄</td><td>人物誌切面的展示形式範本</td></tr>
+      <tr><td class="who">父母.skill</td><td>記憶檔案＋人格模型雙層，本地優先</td><td>取「零散資料→結構化記憶片段」那一半；<b>人格重建（以前人口吻對話）屬敏感，列待議不做預設</b></td></tr>
+    </table>
+  </div>
+  <p class="aside-phase">三個專案的共同點＝口述 → 結構化 → 展示，AI 只做整理不做創作——正是本圖「收錄的秩序」那條路的同路人。連結存於 emei-archive 專案筆記。</p>
+
+  <h2>接口卡榫</h2>
+  <div class="cards">
+    <div class="card"><b>× 知識庫</b>倉庫與地圖：素材正本住知識庫，活動總表是找史料的地圖——有價值的活動直接在表上圈。優先選件區：202文史的經理紀錄、人物紀錄＋208會議。</div>
+    <div class="card"><b>× 道籍系統</b>種子與反查：初期從道籍撈骨架（求道、法會、人物、佛堂）當大事記與人物誌的種子；文獻掛道籍編號反查，不雙寫。這是道籍「對外輸出腿」的第一個真實消費者。</div>
+    <div class="card"><b>× 道峨眉</b>當期餵典藏：每期訪談與人物故事是策展的現成素材；策展後的人物誌反過來供季刊引用。</div>
+    <div class="card"><b>× 靈隱中心</b>不對齊、不等：中心平台沒有真標準（幸福農場已荒廢）。峨眉自己做齊——完整、一致、有 metadata、可輸出；中心要什麼，匯出給他。</div>
+  </div>
+
+  <h2>現況</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>狀態</th><th>內容</th></tr>
+      <tr><td class="who">已完成</td><td>收錄標準（欄位＋完整度＋缺口清單）・登錄表・路線圖（四階段）・執行計畫 v0.2・雛形頁（時間軸＋收錄表單＋類型篩選＋署名，可 demo）</td></tr>
+      <tr><td class="who">未動工</td><td>內容收錄・平台建置・照片人臉（見下方待拍板）</td></tr>
+    </table>
+  </div>
+  <p class="aside-phase">排程照母圖建設順序：知識庫五步施工 → 道務平台各組頁 → <b>文獻策展、蓋文獻平台</b>（第三棒）。兩條 0% 不是落後，是不肯蓋空殼。</p>
+
+  <div class="rule-callout">
+    <b>待拍板：照片人臉選型（階段二）。</b>判準只有一把尺：辨識後的資料能不能被拉出來。Google 相簿零維運但人臉資料拉不出（只能當拋棄式測試）；雲端 API 免養機器但生物特徵送國外；Immich 自架資料自主＋有 API，但要有人長期顧機器。建議先小規模測一兩百張再定。不論選哪條，治理底線不動：只分群、人工命名、不存可反推的模板。
+  </div>
+
+  <h2>兩條紅線</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>紅線</th><th>為什麼</th></tr>
+      <tr><td class="who">先有內容再蓋平台</td><td>空殼平台＝幸福農場第二。看不到成果沒人撐，有內容的殼才活得下去</td></tr>
+      <tr><td class="who">報導庫是正本，平台是殼</td><td>殼可換、庫不滅——考據與署名存在庫裡，換平台不用重新考據</td></tr>
+    </table>
+  </div>
+
+  <footer>2026-08-21・整併自 emei-archive 2026-06 架構決議・母圖：峨眉資訊藍圖 → 媒體策略地圖</footer>
+</div>
