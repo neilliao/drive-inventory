@@ -1,0 +1,743 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<title>峨眉公告管理規格</title>
+<style>
+  :root {
+    --primary: #2f8d78;
+    --deep: #26715f;
+    --soft: #9fcabd;
+    --border: #d6e8de;
+    --tint: #e7f3ef;
+    --tint-2: #eef6f2;
+    --page: #f3faf7;
+    --card: #ffffff;
+    --ink: #1f3b2c;
+    --ink-sub: #4c655a;
+    --danger: #b85062;
+    --danger-tint: #fbeeef;
+
+    --chip-em-bg: #ecfdf5; --chip-em-tx: #047857; --chip-em-bd: #a7f3d0;
+    --chip-am-bg: #fffbeb; --chip-am-tx: #b45309; --chip-am-bd: #fde68a;
+    --chip-ro-bg: #fff1f2; --chip-ro-tx: #be123c; --chip-ro-bd: #fecdd3;
+    --chip-gy-bg: #f3f4f6; --chip-gy-tx: #4b5563; --chip-gy-bd: #e5e7eb;
+    --chip-vi-bg: #ede9fe; --chip-vi-tx: #6d28d9; --chip-vi-bd: #ddd6fe;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Noto Sans TC", "PingFang TC", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0 20px 80px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  /* ---------- PageHeader ---------- */
+  .pagehead {
+    position: sticky; top: 0; z-index: 20;
+    background: var(--page);
+    padding: 18px 0 14px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+  .crumb {
+    font-size: 12.5px; color: var(--ink-sub); letter-spacing: .04em;
+    display: flex; align-items: center; gap: 6px; margin-bottom: 6px;
+  }
+  .crumb b { color: var(--deep); font-weight: 700; }
+  .pagehead h1 {
+    margin: 0; font-size: clamp(21px, 3.4vw, 27px); font-weight: 900;
+    color: var(--ink); text-wrap: balance; letter-spacing: -0.01em;
+  }
+  .meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
+  .meta-item { font-size: 12.5px; color: var(--ink-sub); }
+
+  /* ---------- Chips ---------- */
+  .chip {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 12.5px; font-weight: 700; padding: 3px 11px;
+    border-radius: 999px; border: 1px solid; line-height: 1.5; white-space: nowrap;
+  }
+  .chip-em { background: var(--chip-em-bg); color: var(--chip-em-tx); border-color: var(--chip-em-bd); }
+  .chip-am { background: var(--chip-am-bg); color: var(--chip-am-tx); border-color: var(--chip-am-bd); }
+  .chip-ro { background: var(--chip-ro-bg); color: var(--chip-ro-tx); border-color: var(--chip-ro-bd); }
+  .chip-gy { background: var(--chip-gy-bg); color: var(--chip-gy-tx); border-color: var(--chip-gy-bd); }
+  .chip-vi { background: var(--chip-vi-bg); color: var(--chip-vi-tx); border-color: var(--chip-vi-bd); }
+
+  /* ---------- Sections ---------- */
+  section.blk { margin: 0 0 28px; scroll-margin-top: 90px; }
+  .sec-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+  .sec-no {
+    font-size: 13px; font-weight: 900; color: var(--card);
+    background: var(--primary); border-radius: 7px;
+    min-width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .sec-head h2 { margin: 0; font-size: 18px; font-weight: 700; color: var(--ink); }
+  .sec-lede { font-size: 13.5px; color: var(--ink-sub); margin: -6px 0 14px 34px; max-width: 62ch; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 20px 22px; box-shadow: 0 1px 2px rgba(31,59,44,.04);
+  }
+  .stack > * + * { margin-top: 12px; }
+  .stack-lg > * + * { margin-top: 16px; }
+
+  p { margin: 0 0 10px; font-size: 14.5px; }
+  p:last-child { margin-bottom: 0; }
+  ul, ol { margin: 0; padding-left: 20px; font-size: 14.5px; }
+  li + li { margin-top: 6px; }
+  strong { color: var(--ink); font-weight: 700; }
+  a { color: var(--deep); }
+
+  h3.sub { font-size: 14.5px; font-weight: 700; color: var(--deep); margin: 0 0 8px; }
+
+  /* ---------- Hub cards (rule 1: equal height) ---------- */
+  .hub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .hub-card {
+    height: 100%; background: var(--tint-2); border: 1px solid var(--border); border-radius: 14px;
+    padding: 16px 16px 15px; display: flex; flex-direction: column; gap: 6px;
+  }
+  .hub-card .tag { font-size: 11.5px; font-weight: 700; color: var(--deep); letter-spacing: .03em; }
+  .hub-card .ttl { font-size: 15px; font-weight: 700; color: var(--ink); }
+  .hub-card .desc { font-size: 12.5px; color: var(--ink-sub); }
+
+  /* ---------- Tables ---------- */
+  .table-scroll { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 480px; }
+  th { background: var(--tint); color: var(--deep); text-align: left; font-weight: 700; padding: 9px 14px; white-space: nowrap; }
+  td { padding: 9px 14px; border-top: 1px solid var(--border); vertical-align: top; }
+  tr:first-child td { border-top: none; }
+  .who { color: var(--deep); font-weight: 700; white-space: nowrap; }
+
+  /* ---------- Field tag lists (sheet schema) ---------- */
+  .field-group { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .field-group .fg-head {
+    background: var(--tint); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  }
+  .field-group .fg-head .name { font-weight: 700; color: var(--ink); font-size: 14px; font-family: monospace, "Noto Sans TC"; }
+  .field-group .fg-head .note { font-size: 12px; color: var(--ink-sub); }
+  .field-list { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 16px; }
+  .field-tag {
+    font-size: 12.5px; color: var(--ink); background: var(--card); border: 1px solid var(--border);
+    padding: 3px 10px; border-radius: 8px; font-family: monospace, "Noto Sans TC";
+  }
+
+  /* ---------- Callouts ---------- */
+  .callout { border-radius: 14px; padding: 14px 18px; font-size: 13.5px; display: flex; gap: 10px; }
+  .callout .ico { flex-shrink: 0; font-size: 16px; line-height: 1.5; }
+  .callout-info { background: var(--tint-2); border: 1px solid var(--border); color: var(--ink); }
+  .callout-warn { background: #fffbeb; border: 1px solid var(--chip-am-bd); color: #7a4d09; }
+  .callout-out { background: var(--chip-gy-bg); border: 1px solid var(--chip-gy-bd); color: var(--ink-sub); }
+
+  /* checklist */
+  .checklist { display: flex; flex-direction: column; gap: 9px; }
+  .check-row { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; }
+  .check-mark {
+    flex-shrink: 0; width: 19px; height: 19px; border-radius: 6px; margin-top: 1px;
+    background: var(--chip-em-bg); border: 1px solid var(--chip-em-bd);
+    display: flex; align-items: center; justify-content: center; color: var(--chip-em-tx); font-size: 12px; font-weight: 900;
+  }
+  .out-row { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--ink-sub); }
+  .out-mark {
+    flex-shrink: 0; width: 19px; height: 19px; border-radius: 6px; margin-top: 1px;
+    background: var(--chip-gy-bg); border: 1px solid var(--chip-gy-bd);
+    display: flex; align-items: center; justify-content: center; color: var(--ink-sub); font-size: 11px; font-weight: 900;
+  }
+
+  /* not-in / not-out lists */
+  .yn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .yn-col h4 { font-size: 12.5px; margin: 0 0 8px; letter-spacing: .04em; }
+  .yn-col.yes h4 { color: var(--deep); }
+  .yn-col.no h4 { color: var(--danger); }
+  .yn-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+  .yn-list li { font-size: 13.5px; padding-left: 20px; position: relative; }
+  .yn-col.yes li::before { content: "✓"; position: absolute; left: 0; color: var(--deep); font-weight: 900; }
+  .yn-col.no li::before { content: "✕"; position: absolute; left: 0; color: var(--danger); font-weight: 900; }
+
+  /* ---------- Diagrams ---------- */
+  figure.diagram { margin: 0; overflow-x: auto; }
+  figure.diagram svg { min-width: 640px; width: 100%; height: auto; display: block; }
+  figcaption { font-size: 12px; color: var(--ink-sub); margin-top: 8px; }
+  .dg-box { fill: var(--card); stroke: var(--border); stroke-width: 1.3; }
+  .dg-box-accent { fill: var(--tint-2); stroke: var(--primary); stroke-width: 1.4; }
+  .dg-box-danger { fill: var(--danger-tint); stroke: var(--danger); stroke-width: 1.3; stroke-dasharray: 4 3; }
+  .dg-t-h { font-size: 13px; font-weight: 700; fill: var(--ink); font-family: "Noto Sans TC", sans-serif; }
+  .dg-t-s { font-size: 11px; fill: var(--ink-sub); font-family: "Noto Sans TC", sans-serif; }
+  .dg-flow { stroke: var(--primary); stroke-width: 1.6; fill: none; }
+  .dg-flow-danger { stroke: var(--danger); stroke-width: 1.4; fill: none; stroke-dasharray: 5 4; }
+  .dg-lbl { font-size: 11px; fill: var(--ink-sub); font-family: "Noto Sans TC", sans-serif; }
+
+  footer.page {
+    margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--border);
+    font-size: 12px; color: var(--ink-sub); display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .hub-grid { grid-template-columns: 1fr; }
+    .yn-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="pagehead">
+    <div class="crumb">道務平台管理 <span>›</span> <b>公告管理</b></div>
+    <h1>首頁公告管理設計規格</h1>
+    <div class="meta-row">
+      <span class="chip chip-am">對話設計已逐段確認</span>
+      <span class="chip chip-gy">等待審閱書面規格</span>
+      <span class="meta-item">2026-08-22</span>
+      <span class="meta-item">取代 2026-08-08 整合設計文件中的公告相關章節</span>
+    </div>
+  </header>
+
+  <!-- 1. 目的 -->
+  <section class="blk" id="s1">
+    <div class="sec-head"><span class="sec-no">1</span><h2>目的</h2></div>
+    <p class="sec-lede">在首頁既有預留區建立「最新消息」，把投稿、審核、置頂、異動、下架與附件管理整合進道籍系統後台——不是替管理員多開一套表單，而是讓有權限的辦事人員在既有系統內完成投稿。</p>
+    <div class="hub-grid">
+      <div class="hub-card">
+        <div class="tag">統一入口</div>
+        <div class="ttl">道籍系統</div>
+        <div class="desc">投稿、審核、置頂、異動、下架，一律在既有後台完成，不另開表單</div>
+      </div>
+      <div class="hub-card">
+        <div class="tag">資料主表</div>
+        <div class="ttl">Google Sheet</div>
+        <div class="desc">第一階段公告資料主表；投稿者與管理員都不需要直接進入 Sheet</div>
+      </div>
+      <div class="hub-card">
+        <div class="tag">唯讀呈現</div>
+        <div class="ttl">Google Sites</div>
+        <div class="desc">只嵌入已核准且在有效期間內的公告，不保存正本、不提供寫入</div>
+      </div>
+    </div>
+    <p style="margin-top:14px;">預估公告量每週 1–3 則，採<strong>「分散投稿、集中審核發布」</strong>：投稿範圍下放到組／區，但只有平台管理員能讓內容真正出現在首頁。</p>
+  </section>
+
+  <!-- 2. 與既有規格的關係 -->
+  <section class="blk" id="s2">
+    <div class="sec-head"><span class="sec-no">2</span><h2>與既有規格的關係</h2></div>
+    <div class="card stack">
+      <p>本文件取代 <code>2026-08-08-emei-platform-integrated-design.md</code> 中與首頁公告資料模型、附件、LINE 通知及道籍系統整合有關的設計。舊文件的整體視覺方向仍保留，但不得再以舊公告欄位或舊權限流程作為實作依據。</p>
+      <h3 class="sub" style="margin-top:6px;">母藍圖的三項邊界</h3>
+      <ul>
+        <li>Google Sites 不保存附件正本；所有檔案與資料夾正本留在 Google Drive。</li>
+        <li>知識庫第 4 步完成前，不接舊 4D 資料夾，也不接尚未確認的新碟。</li>
+        <li>站台、嵌入內容與 Drive 權限皆使用既定 23 個 Google 群組，不使用「知道連結的任何人」。</li>
+      </ul>
+      <div class="callout callout-out"><span class="ico">🚫</span><span>本站不使用 Calendar。</span></div>
+    </div>
+  </section>
+
+  <!-- 3. 第一階段架構 -->
+  <section class="blk" id="s3">
+    <div class="sec-head"><span class="sec-no">3</span><h2>第一階段架構</h2></div>
+
+    <h3 class="sub">操作層</h3>
+    <p style="margin-bottom:14px;">道籍系統新增「道務平台管理」卡片，預留兩個入口——本設計只處理<strong>公告管理</strong>；<strong>問題回報</strong>另案設計。</p>
+    <div class="hub-grid" style="grid-template-columns: 1fr 1fr; margin-bottom:22px;">
+      <div class="hub-card" style="border-color:var(--primary); background:var(--tint-2);">
+        <div class="tag">本設計範圍</div>
+        <div class="ttl">公告管理</div>
+        <div class="desc">投稿、審核、置頂、異動、下架</div>
+      </div>
+      <div class="hub-card" style="opacity:.7;">
+        <div class="tag">另案設計</div>
+        <div class="ttl">問題回報</div>
+        <div class="desc">詳細流程不在本文件範圍</div>
+      </div>
+    </div>
+
+    <h3 class="sub">資料與呈現層</h3>
+    <figure class="diagram">
+      <svg viewBox="0 0 940 340" role="img" aria-label="架構圖：投稿者與管理員經道籍系統讀寫Google Sheet，道籍系統推送LINE提醒；Sheet經唯讀公告輸出服務過濾後供Google Sites嵌入；Google Drive存放附件與資料夾正本，由公告記錄引用">
+        <rect class="dg-box-accent" x="20" y="20" width="220" height="86" rx="12"/>
+        <text class="dg-t-h" x="38" y="50">道籍系統</text>
+        <text class="dg-t-s" x="38" y="70">投稿・審核・置頂・異動・下架</text>
+        <text class="dg-t-s" x="38" y="88">統一操作入口</text>
+
+        <rect class="dg-box" x="20" y="230" width="220" height="86" rx="12"/>
+        <text class="dg-t-h" x="38" y="260">LINE</text>
+        <text class="dg-t-s" x="38" y="280">個人即時提醒</text>
+        <text class="dg-t-s" x="38" y="298">不含全文／附件</text>
+
+        <rect class="dg-box" x="360" y="20" width="220" height="86" rx="12"/>
+        <text class="dg-t-h" x="378" y="50">Google Sheet</text>
+        <text class="dg-t-s" x="378" y="70">公告資料主表</text>
+        <text class="dg-t-s" x="378" y="88">伺服端身分讀寫</text>
+
+        <rect class="dg-box" x="360" y="230" width="220" height="86" rx="12"/>
+        <text class="dg-t-h" x="378" y="260">Google Drive</text>
+        <text class="dg-t-s" x="378" y="280">附件與資料夾正本</text>
+        <text class="dg-t-s" x="378" y="298">被公告記錄引用</text>
+
+        <rect class="dg-box-accent" x="700" y="20" width="220" height="86" rx="12"/>
+        <text class="dg-t-h" x="718" y="50">唯讀公告輸出服務</text>
+        <text class="dg-t-s" x="718" y="70">白名單欄位過濾</text>
+        <text class="dg-t-s" x="718" y="88">Apps Script（重新審核）</text>
+
+        <rect class="dg-box-accent" x="700" y="230" width="220" height="86" rx="12"/>
+        <text class="dg-t-h" x="718" y="260">Google Sites</text>
+        <text class="dg-t-s" x="718" y="280">首頁與過往公告</text>
+        <text class="dg-t-s" x="718" y="298">會員端入口，不可寫入</text>
+
+        <line class="dg-flow" x1="130" y1="106" x2="130" y2="226" marker-end="url(#ar)"/>
+        <text class="dg-lbl" x="140" y="170">待處理即時推播</text>
+
+        <line class="dg-flow" x1="240" y1="63" x2="356" y2="63" marker-end="url(#ar)"/>
+        <line class="dg-flow" x1="356" y1="80" x2="240" y2="80" marker-end="url(#ar)"/>
+        <text class="dg-lbl" x="248" y="52" text-anchor="start">伺服端讀寫（瀏覽器端無寫入憑證）</text>
+
+        <line class="dg-flow" x1="240" y1="270" x2="356" y2="270" marker-end="url(#ar)"/>
+        <text class="dg-lbl" x="248" y="258">連結檔案／資料夾（不複製）</text>
+
+        <line class="dg-flow" x1="580" y1="63" x2="696" y2="63" marker-end="url(#ar)"/>
+        <text class="dg-lbl" x="588" y="52">已核准＋有效期間內</text>
+
+        <line class="dg-flow" x1="810" y1="106" x2="810" y2="226" marker-end="url(#ar)"/>
+        <text class="dg-lbl" x="820" y="170">嵌入</text>
+
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--primary)"/>
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>第一階段不建立另一套公告資料庫：道籍系統是統一操作入口，Sheet 是唯一資料來源，兩者不得形成需要人工同步的兩份清單。Google Sites 不直接存取 Sheet，也不提供任何寫入功能。</figcaption>
+    </figure>
+  </section>
+
+  <!-- 4. 發布範圍 -->
+  <section class="blk" id="s4">
+    <div class="sec-head"><span class="sec-no">4</span><h2>發布範圍</h2></div>
+    <div class="card">
+      <p style="margin-bottom:10px;">首頁最新消息只收：</p>
+      <ul style="margin-bottom:14px;">
+        <li>全體辦事人員適用的消息。</li>
+        <li>不含個人資料或敏感內容的消息。</li>
+        <li>經平台管理員核准的消息。</li>
+      </ul>
+      <div class="callout callout-info"><span class="ico">ℹ️</span><span>各組或各區限定的消息仍留在既有組／區管道，不另外在各組、各區頁面建立最新消息模組。組／區投稿者若認為內容適合全體，可提交首頁公告申請，由平台管理員判斷是否發布。</span></div>
+    </div>
+  </section>
+
+  <!-- 5. 角色與權限 -->
+  <section class="blk" id="s5">
+    <div class="sec-head"><span class="sec-no">5</span><h2>角色與權限</h2></div>
+
+    <h3 class="sub">投稿角色</h3>
+    <div class="table-scroll" style="margin-bottom:16px;">
+      <table>
+        <tr><th>角色</th><th>可做什麼</th></tr>
+        <tr><td class="who">組長</td><td>代表自己的組投稿與處理自己的草稿、退回案件</td></tr>
+        <tr><td class="who">區負責人</td><td>代表自己的區投稿與處理自己的草稿、退回案件</td></tr>
+        <tr><td class="who">區文書</td><td>代表自己的區投稿並協助附件整理</td></tr>
+        <tr><td class="who">文書組</td><td>提交全體公告，並協助編修所有投稿</td></tr>
+        <tr><td class="who">額外指定投稿者</td><td>由平台管理員設定可代表的組、區或全體範圍</td></tr>
+      </table>
+    </div>
+    <p style="margin-bottom:18px; font-size:13px; color:var(--ink-sub);">角色與範圍優先從道籍系統的職務資料自動判斷，避免另維護第二份固定人員名單。</p>
+
+    <h3 class="sub">平台管理員（唯一能讓內容生效的角色）</h3>
+    <div class="card">
+      <div class="checklist" style="margin-bottom:12px;">
+        <div class="check-row"><span class="check-mark">✓</span><span>核准並實際發布</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>決定是否置頂及置頂順序</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>核准內容或附件異動</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>實際下架或取消發布</span></div>
+      </div>
+      <p style="font-size:13px; color:var(--ink-sub);">投稿人可以<strong style="color:var(--ink-sub);">提出</strong>置頂、發布時間、下架時間、取消發布與內容異動的建議或申請，但不能直接改變會員端內容。</p>
+    </div>
+  </section>
+
+  <!-- 6. 公告狀態與流程 -->
+  <section class="blk" id="s6">
+    <div class="sec-head"><span class="sec-no">6</span><h2>公告狀態與流程</h2></div>
+
+    <figure class="diagram" style="margin-bottom:18px;">
+      <svg viewBox="0 0 940 220" role="img" aria-label="狀態流程圖：草稿到待審核，待審核分岔為退回修改（回到草稿修改後重新送出）或核准發布，核准發布再到已下架；另有取消發布可從已發布觸發">
+        <rect class="dg-box" x="20" y="70" width="150" height="70" rx="12"/>
+        <text class="dg-t-h" x="95" y="110" text-anchor="middle">草稿</text>
+
+        <line class="dg-flow" x1="170" y1="105" x2="226" y2="105" marker-end="url(#ar2)"/>
+
+        <rect class="dg-box-accent" x="230" y="70" width="150" height="70" rx="12"/>
+        <text class="dg-t-h" x="305" y="110" text-anchor="middle">待審核</text>
+
+        <line class="dg-flow" x1="380" y1="90" x2="436" y2="40" marker-end="url(#ar2)"/>
+        <line class="dg-flow-danger" x1="380" y1="120" x2="436" y2="170" marker-end="url(#ar2)"/>
+
+        <rect class="dg-box-accent" x="440" y="5" width="170" height="70" rx="12"/>
+        <text class="dg-t-h" x="525" y="35" text-anchor="middle">核准發布</text>
+        <text class="dg-t-s" x="525" y="55" text-anchor="middle">到達發布時間才上線</text>
+
+        <rect class="dg-box-danger" x="440" y="170" width="170" height="70" rx="12"/>
+        <text class="dg-t-h" x="525" y="200" text-anchor="middle">退回修改</text>
+        <text class="dg-t-s" x="525" y="218" text-anchor="middle" style="fill:var(--danger)">附原因，回投稿者</text>
+
+        <path class="dg-flow-danger" d="M 440 195 C 300 195, 260 160, 245 145" marker-end="url(#ar2d)"/>
+        <text class="dg-lbl" x="250" y="165">修改後重新送出</text>
+
+        <line class="dg-flow" x1="610" y1="40" x2="666" y2="40" marker-end="url(#ar2)"/>
+
+        <rect class="dg-box" x="670" y="5" width="150" height="70" rx="12"/>
+        <text class="dg-t-h" x="745" y="35" text-anchor="middle">已下架</text>
+        <text class="dg-t-s" x="745" y="53" text-anchor="middle">正常結束</text>
+
+        <line class="dg-flow-danger" x1="610" y1="60" x2="666" y2="140" marker-end="url(#ar2d)"/>
+
+        <rect class="dg-box-danger" x="670" y="140" width="150" height="70" rx="12"/>
+        <text class="dg-t-h" x="745" y="172" text-anchor="middle" style="fill:var(--danger)">取消發布</text>
+        <text class="dg-t-s" x="745" y="190" text-anchor="middle" style="fill:var(--danger)">誤發／內容撤回</text>
+
+        <defs>
+          <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--primary)"/>
+          </marker>
+          <marker id="ar2d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--danger)"/>
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>實線＝主流程；紅色虛線＝例外分支（退回修改、取消發布）。預約發布以核准公告的發布時間控制，不需要另一套人工清單。</figcaption>
+    </figure>
+
+    <h3 class="sub">新公告</h3>
+    <div class="card" style="margin-bottom:16px;">
+      <ol class="stack">
+        <li>投稿者從道籍系統的「道務平台管理 → 公告管理」新增公告。</li>
+        <li>系統依職務帶入投稿單位與可用範圍。</li>
+        <li>投稿者填寫公告內容、建議發布設定、置頂建議、附件與相關資料夾。</li>
+        <li>送出後狀態改為「待審核」，Google Sites 不會立即顯示。</li>
+        <li>管理員收到 LINE 即時提醒。</li>
+        <li>管理員可核准、調整發布設定，或填寫原因退回。</li>
+        <li>核准且到達發布時間後，公告才進入 Google Sites 會員端。</li>
+      </ol>
+    </div>
+
+    <h3 class="sub">已發布公告的異動</h3>
+    <div class="card">
+      <p style="margin-bottom:10px;">投稿單位可從原公告提出：</p>
+      <ul style="margin-bottom:14px;">
+        <li>內容或附件修改。</li>
+        <li>延長、解除或新增置頂。</li>
+        <li>提前下架。</li>
+        <li>取消發布。</li>
+      </ul>
+      <div class="callout callout-info"><span class="ico">🔔</span><span>異動申請送出後進入管理員待辦並觸發 LINE 提醒；管理員核准前，會員端維持目前已發布版本。所有核准、退回、發布、異動、下架與取消發布均需保留操作者與時間紀錄。</span></div>
+    </div>
+  </section>
+
+  <!-- 7. Sheet 資料模型 -->
+  <section class="blk" id="s7">
+    <div class="sec-head"><span class="sec-no">7</span><h2>Google Sheet 資料模型</h2></div>
+
+    <div class="stack-lg">
+      <div class="field-group">
+        <div class="fg-head"><span class="name">公告</span><span class="note">一則公告一列</span></div>
+        <div class="field-list">
+          <span class="field-tag">公告編號</span><span class="field-tag">狀態</span><span class="field-tag">分類</span>
+          <span class="field-tag">標題</span><span class="field-tag">摘要</span><span class="field-tag">詳細說明</span>
+          <span class="field-tag">投稿單位類型</span><span class="field-tag">投稿單位ID</span><span class="field-tag">投稿人ID</span>
+          <span class="field-tag">建議發布時間</span><span class="field-tag">實際發布時間</span>
+          <span class="field-tag">建議下架時間</span><span class="field-tag">實際下架時間</span>
+          <span class="field-tag">是否申請置頂</span><span class="field-tag">置頂申請原因</span>
+          <span class="field-tag">是否置頂</span><span class="field-tag">置頂順序</span>
+          <span class="field-tag">是否長期公告</span><span class="field-tag">下次檢視日</span>
+          <span class="field-tag">審核人ID</span><span class="field-tag">審核時間</span><span class="field-tag">退回原因</span>
+          <span class="field-tag">建立時間</span><span class="field-tag">最後更新時間</span>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="fg-head"><span class="name">公告附件</span><span class="note">一對多，一列一項檔案</span></div>
+        <div class="field-list">
+          <span class="field-tag">公告編號</span><span class="field-tag">Drive檔案ID</span><span class="field-tag">顯示名稱</span>
+          <span class="field-tag">檔案類型</span><span class="field-tag">用途說明</span><span class="field-tag">來源位置</span>
+          <span class="field-tag">顯示順序</span><span class="field-tag">權限檢查結果</span><span class="field-tag">最後檢查時間</span>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="fg-head"><span class="name">公告資料夾</span><span class="note">一對多，一列一個相關資料夾</span></div>
+        <div class="field-list">
+          <span class="field-tag">公告編號</span><span class="field-tag">Drive資料夾ID</span><span class="field-tag">顯示名稱</span>
+          <span class="field-tag">用途說明</span><span class="field-tag">所屬知識庫位置</span><span class="field-tag">是否允許內容持續更新</span>
+          <span class="field-tag">顯示順序</span><span class="field-tag">權限檢查結果</span><span class="field-tag">最後檢查時間</span>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="fg-head"><span class="name">公告操作紀錄</span><span class="note">至少記錄以下欄位</span></div>
+        <div class="field-list">
+          <span class="field-tag">公告編號</span><span class="field-tag">動作類型</span><span class="field-tag">操作者ID</span>
+          <span class="field-tag">動作時間</span><span class="field-tag">異動前狀態</span><span class="field-tag">異動後狀態</span><span class="field-tag">原因</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-warn" style="margin-top:16px;"><span class="ico">🔒</span><span>會員端不輸出管理欄位、投稿人 ID、審核人 ID 或操作紀錄。</span></div>
+  </section>
+
+  <!-- 8. 投稿欄位與管理建議 -->
+  <section class="blk" id="s8">
+    <div class="sec-head"><span class="sec-no">8</span><h2>投稿欄位與管理建議</h2></div>
+    <div class="card">
+      <p style="margin-bottom:10px;">投稿時可填：</p>
+      <ul style="margin-bottom:14px;">
+        <li>標題、分類、摘要與詳細說明。</li>
+        <li>建議發布時間與建議下架時間。</li>
+        <li>是否申請置頂及置頂原因。</li>
+        <li>是否屬於長期公告；長期公告的建議檢視週期。</li>
+        <li>多個檔案附件；一個或多個相關資料夾。</li>
+      </ul>
+      <div class="callout callout-info"><span class="ico">📌</span><span>長期置頂公告可以不設定下架日，但必須設定<strong>下次檢視日</strong>——預設每三個月提醒管理員確認是否繼續置頂。</span></div>
+    </div>
+  </section>
+
+  <!-- 9. 附件與資料夾 -->
+  <section class="blk" id="s9">
+    <div class="sec-head"><span class="sec-no">9</span><h2>附件與資料夾</h2></div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px;">
+      <div class="card">
+        <h3 class="sub">檔案附件</h3>
+        <ul>
+          <li>一則公告可選擇多個 Drive 檔案，可一次多選。</li>
+          <li>為每個附件設定顯示名稱、用途與排列順序。</li>
+          <li>可個別移除或更換，不影響同一公告的其他附件。</li>
+          <li>建議不超過 10 份；第一階段只提醒，不設硬性上限。</li>
+          <li>PDF、Excel、Google 文件、圖片等清楚呈現檔案類型與用途。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="sub">相關資料夾</h3>
+        <ul>
+          <li>一則公告可連結一個或多個 Drive 資料夾。</li>
+          <li>會員端只顯示「開啟相關資料夾」，不自動展開或複製全部檔案。</li>
+          <li>允許持續更新的資料夾須明確標示；後續新增內容不會自動變成首頁獨立附件。</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">發布前檢查</h3>
+    <div class="card">
+      <p style="margin-bottom:10px; color:var(--ink-sub); font-size:13px;">每個檔案與資料夾均須檢查：</p>
+      <div class="checklist" style="margin-bottom:12px;">
+        <div class="check-row"><span class="check-mark">✓</span><span>ID 可解析且資源仍存在</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>來源屬於核准的 Drive／知識庫位置</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>會員使用既定 Google 群組可開啟</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>未使用「知道連結的任何人」</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>顯示名稱不含不應公開的個人資料</span></div>
+      </div>
+      <div class="callout callout-warn"><span class="ico">⚠️</span><span>中心提供的附件若會員權限尚未驗證，不得直接發布。權限驗證需由一般會員帳號與未授權帳號分別測試，不能只依管理員可見或連接器列出結果判定。</span></div>
+    </div>
+  </section>
+
+  <!-- 10. LINE 通知 -->
+  <section class="blk" id="s10">
+    <div class="sec-head"><span class="sec-no">10</span><h2>LINE 通知</h2></div>
+    <div class="card">
+      <p style="margin-bottom:14px;">每筆新投稿或已發布公告的異動申請，都立即提醒平台管理員的個人 LINE。</p>
+      <div class="yn-grid" style="margin-bottom:14px;">
+        <div class="yn-col yes">
+          <h4>提醒只包含</h4>
+          <ul class="yn-list">
+            <li>投稿單位</li>
+            <li>公告標題</li>
+            <li>待處理類型</li>
+            <li>道籍系統後台管理連結</li>
+          </ul>
+        </div>
+        <div class="yn-col no">
+          <h4>不傳送</h4>
+          <ul class="yn-list">
+            <li>公告全文</li>
+            <li>附件</li>
+            <li>名單或其他個人資料</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout callout-info"><span class="ico">🔁</span><span>LINE 通知失敗不得改變投稿狀態；後台需保留待審核項目，並提供通知失敗紀錄供管理員查看。</span></div>
+    </div>
+  </section>
+
+  <!-- 11. Sites 呈現 -->
+  <section class="blk" id="s11">
+    <div class="sec-head"><span class="sec-no">11</span><h2>Google Sites 首頁呈現</h2></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+      <div class="card">
+        <div class="chip chip-am" style="margin-bottom:10px;">重要公告</div>
+        <ul>
+          <li>最多 <strong>3 則</strong>已發布且仍在有效期間內的置頂公告</li>
+          <li>依平台管理員設定的置頂順序排列</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="chip chip-em" style="margin-bottom:10px;">最新消息</div>
+        <ul>
+          <li>最多 <strong>3 則</strong>已發布且仍在有效期間內的非置頂公告</li>
+          <li>依實際發布時間由新到舊排列</li>
+          <li>已置頂公告不在此重複出現</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card stack">
+      <p>每則公告顯示：分類標籤、標題、實際發布日期、投稿單位、簡短摘要，以及「查看詳情／附件」入口。首頁可顯示附件與相關資料夾的數量，詳細項目在展開或詳情檢視中呈現。</p>
+      <div class="callout callout-info"><span class="ico">🎨</span><span>首頁維持既定<strong>外交官主題、深綠與暖色水墨視覺</strong>；本設計不重開整體視覺方向。</span></div>
+    </div>
+  </section>
+
+  <!-- 12. 過往公告 -->
+  <section class="blk" id="s12">
+    <div class="sec-head"><span class="sec-no">12</span><h2>過往公告</h2></div>
+    <div class="card">
+      <ul>
+        <li>首頁提供「查看過往公告」。</li>
+        <li>會員可查詢最近一年內已發布及正常下架的公告。</li>
+        <li>可依關鍵字、分類與投稿單位篩選。</li>
+        <li>超過一年後仍保留在 Google Sheet 與管理後台，但不再出現在會員端。</li>
+        <li>取消發布的公告不出現在過往公告，後台仍保留操作紀錄。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 13. 錯誤與降級 -->
+  <section class="blk" id="s13">
+    <div class="sec-head"><span class="sec-no">13</span><h2>錯誤與降級</h2></div>
+    <div class="table-scroll">
+      <table>
+        <tr><th>情境</th><th>處理方式</th></tr>
+        <tr><td class="who">公告模組讀取失敗</td><td>顯示「公告暫時無法載入」及問題回報入口，站台其他入口仍可使用</td></tr>
+        <tr><td class="who">沒有有效公告</td><td>顯示安靜的空狀態，不留下破版空白</td></tr>
+        <tr><td class="who">單一附件失效</td><td>停用該附件入口並提醒管理員，不直接刪除整則公告</td></tr>
+        <tr><td class="who">權限不足</td><td>提示使用正確的峨眉帳號登入，不改為公開分享</td></tr>
+        <tr><td class="who">LINE 通知失敗</td><td>公告仍留在後台待辦，管理員可看到通知失敗狀態</td></tr>
+        <tr><td class="who">排程或狀態資料異常</td><td>不發布有歧義的資料，後台顯示需處理原因</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 14. RWD 可用性個資 -->
+  <section class="blk" id="s14">
+    <div class="sec-head"><span class="sec-no">14</span><h2>RWD、可用性與個資</h2></div>
+    <div class="card">
+      <ul style="margin-bottom:14px;">
+        <li>桌面版可使用雙區段列表；手機版改為單欄閱讀。</li>
+        <li>不出現水平捲動或內外雙重導覽。</li>
+        <li>公告、附件與資料夾入口可用鍵盤操作，焦點順序符合閱讀順序。</li>
+        <li>重要程度與狀態不能只靠顏色辨識。</li>
+        <li>Google Sites、公告模組及 Drive 資源均維持既定群組權限。</li>
+      </ul>
+      <div class="callout callout-warn"><span class="ico">🔒</span><span><strong>會員端不輸出：</strong>電話、人籍、名冊、出席狀況、投稿人 ID、審核人 ID 或管理備註。</span></div>
+    </div>
+  </section>
+
+  <!-- 15. 管理負擔 -->
+  <section class="blk" id="s15">
+    <div class="sec-head"><span class="sec-no">15</span><h2>管理負擔</h2></div>
+    <div class="card">
+      <p style="margin-bottom:10px;">管理員的例行工作集中於道籍系統：</p>
+      <div class="checklist" style="margin-bottom:14px;">
+        <div class="check-row"><span class="check-mark">✓</span><span>從 LINE 提醒直接開啟待審核項目</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>核准、退回或調整發布設定</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>處理置頂、異動、下架與取消發布申請</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>每三個月檢視長期置頂公告</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>收到附件失效或權限異常時處理</span></div>
+      </div>
+      <div class="callout callout-info"><span class="ico">💡</span><span>管理員不需要尋找 Google Form，也不需要直接整理 Google Sheet。第一階段不掃描或同步整個中心資料夾，避免把低頻公告流程變成額外資料整理工作。</span></div>
+    </div>
+  </section>
+
+  <!-- 16. 驗收標準 -->
+  <section class="blk" id="s16">
+    <div class="sec-head"><span class="sec-no">16</span><h2>驗收標準</h2></div>
+    <div class="card">
+      <div class="checklist">
+        <div class="check-row"><span class="check-mark">✓</span><span>各投稿角色只能代表自己被授權的組、區或全體範圍投稿</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>投稿送出後不會直接出現在首頁，管理員核准後才發布</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>新投稿與公告異動申請能建立 LINE 提醒，提醒不含全文與附件</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>投稿人可提出置頂、異動、下架與取消發布申請，但無法直接執行</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>首頁最多顯示 3 則置頂與 3 則最新，且不重複</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>長期置頂公告有下次檢視日與提醒</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>一則公告可包含多個檔案及多個相關資料夾，排列與用途顯示正確</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>相關資料夾只提供開啟入口，不在首頁自動展開內容</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>草稿、待審核、退回、過期與取消發布內容不會錯誤出現在首頁</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>最近一年過往公告可查；超過一年與取消發布內容不在會員端出現</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>一般會員可開啟核准附件，未授權帳號不能開啟；沒有任何資源改成公開連結</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>桌面與手機均能閱讀、展開詳情及操作附件入口</span></div>
+        <div class="check-row"><span class="check-mark">✓</span><span>Google Sites 維持未發布草稿，直到使用者另行明確批准發布</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17. 明確不在第一階段 -->
+  <section class="blk" id="s17">
+    <div class="sec-head"><span class="sec-no">17</span><h2>明確不在第一階段</h2></div>
+    <div class="card">
+      <div class="checklist">
+        <div class="out-row"><span class="out-mark">✕</span><span>各組／各區獨立最新消息模組</span></div>
+        <div class="out-row"><span class="out-mark">✕</span><span>個人化公告、已讀追蹤或依身分分流首頁消息</span></div>
+        <div class="out-row"><span class="out-mark">✕</span><span>中心「經理會議附件」資料夾的自動同步或整包複製</span></div>
+        <div class="out-row"><span class="out-mark">✕</span><span>班程報名、各組／各區 Excel 名單與中心格式彙整</span></div>
+        <div class="out-row"><span class="out-mark">✕</span><span>自動複製 Drive 附件或建立峨眉工作副本</span></div>
+        <div class="out-row"><span class="out-mark">✕</span><span>問題回報模組的詳細實作</span></div>
+        <div class="out-row"><span class="out-mark">✕</span><span>Calendar</span></div>
+        <div class="out-row"><span class="out-mark">✕</span><span>知識庫第 4 步完成前接入舊資料夾或新碟</span></div>
+        <div class="out-row"><span class="out-mark">✕</span><span>未經使用者批准建立雲端資源、調整分享權限、重新連接 Apps Script 或發布 Google Sites</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 18. 媒體策略地圖紀錄要點 -->
+  <section class="blk" id="s18">
+    <div class="sec-head"><span class="sec-no">18</span><h2>媒體策略地圖紀錄要點</h2></div>
+    <div class="card stack">
+      <div class="callout callout-warn"><span class="ico">⚠️</span><span>使用者提供的線上 artifact 目前未能在可用瀏覽器中通過權限讀取，因此僅記錄為<strong>待核對來源</strong>，不將其內容視為已驗證，也不直接覆寫既有平台策略地圖。</span></div>
+
+      <p>待確認「峨眉媒體策略地圖」的正確來源檔案後，應將本設計記錄為以下管道關係：</p>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 940 100" role="img" aria-label="管道關係：各組各區文書投稿到道籍系統統一後台，經平台管理員審核，最後到Google Sites首頁與一年留底">
+          <rect class="dg-box" x="10" y="15" width="190" height="60" rx="10"/>
+          <text class="dg-t-h" x="26" y="42" text-anchor="start">各組／各區／文書投稿</text>
+          <line class="dg-flow" x1="200" y1="45" x2="246" y2="45" marker-end="url(#ar3)"/>
+          <rect class="dg-box-accent" x="250" y="15" width="190" height="60" rx="10"/>
+          <text class="dg-t-h" x="266" y="42">道籍系統統一後台</text>
+          <line class="dg-flow" x1="440" y1="45" x2="486" y2="45" marker-end="url(#ar3)"/>
+          <rect class="dg-box" x="490" y="15" width="190" height="60" rx="10"/>
+          <text class="dg-t-h" x="506" y="42">平台管理員審核</text>
+          <line class="dg-flow" x1="680" y1="45" x2="726" y2="45" marker-end="url(#ar3)"/>
+          <rect class="dg-box-accent" x="730" y="15" width="200" height="60" rx="10"/>
+          <text class="dg-t-h" x="746" y="42">Sites 首頁與一年留底</text>
+          <defs>
+            <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--primary)"/>
+            </marker>
+          </defs>
+        </svg>
+      </figure>
+
+      <h3 class="sub" style="margin-top:6px;">輔助管道</h3>
+      <ul style="margin-bottom:10px;">
+        <li><strong>Google Sheet</strong>：公告資料主表。</li>
+        <li><strong>Google Drive</strong>：附件與資料夾正本。</li>
+        <li><strong>LINE</strong>：管理員即時待辦提醒。</li>
+        <li><strong>Google Sites</strong>：全體、非敏感公告的前門與留底。</li>
+      </ul>
+      <p style="font-size:13px; color:var(--ink-sub);">地圖應同時註明：限定消息留在原組／區管道；站台不保存正本；不做中心資料夾同步；不使用 Calendar。</p>
+    </div>
+  </section>
+
+  <footer class="page">
+    <span>峨眉道務平台首頁公告管理設計規格・2026-08-22</span>
+    <span>取代 2026-08-08 整合設計文件相關章節・視覺語言取自 daomember-app/docs/design/DESIGN-SYSTEM.md</span>
+  </footer>
+
+</div>
