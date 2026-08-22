@@ -1,0 +1,216 @@
+<title>道務平台實作地圖</title>
+<style>
+  :root {
+    --bg: #F1F2EE; --surface: #FBFBF9; --surface-2: #E9EBE4;
+    --ink: #22262A; --ink-soft: #5A6168; --line: #C9CDC3;
+    --accent: #33557E; --accent-tint: #DFE6EE; --seal: #A8402F; --seal-ink: #FBFBF9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181B; --surface: #1F2226; --surface-2: #24282D;
+      --ink: #E8E7E2; --ink-soft: #9BA1A8; --line: #3A4046;
+      --accent: #8FAFD9; --accent-tint: #2A3644; --seal: #C25A45; --seal-ink: #F5EFEA;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181B; --surface: #1F2226; --surface-2: #24282D;
+    --ink: #E8E7E2; --ink-soft: #9BA1A8; --line: #3A4046;
+    --accent: #8FAFD9; --accent-tint: #2A3644; --seal: #C25A45; --seal-ink: #F5EFEA;
+  }
+  body { background: var(--bg); color: var(--ink); margin: 0; padding: 0 20px 56px;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif; line-height: 1.75; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1, h2 { font-family: "Songti TC","Noto Serif TC","Source Han Serif TC",serif; text-wrap: balance; }
+  header.page { padding: 44px 0 8px; border-bottom: 1px solid var(--line); }
+  .eyebrow { font-size: 13px; letter-spacing: .35em; color: var(--ink-soft); margin: 0 0 10px; }
+  h1 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 10px; font-weight: 700; }
+  .creed { font-size: clamp(14px, 1.8vw, 16px); color: var(--accent); font-weight: 600; margin: 0 0 12px; max-width: 64ch; }
+  .readme { font-size: 13px; color: var(--ink-soft); margin: 0 0 30px; border-left: 3px solid var(--accent); padding-left: 14px; max-width: 64ch; }
+  h2 { font-size: 21px; margin: 46px 0 14px; }
+  .lede { font-size: 14.5px; color: var(--ink-soft); max-width: 68ch; margin: -6px 0 18px; }
+  figure.map { margin: 26px 0 6px; overflow-x: auto; }
+  figure.map svg { min-width: 880px; width: 100%; height: auto; display: block; }
+  figcaption { font-size: 13px; color: var(--ink-soft); margin-top: 10px; max-width: 76ch; }
+  .node { fill: var(--surface); stroke: var(--line); }
+  .container { fill: var(--surface-2); stroke: var(--line); }
+  .box-goal { fill: var(--surface); stroke: var(--accent); stroke-width: 1.4; }
+  .chip { fill: var(--surface); stroke: var(--line); }
+  .t-title { font-size: 17px; font-weight: 700; fill: var(--ink); }
+  .t-h { font-size: 13.5px; font-weight: 700; fill: var(--ink); }
+  .t { font-size: 12.5px; fill: var(--ink); }
+  .t-s { font-size: 11.5px; fill: var(--ink-soft); }
+  .t-tag { font-size: 13px; font-weight: 700; fill: var(--accent); }
+  .flow { stroke: var(--accent); stroke-width: 1.8; fill: none; }
+  .m-accent { fill: var(--accent); }
+  .bar-track { fill: var(--surface); stroke: var(--line); }
+  .bar-fill { fill: var(--accent); }
+  .bar-red { fill: var(--seal); }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12.5px; color: var(--ink-soft); font-weight: 600; }
+  td.who { font-weight: 700; white-space: nowrap; }
+  .table-scroll { overflow-x: auto; }
+  .rule-callout { background: var(--accent-tint); border: 1px solid var(--accent); border-radius: 10px;
+    padding: 18px 22px; margin: 18px 0; font-size: 15px; }
+  .aside-phase { margin-top: 14px; font-size: 13.5px; color: var(--ink-soft);
+    border-left: 3px solid var(--accent); padding-left: 14px; max-width: 76ch; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; font-size: 13.5px; }
+  .card b { display: block; margin-bottom: 4px; font-size: 14.5px; }
+  footer { margin-top: 52px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-soft); }
+  .tac { display:inline-block; padding:2px 14px; border:1px solid var(--line); border-radius:999px; margin:0 6px 4px 0; font-size:13px; color:var(--ink-soft); }
+  .tac.on { background:var(--accent-tint); border-color:var(--accent); color:var(--ink); font-weight:700; }
+  .seal-inline { display:inline-block; background:var(--seal); color:var(--seal-ink); border-radius:6px; padding:1px 10px; font-family:"Songti TC","Noto Serif TC",serif; font-weight:700; }
+  a { color: var(--accent); }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <p class="eyebrow">峨眉書院・管道層</p>
+    <h1>道務平台實作地圖</h1>
+    <p class="creed">站台是門，資料住在知識庫——內部的人一個入口，找到所有東西。</p>
+    <p class="readme">「<a href="https://claude.ai/code/artifact/5702040b-b689-4458-a830-f3893fb12e70" target="_blank" rel="noopener">峨眉資訊藍圖</a>」（母圖）底下的子地圖，管道層唯一有實作要規劃的工具。整併自 Google Sites 草稿專案（google-sites-blueprint／sites-content-map／implementation-status 三份文件）。</p>
+  </header>
+
+  <div class="rule-callout">
+    <b>上承總圖戰術：</b><span class="tac">存</span><span class="tac on">找</span><span class="tac on">傳</span><span class="tac">承</span><br>
+    道務平台是管道，不持印——「管道送信，媒體說書」。它做兩件事：當「找」的<b>前門</b>（內部的人自助查資料），當「傳」的<b>留底</b>（公告與會議紀錄事後查得到，不用爬群組）。<br>
+    <small style="color:var(--ink-soft)">紅印勾稽：它送的是知識庫（<span class="seal-inline">活</span>）與道籍（<span class="seal-inline">脈</span>）的東西，自己不存任何正本。</small>
+  </div>
+
+  <h2>策略地圖</h2>
+  <figure class="map">
+    <svg viewBox="0 0 1040 520" role="img" aria-label="道務平台策略地圖：頂端目標「前門常開、留底可查」，往下三條戰術（骨架與門面、嵌入不複製、權限同門），每條下掛戰技；左側護欄，右側兩個迴路">
+      <defs><marker id="pa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" /></marker></defs>
+
+      <rect class="box-goal" x="260" y="16" width="520" height="64" rx="10" />
+      <text class="t-title" x="520" y="44" text-anchor="middle">前門常開、留底可查</text>
+      <text class="t-s" x="520" y="66" text-anchor="middle">內部的人不用問人，自己找得到表單、紀錄、文件與行事曆</text>
+
+      <line class="flow" x1="330" y1="118" x2="330" y2="84" marker-end="url(#pa)" />
+      <line class="flow" x1="520" y1="118" x2="520" y2="84" marker-end="url(#pa)" />
+      <line class="flow" x1="710" y1="118" x2="710" y2="84" marker-end="url(#pa)" />
+
+      <text class="t-tag" x="238" y="112">戰術（三條路）</text>
+
+      <!-- tactic 1 -->
+      <rect class="container" x="238" y="120" width="180" height="86" rx="10" />
+      <text class="t-h" x="328" y="144" text-anchor="middle">骨架與門面</text>
+      <text class="t-s" x="328" y="162" text-anchor="middle">六頁導覽＋四卡入口</text>
+      <rect class="bar-track" x="256" y="176" width="120" height="10" rx="5" />
+      <rect class="bar-fill" x="256" y="176" width="84" height="10" rx="5" />
+      <text class="t-s" x="384" y="185">70%</text>
+
+      <!-- tactic 2 -->
+      <rect class="container" x="430" y="120" width="180" height="86" rx="10" />
+      <text class="t-h" x="520" y="144" text-anchor="middle">嵌入不複製</text>
+      <text class="t-s" x="520" y="162" text-anchor="middle">門後接知識庫，不存正本</text>
+      <rect class="bar-track" x="448" y="176" width="120" height="10" rx="5" />
+      <rect class="bar-red" x="448" y="176" width="4" height="10" rx="2" />
+      <text class="t-s" x="576" y="185">0%</text>
+
+      <!-- tactic 3 -->
+      <rect class="container" x="622" y="120" width="180" height="86" rx="10" />
+      <text class="t-h" x="712" y="144" text-anchor="middle">權限同門</text>
+      <text class="t-s" x="712" y="162" text-anchor="middle">站台與內嵌同一套群組</text>
+      <rect class="bar-track" x="640" y="176" width="120" height="10" rx="5" />
+      <rect class="bar-red" x="640" y="176" width="4" height="10" rx="2" />
+      <text class="t-s" x="768" y="185">0%</text>
+
+      <line class="flow" x1="328" y1="238" x2="328" y2="210" marker-end="url(#pa)" />
+      <line class="flow" x1="520" y1="238" x2="520" y2="210" marker-end="url(#pa)" />
+      <line class="flow" x1="712" y1="238" x2="712" y2="210" marker-end="url(#pa)" />
+
+      <text class="t-tag" x="238" y="234">戰技（掛在各自的路下）</text>
+
+      <!-- tech column 1 -->
+      <rect class="chip" x="244" y="242" width="168" height="30" rx="15" /><text class="t" x="328" y="262" text-anchor="middle">水墨四卡入口</text>
+      <rect class="chip" x="244" y="280" width="168" height="30" rx="15" /><text class="t" x="328" y="300" text-anchor="middle">六頁導覽</text>
+      <rect class="chip" x="244" y="318" width="168" height="30" rx="15" /><text class="t" x="328" y="338" text-anchor="middle">手機版兩捲以內</text>
+
+      <!-- tech column 2 -->
+      <rect class="chip" x="436" y="242" width="168" height="30" rx="15" /><text class="t" x="520" y="262" text-anchor="middle">嵌資料夾不嵌單檔</text>
+      <rect class="chip" x="436" y="280" width="168" height="30" rx="15" /><text class="t" x="520" y="300" text-anchor="middle">版本日期＋負責窗口</text>
+      <rect class="chip" x="436" y="318" width="168" height="30" rx="15" /><text class="t" x="520" y="338" text-anchor="middle">表單卡五要素</text>
+
+      <!-- tech column 3 -->
+      <rect class="chip" x="628" y="242" width="168" height="30" rx="15" /><text class="t" x="712" y="262" text-anchor="middle">23 群一魚三吃</text>
+      <rect class="chip" x="628" y="280" width="168" height="30" rx="15" /><text class="t" x="712" y="300" text-anchor="middle">禁「知道連結任何人」</text>
+      <rect class="chip" x="628" y="318" width="168" height="30" rx="15" /><text class="t" x="712" y="338" text-anchor="middle">一般帳號驗收</text>
+
+      <!-- left rail -->
+      <rect class="node" x="20" y="120" width="190" height="228" rx="10" />
+      <text class="t-h" x="115" y="146" text-anchor="middle">護欄（不可越）</text>
+      <text class="t" x="36" y="176">・個資不上站台</text>
+      <text class="t" x="36" y="202">・財務只給限制入口</text>
+      <text class="t" x="36" y="228">・空分類不顯示</text>
+      <text class="t" x="36" y="254">・舊檔不嵌入</text>
+      <text class="t-s" x="36" y="288">敏感活動只顯示名稱、</text>
+      <text class="t-s" x="36" y="308">日期與聯絡窗口</text>
+
+      <!-- right rails -->
+      <rect class="node" x="828" y="120" width="192" height="106" rx="10" />
+      <text class="t-h" x="924" y="146" text-anchor="middle">每季巡連結迴路</text>
+      <text class="t-s" x="844" y="172">失效連結・離職帳號檔案</text>
+      <text class="t-s" x="844" y="192">・權限漂移 → 併月巡機器</text>
+      <rect class="node" x="828" y="242" width="192" height="106" rx="10" />
+      <text class="t-h" x="924" y="268" text-anchor="middle">公告欄零新基建</text>
+      <text class="t-s" x="844" y="294">訊息由 LINE／Gmail 推走，</text>
+      <text class="t-s" x="844" y="314">平台只留底（第 4 步後開）</text>
+
+      <!-- bottom note -->
+      <rect class="container" x="238" y="386" width="564" height="60" rx="10" />
+      <text class="t-h" x="520" y="412" text-anchor="middle">底座：Google Sites（免費、免維護、換人能接）</text>
+      <text class="t-s" x="520" y="434" text-anchor="middle">站台只是門——所有內容都是「嵌」，維護＝換連結，不是搬檔案</text>
+      <line class="flow" x1="520" y1="386" x2="520" y2="356" marker-end="url(#pa)" />
+    </svg>
+    <figcaption>由下往上讀：戰技撐三條路，三條路撐「前門常開、留底可查」。兩條 0% 是排程使然（等知識庫第 4 步開好權限），不是落後。左＝護欄，右＝巡連結與公告欄兩個迴路。</figcaption>
+  </figure>
+
+  <h2>換地址：草稿指的是舊家，門後要接九疊新家</h2>
+  <p class="lede">Google Sites 草稿的分類頁（A.辦道～W.文書）是照「舊4D 各組業務」碟設計的；舊4D 搬空退場後，站台改嵌新碟。Sites 嵌的是資料夾連結——換家＝換一條連結，頁面不用重做。</p>
+  <div class="table-scroll">
+    <table>
+      <tr><th>站台頁</th><th>草稿原本指向</th><th>新家（九疊地址）</th></tr>
+      <tr><td class="who">常用表單</td><td>A～J 各組分類頁</td><td>各組碟 301～309（表單回傳存該組活動年夾）</td></tr>
+      <tr><td class="who">會議紀錄</td><td>W.文書 內的會議資料夾</td><td>208會議（按年夾嵌入）</td></tr>
+      <tr><td class="who">文件中心</td><td>舊4D A～W 文件樹</td><td>制度辦法→101公開；各組現行文件→301～309；歷史資料→9封存（唯讀）</td></tr>
+      <tr><td class="who">行事曆</td><td>專用 Google Calendar</td><td>不變（Calendar 不在 Drive 裡）</td></tr>
+      <tr><td class="who">各區事務</td><td>（草稿未建）</td><td>區碟 401～407</td></tr>
+      <tr><td class="who">道務系統</td><td>（連結）</td><td>道籍系統 app.emsy.tw</td></tr>
+    </table>
+  </div>
+  <p class="aside-phase">草稿的 F.財務「限制入口」、W.文書「精選入口」兩個設計保留——對應新家就是 308財務 與 304文書，原則不變：敏感碟不嵌整個資料夾，只給說明頁＋申請窗口。</p>
+
+  <h2>現況：門面已好，門後還空著</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>狀態</th><th>內容</th></tr>
+      <tr><td class="who">已完成</td><td>草稿站「峨眉書院平台」・視覺定稿（外交官主題、深綠主色、暖色水墨橫幅、四張水墨入口卡）・六頁導覽建齊・「A.辦道」試作頁（桌機＋手機預覽通過）</td></tr>
+      <tr><td class="who">尚未做</td><td>接實際表單・嵌資料夾・嵌行事曆・填聯絡窗口・設定並驗證權限・一般帳號驗收・發布</td></tr>
+    </table>
+  </div>
+  <p class="aside-phase">「尚未做」整批刻意排在知識庫第 4 步之後：權限群組跟新碟都到位了，門才有東西可接。先接舊碟＝之後全部重換一次連結，白工。</p>
+
+  <h2>接口卡榫</h2>
+  <div class="cards">
+    <div class="card"><b>× 知識庫</b>門與書架：站台每一頁嵌對應新碟的資料夾。書架搬家，門上換連結即可。</div>
+    <div class="card"><b>× 道籍系統</b>誰能進門：站台觀看權限＝同一套 23 群（道籍同步名單）。表單填答人身分靠道籍編號對回。</div>
+    <div class="card"><b>× LINE／Gmail</b>推與留：訊息由 LINE 推、Gmail 寄（會後 48 小時節奏），平台公告欄只負責留底可查。</div>
+    <div class="card"><b>× 實體會議</b>月會動線的最後一站：紀錄寄發後歸 208會議碟，平台嵌 208——缺席的人來這裡補課。</div>
+  </div>
+
+  <h2>驗收清單（發布前）</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>檢查</th><th>判準</th></tr>
+      <tr><td class="who">一般成員</td><td>能開網站、能填表、不能改表單</td></tr>
+      <tr><td class="who">未授權帳號</td><td>網站與內嵌文件都打不開</td></tr>
+      <tr><td class="who">連結</td><td>所有按鈕開得到正確內容；文件頁版本日期與 Drive 現行檔一致</td></tr>
+      <tr><td class="who">手機版</td><td>首頁主要入口兩次捲動以內</td></tr>
+    </table>
+  </div>
+
+  <footer>2026-08-20・整併自 Codex「峨眉道務平台」專案三份文件・母圖：峨眉資訊藍圖</footer>
+</div>
+
