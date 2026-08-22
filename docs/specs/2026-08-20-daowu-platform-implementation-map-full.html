@@ -56,15 +56,17 @@
   <header class="page">
     <p class="eyebrow">峨眉書院・管道層</p>
     <h1>道務平台實作地圖</h1>
-    <p class="creed">前門服務台：不用問人，自己找得到表單、紀錄、公告。站台是門，資料住在知識庫。</p>
-    <p class="readme">「<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html" style="color:var(--accent)">峨眉資訊藍圖</a>」底下的子地圖——管道層唯一要實作的工具。</p>
+    <p class="creed">站台是門，資料住在知識庫——內部的人一個入口，找到所有東西。</p>
+    <p class="readme">「<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html" target="_blank" rel="noopener">峨眉資訊藍圖</a>」（母圖）底下的子地圖，管道層唯一有實作要規劃的工具。整併自 Google Sites 草稿專案（google-sites-blueprint／sites-content-map／implementation-status 三份文件）。</p>
   </header>
 
   <div class="rule-callout">
-    <b>上承總圖：</b><span class="tac on">找</span><span class="tac on">傳</span>　管道不持印——它送的是知識庫（<span class="seal-inline">活</span>）與道籍（<span class="seal-inline">脈</span>）的東西，自己不存任何正本。
+    <b>上承總圖戰術：</b><span class="tac">存</span><span class="tac on">找</span><span class="tac on">傳</span><span class="tac">承</span><br>
+    道務平台是管道，不持印——「管道送信，媒體說書」。它做兩件事：當「找」的<b>前門</b>（內部的人自助查資料），當「傳」的<b>留底</b>（公告與會議紀錄事後查得到，不用爬群組）。<br>
+    <small style="color:var(--ink-soft)">紅印勾稽：它送的是知識庫（<span class="seal-inline">活</span>）與道籍（<span class="seal-inline">脈</span>）的東西，自己不存任何正本。</small>
   </div>
 
-  <h2>整體怎麼打？</h2>
+  <h2>策略地圖</h2>
   <figure class="map">
     <svg viewBox="0 0 1040 520" role="img" aria-label="道務平台策略地圖：頂端目標「前門常開、留底可查」，往下三條戰術（骨架與門面、嵌入不複製、權限同門），每條下掛戰技；左側護欄，右側兩個迴路">
       <defs><marker id="pa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" /></marker></defs>
@@ -153,21 +155,51 @@
     <figcaption>由下往上讀：戰技撐三條路，三條路撐「前門常開、留底可查」。兩條 0% 是排程使然（等知識庫第 4 步開好權限），不是落後。左＝護欄，右＝巡連結與公告欄兩個迴路。</figcaption>
   </figure>
 
+  <h2>換地址：草稿指的是舊家，門後要接九疊新家</h2>
+  <p class="lede">Google Sites 草稿的分類頁（A.辦道～W.文書）是照「舊4D 各組業務」碟設計的；舊4D 搬空退場後，站台改嵌新碟。Sites 嵌的是資料夾連結——換家＝換一條連結，頁面不用重做。</p>
+  <div class="table-scroll">
+    <table>
+      <tr><th>站台頁</th><th>草稿原本指向</th><th>新家（九疊地址）</th></tr>
+      <tr><td class="who">常用表單</td><td>A～J 各組分類頁</td><td>各組碟 301～309（表單回傳存該組活動年夾）</td></tr>
+      <tr><td class="who">會議紀錄</td><td>W.文書 內的會議資料夾</td><td>208會議（按年夾嵌入）</td></tr>
+      <tr><td class="who">文件中心</td><td>舊4D A～W 文件樹</td><td>制度辦法→101公開；各組現行文件→301～309；歷史資料→9封存（唯讀）</td></tr>
+      <tr><td class="who">行事曆</td><td>專用 Google Calendar</td><td>不變（Calendar 不在 Drive 裡）</td></tr>
+      <tr><td class="who">各區事務</td><td>（草稿未建）</td><td>區碟 401～407</td></tr>
+      <tr><td class="who">道務系統</td><td>（連結）</td><td>道籍系統 app.emsy.tw</td></tr>
+    </table>
+  </div>
+  <p class="aside-phase">草稿的 F.財務「限制入口」、W.文書「精選入口」兩個設計保留——對應新家就是 308財務 與 304文書，原則不變：敏感碟不嵌整個資料夾，只給說明頁＋申請窗口。</p>
+
   <h2>現況：門面已好，門後還空著</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>狀態</th><th>內容</th></tr>
+      <tr><td class="who">已完成</td><td>草稿站「峨眉書院平台」・視覺定稿（外交官主題、深綠主色、暖色水墨橫幅、四張水墨入口卡）・六頁導覽建齊・「A.辦道」試作頁（桌機＋手機預覽通過）</td></tr>
+      <tr><td class="who">尚未做</td><td>接實際表單・嵌資料夾・嵌行事曆・填聯絡窗口・設定並驗證權限・一般帳號驗收・發布</td></tr>
+      <tr><td class="who">公告欄（例外，設計已跑在建置前面）</td><td>書面設計規格已出，等待審閱——投稿/審核/置頂/異動/下架流程、Sheet 資料模型、LINE 通知、Sites 呈現規則全定案；建置本身仍跟其他項目一起排在知識庫第 4 步之後。<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-22-announcement-management-spec.html" target="_blank" rel="noopener">→ 首頁公告管理設計規格（子子圖）</a></td></tr>
+    </table>
+  </div>
+  <p class="aside-phase">「尚未做」整批刻意排在知識庫第 4 步之後：權限群組跟新碟都到位了，門才有東西可接。先接舊碟＝之後全部重換一次連結，白工。公告欄是唯一先把設計做完的例外——因為它牽涉道籍系統後台新增卡片，需要跟道籍那邊的實作排程對齊，不能等到最後一刻才想。</p>
+
+  <h2>接口卡榫</h2>
   <div class="cards">
-    <div class="card"><b>已完成</b>草稿站視覺定稿・六頁導覽・四張水墨入口卡・試作頁通過。</div>
-    <div class="card"><b>還沒做（刻意）</b>接資料、設權限、發布——等知識庫發完鑰匙再開門，才不會白接一次。</div>
-    <div class="card"><b>公告欄（設計先行）</b>書面規格已出，待審閱。<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-22-announcement-management-spec.html" style="color:var(--accent)">→ 首頁公告管理設計規格</a></div>
+    <div class="card"><b>× 知識庫</b>門與書架：站台每一頁嵌對應新碟的資料夾。書架搬家，門上換連結即可。</div>
+    <div class="card"><b>× 道籍系統</b>誰能進門：站台觀看權限＝同一套 23 群（道籍同步名單）。表單填答人身分靠道籍編號對回。</div>
+    <div class="card"><b>× LINE／Gmail</b>推與留：訊息由 LINE 推、Gmail 寄（會後 48 小時節奏），平台公告欄只負責留底可查。</div>
+    <div class="card"><b>× 實體會議</b>月會動線的最後一站：紀錄寄發後歸 208會議碟，平台嵌 208——缺席的人來這裡補課。</div>
   </div>
 
-  <h2>發布前，四關驗收</h2>
-  <div class="cards">
-    <div class="card"><b>一般成員</b>能開網站、能填表、不能改表單。</div>
-    <div class="card"><b>未授權帳號</b>網站與內嵌文件都打不開。</div>
-    <div class="card"><b>連結</b>每顆按鈕開得到正確內容、版本日期一致。</div>
-    <div class="card"><b>手機版</b>主要入口兩次捲動以內。</div>
+  <h2>驗收清單（發布前）</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>檢查</th><th>判準</th></tr>
+      <tr><td class="who">一般成員</td><td>能開網站、能填表、不能改表單</td></tr>
+      <tr><td class="who">未授權帳號</td><td>網站與內嵌文件都打不開</td></tr>
+      <tr><td class="who">連結</td><td>所有按鈕開得到正確內容；文件頁版本日期與 Drive 現行檔一致</td></tr>
+      <tr><td class="who">手機版</td><td>首頁主要入口兩次捲動以內</td></tr>
+    </table>
   </div>
 
-  <p class="aside-phase">表格、對照與完整論述都在 <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daowu-platform-implementation-map-full.html" style="color:var(--accent)">完整詳版</a>——這頁只留一眼看懂的部分。</p>
-  <footer>2026-08-22 精簡版・新舊硬碟換地址對照見完整詳版・母圖：峨眉資訊藍圖</footer>
+  <footer>2026-08-20・整併自 Codex「峨眉道務平台」專案三份文件・母圖：峨眉資訊藍圖</footer>
 </div>
+

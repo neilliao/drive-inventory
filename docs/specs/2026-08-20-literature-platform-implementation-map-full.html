@@ -54,17 +54,19 @@
 
 <div class="wrap">
   <header class="page">
-    <p class="eyebrow">峨眉書院・典藏</p>
+    <p class="eyebrow">峨眉書院・媒體層</p>
     <h1>文獻平台實作地圖</h1>
-    <p class="creed">藏經閣：考據過的故事，文字、照片、影音勾稽在一起，永久保存給後人。</p>
-    <p class="readme">「<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html" style="color:var(--accent)">峨眉資訊藍圖</a>」→「<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-media-strategy-map.html" style="color:var(--accent)">媒體策略地圖</a>」底下的實作子圖。</p>
+    <p class="creed">峨眉的大藏經——先有內容，再蓋平台。素材正本住知識庫，報導庫是正本，平台只是展示的殼。</p>
+    <p class="readme">「<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html" target="_blank" rel="noopener">峨眉資訊藍圖</a>」（母圖）→「<a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-media-strategy-map.html" target="_blank" rel="noopener">峨眉媒體策略地圖</a>」底下的實作子圖。整併自 emei-archive 專案 2026-06 架構決議（收錄標準／路線圖／執行計畫／雛形）。</p>
   </header>
 
   <div class="rule-callout">
-    <b>上承媒體圖：</b><span class="tac on">承</span> 的典藏端——<span class="seal-inline">彰</span> 由媒體層兩家合持：季刊管當期，文獻平台管典藏。
+    <b>上承媒體圖戰術：</b><span class="tac on">故事線</span>（對應總圖的 <span class="tac on">傳</span><span class="tac on">承</span>）<br>
+    文獻平台不另持印——<span class="seal-inline">彰</span> 由媒體層兩家合持：道峨眉管當期（像雜誌），文獻平台管典藏（像藏經閣）。<br>
+    <small style="color:var(--ink-soft)">殼可換的證明：報導庫（Sheet）＋照片影片（Drive）是正本，平台死了典藏不死——所以是實作地圖，不是策略地圖。</small>
   </div>
 
-  <h2>整體怎麼打？</h2>
+  <h2>實作地圖</h2>
   <figure class="map">
     <svg viewBox="0 0 1040 520" role="img" aria-label="文獻平台實作地圖：頂端目標「考據過的故事存得住被看見」，往下三條戰術（收錄的秩序、內容的積累、平台的殼），每條下掛戰技；左側護欄，右側兩個迴路">
       <defs><marker id="wa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" /></marker></defs>
@@ -153,8 +155,8 @@
     <figcaption>由下往上讀：戰技撐三條路，三條路撐「考據過的故事存得住、被看見」。收錄的秩序 60%＝標準、登錄表、雛形已定稿；兩條 0% 是刻意的——內容等知識庫策展，殼等內容（先有內容再蓋平台）。左＝護欄，右＝兩個迴路。</figcaption>
   </figure>
 
-  <h2>一條故事，三種媒材</h2>
-  <p class="lede">看到一張照片，能反查到那一天的文字與錄音——靠三把鑰匙：人（編號）、事（日期）、理（詞條）。</p>
+  <h2>三位一體：一條故事，三種媒材</h2>
+  <p class="lede">仿慈濟大藏經的核心不是「三個庫」，是「一個故事三個面」——同一件事的文字、照片、影音互相勾稽，看到其中一種就能找到另外兩種。勾稽靠的是同一組鑰匙：</p>
   <figure class="map">
     <svg viewBox="0 0 1040 330" role="img" aria-label="三位一體勾稽：文字、照片、影音三種媒材掛在報導庫同一筆故事上，靠人事理三把鑰匙互相反查">
       <defs><marker id="wt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" /></marker></defs>
@@ -179,19 +181,47 @@
     <figcaption>媒材正本各住各的碟（206、204、207），報導庫只放鑰匙與連結——三位一體是「勾稽在一起」，不是「搬到一起」。</figcaption>
   </figure>
 
-  <h2>現在到哪一步？</h2>
+  <h2>同路人的做法（2026-08-21 Neil 提供）</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>專案</th><th>它做對什麼</th><th>我們取什麼</th></tr>
+      <tr><td class="who">拾光·Echo</td><td>語音訪談（含方言）＋證據門控五階段：事實抽取→章節策劃→撰寫→審校→卡片化。「不亂編比寫得好重要」</td><td>收錄面的訪談流水線——長輩用說的，轉錄後過審核層再入庫，與本圖審核層同構</td></tr>
+      <tr><td class="who">時光展柜</td><td>一段口述變微型人生展覽：時間線＋地點＋人物＋舊物＋原話摘錄</td><td>人物誌切面的展示形式範本</td></tr>
+      <tr><td class="who">父母.skill</td><td>記憶檔案＋人格模型雙層，本地優先</td><td>取「零散資料→結構化記憶片段」那一半；<b>人格重建（以前人口吻對話）屬敏感，列待議不做預設</b></td></tr>
+    </table>
+  </div>
+  <p class="aside-phase">三個專案的共同點＝口述 → 結構化 → 展示，AI 只做整理不做創作——正是本圖「收錄的秩序」那條路的同路人。連結存於 emei-archive 專案筆記。</p>
+
+  <h2>接口卡榫</h2>
   <div class="cards">
-    <div class="card"><b>已完成</b>收錄標準・登錄表・路線圖・可 demo 的雛形頁。</div>
-    <div class="card"><b>未動工（刻意）</b>內容與平台——排在知識庫、道務平台之後第三棒。兩條 0% 不是落後，是不肯蓋空殼。</div>
-    <div class="card"><b>待拍板</b>照片人臉選型——判準一把尺：辨識後的資料拉不拉得出來（三案比較見完整詳版）。</div>
+    <div class="card"><b>× 知識庫</b>倉庫與地圖：素材正本住知識庫，活動總表是找史料的地圖——有價值的活動直接在表上圈。優先選件區：202文史的經理紀錄、人物紀錄＋208會議。</div>
+    <div class="card"><b>× 道籍系統</b>種子與反查：初期從道籍撈骨架（求道、法會、人物、佛堂）當大事記與人物誌的種子；文獻掛道籍編號反查，不雙寫。這是道籍「對外輸出腿」的第一個真實消費者。</div>
+    <div class="card"><b>× 道峨眉</b>當期餵典藏：每期訪談與人物故事是策展的現成素材；策展後的人物誌反過來供季刊引用。</div>
+    <div class="card"><b>× 靈隱中心</b>不對齊、不等：中心平台沒有真標準（幸福農場已荒廢）。峨眉自己做齊——完整、一致、有 metadata、可輸出；中心要什麼，匯出給他。</div>
+  </div>
+
+  <h2>現況</h2>
+  <div class="table-scroll">
+    <table>
+      <tr><th>狀態</th><th>內容</th></tr>
+      <tr><td class="who">已完成</td><td>收錄標準（欄位＋完整度＋缺口清單）・登錄表・路線圖（四階段）・執行計畫 v0.2・雛形頁（時間軸＋收錄表單＋類型篩選＋署名，可 demo）</td></tr>
+      <tr><td class="who">未動工</td><td>內容收錄・平台建置・照片人臉（見下方待拍板）</td></tr>
+    </table>
+  </div>
+  <p class="aside-phase">排程照母圖建設順序：知識庫五步施工 → 道務平台各組頁 → <b>文獻策展、蓋文獻平台</b>（第三棒）。兩條 0% 不是落後，是不肯蓋空殼。</p>
+
+  <div class="rule-callout">
+    <b>待拍板：照片人臉選型（階段二）。</b>判準只有一把尺：辨識後的資料能不能被拉出來。Google 相簿零維運但人臉資料拉不出（只能當拋棄式測試）；雲端 API 免養機器但生物特徵送國外；Immich 自架資料自主＋有 API，但要有人長期顧機器。建議先小規模測一兩百張再定。不論選哪條，治理底線不動：只分群、人工命名、不存可反推的模板。
   </div>
 
   <h2>兩條紅線</h2>
-  <div class="cards">
-    <div class="card" style="border-color:var(--seal)"><b>先有內容再蓋平台</b>空殼平台＝幸福農場第二，看不到成果沒人撐。</div>
-    <div class="card" style="border-color:var(--seal)"><b>報導庫是正本，平台是殼</b>殼可換、庫不滅——換平台不用重新考據。</div>
+  <div class="table-scroll">
+    <table>
+      <tr><th>紅線</th><th>為什麼</th></tr>
+      <tr><td class="who">先有內容再蓋平台</td><td>空殼平台＝幸福農場第二。看不到成果沒人撐，有內容的殼才活得下去</td></tr>
+      <tr><td class="who">報導庫是正本，平台是殼</td><td>殼可換、庫不滅——考據與署名存在庫裡，換平台不用重新考據</td></tr>
+    </table>
   </div>
 
-  <p class="aside-phase">表格、對照與完整論述都在 <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-literature-platform-implementation-map-full.html" style="color:var(--accent)">完整詳版</a>——這頁只留一眼看懂的部分。</p>
-  <footer>2026-08-22 精簡版・同路人案例與接口細節見完整詳版・母圖：峨眉資訊藍圖 → 媒體策略地圖</footer>
+  <footer>2026-08-21・整併自 emei-archive 2026-06 架構決議・母圖：峨眉資訊藍圖 → 媒體策略地圖</footer>
 </div>
