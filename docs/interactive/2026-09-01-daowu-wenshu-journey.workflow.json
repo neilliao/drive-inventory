@@ -1,0 +1,261 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "道務文書工作流：一場活動的旅程",
+    "quality_profile": "showcase",
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "external": {
+          "label": "現場與對外"
+        },
+        "backend": {
+          "label": "文書作業"
+        },
+        "database": {
+          "label": "檔案的家"
+        },
+        "frontend": {
+          "label": "前門介面"
+        },
+        "messagebus": {
+          "label": "送信"
+        },
+        "security": {
+          "label": "權限引擎"
+        }
+      }
+    },
+    "views": [
+      {
+        "id": "happy-path",
+        "label": "一場活動的旅程",
+        "focus": [
+          "event",
+          "jishi",
+          "kb",
+          "platform",
+          "notify",
+          "legacy"
+        ],
+        "note": "主路：記下來、存進家、前門找得到、發一次到位、寫成史。"
+      },
+      {
+        "id": "two-channels",
+        "label": "記的兩條通道",
+        "focus": [
+          "event",
+          "jiwen",
+          "jishi",
+          "kb"
+        ],
+        "note": "天音走法會文書、人事走道務文書，最後都歸檔進知識庫。"
+      },
+      {
+        "id": "engine",
+        "label": "道籍名單引擎",
+        "focus": [
+          "daoji",
+          "platform",
+          "notify"
+        ],
+        "note": "誰能看、該通知誰，都問道籍系統。"
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "id": "scene",
+      "label": "道場現場"
+    },
+    {
+      "id": "wenshu-lane",
+      "label": "記・文書組"
+    },
+    {
+      "id": "cun-lane",
+      "label": "存與找"
+    },
+    {
+      "id": "chuan-lane",
+      "label": "傳與承"
+    },
+    {
+      "id": "engine-lane",
+      "label": "名單引擎"
+    }
+  ],
+  "phases": [
+    {
+      "id": "ji-phase",
+      "label": "記",
+      "fromCol": 0,
+      "toCol": 1
+    },
+    {
+      "id": "cun-phase",
+      "label": "存・找",
+      "fromCol": 2,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "chuan-phase",
+      "label": "傳・承",
+      "fromCol": 4,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "event",
+    "jishi",
+    "kb",
+    "platform",
+    "notify",
+    "legacy"
+  ],
+  "nodes": [
+    {
+      "id": "event",
+      "lane": "scene",
+      "col": 0,
+      "type": "external",
+      "label": "活動發生",
+      "sublabel": "法會、班程、參訪"
+    },
+    {
+      "id": "jiwen",
+      "lane": "wenshu-lane",
+      "col": 2,
+      "type": "backend",
+      "label": "法會文書",
+      "sublabel": "仙佛批訓、抄訓",
+      "tag": "另冊傳承"
+    },
+    {
+      "id": "jishi",
+      "lane": "wenshu-lane",
+      "col": 1,
+      "type": "backend",
+      "label": "道務文書",
+      "sublabel": "會議、辦道、名冊"
+    },
+    {
+      "id": "kb",
+      "lane": "cun-lane",
+      "col": 2,
+      "type": "database",
+      "label": "知識庫",
+      "sublabel": "每份檔案有地址"
+    },
+    {
+      "id": "platform",
+      "lane": "cun-lane",
+      "col": 3,
+      "type": "frontend",
+      "label": "道務平台",
+      "sublabel": "前門服務台"
+    },
+    {
+      "id": "notify",
+      "lane": "chuan-lane",
+      "col": 4,
+      "type": "messagebus",
+      "label": "LINE＋信箱",
+      "sublabel": "發一次就到位"
+    },
+    {
+      "id": "legacy",
+      "lane": "chuan-lane",
+      "col": 5,
+      "type": "external",
+      "label": "季刊、文獻平台",
+      "sublabel": "寫成故事、永久典藏"
+    },
+    {
+      "id": "daoji",
+      "lane": "engine-lane",
+      "col": 3,
+      "type": "security",
+      "label": "道籍系統",
+      "sublabel": "人的正本",
+      "tag": "共用引擎"
+    }
+  ],
+  "edges": [
+    {
+      "from": "event",
+      "to": "jishi",
+      "label": "人事紀錄"
+    },
+    {
+      "from": "event",
+      "to": "jiwen",
+      "label": "天音批訓",
+      "role": "branch"
+    },
+    {
+      "from": "jishi",
+      "to": "kb",
+      "label": "歸檔"
+    },
+    {
+      "from": "jiwen",
+      "to": "kb",
+      "label": "訓文流回 202文史",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
+      "from": "kb",
+      "to": "platform",
+      "label": "上架"
+    },
+    {
+      "from": "platform",
+      "to": "notify",
+      "label": "發布"
+    },
+    {
+      "from": "notify",
+      "to": "legacy",
+      "label": "故事傳後人"
+    },
+    {
+      "from": "daoji",
+      "to": "platform",
+      "label": "誰能看",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "from": "daoji",
+      "to": "notify",
+      "label": "該通知誰",
+      "role": "async",
+      "variant": "dashed"
+    }
+  ],
+  "semanticChecks": {
+    "allowedRoots": [
+      "event",
+      "daoji"
+    ],
+    "allowedTerminals": [
+      "legacy",
+      "platform",
+      "notify"
+    ],
+    "requiredPaths": [
+      {
+        "from": "event",
+        "to": "legacy"
+      },
+      {
+        "from": "jiwen",
+        "to": "kb"
+      }
+    ]
+  }
+}
