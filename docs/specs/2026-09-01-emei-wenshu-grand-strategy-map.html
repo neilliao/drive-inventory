@@ -31,20 +31,26 @@
   figure.map { margin: 0; overflow-x: auto; }
   figure.map svg { min-width: 860px; width: 100%; height: auto; display: block; }
   .box-goal { fill: var(--tint); stroke: var(--primary); stroke-width: 1.5; }
-  .pillar { fill: var(--card); stroke: var(--deep); stroke-width: 1.6; }
+  .node { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
   .container { fill: var(--tint-2); stroke: var(--line); }
   .tchip { fill: var(--card); stroke: var(--line); }
+  .rail { fill: var(--card); stroke: var(--line); }
+  .engine { fill: var(--card); stroke: var(--deep); stroke-width: 1.6; }
   .sealbox { fill: var(--seal); }
   .t-title { font-size: 17px; font-weight: 700; fill: var(--ink); }
   .t { font-size: 12.5px; fill: var(--ink); }
   .t-s2 { font-size: 11.5px; fill: var(--sub); }
   .t-tag { font-size: 13px; font-weight: 700; fill: var(--deep); }
   .t-seal { font-size: 22px; font-weight: 700; fill: #fff; font-family: "Songti TC","Noto Serif TC",serif; }
-  .t-seal-s { font-size: 17px; font-weight: 700; fill: #fff; font-family: "Songti TC","Noto Serif TC",serif; }
+  .t-seal-s { font-size: 15px; font-weight: 700; fill: #fff; font-family: "Songti TC","Noto Serif TC",serif; }
+  .t-word { font-size: 24px; font-weight: 700; fill: var(--deep); font-family: "Songti TC","Noto Serif TC",serif; }
   .t-name { font-size: 15px; font-weight: 700; fill: var(--ink); }
   .t-lbl-a { font-size: 12px; font-weight: 600; fill: var(--deep); paint-order: stroke; stroke: var(--page); stroke-width: 5px; stroke-linejoin: round; }
   .flow { stroke: var(--primary); stroke-width: 2; fill: none; }
+  .flow-up { stroke: var(--deep); stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+  .guard { stroke: var(--sub); stroke-width: 1.2; stroke-dasharray: 4 4; fill: none; }
   .m-accent { fill: var(--primary); }
+  .m-deep { fill: var(--deep); }
 
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .hub { height: 100%; background: var(--card); border: 1px solid var(--line); border-radius: 16px;
@@ -93,7 +99,7 @@
   <header class="page">
     <p class="eyebrow">峨眉書院・文書</p>
     <h1>峨眉文書大藍圖</h1>
-    <p class="oneline">上天的話傳得真，道場的事修成史——文以載道，代代相承。</p>
+    <p class="oneline">文以載道，道以成全人：修自己、育後人、渡眾生。</p>
   </header>
 
   <div class="opening">
@@ -101,73 +107,112 @@
     <div class="src">——《聖佛綸音・文書篇》編輯前言，三峽靈隱寺文書組謹識，中華民國一百年六月五日。這張圖上所有的事，都是為了不讓這句話成真。</div>
   </div>
 
-  <h2>整體戰略：一個總綱，兩根柱子，一個共同下游</h2>
-  <p class="cap" style="margin:0 0 14px">文書的本質是道場的記憶。記憶有兩條來源：天音（仙佛的話）與人事（道場的事）——各由一根柱子負責；記下來之後的存、找、傳，兩邊走同一套系統。</p>
+  <h2>整體戰略：一個總綱，三條路，兩套系統</h2>
+  <p class="cap" style="margin:0 0 14px">讀法跟全家族一樣：最上面是目標（戰略），中間三條路是打法（戰術）——道怎麼落在人身上；掛在底下的是招式（戰技），而招式的家，就是法會文書與道務文書兩套系統。</p>
   <figure class="map">
-    <svg viewBox="0 0 1040 560" role="img" aria-label="峨眉文書整體戰略圖：頂端總綱「文以載道」，中間兩根柱子（法會文書・真／道務文書・史），底部是共同下游存找傳修史，兩柱之間是傳承軸">
+    <svg viewBox="0 0 1040 610" role="img" aria-label="峨眉文書整體戰略圖：頂端總綱「文以載道，道以成全人」，中層三個戰術（以文修己、以文育人、以文渡人），底層戰技，最底是法會文書與道務文書兩套系統；左側是護欄">
       <defs>
         <marker id="gm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" />
         </marker>
+        <marker id="gd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-deep" />
+        </marker>
       </defs>
 
-      <!-- 總綱 -->
+      <!-- 總綱（戰略） -->
       <rect class="box-goal" x="230" y="16" width="580" height="82" rx="10" />
       <rect class="sealbox" x="246" y="30" width="52" height="52" rx="6" />
       <text class="t-seal" x="272" y="65" text-anchor="middle">文</text>
-      <text class="t-title" x="314" y="46">文以載道：文＝真＋史</text>
-      <text class="t-s2" x="314" y="66">文字本身不是道，但道要藉文字傳。把話傳「真」、把事修「史」，</text>
-      <text class="t-s2" x="314" y="82">合起來，就是文書組替道場守住的記憶</text>
+      <text class="t-title" x="314" y="46">文以載道，道以成全人</text>
+      <text class="t-s2" x="314" y="66">文字載著道走，道最後要落在人身上——</text>
+      <text class="t-s2" x="314" y="82">先成全做的人，再養出接的人，最後走到眾生身上</text>
 
-      <!-- 兩柱 → 總綱 -->
-      <line class="flow" x1="330" y1="150" x2="400" y2="102" marker-end="url(#gm)" />
-      <line class="flow" x1="710" y1="150" x2="640" y2="102" marker-end="url(#gm)" />
+      <!-- 戰術 → 目標 -->
+      <line class="flow" x1="315" y1="150" x2="360" y2="102" marker-end="url(#gm)" />
+      <line class="flow" x1="520" y1="150" x2="520" y2="102" marker-end="url(#gm)" />
+      <line class="flow" x1="725" y1="150" x2="680" y2="102" marker-end="url(#gm)" />
 
-      <!-- 左柱：法會文書 -->
-      <rect class="pillar" x="60" y="154" width="430" height="180" rx="14" />
-      <rect class="sealbox" x="80" y="172" width="40" height="40" rx="6" />
-      <text class="t-seal-s" x="100" y="199" text-anchor="middle">真</text>
-      <text class="t-name" x="134" y="188">法會文書</text>
-      <text class="t-s2" x="134" y="208">記「天音」的通道</text>
-      <text class="t" x="80" y="240">仙佛臨壇 → 抄 → 校 → 發放</text>
-      <text class="t-s2" x="80" y="262">工法是仙佛親授的古法：四人分工、一字不差、</text>
-      <text class="t-s2" x="80" y="280">主班過目——只傳承，不重新設計</text>
-      <text class="t-s2" x="80" y="310">▸ 詳見：法會文書藍圖（手藝傳承地圖）</text>
+      <!-- 戰術層：三條路 -->
+      <text class="t-tag" x="230" y="142">戰術（道落在人身上的三條路）</text>
+      <rect class="node" x="230" y="152" width="170" height="92" rx="10" />
+      <text class="t-word" x="248" y="184">修己</text>
+      <text class="t-s2" x="248" y="202">以文修己：抄訓即修行</text>
+      <text class="t-s2" x="248" y="220">先成全做文書的人</text>
+      <rect class="node" x="435" y="152" width="170" height="92" rx="10" />
+      <text class="t-word" x="453" y="184">育人</text>
+      <text class="t-s2" x="453" y="202">以文育人：教材見習交棒</text>
+      <text class="t-s2" x="453" y="220">手藝代代有人接</text>
+      <rect class="node" x="640" y="152" width="170" height="92" rx="10" />
+      <text class="t-word" x="658" y="184">渡人</text>
+      <text class="t-s2" x="658" y="202">以文渡人：話走到人身上</text>
+      <text class="t-s2" x="658" y="220">啟醒眾生，不停在硬碟</text>
 
-      <!-- 右柱：道務文書 -->
-      <rect class="pillar" x="550" y="154" width="430" height="180" rx="14" />
-      <rect class="sealbox" x="570" y="172" width="40" height="40" rx="6" />
-      <text class="t-seal-s" x="590" y="199" text-anchor="middle">史</text>
-      <text class="t-name" x="624" y="188">道務文書</text>
-      <text class="t-s2" x="624" y="208">記「人事」的通道＋整套系統</text>
-      <text class="t" x="570" y="240">會議、活動、名冊、圖書 → 各歸其家</text>
-      <text class="t-s2" x="570" y="262">39 顆雲端硬碟九疊編碼、24 組鑰匙、索引集中——</text>
-      <text class="t-s2" x="570" y="280">工法可以設計，制度不繫於任何一人</text>
-      <text class="t-s2" x="570" y="310">▸ 詳見：道務文書藍圖（總圖）</text>
+      <!-- 戰技掛戰術 -->
+      <line class="flow" x1="315" y1="264" x2="315" y2="248" marker-end="url(#gm)" transform="rotate(180 315 256)" />
+      <line class="flow" x1="520" y1="264" x2="520" y2="248" marker-end="url(#gm)" transform="rotate(180 520 256)" />
+      <line class="flow" x1="725" y1="264" x2="725" y2="248" marker-end="url(#gm)" transform="rotate(180 725 256)" />
 
-      <!-- 兩柱 → 共同下游 -->
-      <line class="flow" x1="275" y1="334" x2="380" y2="392" marker-end="url(#gm)" />
-      <line class="flow" x1="765" y1="334" x2="660" y2="392" marker-end="url(#gm)" />
+      <rect class="container" x="230" y="268" width="170" height="106" rx="10" />
+      <rect class="tchip" x="236" y="276" width="158" height="26" rx="6" />
+      <text class="t-s2" x="315" y="294" text-anchor="middle">心靜為先，內外合一</text>
+      <rect class="tchip" x="236" y="306" width="158" height="26" rx="6" />
+      <text class="t-s2" x="315" y="324" text-anchor="middle">道學充實：隨身四書</text>
+      <rect class="tchip" x="236" y="336" width="158" height="26" rx="6" />
+      <text class="t-s2" x="315" y="354" text-anchor="middle">位高則卑，防近廟欺神</text>
 
-      <!-- 共同下游 -->
-      <text class="t-tag" x="240" y="384">記下來之後，兩邊走同一套（共同下游）</text>
-      <rect class="container" x="236" y="396" width="568" height="76" rx="12" />
-      <rect class="tchip" x="252" y="412" width="124" height="44" rx="8" />
-      <text class="t" x="314" y="430" text-anchor="middle">存：知識庫</text>
-      <text class="t-s2" x="314" y="448" text-anchor="middle">每份檔案有地址</text>
-      <rect class="tchip" x="390" y="412" width="124" height="44" rx="8" />
-      <text class="t" x="452" y="430" text-anchor="middle">找：三把鑰匙</text>
-      <text class="t-s2" x="452" y="448" text-anchor="middle">人・事・理</text>
-      <rect class="tchip" x="528" y="412" width="124" height="44" rx="8" />
-      <text class="t" x="590" y="430" text-anchor="middle">傳：發一次到位</text>
-      <text class="t-s2" x="590" y="448" text-anchor="middle">LINE・信箱・平台</text>
-      <rect class="tchip" x="666" y="412" width="124" height="44" rx="8" />
-      <text class="t" x="728" y="430" text-anchor="middle">承：修史</text>
-      <text class="t-s2" x="728" y="448" text-anchor="middle">寶典・人物誌・活的史</text>
+      <rect class="container" x="435" y="268" width="170" height="106" rx="10" />
+      <rect class="tchip" x="441" y="276" width="158" height="26" rx="6" />
+      <text class="t-s2" x="520" y="294" text-anchor="middle">傳承包三件當教材</text>
+      <rect class="tchip" x="441" y="306" width="158" height="26" rx="6" />
+      <text class="t-s2" x="520" y="324" text-anchor="middle">見習跟班、培訓班</text>
+      <rect class="tchip" x="441" y="336" width="158" height="26" rx="6" />
+      <text class="t-s2" x="520" y="354" text-anchor="middle">交棒要及早：接棒名單</text>
 
-      <text class="t-lbl-a" x="520" y="510" text-anchor="middle">真守住品質、史守住廣度，兩根柱子撐起同一個「文」——柱子各自有圖，下游詳見總圖的存找傳承四條路</text>
+      <rect class="container" x="640" y="268" width="170" height="106" rx="10" />
+      <rect class="tchip" x="646" y="276" width="158" height="26" rx="6" />
+      <text class="t-s2" x="725" y="294" text-anchor="middle">訓文及時發放不斷熱度</text>
+      <rect class="tchip" x="646" y="306" width="158" height="26" rx="6" />
+      <text class="t-s2" x="725" y="324" text-anchor="middle">擷取啟示、上台講課</text>
+      <rect class="tchip" x="646" y="336" width="158" height="26" rx="6" />
+      <text class="t-s2" x="725" y="354" text-anchor="middle">文武之書：走入人群</text>
+
+      <!-- 兩套系統 → 三條路 -->
+      <line class="flow-up" x1="400" y1="432" x2="330" y2="378" marker-end="url(#gd)" />
+      <line class="flow-up" x1="510" y1="432" x2="510" y2="378" marker-end="url(#gd)" />
+      <line class="flow-up" x1="640" y1="432" x2="710" y2="378" marker-end="url(#gd)" />
+
+      <!-- 兩套系統（戰技的家） -->
+      <text class="t-tag" x="240" y="426">兩套系統（招式的家，各有自己的圖）</text>
+      <rect class="engine" x="240" y="436" width="270" height="96" rx="12" />
+      <rect class="sealbox" x="256" y="452" width="34" height="34" rx="6" />
+      <text class="t-seal-s" x="273" y="475" text-anchor="middle">真</text>
+      <text class="t-name" x="302" y="466">法會文書系統</text>
+      <text class="t-s2" x="302" y="486">記天音：抄校古法，仙佛親授</text>
+      <text class="t-s2" x="256" y="516">▸ 法會文書藍圖（手藝傳承）</text>
+      <rect class="engine" x="540" y="436" width="270" height="96" rx="12" />
+      <rect class="sealbox" x="556" y="452" width="34" height="34" rx="6" />
+      <text class="t-seal-s" x="573" y="475" text-anchor="middle">史</text>
+      <text class="t-name" x="602" y="466">道務文書系統</text>
+      <text class="t-s2" x="602" y="486">記人事＋存找傳：制度與機器</text>
+      <text class="t-s2" x="556" y="516">▸ 道務文書藍圖（原資訊藍圖）</text>
+
+      <text class="t-lbl-a" x="520" y="574" text-anchor="middle">由下往上讀：兩套系統養出招式，招式撐起三條路，三條路把道送到人身上——真與史守品質，修育渡才是目的</text>
+
+      <!-- 左護欄 -->
+      <rect class="rail" x="16" y="152" width="196" height="380" rx="12" />
+      <text class="t-tag" x="32" y="180">護欄（不可越的線）</text>
+      <text class="t" x="32" y="210">渡人以文為徑</text>
+      <text class="t-s2" x="32" y="228">不越弘法、成全組的業務</text>
+      <text class="t" x="32" y="258">修己不誤事</text>
+      <text class="t-s2" x="32" y="276">辦事與修行內外合一</text>
+      <text class="t" x="32" y="306">古法不改（真）</text>
+      <text class="t-s2" x="32" y="324">抄校工法只傳承不設計</text>
+      <text class="t" x="32" y="354">制度不繫一人（史）</text>
+      <text class="t-s2" x="32" y="372">沒參與過的人也能接手</text>
+      <line class="guard" x1="212" y1="300" x2="226" y2="300" marker-end="url(#gm)" />
     </svg>
-    <figcaption class="cap">讀法：由下往上——共同下游撐起兩根柱子，兩根柱子撐起「文以載道」。左柱的重點在手藝（怎麼做得真），右柱的重點在制度（怎麼存得住、找得到、傳得出去）。</figcaption>
+    <figcaption class="cap">戰略是「文以載道，道以成全人」；戰術是人的三條路（修己、育人、渡人）；法會文書與道務文書退到戰技層——它們是工具，不是目的。一個系統可以撐好幾條路：抄訓餵給修己，傳承包餵給育人，發放與媒體餵給渡人。</figcaption>
   </figure>
 
   <h2>承先啟後：這張圖接的是誰的棒</h2>
@@ -185,31 +230,41 @@
     <div class="hub">
       <div class="top"><span class="name">🔨 我們現在做的</span><span class="chip c-em">2026</span></div>
       <ul>
-        <li>資訊藍圖：39 碟九疊編碼＋24 組鑰匙＋索引</li>
+        <li>道務文書藍圖：39 碟九疊編碼＋24 組鑰匙＋索引</li>
         <li>傳承包三件：垂訓選輯・中心手冊・注意事項修訂</li>
-        <li>兩張藍圖成圖：法會文書（真）＋道務文書（史）</li>
-        <li>生產線接倉庫：會議紀錄、活動帳、巡檢逐條接上</li>
+        <li>工作清單十一條：含人員培訓（生產線逐條接上）</li>
+        <li>兩張系統圖成圖：法會文書（真）＋道務文書（史）</li>
       </ul>
     </div>
     <div class="hub">
       <div class="top"><span class="name">🌱 交給後人的</span><span class="chip c-am">目標</span></div>
       <ul>
-        <li>新進文書照傳承包就能上手（手藝不斷）</li>
-        <li>前人歸空，一天拉齊一生紀錄（記憶不失）</li>
-        <li>整套制度不繫於任何一人（系統不倒）</li>
-        <li>讀今天的訓，一字不差（話不走樣）</li>
+        <li>做過文書的人，先成了道場的棟樑（修己）</li>
+        <li>新進照傳承包就能上手（育人）</li>
+        <li>今天的話，一字不差走到後人心上（渡人）</li>
+        <li>前人歸空，一天拉齊一生紀錄（史不失）</li>
       </ul>
     </div>
   </div>
   <p class="cap">前人做這些事的時候多半沒有留名。這張圖不是新發明——是把他們一直在做的事，第一次畫出來、接下去。</p>
 
   <h2>釘在圖上的仙佛慈訓</h2>
-  <p class="cap" style="margin:0 0 14px">每一根柱子、每一條規矩，背後都有訓文出處。這裡釘四句最重的（全文八十一則見垂訓選輯）。</p>
+  <p class="cap" style="margin:0 0 14px">三條路、兩套系統，每一個都有訓文出處。這裡釘六句最重的（全文八十一則見垂訓選輯）。</p>
   <div class="quotes">
     <div class="quote">
-      <div class="pin">史</div>
-      <div class="q">「在白陽歷史上也唯有你們才能粒粒血汗、歷歷記載這一切，讓仙佛聖訓的慈語，迴盪不已！」</div>
-      <div class="src">濟公活佛・民國96年度泰國奉恩樓年終檢討班——記載白陽歷史，是文書的天職。</div>
+      <div class="pin">修</div>
+      <div class="q">「擔任這個職責，就要在做當中，對自己修道有提升，才叫稱職的文書人員。」</div>
+      <div class="src">濟公活佛・2011年馬來西亞巴生和善壇三天法會——文書是修行的位置，不只是職務。</div>
+    </div>
+    <div class="quote">
+      <div class="pin">育</div>
+      <div class="q">「文書的傳承也很重要……交棒要及早，傳承工作及早做準備，不要等到人老氣衰……才來惶恐接棒的問題。」</div>
+      <div class="src">濟公活佛・2014年泰國奉恩樓傳承精進班——這張大藍圖本身，就是「及早」的動作。</div>
+    </div>
+    <div class="quote">
+      <div class="pin">渡</div>
+      <div class="q">「送你們四個字：『文武之書』，叫做文書。為什麼要文武？一動一靜，文書不是只當文書，而不去渡人成全辦道。」</div>
+      <div class="src">濟公活佛・民國98年度泰國曼谷承德壇三天法會暨二天複習班——產出的終點不是硬碟，是人身上。</div>
     </div>
     <div class="quote">
       <div class="pin">真</div>
@@ -217,14 +272,14 @@
       <div class="src">藍采和大仙・民國97年度馬來西亞光明書院一天複習班——一字不差，是品質的底線。</div>
     </div>
     <div class="quote">
-      <div class="pin">補</div>
-      <div class="q">「像這些已經找不到源頭的，做文書就是要補，懂嗎？」</div>
-      <div class="src">濟公活佛・2013年泰國清邁繼聖壇人才精進班——補史：對版、典藏、追源頭，都是這個「補」字。</div>
+      <div class="pin">史</div>
+      <div class="q">「在白陽歷史上也唯有你們才能粒粒血汗、歷歷記載這一切，讓仙佛聖訓的慈語，迴盪不已！」</div>
+      <div class="src">濟公活佛・民國96年度泰國奉恩樓年終檢討班——記載白陽歷史，是文書的天職。</div>
     </div>
     <div class="quote">
-      <div class="pin">承</div>
-      <div class="q">「文書的傳承也很重要……交棒要及早，傳承工作及早做準備，不要等到人老氣衰……才來惶恐接棒的問題。」</div>
-      <div class="src">濟公活佛・2014年泰國奉恩樓傳承精進班——這張大藍圖本身，就是「及早」的動作。</div>
+      <div class="pin">文</div>
+      <div class="q">「一方面培養自己成為道場的棟樑之材；一方面滿腹經綸，可以學以致用，淑人濟世，利益眾生，豈不美哉！」</div>
+      <div class="src">《文書篇》編輯前言・三峽靈隱寺文書組——修己與渡人，前人早就寫成了一句話。</div>
     </div>
   </div>
 
@@ -232,14 +287,14 @@
   <div class="star">
     <div class="seal">文</div>
     <p class="big">百年後的峨眉人，讀今天的訓一字不差，查今天的事歷歷在冊，接今天的手藝照樣上手。</p>
-    <p class="small">真、史、承三件都成，才叫文以載道。缺一件，後人就少一塊根。</p>
+    <p class="small">而每一代做文書的人，都在這份工作裡先被成全——修己、育人、渡人，三條路都走到，才叫文以載道。</p>
   </div>
 
-  <h2>兩根柱子的圖</h2>
+  <h2>兩套系統的圖</h2>
   <div class="links">
     <a href="https://neilliao.github.io/drive-inventory/specs/2026-09-01-fahui-wenshu-strategy-map.html">📜 法會文書藍圖 <small>印：真・手藝傳承</small></a>
-    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html">🗺️ 道務文書藍圖（總圖） <small>印：史・原名資訊藍圖</small></a>
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html">🗺️ 道務文書藍圖 <small>印：史・原名資訊藍圖</small></a>
   </div>
 
-  <footer>峨眉文書大藍圖・2026-09-01 初稿待覆核・「文＝真＋史」勾稽為草案，待 Neil 拍板・正本：drive-inventory/docs/specs/</footer>
+  <footer>峨眉文書大藍圖・2026-09-01 二版（戰術改三路：修己・育人・渡人，Neil 拍板）・正本：drive-inventory/docs/specs/</footer>
 </div>
