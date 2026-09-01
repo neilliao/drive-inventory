@@ -1,0 +1,285 @@
+<meta charset="utf-8">
+<title>文書育才路徑</title>
+<style>
+  :root {
+    --page: #f3faf7; --card: #ffffff; --tint: #e7f3ef; --tint-2: #eef6f2;
+    --ink: #1f3b2c; --sub: #4c655a; --line: #d6e8de;
+    --deep: #26715f; --primary: #2f8d78; --seal: #a8402f;
+    --chip-em-bg: #ecfdf5; --chip-em-tx: #047857; --chip-em-bd: #a7f3d0;
+    --chip-am-bg: #fffbeb; --chip-am-tx: #b45309; --chip-am-bd: #fde68a;
+    --chip-gy-bg: #f3f4f6; --chip-gy-tx: #4b5563; --chip-gy-bd: #e5e7eb;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--page); color: var(--ink); margin: 0; padding: 0 20px 72px;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+    line-height: 1.7; font-variant-numeric: tabular-nums; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  h1, h2 { font-family: "Songti TC","Noto Serif TC","Source Han Serif TC",serif; }
+  header.page { padding: 44px 0 20px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: .35em; color: var(--sub); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 5vw, 44px); margin: 0 0 12px; font-weight: 700; text-wrap: balance; }
+  .oneline { font-size: clamp(15px, 2vw, 18px); color: var(--deep); font-weight: 700; margin: 0; }
+  h2 { font-size: clamp(20px, 3vw, 24px); margin: 56px 0 16px; text-wrap: balance; }
+  .cap { font-size: 13px; color: var(--sub); margin: 10px 0 0; max-width: 60ch; }
+
+  .opening { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--seal);
+    border-radius: 12px; padding: 18px 22px; margin-top: 28px; }
+  .opening .q { font-size: clamp(15px, 2.2vw, 17.5px); font-weight: 700;
+    font-family: "Songti TC","Noto Serif TC",serif; }
+  .opening .src { font-size: 12.5px; color: var(--sub); margin-top: 6px; }
+
+  figure.map { margin: 0; overflow-x: auto; }
+  figure.map svg { min-width: 860px; width: 100%; height: auto; display: block; }
+  .node { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
+  .node-key { fill: var(--tint); stroke: var(--primary); stroke-width: 1.5; }
+  .t-word { font-size: 21px; font-weight: 700; fill: var(--deep); font-family: "Songti TC","Noto Serif TC",serif; }
+  .t-s2 { font-size: 11.5px; fill: var(--sub); }
+  .t-lane { font-size: 11px; font-weight: 700; fill: var(--primary); }
+  .t-lbl-a { font-size: 12px; font-weight: 600; fill: var(--deep); paint-order: stroke; stroke: var(--page); stroke-width: 5px; stroke-linejoin: round; }
+  .flow { stroke: var(--primary); stroke-width: 2; fill: none; }
+  .flow-loop { stroke: var(--deep); stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+  .m-accent { fill: var(--primary); }
+  .m-deep { fill: var(--deep); }
+
+  .stage { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 20px 22px; margin-bottom: 14px; box-shadow: 0 1px 2px rgba(31,59,44,.04); }
+  .stage .head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .stage .no { font-size: 13px; font-weight: 700; color: var(--primary); letter-spacing: .08em; }
+  .stage .name { font-size: 20px; font-weight: 700; font-family: "Songti TC","Noto Serif TC",serif; }
+  .chip { font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
+  .c-em { background: var(--chip-em-bg); color: var(--chip-em-tx); border-color: var(--chip-em-bd); }
+  .c-gy { background: var(--chip-gy-bg); color: var(--chip-gy-tx); border-color: var(--chip-gy-bd); }
+  .stage ul { margin: 0 0 12px; padding-left: 20px; font-size: 14px; }
+  .stage li { margin: 3px 0; }
+  .lane { font-weight: 700; color: var(--deep); }
+  .qbox { background: var(--tint-2); border-left: 3px solid var(--seal); border-radius: 0 10px 10px 0;
+    padding: 12px 16px; margin-top: 8px; }
+  .qbox .q { font-size: 14px; font-weight: 700; font-family: "Songti TC","Noto Serif TC",serif; }
+  .qbox .src { font-size: 12px; color: var(--sub); margin-top: 4px; }
+  .ebox { border: 1.5px dashed var(--chip-am-bd); background: var(--chip-am-bg); border-radius: 10px;
+    padding: 10px 16px; margin-top: 8px; font-size: 13px; color: var(--chip-am-tx); }
+  .ebox b { font-weight: 700; }
+
+  .tblwrap { overflow-x: auto; }
+  table.ev { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 13.5px; }
+  table.ev th, table.ev td { border: 1px solid var(--line); padding: 10px 14px; text-align: left; vertical-align: top; }
+  table.ev th { background: var(--tint); font-weight: 700; }
+  table.ev td.inf { color: var(--chip-am-tx); }
+
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .rule { background: var(--card); border: 1.5px solid var(--seal); border-radius: 16px; padding: 18px; }
+  .rule .t { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .rule .s { font-size: 13.5px; color: var(--sub); }
+
+  .links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .links a { display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 16px; text-decoration: none; color: var(--ink); font-size: 14.5px; font-weight: 700; }
+  .links a:hover { border-color: var(--primary); color: var(--deep); }
+  .links a small { font-weight: 400; color: var(--sub); font-size: 12px; }
+
+  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line);
+    font-size: 12px; color: var(--sub); text-align: center; }
+  @media (max-width: 700px) {
+    .rules, .links { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <p class="eyebrow">峨眉書院・文書育才</p>
+    <h1>文書育才路徑</h1>
+    <p class="oneline">從見習到傳承五階，養出又文又武的文書。</p>
+  </header>
+
+  <div class="opening">
+    <div class="q">「為了後繼有人，就必須經歷這一段，為師不怪你，所以你也不能怪他們……真正不失威嚴，還是那顆愛心，有愛心的人，才能展現出那個威嚴。」</div>
+    <div class="src">——濟公活佛・西元2011年泰國北欖府奉恩樓三天法會（垂訓選輯 #72）。帶人的心法，也是這條路存在的理由。</div>
+  </div>
+
+  <h2>路徑圖：雙軌入門，一條路上去</h2>
+  <p class="cap" style="margin:0 0 14px">前兩階分兩條軌道入門——法會軌練抄校的手藝，道務軌練記事歸檔的規矩；到第三階合流，因為修己、渡人、傳承是同一條路。走到最後一階的人，回頭帶新人，路就成了迴圈。</p>
+  <figure class="map">
+    <svg viewBox="0 0 1040 370" role="img" aria-label="文書育才路徑圖：見習與承擔分法會軌與道務軌兩行，到深化合流，經轉化到傳承，傳承回頭帶新人形成迴圈">
+      <defs>
+        <marker id="pm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" />
+        </marker>
+        <marker id="pd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-deep" />
+        </marker>
+      </defs>
+
+      <!-- 傳承迴圈（先畫在底層） -->
+      <path class="flow-loop" d="M 940 112 C 800 18 300 18 112 50" marker-end="url(#pd)" />
+      <text class="t-lbl-a" x="520" y="30" text-anchor="middle">回頭帶人——傳承的迴圈</text>
+
+      <!-- 第一階：見習（雙軌） -->
+      <rect class="node" x="20" y="56" width="170" height="98" rx="12" />
+      <text class="t-lane" x="36" y="78">第一階・法會軌</text>
+      <text class="t-word" x="36" y="106">見習</text>
+      <text class="t-s2" x="36" y="126">跟班：掛號、板書、護持</text>
+      <text class="t-s2" x="36" y="142">練法：一個念、一個抄</text>
+      <rect class="node" x="20" y="192" width="170" height="98" rx="12" />
+      <text class="t-lane" x="36" y="214">第一階・道務軌</text>
+      <text class="t-word" x="36" y="242">見習</text>
+      <text class="t-s2" x="36" y="262">跟班：會議記錄跟寫</text>
+      <text class="t-s2" x="36" y="278">歸檔跟做、認識規矩</text>
+
+      <line class="flow" x1="190" y1="105" x2="228" y2="105" marker-end="url(#pm)" />
+      <line class="flow" x1="190" y1="241" x2="228" y2="241" marker-end="url(#pm)" />
+
+      <!-- 第二階：承擔（雙軌） -->
+      <rect class="node" x="232" y="56" width="170" height="98" rx="12" />
+      <text class="t-lane" x="248" y="78">第二階・法會軌</text>
+      <text class="t-word" x="248" y="106">承擔</text>
+      <text class="t-s2" x="248" y="126">四人分工正式上場</text>
+      <text class="t-s2" x="248" y="142">主抄副抄板書校對</text>
+      <rect class="node" x="232" y="192" width="170" height="98" rx="12" />
+      <text class="t-lane" x="248" y="214">第二階・道務軌</text>
+      <text class="t-word" x="248" y="242">承擔</text>
+      <text class="t-s2" x="248" y="262">獨立成稿、照規繳回</text>
+      <text class="t-s2" x="248" y="278">註明出處、時地</text>
+
+      <line class="flow" x1="402" y1="105" x2="466" y2="156" marker-end="url(#pm)" />
+      <line class="flow" x1="402" y1="241" x2="466" y2="196" marker-end="url(#pm)" />
+
+      <!-- 第三階：深化（合流） -->
+      <rect class="node-key" x="470" y="114" width="164" height="120" rx="12" />
+      <text class="t-lane" x="486" y="136">第三階・合流</text>
+      <text class="t-word" x="486" y="164">深化</text>
+      <text class="t-s2" x="486" y="184">修己：道學充實、心靜</text>
+      <text class="t-s2" x="486" y="200">抄訓當修行</text>
+      <text class="t-s2" x="486" y="216">聖訓＝自己的準繩</text>
+
+      <line class="flow" x1="634" y1="174" x2="672" y2="174" marker-end="url(#pm)" />
+
+      <!-- 第四階：轉化 -->
+      <rect class="node-key" x="676" y="114" width="164" height="120" rx="12" />
+      <text class="t-lane" x="692" y="136">第四階</text>
+      <text class="t-word" x="692" y="164">轉化</text>
+      <text class="t-s2" x="692" y="184">擷取啟示、上台講課</text>
+      <text class="t-s2" x="692" y="200">走入人群渡人</text>
+      <text class="t-s2" x="692" y="216">出口按性向配</text>
+
+      <line class="flow" x1="840" y1="174" x2="878" y2="174" marker-end="url(#pm)" />
+
+      <!-- 第五階：傳承 -->
+      <rect class="node-key" x="882" y="114" width="142" height="120" rx="12" />
+      <text class="t-lane" x="898" y="136">第五階</text>
+      <text class="t-word" x="898" y="164">傳承</text>
+      <text class="t-s2" x="898" y="184">帶見習、辦培訓</text>
+      <text class="t-s2" x="898" y="200">列接棒名單</text>
+      <text class="t-s2" x="898" y="216">交棒要及早</text>
+
+      <text class="t-lbl-a" x="520" y="330" text-anchor="middle">五階是一條路，不是五個關卡——往前走一階，由帶的人判斷，不是考核表</text>
+    </svg>
+    <figcaption class="cap">實線＝成長方向；虛線＝傳承迴圈。淺綠底的三階（深化、轉化、傳承）兩軌共用——不管從哪條軌進來，路的後半段是同一條。</figcaption>
+  </figure>
+
+  <h2>五階細目：做什麼、用什麼教材、憑什麼訓文</h2>
+
+  <div class="stage">
+    <div class="head"><span class="no">第一階</span><span class="name">見習</span><span class="chip c-em">教材：峨眉注意事項</span></div>
+    <ul>
+      <li><span class="lane">法會軌</span>：跟班做掛號、板書、現場護持；配對練習——一個人念、一個人抄，每週或每月固定練</li>
+      <li><span class="lane">道務軌</span>：跟著寫會議記錄、跟著做歸檔，把繳回的規矩認一遍</li>
+    </ul>
+    <div class="qbox">
+      <div class="q">「所謂的抄訓，不是拿一篇訓自己在那裡抄，這達不到效果，要同修之間互相一個念一個抄，你們才有體會，才能達到效果。」</div>
+      <div class="src">濟公活佛・西元2008年印尼三寶壟濟化壇三天法會（垂訓選輯 #26）</div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="head"><span class="no">第二階</span><span class="name">承擔</span><span class="chip c-em">教材：中心參考手冊</span></div>
+    <ul>
+      <li><span class="lane">法會軌</span>：四人分工正式上場——主抄、副抄、板書、校對，各守本位、互相補位</li>
+      <li><span class="lane">道務軌</span>：獨立成稿，照規矩繳回歸檔——註明出處、地點、時間</li>
+    </ul>
+    <div class="qbox">
+      <div class="q">「主抄在抄，副抄助抄，板書幫助副抄……第四個來的人就要幫忙校對，不要大家都在抄，卻還是漏了！」</div>
+      <div class="src">哪吒師兄・西元2011年馬來西亞柔佛州聖義壇三天法會（垂訓選輯 #25）</div>
+    </div>
+    <div class="qbox">
+      <div class="q">「雖然老師講的話你們都有記，未來佛也得要記，回去看了才會有憑有據，才知道你們講過什麼。」</div>
+      <div class="src">濟公活佛・民國97年霧峰武聖宮三天法會（垂訓選輯 #53）——道務軌的依據：人講的話也是要記的史料。</div>
+    </div>
+    <div class="ebox"><b>編者按（設計推論，非訓文）：</b>四個位置盡量都經歷過再往前走。訓文明講的是分工與配合（#25、#38、#39），「輪替」是從 #72「為了後繼有人，就必須經歷這一段」推出來的帶人設計。</div>
+  </div>
+
+  <div class="stage">
+    <div class="head"><span class="no">第三階</span><span class="name">深化（修己）</span><span class="chip c-em">教材：垂訓選輯</span></div>
+    <ul>
+      <li>道學充實：隨身四書、精通一本經典（#16 不讀四書便有四輸、#17）</li>
+      <li>抄訓當修行：心靜心定（#21）、受雕琢壓傲氣（#22）、位高則卑（#11）</li>
+    </ul>
+    <div class="qbox">
+      <div class="q">「你們在抄訓當中，得到仙佛給你們的啟示最多，你們所寫出來的聖訓，就可以做自己修辦道的準繩。」</div>
+      <div class="src">濟公活佛・西元2014年馬來西亞古晉天慈堂（垂訓選輯 #74）</div>
+    </div>
+    <div class="ebox"><b>編者按（應用延伸，非訓文）：</b>寫心得日記、做文獻整理，是這一階的日常功課——訓文給的原則是道學充實與 #74，日記與文獻是峨眉自己選的應用方式。</div>
+  </div>
+
+  <div class="stage">
+    <div class="head"><span class="no">第四階</span><span class="name">轉化（文轉武）</span><span class="chip c-em">教材：垂訓選輯＋實戰</span></div>
+    <ul>
+      <li>從抄到講：擷取聖訓重點（#41）、寫上啟示（#42）、上台講課</li>
+      <li>走入人群開始成全人；出口按性向配——講師、文獻採訪、季刊寫手、誦經帶動（出口清單為設計，訓文給的是方向）</li>
+    </ul>
+    <div class="qbox">
+      <div class="q">「送你們四個字：『文武之書』，叫做文書。為什麼要文武？一動一靜，文書不是只當文書，而不去渡人成全辦道。」</div>
+      <div class="src">濟公活佛・西元2010年泰國曼谷承德壇三天法會暨二天複習班（垂訓選輯 #66）</div>
+    </div>
+    <div class="qbox">
+      <div class="q">「總不能一輩子當文書，已經走入操辦的道路了……現在讓你們學著擷取聖訓，就是要讓你們在臺上講課講重點。」</div>
+      <div class="src">濟公活佛・西元2009年泰國碧差汶鳳德佛宮三天法會（垂訓選輯 #65 另參）——文書組是人才的搖籃，不是終點站。</div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="head"><span class="no">第五階</span><span class="name">傳承（帶人）</span><span class="chip c-em">教材：傳承包全套</span></div>
+    <ul>
+      <li>回頭帶見習、辦培訓（#68 全體培訓、#69 關起門來真正做培訓、#73 栽培當地人才）</li>
+      <li>列接棒名單，交棒要及早（#63）；帶人的心法＝愛心裡的威嚴（#72）</li>
+      <li>你會的，就要教導下去（#64）；栽培人才，不要一下子讓他站太高（#70）</li>
+    </ul>
+    <div class="qbox">
+      <div class="q">「老師希望下回見到你，不是抄板書而已，要懂得栽培下一代，道棒一棒接一棒，人才一代培育一代，道場不是永遠你站在那個位置上。」</div>
+      <div class="src">濟公活佛・西元2009年澳洲雪梨恩輝佛齋一天人才班（垂訓選輯 #65）</div>
+    </div>
+  </div>
+
+  <h2>證據總表：每一階踩在哪幾則訓文上</h2>
+  <div class="tblwrap">
+    <table class="ev">
+      <tr><th>階段</th><th>逐字訓文（垂訓選輯則號）</th><th>編者推論（畫面一律虛線標示）</th></tr>
+      <tr><td>一、見習</td><td>#26 一個念一個抄／#70 不要一下子站太高／#72 必須經歷這一段</td><td>—</td></tr>
+      <tr><td>二、承擔</td><td>#25 四人分工／#38、#39 主抄副抄默契／#14 每次當第一次／#67 十足把握才上場／#53 未來佛也得要記（道務軌）</td><td class="inf">四位輪替（自 #72 推）</td></tr>
+      <tr><td>三、深化</td><td>#16 四書／#17 經典涉獵／#21 心靜／#22 壓傲氣／#11 位高則卑／#74 聖訓當準繩</td><td class="inf">寫日記、做文獻＝應用延伸</td></tr>
+      <tr><td>四、轉化</td><td>#41 擷取重點／#42 寫上啟示／#66 文武之書／#19 防文字障／#65另參 臺上講課／#74另參 能文能武</td><td class="inf">出口清單按性向配（設計）</td></tr>
+      <tr><td>五、傳承</td><td>#63 交棒要及早／#64 教導下去／#65 一代培育一代／#68 全體培訓／#69 關門培訓／#72 帶人心法／#73 栽培當地人才</td><td>—</td></tr>
+    </table>
+  </div>
+  <p class="cap">則號皆指《法會文書垂訓選輯》（81 則，草稿覆核中）。「編者推論」欄是設計判斷、不是訓文——本頁與選輯同一套紀律：逐字引文用實線紅邊框，推論用虛線黃框，一眼分得開。</p>
+
+  <h2>兩條護欄</h2>
+  <div class="rules">
+    <div class="rule">
+      <div class="t">🧭 是地圖，不是考核表</div>
+      <div class="s">誰可以往前走一階，由帶他的人判斷，不由數字判斷。道場跨人的本質是關懷，不是績效。</div>
+    </div>
+    <div class="rule">
+      <div class="t">🤝 帶人為主，開班為輔</div>
+      <div class="s">「用甚麼名目、甚麼班程，那只是虛晃一瞬間……主要是身心要重整。」（民國98年度泰國曼谷天中佛院三天法會）班是加速器，路是人帶出來的。</div>
+    </div>
+  </div>
+
+  <h2>回到全景</h2>
+  <div class="links">
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-09-01-emei-wenshu-grand-strategy-map.html">📖 峨眉文書大藍圖 <small>本頁掛在「育人」路下</small></a>
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-09-01-fahui-wenshu-strategy-map.html">📜 法會文書藍圖 <small>法會軌的手藝細節</small></a>
+  </div>
+
+  <footer>文書育才路徑・傳承包第四件「徑」・2026-09-02 草稿待覆核・正本：drive-inventory/docs/specs/（垂訓選輯在 docs/drafts/）</footer>
+</div>
