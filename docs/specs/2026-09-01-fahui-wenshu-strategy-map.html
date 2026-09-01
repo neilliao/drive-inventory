@@ -1,0 +1,359 @@
+<meta charset="utf-8">
+<title>法會文書藍圖</title>
+<style>
+  :root {
+    --page: #f3faf7; --card: #ffffff; --tint: #e7f3ef; --tint-2: #eef6f2;
+    --ink: #1f3b2c; --sub: #4c655a; --line: #d6e8de;
+    --deep: #26715f; --primary: #2f8d78; --seal: #a8402f;
+    --chip-em-bg: #ecfdf5; --chip-em-tx: #047857; --chip-em-bd: #a7f3d0;
+    --chip-am-bg: #fffbeb; --chip-am-tx: #b45309; --chip-am-bd: #fde68a;
+    --chip-gy-bg: #f3f4f6; --chip-gy-tx: #4b5563; --chip-gy-bd: #e5e7eb;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--page); color: var(--ink); margin: 0; padding: 0 20px 72px;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+    line-height: 1.7; font-variant-numeric: tabular-nums; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  h1, h2, .num { font-family: "Songti TC","Noto Serif TC","Source Han Serif TC",serif; }
+  header.page { padding: 44px 0 20px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: .35em; color: var(--sub); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 5vw, 44px); margin: 0 0 12px; font-weight: 700; text-wrap: balance; }
+  .oneline { font-size: clamp(15px, 2vw, 18px); color: var(--deep); font-weight: 700; margin: 0; }
+  h2 { font-size: clamp(20px, 3vw, 24px); margin: 56px 0 16px; text-wrap: balance; }
+  .cap { font-size: 13px; color: var(--sub); margin: 10px 0 0; max-width: 60ch; }
+
+  figure.map { margin: 0; overflow-x: auto; }
+  figure.map svg { min-width: 860px; width: 100%; height: auto; display: block; }
+  .st-box { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
+  .st-key { fill: var(--tint); stroke: var(--primary); stroke-width: 1.5; }
+  .st-engine { fill: var(--card); stroke: var(--deep); stroke-width: 1.5; }
+  .t-emoji { font-size: 26px; }
+  .t-word { font-size: 24px; font-weight: 700; fill: var(--deep); font-family: "Songti TC","Noto Serif TC",serif; }
+  .t-name { font-size: 14px; font-weight: 700; fill: var(--ink); }
+  .t-note { font-size: 12px; fill: var(--sub); }
+  .flow { stroke: var(--primary); stroke-width: 2; fill: none; }
+  .flow-up { stroke: var(--deep); stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+  .m { fill: var(--primary); } .md { fill: var(--deep); }
+  .box-goal { fill: var(--tint); stroke: var(--primary); stroke-width: 1.5; }
+  .node { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
+  .container { fill: var(--tint-2); stroke: var(--line); }
+  .tchip { fill: var(--card); stroke: var(--line); }
+  .rail { fill: var(--card); stroke: var(--line); }
+  .sealbox { fill: var(--seal); }
+  .t-title { font-size: 17px; font-weight: 700; fill: var(--ink); }
+  .t { font-size: 12.5px; fill: var(--ink); }
+  .t-s2 { font-size: 11.5px; fill: var(--sub); }
+  .t-tag { font-size: 13px; font-weight: 700; fill: var(--deep); }
+  .t-seal { font-size: 22px; font-weight: 700; fill: #fff; font-family: "Songti TC","Noto Serif TC",serif; }
+  .t-lbl-a { font-size: 12px; font-weight: 600; fill: var(--deep); paint-order: stroke; stroke: var(--page); stroke-width: 5px; stroke-linejoin: round; }
+  .guard { stroke: var(--sub); stroke-width: 1.2; stroke-dasharray: 4 4; fill: none; }
+  .arrow { stroke: var(--sub); stroke-width: 1.4; fill: none; }
+  .m-accent { fill: var(--primary); }
+  .m-soft { fill: var(--sub); }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .hub { height: 100%; background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 1px 2px rgba(31,59,44,.04); }
+  .hub .top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .hub .name { font-size: 16.5px; font-weight: 700; }
+  .hub .say { font-size: 13.5px; color: var(--sub); }
+  .chip { font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
+  .c-em { background: var(--chip-em-bg); color: var(--chip-em-tx); border-color: var(--chip-em-bd); }
+  .c-am { background: var(--chip-am-bg); color: var(--chip-am-tx); border-color: var(--chip-am-bd); }
+  .c-gy { background: var(--chip-gy-bg); color: var(--chip-gy-tx); border-color: var(--chip-gy-bd); }
+
+  .steps { display: flex; align-items: stretch; gap: 0; overflow-x: auto; }
+  .step { flex: 1; min-width: 150px; background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 14px 16px; }
+  .step .when { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: .06em; }
+  .step .what { font-size: 15px; font-weight: 700; margin-top: 2px; }
+  .step .why { font-size: 12.5px; color: var(--sub); margin-top: 2px; }
+  .arrow-h { align-self: center; padding: 0 6px; color: var(--primary); font-size: 18px; flex: none; }
+  .always { margin-top: 12px; background: var(--tint-2); border: 1px solid var(--line); border-radius: 12px;
+    padding: 10px 16px; font-size: 13.5px; color: var(--sub); }
+
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .rule { background: var(--card); border: 1.5px solid var(--seal); border-radius: 16px; padding: 18px; }
+  .rule .t { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .rule .s { font-size: 13.5px; color: var(--sub); }
+
+  .star { background: var(--card); border: 1.5px solid var(--seal); border-radius: 16px;
+    padding: 26px 28px; text-align: center; }
+  .star .seal { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+    background: var(--seal); color: #fff; border-radius: 8px; font-size: 24px; font-weight: 700;
+    font-family: "Songti TC","Noto Serif TC",serif; margin-bottom: 12px; }
+  .star .big { font-size: clamp(16px, 2.4vw, 19px); font-weight: 700; max-width: 34em; margin: 0 auto; text-wrap: balance; }
+  .star .small { font-size: 13px; color: var(--sub); margin-top: 8px; }
+
+  .links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .links a { display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 16px; text-decoration: none; color: var(--ink); font-size: 14.5px; font-weight: 700; }
+  .links a:hover { border-color: var(--primary); color: var(--deep); }
+  .links a small { font-weight: 400; color: var(--sub); font-size: 12px; }
+
+  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line);
+    font-size: 12px; color: var(--sub); text-align: center; }
+  @media (max-width: 700px) {
+    .grid, .rules, .links { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <p class="eyebrow">峨眉書院・法會文書</p>
+    <h1>法會文書藍圖</h1>
+    <p class="oneline">上天的話與現場的紀錄：抄下來、校清楚、歸到位、傳下去。</p>
+  </header>
+
+  <h2>一場法會，文書經過哪五站？</h2>
+  <figure class="map">
+    <svg viewBox="0 0 1040 320" role="img" aria-label="一場法會的文書旅程：仙佛臨壇、抄、校、歸、承；傳承包在下方當工法引擎">
+      <defs>
+        <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="m"/></marker>
+        <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="md"/></marker>
+      </defs>
+
+      <rect class="st-box" x="16" y="36" width="176" height="124" rx="14"/>
+      <text class="t-emoji" x="36" y="76">🙏</text>
+      <text class="t-name" x="36" y="106">仙佛臨壇</text>
+      <text class="t-note" x="36" y="128">訓文、白話訓、聖歌</text>
+      <text class="t-note" x="36" y="146">顯了就化，話說完就散</text>
+
+      <line class="flow" x1="192" y1="98" x2="218" y2="98" marker-end="url(#a)"/>
+
+      <rect class="st-key" x="222" y="36" width="176" height="124" rx="14"/>
+      <text class="t-word" x="242" y="72">抄</text>
+      <text class="t-emoji" x="352" y="74" text-anchor="end">✍️</text>
+      <text class="t-name" x="242" y="106">現場成稿</text>
+      <text class="t-note" x="242" y="128">四人分工：主抄、副抄</text>
+      <text class="t-note" x="242" y="146">板書、校對，心靜為先</text>
+
+      <line class="flow" x1="398" y1="98" x2="424" y2="98" marker-end="url(#a)"/>
+
+      <rect class="st-key" x="428" y="36" width="176" height="124" rx="14"/>
+      <text class="t-word" x="448" y="72">校</text>
+      <text class="t-emoji" x="558" y="74" text-anchor="end">🔍</text>
+      <text class="t-name" x="448" y="106">一字不差</text>
+      <text class="t-note" x="448" y="128">以原稿校對、重聽錄音</text>
+      <text class="t-note" x="448" y="146">有疑必請示，不擅改</text>
+
+      <line class="flow" x1="604" y1="98" x2="630" y2="98" marker-end="url(#a)"/>
+
+      <rect class="st-key" x="634" y="36" width="176" height="124" rx="14"/>
+      <text class="t-word" x="654" y="72">歸</text>
+      <text class="t-emoji" x="764" y="74" text-anchor="end">📥</text>
+      <text class="t-name" x="654" y="106">各歸其家</text>
+      <text class="t-note" x="654" y="128">訓文、錄音、名冊、記錄</text>
+      <text class="t-note" x="654" y="146">一週內繳回、歸對的碟</text>
+
+      <line class="flow" x1="810" y1="98" x2="836" y2="98" marker-end="url(#a)"/>
+
+      <rect class="st-key" x="840" y="36" width="184" height="124" rx="14"/>
+      <text class="t-word" x="860" y="72">承</text>
+      <text class="t-emoji" x="1004" y="74" text-anchor="end">📖</text>
+      <text class="t-name" x="860" y="106">輯錄成書・傳給後人</text>
+      <text class="t-note" x="860" y="128">寶典、語料庫、修史；</text>
+      <text class="t-note" x="860" y="146">手藝本身也要有人接</text>
+
+      <rect class="st-engine" x="278" y="226" width="484" height="70" rx="14"/>
+      <text class="t-emoji" x="300" y="270">📦</text>
+      <text class="t-name" x="344" y="256">傳承包（工法引擎）</text>
+      <text class="t-note" x="344" y="278">垂訓選輯＋中心手冊＋峨眉注意事項——每一站怎麼做，都問它</text>
+
+      <line class="flow-up" x1="480" y1="226" x2="500" y2="164" marker-end="url(#b)"/>
+      <line class="flow-up" x1="640" y1="226" x2="700" y2="164" marker-end="url(#b)"/>
+    </svg>
+    <figcaption class="cap">這門手藝的工法是仙佛親自給的：領來的，不是設計的。所以底下的引擎叫「傳承包」——它不發明做法，只把做法原樣傳下去。</figcaption>
+  </figure>
+
+  <h2>策略地圖：戰略 → 戰術 → 戰技</h2>
+  <p class="cap" style="margin:0 0 14px">讀法跟總圖一樣：最上面是目標（戰略），中間四條路是打法（戰術），掛在底下的小卡是實際招式（戰技）。左邊是不可越的邊界，右邊是兩道把關。</p>
+  <figure class="map">
+    <svg viewBox="0 0 1040 560" role="img" aria-label="法會文書策略地圖：頂端是目標「把上天的話一字不差傳下去」，中層四個戰術（抄、校、歸、承），底層是戰技；左側是護欄，右側是發放的閘門與留與不留的分寸">
+      <defs>
+        <marker id="tm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" />
+        </marker>
+        <marker id="ts" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-soft" />
+        </marker>
+      </defs>
+
+      <!-- 目標（策略） -->
+      <rect class="box-goal" x="230" y="16" width="560" height="76" rx="10" />
+      <rect class="sealbox" x="246" y="30" width="48" height="48" rx="6" />
+      <text class="t-seal" x="270" y="62" text-anchor="middle">真</text>
+      <text class="t-title" x="308" y="46">把上天的話，一字不差地傳下去</text>
+      <text class="t-s2" x="308" y="66">「百世傳之以書」——錯一個字，誤導的是後世眾生；</text>
+      <text class="t-s2" x="308" y="82">而這門手藝，不能只有一代人會</text>
+
+      <!-- 戰術 → 目標 -->
+      <line class="flow" x1="300" y1="140" x2="300" y2="96" marker-end="url(#tm)" />
+      <line class="flow" x1="446" y1="140" x2="446" y2="96" marker-end="url(#tm)" />
+      <line class="flow" x1="592" y1="140" x2="592" y2="96" marker-end="url(#tm)" />
+      <line class="flow" x1="738" y1="140" x2="738" y2="96" marker-end="url(#tm)" />
+
+      <!-- 戰術層 -->
+      <text class="t-tag" x="230" y="134">戰術（達成目標的四條路）</text>
+      <rect class="node" x="232" y="144" width="136" height="92" rx="10" />
+      <text class="t-word" x="248" y="176">抄</text>
+      <text class="t-s2" x="248" y="192">臨場成稿：</text>
+      <text class="t-s2" x="248" y="208">古法四人分工</text>
+      <rect class="node" x="378" y="144" width="136" height="92" rx="10" />
+      <text class="t-word" x="394" y="176">校</text>
+      <text class="t-s2" x="394" y="192">一字不差：</text>
+      <text class="t-s2" x="394" y="208">正確優先於速度</text>
+      <rect class="node" x="524" y="144" width="136" height="92" rx="10" />
+      <text class="t-word" x="540" y="176">歸</text>
+      <text class="t-s2" x="540" y="192">各歸其家：</text>
+      <text class="t-s2" x="540" y="208">每種產物有地址</text>
+      <rect class="node" x="670" y="144" width="136" height="92" rx="10" />
+      <text class="t-word" x="686" y="176">承</text>
+      <text class="t-s2" x="686" y="192">手藝有人接：</text>
+      <text class="t-s2" x="686" y="208">教材、見習、交棒</text>
+
+      <!-- 戰技掛戰術 -->
+      <line class="flow" x1="300" y1="256" x2="300" y2="240" marker-end="url(#tm)" transform="rotate(180 300 248)" />
+      <line class="flow" x1="446" y1="256" x2="446" y2="240" marker-end="url(#tm)" transform="rotate(180 446 248)" />
+      <line class="flow" x1="592" y1="256" x2="592" y2="240" marker-end="url(#tm)" transform="rotate(180 592 248)" />
+      <line class="flow" x1="738" y1="256" x2="738" y2="240" marker-end="url(#tm)" transform="rotate(180 738 248)" />
+
+      <rect class="container" x="232" y="260" width="136" height="106" rx="10" />
+      <rect class="tchip" x="236" y="268" width="128" height="26" rx="6" />
+      <text class="t-s2" x="300" y="286" text-anchor="middle">主抄副抄板書校對</text>
+      <rect class="tchip" x="236" y="298" width="128" height="26" rx="6" />
+      <text class="t-s2" x="300" y="316" text-anchor="middle">心不靜不當主抄</text>
+      <rect class="tchip" x="236" y="328" width="128" height="26" rx="6" />
+      <text class="t-s2" x="300" y="346" text-anchor="middle">繁體正字、不寫簡草</text>
+
+      <rect class="container" x="378" y="260" width="136" height="106" rx="10" />
+      <rect class="tchip" x="382" y="268" width="128" height="26" rx="6" />
+      <text class="t-s2" x="446" y="286" text-anchor="middle">以原稿校對非重抄稿</text>
+      <rect class="tchip" x="382" y="298" width="128" height="26" rx="6" />
+      <text class="t-s2" x="446" y="316" text-anchor="middle">重聽錄音補漏</text>
+      <rect class="tchip" x="382" y="328" width="128" height="26" rx="6" />
+      <text class="t-s2" x="446" y="346" text-anchor="middle">不可擅改、不可濃縮</text>
+
+      <rect class="container" x="524" y="260" width="136" height="136" rx="10" />
+      <rect class="tchip" x="528" y="268" width="128" height="26" rx="6" />
+      <text class="t-s2" x="592" y="286" text-anchor="middle">訓文 → 202文史</text>
+      <rect class="tchip" x="528" y="298" width="128" height="26" rx="6" />
+      <text class="t-s2" x="592" y="316" text-anchor="middle">錄音 → 204錄音</text>
+      <rect class="tchip" x="528" y="328" width="128" height="26" rx="6" />
+      <text class="t-s2" x="592" y="346" text-anchor="middle">班務檔一週內繳回</text>
+      <rect class="tchip" x="528" y="358" width="128" height="26" rx="6" />
+      <text class="t-s2" x="592" y="376" text-anchor="middle">檢討會記錄 → 208會議</text>
+
+      <rect class="container" x="670" y="260" width="136" height="136" rx="10" />
+      <rect class="tchip" x="674" y="268" width="128" height="26" rx="6" />
+      <text class="t-s2" x="738" y="286" text-anchor="middle">傳承包三件當教材</text>
+      <rect class="tchip" x="674" y="298" width="128" height="26" rx="6" />
+      <text class="t-s2" x="738" y="316" text-anchor="middle">見習跟班輪替上手</text>
+      <rect class="tchip" x="674" y="328" width="128" height="26" rx="6" />
+      <text class="t-s2" x="738" y="346" text-anchor="middle">道學詞語庫（前人注釋）</text>
+      <rect class="tchip" x="674" y="358" width="128" height="26" rx="6" />
+      <text class="t-s2" x="738" y="376" text-anchor="middle">每年檢視接棒安排</text>
+
+      <text class="t-lbl-a" x="510" y="428" text-anchor="middle">抄與校是仙佛給的古法，只傳承不改；歸與承接進道務文書的系統——兩邊在這張圖上會合</text>
+
+      <!-- 左護欄 -->
+      <rect class="rail" x="16" y="144" width="196" height="316" rx="12" />
+      <text class="t-tag" x="32" y="172">護欄（不可越的線）</text>
+      <text class="t" x="32" y="202">工法是領來的</text>
+      <text class="t-s2" x="32" y="220">只傳承，不重新設計</text>
+      <text class="t" x="32" y="250">中心手冊是正本</text>
+      <text class="t-s2" x="32" y="268">引用不改寫，不長分支</text>
+      <text class="t" x="32" y="298">檔案不留私人裝置</text>
+      <text class="t-s2" x="32" y="316">錄音訓文繳回後刪副本</text>
+      <text class="t" x="32" y="346">個資不出指定位置</text>
+      <text class="t-s2" x="32" y="364">不進 LINE 群、不散置</text>
+      <line class="guard" x1="212" y1="290" x2="228" y2="290" marker-end="url(#ts)" />
+
+      <!-- 右把關 -->
+      <rect class="rail" x="830" y="144" width="194" height="140" rx="12" />
+      <text class="t-tag" x="846" y="172">發放的閘門</text>
+      <text class="t" x="846" y="200">主班過目才發放</text>
+      <text class="t" x="846" y="226">及時發布，不斷熱度</text>
+      <text class="t" x="846" y="252">錯了認錯補正</text>
+      <text class="t-s2" x="846" y="272">錄音只限文書組奉命者</text>
+      <line class="arrow" x1="810" y1="190" x2="826" y2="190" marker-end="url(#ts)" />
+
+      <rect class="rail" x="830" y="308" width="194" height="152" rx="12" />
+      <text class="t-tag" x="846" y="336">留與不留的分寸</text>
+      <text class="t" x="846" y="364">該留的心裡明白</text>
+      <text class="t" x="846" y="390">時機未到，不強留</text>
+      <text class="t-s2" x="846" y="410">仙佛批完也有令擦掉的</text>
+      <text class="t-s2" x="846" y="430">裁，也是史的功夫</text>
+      <line class="arrow" x1="810" y1="380" x2="826" y2="380" marker-end="url(#ts)" />
+    </svg>
+    <figcaption class="cap">由下往上讀：招式撐起四條路，四條路撐起「真」。左邊四條護欄裡，前兩條守手藝、後兩條守檔案。右邊兩道把關都出自訓文：發放前有人過目、留不留有分寸。</figcaption>
+  </figure>
+
+  <h2>傳承包與資產：六個件</h2>
+  <div class="grid">
+    <div class="hub">
+      <div class="top"><span class="name">📜 垂訓選輯</span><span class="chip c-em">已成稿・81 則</span></div>
+      <div class="say">為什麼神聖。從《聖佛綸音・文書篇》兩冊逐字選錄，仙佛怎麼講這門手藝，七章分好。</div>
+    </div>
+    <div class="hub">
+      <div class="top"><span class="name">📕 中心參考手冊</span><span class="chip c-gy">正本・2013 版</span></div>
+      <div class="say">標準工法。靈隱中心出版，44 頁 9 章。這本是正本：引用不改寫，峨眉不長分支版本。</div>
+    </div>
+    <div class="hub">
+      <div class="top"><span class="name">📗 峨眉注意事項</span><span class="chip c-am">修訂草案覆核中</span></div>
+      <div class="say">本地實務。峨眉可以自己寫自己修的一層；2026 修訂草案已補記錄流向、錄音、個資、傳承四處。</div>
+    </div>
+    <div class="hub">
+      <div class="top"><span class="name">📚 道學詞語庫</span><span class="chip c-gy">前人資產・待安家</span></div>
+      <div class="say">前人二十年的訓文詞語注釋（6,099 檔的舊網站）。內容歸語料庫那條線整理，這裡只指路。</div>
+    </div>
+    <div class="hub">
+      <div class="top"><span class="name">🎓 文書班程前例</span><span class="chip c-gy">2013・2019 教材</span></div>
+      <div class="say">以前開過的文書培訓班教材都還在。開新班不是從零發明，是把前例接起來。</div>
+    </div>
+    <div class="hub">
+      <div class="top"><span class="name">🔎 聖佛綸音語料庫</span><span class="chip c-em">可全文檢索</span></div>
+      <div class="say">兩冊《文書篇》全文都在庫裡（1,452 篇之中）。要查任何一句訓的原文出處，問它。</div>
+    </div>
+  </div>
+
+  <h2>接下來做什麼？</h2>
+  <div class="steps">
+    <div class="step"><div class="when">現在</div><div class="what">覆核三份草稿</div><div class="why">垂訓選輯、整併大綱、注意事項修訂</div></div>
+    <span class="arrow-h">→</span>
+    <div class="step"><div class="when">接著</div><div class="what">拍板懸缺</div><div class="why">歸檔夾位、檔名規矩、成品形式</div></div>
+    <span class="arrow-h">→</span>
+    <div class="step"><div class="when">然後</div><div class="what">傳承包定稿</div><div class="why">發放給文書組，正式取代舊版</div></div>
+    <span class="arrow-h">→</span>
+    <div class="step"><div class="when">最後</div><div class="what">開班交棒</div><div class="why">見習跟班上路，新人照包能做事</div></div>
+  </div>
+  <div class="always">一直在做：每場法會照注意事項跑・訓文錄音照規矩歸檔</div>
+
+  <h2>兩條鐵則</h2>
+  <div class="rules">
+    <div class="rule">
+      <div class="t">✍️ 一字不差</div>
+      <div class="s">「執筆如執刀。」不把握、不確定的，不能落在文字上——寧可請示，不可擅改。正確永遠優先於速度。</div>
+    </div>
+    <div class="rule">
+      <div class="t">🕯️ 交棒要及早</div>
+      <div class="s">「不要等到人老氣衰，才來惶恐接棒的問題。」教材、見習、接棒名單，現在就備，不是等缺人才想。</div>
+    </div>
+  </div>
+
+  <h2>什麼時候算成功？</h2>
+  <div class="star">
+    <div class="seal">真</div>
+    <p class="big">有一天，一位新進文書第一次上場，只靠傳承包，就能把一場法會的文書做完整——抄得真、校得清、歸得位。</p>
+    <p class="small">做得到這件事，這門手藝就傳下去了。這就是「把上天的話，一字不差地傳下去」。</p>
+  </div>
+
+  <h2>回到全景</h2>
+  <div class="links">
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html">🗺️ 峨眉資訊藍圖 <small>道務文書總圖</small></a>
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-map-legend.html">🧭 看圖指南 <small>戰略戰術戰技怎麼讀</small></a>
+  </div>
+
+  <footer>法會文書藍圖・2026-09-01 初稿待覆核・道務文書總圖的子圖・三份草稿正本：drive-inventory/docs/drafts/</footer>
+</div>
