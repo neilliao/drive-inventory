@@ -1,0 +1,245 @@
+<meta charset="utf-8">
+<title>峨眉文書大藍圖</title>
+<style>
+  :root {
+    --page: #f3faf7; --card: #ffffff; --tint: #e7f3ef; --tint-2: #eef6f2;
+    --ink: #1f3b2c; --sub: #4c655a; --line: #d6e8de;
+    --deep: #26715f; --primary: #2f8d78; --seal: #a8402f;
+    --chip-em-bg: #ecfdf5; --chip-em-tx: #047857; --chip-em-bd: #a7f3d0;
+    --chip-am-bg: #fffbeb; --chip-am-tx: #b45309; --chip-am-bd: #fde68a;
+    --chip-gy-bg: #f3f4f6; --chip-gy-tx: #4b5563; --chip-gy-bd: #e5e7eb;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--page); color: var(--ink); margin: 0; padding: 0 20px 72px;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+    line-height: 1.7; font-variant-numeric: tabular-nums; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  h1, h2 { font-family: "Songti TC","Noto Serif TC","Source Han Serif TC",serif; }
+  header.page { padding: 44px 0 20px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: .35em; color: var(--sub); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 5vw, 44px); margin: 0 0 12px; font-weight: 700; text-wrap: balance; }
+  .oneline { font-size: clamp(15px, 2vw, 18px); color: var(--deep); font-weight: 700; margin: 0; }
+  h2 { font-size: clamp(20px, 3vw, 24px); margin: 56px 0 16px; text-wrap: balance; }
+  .cap { font-size: 13px; color: var(--sub); margin: 10px 0 0; max-width: 60ch; }
+
+  .opening { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--seal);
+    border-radius: 12px; padding: 18px 22px; margin-top: 28px; }
+  .opening .q { font-size: clamp(15px, 2.2vw, 17.5px); font-weight: 700;
+    font-family: "Songti TC","Noto Serif TC",serif; }
+  .opening .src { font-size: 12.5px; color: var(--sub); margin-top: 6px; }
+
+  figure.map { margin: 0; overflow-x: auto; }
+  figure.map svg { min-width: 860px; width: 100%; height: auto; display: block; }
+  .box-goal { fill: var(--tint); stroke: var(--primary); stroke-width: 1.5; }
+  .pillar { fill: var(--card); stroke: var(--deep); stroke-width: 1.6; }
+  .container { fill: var(--tint-2); stroke: var(--line); }
+  .tchip { fill: var(--card); stroke: var(--line); }
+  .sealbox { fill: var(--seal); }
+  .t-title { font-size: 17px; font-weight: 700; fill: var(--ink); }
+  .t { font-size: 12.5px; fill: var(--ink); }
+  .t-s2 { font-size: 11.5px; fill: var(--sub); }
+  .t-tag { font-size: 13px; font-weight: 700; fill: var(--deep); }
+  .t-seal { font-size: 22px; font-weight: 700; fill: #fff; font-family: "Songti TC","Noto Serif TC",serif; }
+  .t-seal-s { font-size: 17px; font-weight: 700; fill: #fff; font-family: "Songti TC","Noto Serif TC",serif; }
+  .t-name { font-size: 15px; font-weight: 700; fill: var(--ink); }
+  .t-lbl-a { font-size: 12px; font-weight: 600; fill: var(--deep); paint-order: stroke; stroke: var(--page); stroke-width: 5px; stroke-linejoin: round; }
+  .flow { stroke: var(--primary); stroke-width: 2; fill: none; }
+  .m-accent { fill: var(--primary); }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .hub { height: 100%; background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 1px 2px rgba(31,59,44,.04); }
+  .hub .top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .hub .name { font-size: 16.5px; font-weight: 700; }
+  .hub .say { font-size: 13.5px; color: var(--sub); }
+  .hub ul { margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--sub); }
+  .hub li { margin: 2px 0; }
+  .chip { font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
+  .c-em { background: var(--chip-em-bg); color: var(--chip-em-tx); border-color: var(--chip-em-bd); }
+  .c-am { background: var(--chip-am-bg); color: var(--chip-am-tx); border-color: var(--chip-am-bd); }
+  .c-gy { background: var(--chip-gy-bg); color: var(--chip-gy-tx); border-color: var(--chip-gy-bd); }
+
+  .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .quote { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+  .quote .pin { display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; background: var(--seal); color: #fff; border-radius: 6px;
+    font-size: 16px; font-weight: 700; font-family: "Songti TC","Noto Serif TC",serif; margin-bottom: 8px; }
+  .quote .q { font-size: 14.5px; font-weight: 700; font-family: "Songti TC","Noto Serif TC",serif; }
+  .quote .src { font-size: 12px; color: var(--sub); margin-top: 6px; }
+
+  .star { background: var(--card); border: 1.5px solid var(--seal); border-radius: 16px;
+    padding: 26px 28px; text-align: center; }
+  .star .seal { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+    background: var(--seal); color: #fff; border-radius: 8px; font-size: 24px; font-weight: 700;
+    font-family: "Songti TC","Noto Serif TC",serif; margin-bottom: 12px; }
+  .star .big { font-size: clamp(16px, 2.4vw, 19px); font-weight: 700; max-width: 34em; margin: 0 auto; text-wrap: balance; }
+  .star .small { font-size: 13px; color: var(--sub); margin-top: 8px; }
+
+  .links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .links a { display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 16px; text-decoration: none; color: var(--ink); font-size: 14.5px; font-weight: 700; }
+  .links a:hover { border-color: var(--primary); color: var(--deep); }
+  .links a small { font-weight: 400; color: var(--sub); font-size: 12px; }
+
+  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line);
+    font-size: 12px; color: var(--sub); text-align: center; }
+  @media (max-width: 700px) {
+    .grid, .quotes, .links { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <p class="eyebrow">峨眉書院・文書</p>
+    <h1>峨眉文書大藍圖</h1>
+    <p class="oneline">上天的話傳得真，道場的事修成史——文以載道，代代相承。</p>
+  </header>
+
+  <div class="opening">
+    <div class="q">「如果不是因為文字的保留，恐怕會出現歷史的『失憶』。而後來者，也將會是一樣的『失根忘本』！」</div>
+    <div class="src">——《聖佛綸音・文書篇》編輯前言，三峽靈隱寺文書組謹識，中華民國一百年六月五日。這張圖上所有的事，都是為了不讓這句話成真。</div>
+  </div>
+
+  <h2>整體戰略：一個總綱，兩根柱子，一個共同下游</h2>
+  <p class="cap" style="margin:0 0 14px">文書的本質是道場的記憶。記憶有兩條來源：天音（仙佛的話）與人事（道場的事）——各由一根柱子負責；記下來之後的存、找、傳，兩邊走同一套系統。</p>
+  <figure class="map">
+    <svg viewBox="0 0 1040 560" role="img" aria-label="峨眉文書整體戰略圖：頂端總綱「文以載道」，中間兩根柱子（法會文書・真／道務文書・史），底部是共同下游存找傳修史，兩柱之間是傳承軸">
+      <defs>
+        <marker id="gm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" />
+        </marker>
+      </defs>
+
+      <!-- 總綱 -->
+      <rect class="box-goal" x="230" y="16" width="580" height="82" rx="10" />
+      <rect class="sealbox" x="246" y="30" width="52" height="52" rx="6" />
+      <text class="t-seal" x="272" y="65" text-anchor="middle">文</text>
+      <text class="t-title" x="314" y="46">文以載道：文＝真＋史</text>
+      <text class="t-s2" x="314" y="66">文字本身不是道，但道要藉文字傳。把話傳「真」、把事修「史」，</text>
+      <text class="t-s2" x="314" y="82">合起來，就是文書組替道場守住的記憶</text>
+
+      <!-- 兩柱 → 總綱 -->
+      <line class="flow" x1="330" y1="150" x2="400" y2="102" marker-end="url(#gm)" />
+      <line class="flow" x1="710" y1="150" x2="640" y2="102" marker-end="url(#gm)" />
+
+      <!-- 左柱：法會文書 -->
+      <rect class="pillar" x="60" y="154" width="430" height="180" rx="14" />
+      <rect class="sealbox" x="80" y="172" width="40" height="40" rx="6" />
+      <text class="t-seal-s" x="100" y="199" text-anchor="middle">真</text>
+      <text class="t-name" x="134" y="188">法會文書</text>
+      <text class="t-s2" x="134" y="208">記「天音」的通道</text>
+      <text class="t" x="80" y="240">仙佛臨壇 → 抄 → 校 → 發放</text>
+      <text class="t-s2" x="80" y="262">工法是仙佛親授的古法：四人分工、一字不差、</text>
+      <text class="t-s2" x="80" y="280">主班過目——只傳承，不重新設計</text>
+      <text class="t-s2" x="80" y="310">▸ 詳見：法會文書藍圖（手藝傳承地圖）</text>
+
+      <!-- 右柱：道務文書 -->
+      <rect class="pillar" x="550" y="154" width="430" height="180" rx="14" />
+      <rect class="sealbox" x="570" y="172" width="40" height="40" rx="6" />
+      <text class="t-seal-s" x="590" y="199" text-anchor="middle">史</text>
+      <text class="t-name" x="624" y="188">道務文書</text>
+      <text class="t-s2" x="624" y="208">記「人事」的通道＋整套系統</text>
+      <text class="t" x="570" y="240">會議、活動、名冊、圖書 → 各歸其家</text>
+      <text class="t-s2" x="570" y="262">39 顆雲端硬碟九疊編碼、24 組鑰匙、索引集中——</text>
+      <text class="t-s2" x="570" y="280">工法可以設計，制度不繫於任何一人</text>
+      <text class="t-s2" x="570" y="310">▸ 詳見：峨眉資訊藍圖（總圖）</text>
+
+      <!-- 兩柱 → 共同下游 -->
+      <line class="flow" x1="275" y1="334" x2="380" y2="392" marker-end="url(#gm)" />
+      <line class="flow" x1="765" y1="334" x2="660" y2="392" marker-end="url(#gm)" />
+
+      <!-- 共同下游 -->
+      <text class="t-tag" x="240" y="384">記下來之後，兩邊走同一套（共同下游）</text>
+      <rect class="container" x="236" y="396" width="568" height="76" rx="12" />
+      <rect class="tchip" x="252" y="412" width="124" height="44" rx="8" />
+      <text class="t" x="314" y="430" text-anchor="middle">存：知識庫</text>
+      <text class="t-s2" x="314" y="448" text-anchor="middle">每份檔案有地址</text>
+      <rect class="tchip" x="390" y="412" width="124" height="44" rx="8" />
+      <text class="t" x="452" y="430" text-anchor="middle">找：三把鑰匙</text>
+      <text class="t-s2" x="452" y="448" text-anchor="middle">人・事・理</text>
+      <rect class="tchip" x="528" y="412" width="124" height="44" rx="8" />
+      <text class="t" x="590" y="430" text-anchor="middle">傳：發一次到位</text>
+      <text class="t-s2" x="590" y="448" text-anchor="middle">LINE・信箱・平台</text>
+      <rect class="tchip" x="666" y="412" width="124" height="44" rx="8" />
+      <text class="t" x="728" y="430" text-anchor="middle">承：修史</text>
+      <text class="t-s2" x="728" y="448" text-anchor="middle">寶典・人物誌・活的史</text>
+
+      <text class="t-lbl-a" x="520" y="510" text-anchor="middle">真守住品質、史守住廣度，兩根柱子撐起同一個「文」——柱子各自有圖，下游詳見總圖的存找傳承四條路</text>
+    </svg>
+    <figcaption class="cap">讀法：由下往上——共同下游撐起兩根柱子，兩根柱子撐起「文以載道」。左柱的重點在手藝（怎麼做得真），右柱的重點在制度（怎麼存得住、找得到、傳得出去）。</figcaption>
+  </figure>
+
+  <h2>承先啟後：這張圖接的是誰的棒</h2>
+  <div class="grid">
+    <div class="hub">
+      <div class="top"><span class="name">🕯️ 前人留下的</span><span class="chip c-gy">1995–2019</span></div>
+      <ul>
+        <li>1995 起・道學詞語庫（二十年訓文注釋，6,099 檔）</li>
+        <li>2004–2014・兩冊《文書篇》輯錄（仙佛慈訓存證）</li>
+        <li>2011・編輯前言（文書使命的自述）</li>
+        <li>2013・中心《法會文書參考手冊》（工法成書）</li>
+        <li>2019・峨眉 D06 注意事項（本地實務）</li>
+      </ul>
+    </div>
+    <div class="hub">
+      <div class="top"><span class="name">🔨 我們現在做的</span><span class="chip c-em">2026</span></div>
+      <ul>
+        <li>資訊藍圖：39 碟九疊編碼＋24 組鑰匙＋索引</li>
+        <li>傳承包三件：垂訓選輯・中心手冊・注意事項修訂</li>
+        <li>兩張藍圖成圖：法會文書（真）＋道務文書（史）</li>
+        <li>生產線接倉庫：會議紀錄、活動帳、巡檢逐條接上</li>
+      </ul>
+    </div>
+    <div class="hub">
+      <div class="top"><span class="name">🌱 交給後人的</span><span class="chip c-am">目標</span></div>
+      <ul>
+        <li>新進文書照傳承包就能上手（手藝不斷）</li>
+        <li>前人歸空，一天拉齊一生紀錄（記憶不失）</li>
+        <li>整套制度不繫於任何一人（系統不倒）</li>
+        <li>讀今天的訓，一字不差（話不走樣）</li>
+      </ul>
+    </div>
+  </div>
+  <p class="cap">前人做這些事的時候多半沒有留名。這張圖不是新發明——是把他們一直在做的事，第一次畫出來、接下去。</p>
+
+  <h2>釘在圖上的仙佛慈訓</h2>
+  <p class="cap" style="margin:0 0 14px">每一根柱子、每一條規矩，背後都有訓文出處。這裡釘四句最重的（全文八十一則見垂訓選輯）。</p>
+  <div class="quotes">
+    <div class="quote">
+      <div class="pin">史</div>
+      <div class="q">「在白陽歷史上也唯有你們才能粒粒血汗、歷歷記載這一切，讓仙佛聖訓的慈語，迴盪不已！」</div>
+      <div class="src">濟公活佛・民國96年度泰國奉恩樓年終檢討班——記載白陽歷史，是文書的天職。</div>
+    </div>
+    <div class="quote">
+      <div class="pin">真</div>
+      <div class="q">「百世留之於什麼？『書』這可是流傳千秋萬世的，錯一個字那是誤導眾生。」</div>
+      <div class="src">藍采和大仙・民國97年度馬來西亞光明書院一天複習班——一字不差，是品質的底線。</div>
+    </div>
+    <div class="quote">
+      <div class="pin">補</div>
+      <div class="q">「像這些已經找不到源頭的，做文書就是要補，懂嗎？」</div>
+      <div class="src">濟公活佛・2013年泰國清邁繼聖壇人才精進班——補史：對版、典藏、追源頭，都是這個「補」字。</div>
+    </div>
+    <div class="quote">
+      <div class="pin">承</div>
+      <div class="q">「文書的傳承也很重要……交棒要及早，傳承工作及早做準備，不要等到人老氣衰……才來惶恐接棒的問題。」</div>
+      <div class="src">濟公活佛・2014年泰國奉恩樓傳承精進班——這張大藍圖本身，就是「及早」的動作。</div>
+    </div>
+  </div>
+
+  <h2>什麼時候算成功？</h2>
+  <div class="star">
+    <div class="seal">文</div>
+    <p class="big">百年後的峨眉人，讀今天的訓一字不差，查今天的事歷歷在冊，接今天的手藝照樣上手。</p>
+    <p class="small">真、史、承三件都成，才叫文以載道。缺一件，後人就少一塊根。</p>
+  </div>
+
+  <h2>兩根柱子的圖</h2>
+  <div class="links">
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-09-01-fahui-wenshu-strategy-map.html">📜 法會文書藍圖 <small>印：真・手藝傳承</small></a>
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html">🗺️ 峨眉資訊藍圖（總圖） <small>印：史・道務文書系統</small></a>
+  </div>
+
+  <footer>峨眉文書大藍圖・2026-09-01 初稿待覆核・「文＝真＋史」勾稽為草案，待 Neil 拍板・正本：drive-inventory/docs/specs/</footer>
+</div>
