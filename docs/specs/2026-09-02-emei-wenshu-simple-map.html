@@ -1,0 +1,122 @@
+<meta charset="utf-8">
+<title>峨眉文書一張圖</title>
+<style>
+  :root {
+    --page: #f3faf7; --card: #ffffff; --tint: #e7f3ef;
+    --ink: #1f3b2c; --sub: #4c655a; --line: #d6e8de;
+    --deep: #26715f; --primary: #2f8d78; --seal: #a8402f; --wood: #8a6a4b;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--page); color: var(--ink); margin: 0; padding: 0 20px 60px;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+    line-height: 1.8; }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  header.page { padding: 40px 0 6px; text-align: center; }
+  .eyebrow { font-size: 14px; letter-spacing: .35em; color: var(--sub); margin: 0 0 10px; }
+  h1 { font-family: "Songti TC","Noto Serif TC",serif; font-size: clamp(32px, 6vw, 46px); margin: 0 0 8px; font-weight: 700; }
+  .oneline { font-size: clamp(17px, 2.6vw, 21px); color: var(--deep); font-weight: 700; margin: 0; }
+
+  .bless { background: var(--card); border: 2px solid var(--seal); border-radius: 16px;
+    padding: 20px 26px; margin: 26px auto 6px; max-width: 700px; text-align: center; }
+  .bless .q { font-size: clamp(19px, 3vw, 24px); font-weight: 700;
+    font-family: "Songti TC","Noto Serif TC",serif; }
+  .bless .src { font-size: 14px; color: var(--sub); margin-top: 6px; }
+
+  figure.tree { margin: 0; overflow-x: auto; }
+  figure.tree svg { min-width: 720px; width: 100%; height: auto; display: block; }
+  .lbl { font-size: 23px; font-weight: 700; fill: var(--ink); font-family: "Songti TC","Noto Serif TC",serif; }
+  .lbl2 { font-size: 16px; font-weight: 600; fill: var(--sub); }
+  .lead { stroke: var(--sub); stroke-width: 1.6; fill: none; stroke-dasharray: 3 4; }
+
+  .takeaway { text-align: center; font-size: clamp(18px, 2.8vw, 23px); font-weight: 700;
+    font-family: "Songti TC","Noto Serif TC",serif; color: var(--deep); margin: 10px 0 0; }
+
+  .more { text-align: center; margin-top: 34px; }
+  .more a { display: inline-block; background: var(--card); border: 1px solid var(--line);
+    border-radius: 999px; padding: 8px 22px; text-decoration: none; color: var(--sub);
+    font-size: 14px; font-weight: 700; }
+  .more a:hover { border-color: var(--primary); color: var(--deep); }
+  footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line);
+    font-size: 12px; color: var(--sub); text-align: center; }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <p class="eyebrow">峨眉書院・文書</p>
+    <h1>一棵傳家的樹</h1>
+    <p class="oneline">峨眉文書在做的事，一張圖看懂。</p>
+  </header>
+
+  <div class="bless">
+    <div class="q">「你們的功課，是記載白陽的一切。」</div>
+    <div class="src">——濟公活佛（2010年泰國鳳德佛宮三天法會）</div>
+  </div>
+
+  <figure class="tree">
+    <svg viewBox="0 0 1000 780" role="img" aria-label="一棵大樹：兩條根是仙佛的話與道場的事，樹幹是收進庫房，枝葉是傳出去，果實是人受益，旁邊的小樹是帶新人">
+      <!-- 地面 -->
+      <ellipse cx="500" cy="620" rx="470" ry="46" fill="#e2efe7" />
+
+      <!-- 樹冠 -->
+      <ellipse cx="380" cy="270" rx="150" ry="100" fill="#2f8d78" />
+      <ellipse cx="610" cy="285" rx="160" ry="105" fill="#2f8d78" />
+      <ellipse cx="490" cy="215" rx="230" ry="125" fill="#26715f" />
+
+      <!-- 樹幹與大枝 -->
+      <rect x="462" y="330" width="66" height="290" rx="28" fill="#8a6a4b" />
+      <path d="M 495 400 C 560 370 600 350 640 330" stroke="#8a6a4b" stroke-width="22" fill="none" stroke-linecap="round" />
+      <path d="M 490 430 C 430 400 395 380 360 355" stroke="#8a6a4b" stroke-width="20" fill="none" stroke-linecap="round" />
+
+      <!-- 根 -->
+      <path d="M 480 605 C 420 640 360 655 300 668" stroke="#8a6a4b" stroke-width="24" fill="none" stroke-linecap="round" />
+      <path d="M 510 605 C 570 642 630 658 692 668" stroke="#8a6a4b" stroke-width="24" fill="none" stroke-linecap="round" />
+
+      <!-- 果實 -->
+      <circle cx="345" cy="325" r="15" fill="#a8402f" />
+      <circle cx="450" cy="345" r="15" fill="#a8402f" />
+      <circle cx="560" cy="352" r="15" fill="#a8402f" />
+      <circle cx="655" cy="330" r="15" fill="#a8402f" />
+
+      <!-- 落果 → 新樹 -->
+      <path class="lead" d="M 672 345 C 760 420 820 470 848 520" marker-end="none" />
+      <circle cx="852" cy="536" r="9" fill="#a8402f" />
+      <rect x="846" y="556" width="14" height="52" rx="7" fill="#8a6a4b" />
+      <circle cx="853" cy="536" r="0" fill="none" />
+      <ellipse cx="853" cy="530" rx="44" ry="34" fill="#2f8d78" />
+
+      <!-- 標籤：根（左） -->
+      <text class="lbl" x="120" y="700">根・仙佛的話</text>
+      <text class="lbl2" x="120" y="726">法會上，一字一句抄下來</text>
+      <!-- 標籤：根（右） -->
+      <text class="lbl" x="560" y="700">根・道場的事</text>
+      <text class="lbl2" x="560" y="726">活動、名冊、會議，都記下來</text>
+
+      <!-- 標籤：幹 -->
+      <line class="lead" x1="330" y1="500" x2="458" y2="500" />
+      <text class="lbl" x="120" y="492">幹・收得好</text>
+      <text class="lbl2" x="120" y="518">放進雲端庫房，隨時找得到</text>
+
+      <!-- 標籤：枝 -->
+      <line class="lead" x1="800" y1="170" x2="700" y2="210" />
+      <text class="lbl" x="806" y="164">枝・傳出去</text>
+      <text class="lbl2" x="806" y="190">LINE、季刊、上台講課</text>
+
+      <!-- 標籤：果 -->
+      <line class="lead" x1="240" y1="330" x2="326" y2="326" />
+      <text class="lbl" x="66" y="322">果・人受益</text>
+      <text class="lbl2" x="66" y="348">後人讀得到、聽得到</text>
+
+      <!-- 標籤：新樹 -->
+      <text class="lbl" x="770" y="660">新樹・帶新人</text>
+      <text class="lbl2" x="770" y="686">仙佛說：「交棒要及早」</text>
+    </svg>
+  </figure>
+
+  <p class="takeaway">話記得真，事收得好，傳到人身上，代代有人接——樹就不斷根。</p>
+
+  <div class="more">
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-09-02-emei-wenshu-panorama.html">想看細節？完整藍圖在這裡 →</a>
+  </div>
+
+  <footer>峨眉文書一張圖（白話版）・2026-09-02・詳細版：峨眉文書全景</footer>
+</div>
