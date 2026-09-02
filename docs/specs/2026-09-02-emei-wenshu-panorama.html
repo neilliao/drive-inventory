@@ -49,6 +49,24 @@
   footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
     font-size: 12px; color: var(--sub); text-align: center; }
   @media (max-width: 700px) { iframe.mapframe { height: 620px; } }
+
+  figure.cascade { margin: 8px 0 0; overflow-x: auto; }
+  figure.cascade svg { min-width: 1000px; width: 100%; height: auto; display: block; }
+  .cg { fill: var(--tint); stroke: var(--primary); stroke-width: 1.5; }
+  .cn { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
+  .cm { fill: var(--card); stroke: var(--line); stroke-width: 1.1; }
+  .csub { fill: var(--tint-2); stroke: var(--line); }
+  .csl { fill: var(--seal); }
+  .ct { font-size: 15px; font-weight: 700; fill: var(--ink); }
+  .ct2 { font-size: 11.5px; fill: var(--sub); }
+  .ctw { font-size: 17px; font-weight: 700; fill: var(--deep); font-family: "Songti TC","Noto Serif TC",serif; }
+  .cts { font-size: 15px; font-weight: 700; fill: #fff; font-family: "Songti TC","Noto Serif TC",serif; }
+  .ceq { font-size: 14px; font-weight: 700; fill: var(--deep); font-family: "Songti TC","Noto Serif TC",serif; }
+  .cf { stroke: var(--primary); stroke-width: 1.8; fill: none; }
+  .cfu { stroke: var(--deep); stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+  .clbl { font-size: 12px; font-weight: 600; fill: var(--deep); paint-order: stroke; stroke: var(--page); stroke-width: 5px; stroke-linejoin: round; }
+  svg a { cursor: pointer; }
+  svg a:hover rect { stroke: var(--primary); stroke-width: 2; }
 </style>
 
 <div class="wrap">
@@ -70,6 +88,162 @@
     <a href="#pt">🔎 平台</a>
     <a href="#wx">🏛️ 文獻</a>
   </nav>
+
+  <section class="mapblock" id="chain">
+    <div class="mapbar"><span style="font-size:20px">🧬</span><span><div class="lv">整串戰略圖</div><div class="nm">上一層的戰技，就是下一層的戰略</div></span></div>
+    <figure class="cascade">
+    <svg viewBox="0 0 1240 960" role="img" aria-label="整串戰略圖：文以載道道以成全人在頂端，往下接修己育人渡人三條路，兩套系統信與史支撐三條路；信往下接抄校歸承與傳承包育才路徑，史往下接存找傳承並分成活脈彰三張子圖，各自的戰術再往下接道務平台與文獻平台">
+      <defs>
+        <marker id="ca" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f8d78"/></marker>
+        <marker id="cb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#26715f"/></marker>
+      </defs>
+
+      <!-- L0 文 -->
+      <a href="https://neilliao.github.io/drive-inventory/specs/2026-09-01-emei-wenshu-grand-strategy-map.html">
+        <rect class="cg" x="320" y="16" width="600" height="80" rx="10" />
+        <rect class="csl" x="336" y="30" width="44" height="44" rx="6" />
+        <text class="cts" x="358" y="59" text-anchor="middle">文</text>
+        <text class="ct" x="394" y="46">文以載道，道以成全人</text>
+        <text class="ct2" x="394" y="66">峨眉文書組藍圖——先成全做的人，再養出接的人，最後走到眾生身上</text>
+      </a>
+
+      <line class="cf" x1="415" y1="148" x2="500" y2="98" marker-end="url(#ca)" />
+      <line class="cf" x1="620" y1="148" x2="620" y2="98" marker-end="url(#ca)" />
+      <line class="cf" x1="825" y1="148" x2="740" y2="98" marker-end="url(#ca)" />
+
+      <!-- L1 三路 -->
+      <rect class="cn" x="330" y="152" width="170" height="62" rx="10" />
+      <text class="ctw" x="346" y="178">修己</text>
+      <text class="ct2" x="346" y="200">抄訓即修行</text>
+      <a href="https://neilliao.github.io/drive-inventory/specs/2026-09-02-wenshu-training-path.html">
+        <rect class="cn" x="535" y="152" width="170" height="62" rx="10" />
+        <text class="ctw" x="551" y="178">育人</text>
+        <text class="ct2" x="551" y="200">細部＝育才路徑</text>
+      </a>
+      <rect class="cn" x="740" y="152" width="170" height="62" rx="10" />
+      <text class="ctw" x="756" y="178">渡人</text>
+      <text class="ct2" x="756" y="200">話走到人身上</text>
+
+      <line class="cfu" x1="300" y1="276" x2="400" y2="218" marker-end="url(#cb)" />
+      <line class="cfu" x1="360" y1="276" x2="580" y2="218" marker-end="url(#cb)" />
+      <line class="cfu" x1="880" y1="276" x2="800" y2="218" marker-end="url(#cb)" />
+      <line class="cfu" x1="820" y1="276" x2="620" y2="218" marker-end="url(#cb)" />
+      <text class="clbl" x="620" y="252" text-anchor="middle">兩套系統撐起三條路</text>
+
+      <!-- L2 兩系統 -->
+      <a href="https://neilliao.github.io/drive-inventory/specs/2026-09-01-fahui-wenshu-strategy-map.html">
+        <rect class="cg" x="70" y="280" width="470" height="88" rx="10" />
+        <rect class="csl" x="86" y="296" width="40" height="40" rx="6" />
+        <text class="cts" x="106" y="323" text-anchor="middle">信</text>
+        <text class="ct" x="138" y="312">法會文書藍圖：把上天的話，如實傳下去</text>
+        <text class="ct2" x="138" y="334">記天音・古法仙佛親授</text>
+      </a>
+      <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html">
+        <rect class="cg" x="650" y="280" width="520" height="88" rx="10" />
+        <rect class="csl" x="666" y="296" width="40" height="40" rx="6" />
+        <text class="cts" x="686" y="323" text-anchor="middle">史</text>
+        <text class="ct" x="718" y="312">道務文書藍圖：為峨眉修一部活的史</text>
+        <text class="ct2" x="718" y="334">記人事＋存找傳承・原名資訊藍圖</text>
+      </a>
+
+      <line class="cf" x1="130" y1="424" x2="180" y2="368" marker-end="url(#ca)" />
+      <line class="cf" x1="246" y1="424" x2="266" y2="368" marker-end="url(#ca)" />
+      <line class="cf" x1="362" y1="424" x2="342" y2="368" marker-end="url(#ca)" />
+      <line class="cf" x1="478" y1="424" x2="428" y2="368" marker-end="url(#ca)" />
+      <line class="cf" x1="706" y1="424" x2="760" y2="368" marker-end="url(#ca)" />
+      <line class="cf" x1="842" y1="424" x2="862" y2="368" marker-end="url(#ca)" />
+      <line class="cf" x1="978" y1="424" x2="958" y2="368" marker-end="url(#ca)" />
+      <line class="cf" x1="1114" y1="424" x2="1060" y2="368" marker-end="url(#ca)" />
+
+      <!-- L3 兩排戰術 -->
+      <rect class="cm" x="70" y="428" width="104" height="50" rx="8" />
+      <text class="ctw" x="104" y="460" text-anchor="middle" style="font-size:15px">抄</text>
+      <rect class="cm" x="192" y="428" width="104" height="50" rx="8" />
+      <text class="ctw" x="226" y="460" text-anchor="middle" style="font-size:15px">校</text>
+      <rect class="cm" x="314" y="428" width="104" height="50" rx="8" />
+      <text class="ctw" x="348" y="460" text-anchor="middle" style="font-size:15px">歸</text>
+      <rect class="cm" x="436" y="428" width="104" height="50" rx="8" />
+      <text class="ctw" x="470" y="460" text-anchor="middle" style="font-size:15px">承</text>
+      <rect class="cm" x="650" y="428" width="110" height="50" rx="8" />
+      <text class="ctw" x="690" y="460" text-anchor="middle" style="font-size:15px">存</text>
+      <rect class="cm" x="782" y="428" width="110" height="50" rx="8" />
+      <text class="ctw" x="822" y="460" text-anchor="middle" style="font-size:15px">找</text>
+      <rect class="cm" x="914" y="428" width="110" height="50" rx="8" />
+      <text class="ctw" x="954" y="460" text-anchor="middle" style="font-size:15px">傳</text>
+      <rect class="cm" x="1046" y="428" width="110" height="50" rx="8" />
+      <text class="ctw" x="1086" y="460" text-anchor="middle" style="font-size:15px">承</text>
+
+      <!-- L4 左：徑 -->
+      <line class="cf" x1="330" y1="556" x2="300" y2="482" marker-end="url(#ca)" transform="rotate(180 315 519)" />
+      <a href="https://neilliao.github.io/drive-inventory/specs/2026-09-02-wenshu-training-path.html">
+        <rect class="cn" x="140" y="560" width="330" height="66" rx="10" />
+        <text class="ct" x="160" y="588">📦 傳承包四件（道・法・例・徑）</text>
+        <text class="ct2" x="160" y="610">徑＝文書育才路徑：前庭→見習→承擔→深化→轉化→傳承</text>
+      </a>
+
+      <!-- L4 右：史分三印 -->
+      <line class="cf" x1="705" y1="482" x2="730" y2="576" marker-end="url(#ca)" />
+      <line class="cf" x1="928" y1="482" x2="928" y2="576" marker-end="url(#ca)" />
+      <line class="cf" x1="1101" y1="482" x2="1126" y2="576" marker-end="url(#ca)" />
+      <text class="ceq" x="920" y="548" text-anchor="middle">史＝活＋脈＋彰</text>
+
+      <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-knowledge-base-strategy-map.html">
+        <rect class="cg" x="640" y="580" width="180" height="66" rx="10" />
+        <rect class="csl" x="652" y="592" width="30" height="30" rx="6" />
+        <text class="cts" x="667" y="613" text-anchor="middle" style="font-size:13px">活</text>
+        <text class="ct" x="690" y="606" style="font-size:14px">知識庫</text>
+        <text class="ct2" x="652" y="636">倉庫變圖書館</text>
+      </a>
+      <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daoji-system-strategy-map.html">
+        <rect class="cg" x="838" y="580" width="180" height="66" rx="10" />
+        <rect class="csl" x="850" y="592" width="30" height="30" rx="6" />
+        <text class="cts" x="865" y="613" text-anchor="middle" style="font-size:13px">脈</text>
+        <text class="ct" x="888" y="606" style="font-size:14px">道籍系統</text>
+        <text class="ct2" x="850" y="636">人的正本</text>
+      </a>
+      <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-media-strategy-map.html">
+        <rect class="cg" x="1036" y="580" width="180" height="66" rx="10" />
+        <rect class="csl" x="1048" y="592" width="30" height="30" rx="6" />
+        <text class="cts" x="1063" y="613" text-anchor="middle" style="font-size:13px">彰</text>
+        <text class="ct" x="1086" y="606" style="font-size:14px">媒體（道峨眉）</text>
+        <text class="ct2" x="1048" y="636">故事說給外面聽</text>
+      </a>
+
+      <!-- L5 三張子圖各自的戰術 -->
+      <line class="cf" x1="730" y1="662" x2="730" y2="650" marker-end="url(#ca)" transform="rotate(180 730 656)" />
+      <line class="cf" x1="928" y1="662" x2="928" y2="650" marker-end="url(#ca)" transform="rotate(180 928 656)" />
+      <line class="cf" x1="1126" y1="662" x2="1126" y2="650" marker-end="url(#ca)" transform="rotate(180 1126 656)" />
+      <rect class="csub" x="640" y="666" width="180" height="66" rx="8" />
+      <text class="ct2" x="652" y="688">存的秩序・找的路徑</text>
+      <text class="ct2" x="652" y="706">承的備料</text>
+      <rect class="csub" x="838" y="666" width="180" height="66" rx="8" />
+      <text class="ct2" x="850" y="688">一份正本・做事長資料</text>
+      <text class="ct2" x="850" y="706">三場景分流・成全動線</text>
+      <rect class="csub" x="1036" y="666" width="180" height="66" rx="8" />
+      <text class="ct2" x="1048" y="688">故事線：編一次多出口</text>
+      <text class="ct2" x="1048" y="706">出口會換代：刊・頻道</text>
+
+      <!-- L6 實作 -->
+      <line class="cf" x1="750" y1="732" x2="790" y2="798" marker-end="url(#ca)" />
+      <line class="cf" x1="908" y1="732" x2="850" y2="798" marker-end="url(#ca)" />
+      <line class="cf" x1="1126" y1="732" x2="1104" y2="798" marker-end="url(#ca)" />
+      <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daowu-platform-implementation-map.html">
+        <rect class="cn" x="700" y="802" width="250" height="62" rx="10" />
+        <text class="ct" x="718" y="828" style="font-size:14px">🔎 道務平台（前門與管道）</text>
+        <text class="ct2" x="718" y="850">送活與脈的東西・LINE 信箱同層</text>
+      </a>
+      <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-literature-platform-implementation-map.html">
+        <rect class="cn" x="980" y="802" width="236" height="62" rx="10" />
+        <text class="ct" x="998" y="828" style="font-size:14px">🏛️ 文獻平台（藏經閣）</text>
+        <text class="ct2" x="998" y="850">彰的典藏端・先有故事再蓋</text>
+      </a>
+
+      <text class="clbl" x="620" y="920" text-anchor="middle">讀法：上一層的戰技，就是下一層的戰略——每一個有印的框都點得開，開的就是它的本尊圖</text>
+    </svg>
+    </figure>
+  </section>
+
+  <div class="connector"><div class="dn">↓</div><div class="why">以下是每一張圖的本尊，照同樣順序排——要細看哪層就捲到哪層</div></div>
 
   <section class="mapblock" id="wen">
     <div class="mapbar"><span class="s">文</span><span><div class="lv">戰略層</div><div class="nm">峨眉文書組藍圖</div></span>
