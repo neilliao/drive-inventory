@@ -10,139 +10,136 @@
   body { background: var(--page); color: var(--ink); margin: 0; padding: 0 20px 72px;
     font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
     line-height: 1.7; }
-  .wrap { max-width: 880px; margin: 0 auto; }
+  .wrap { max-width: 1000px; margin: 0 auto; }
   h1 { font-family: "Songti TC","Noto Serif TC",serif; font-size: clamp(30px, 5vw, 44px); margin: 0 0 12px; font-weight: 700; }
   header.page { padding: 44px 0 8px; text-align: center; }
   .eyebrow { font-size: 13px; letter-spacing: .35em; color: var(--sub); margin: 0 0 10px; }
   .oneline { font-size: clamp(15px, 2vw, 18px); color: var(--deep); font-weight: 700; margin: 0 0 6px; }
-  .cap { font-size: 13px; color: var(--sub); margin: 0 auto 8px; max-width: 46em; text-align: center; }
+  .cap { font-size: 13px; color: var(--sub); margin: 0 auto 8px; max-width: 48em; text-align: center; }
 
-  .band { margin: 0 auto; }
-  .arrow { text-align: center; color: var(--primary); font-size: 22px; line-height: 1.2; padding: 6px 0; }
-  .arrow small { display: block; font-size: 12px; color: var(--sub); }
-  .lv { font-size: 12.5px; font-weight: 700; color: var(--deep); letter-spacing: .1em; text-align: center; margin: 4px 0; }
+  nav.toc { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 14px 0 6px; }
+  nav.toc a { display: inline-flex; align-items: center; gap: 6px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+    text-decoration: none; color: var(--ink); font-size: 13px; font-weight: 700; }
+  nav.toc a:hover { border-color: var(--primary); color: var(--deep); }
+  nav.toc .s { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px;
+    background: var(--seal); color: #fff; border-radius: 5px; font-size: 12px; font-weight: 700;
+    font-family: "Songti TC","Noto Serif TC",serif; }
 
-  .row { display: grid; gap: 10px; }
-  .r1 { grid-template-columns: 1fr; }
-  .r2 { grid-template-columns: 1fr 1fr; }
-  .r3 { grid-template-columns: 1fr 1fr 1fr; }
-  .r4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .connector { text-align: center; padding: 22px 0 10px; }
+  .connector .dn { color: var(--primary); font-size: 26px; line-height: 1; }
+  .connector .why { font-size: 13.5px; color: var(--sub); margin-top: 2px; }
+  .connector .eq { font-size: 15px; font-weight: 700; color: var(--deep);
+    font-family: "Songti TC","Noto Serif TC",serif; margin-top: 2px; }
 
-  .pcard { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 14px 16px; text-decoration: none; color: var(--ink); }
-  a.pcard:hover { border-color: var(--primary); }
-  .pcard .head { display: flex; align-items: center; gap: 10px; }
-  .pcard .seal { flex: none; display: inline-flex; align-items: center; justify-content: center;
-    width: 34px; height: 34px; background: var(--seal); color: #fff; border-radius: 7px;
-    font-size: 18px; font-weight: 700; font-family: "Songti TC","Noto Serif TC",serif; }
-  .pcard .name { font-size: 15.5px; font-weight: 700; }
-  .pcard .say { font-size: 12.5px; color: var(--sub); margin-top: 4px; }
-  .pcard .go { font-size: 12px; color: var(--primary); font-weight: 700; margin-top: 4px; }
-  .pcard.dim { background: var(--tint-2); }
-  .pcard.dim .say { margin-top: 2px; }
-  .goal { border: 1.5px solid var(--primary); background: var(--tint); }
-  .eq { text-align: center; font-size: 14px; font-weight: 700; color: var(--deep);
-    font-family: "Songti TC","Noto Serif TC",serif; padding: 2px 0 6px; }
-
-  .util { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 40px; }
-  .util a { display: flex; justify-content: space-between; align-items: center; gap: 8px;
-    background: var(--card); border: 1px dashed var(--line); border-radius: 12px;
-    padding: 10px 16px; text-decoration: none; color: var(--ink); font-size: 13.5px; font-weight: 700; }
-  .util a:hover { border-color: var(--primary); }
-  .util a small { font-weight: 400; color: var(--sub); font-size: 12px; }
+  section.mapblock { margin-top: 10px; }
+  .mapbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    padding: 0 2px 8px; }
+  .mapbar .s { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px;
+    background: var(--seal); color: #fff; border-radius: 7px; font-size: 17px; font-weight: 700;
+    font-family: "Songti TC","Noto Serif TC",serif; }
+  .mapbar .lv { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: .08em; }
+  .mapbar .nm { font-size: 17px; font-weight: 700; font-family: "Songti TC","Noto Serif TC",serif; }
+  .mapbar a.open { margin-left: auto; font-size: 12.5px; font-weight: 700; color: var(--primary);
+    text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; background: var(--card); }
+  .mapbar a.open:hover { border-color: var(--primary); }
+  iframe.mapframe { width: 100%; height: 760px; border: 1px solid var(--line); border-radius: 14px;
+    background: var(--page); display: block; }
 
   footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
     font-size: 12px; color: var(--sub); text-align: center; }
-  @media (max-width: 700px) { .r2, .r3, .r4, .util { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) { iframe.mapframe { height: 620px; } }
 </style>
 
 <div class="wrap">
   <header class="page">
     <p class="eyebrow">峨眉書院・文書</p>
     <h1>峨眉文書全景</h1>
-    <p class="oneline">一頁看懂整套藍圖：從文以載道，到每一顆碟。</p>
+    <p class="oneline">整套策略地圖，從文以載道一路串到每一顆碟——一頁捲到底。</p>
   </header>
-  <p class="cap">由上往下讀＝從目的到工具。每張卡點進去就是那張圖；紅方印＝出事找誰（看圖指南有全套讀法）。</p>
+  <p class="cap">每一節就是那張圖的本尊（內容只住原頁，這裡是活的窗），圖內可以自己捲動；要放大細看就按「開整頁」。層與層之間的箭頭寫著它們為什麼相連。</p>
 
-  <div class="band">
-    <p class="lv">戰略層</p>
-    <div class="row r1">
-      <a class="pcard goal" href="https://neilliao.github.io/drive-inventory/specs/2026-09-01-emei-wenshu-grand-strategy-map.html">
-        <div class="head"><span class="seal">文</span><span class="name">峨眉文書組藍圖</span></div>
-        <div class="say">文以載道，道以成全人。整套體系的頂圖：三條路、兩套系統、承先啟後、慈訓六釘。</div>
-        <div class="go">開圖 →</div>
-      </a>
-    </div>
+  <nav class="toc">
+    <a href="#wen"><span class="s">文</span>組藍圖</a>
+    <a href="#xin"><span class="s">信</span>法會文書</a>
+    <a href="#jing">🌱 育才路徑</a>
+    <a href="#shi"><span class="s">史</span>道務文書</a>
+    <a href="#huo"><span class="s">活</span>知識庫</a>
+    <a href="#mai"><span class="s">脈</span>道籍</a>
+    <a href="#zhang"><span class="s">彰</span>媒體</a>
+    <a href="#pt">🔎 平台</a>
+    <a href="#wx">🏛️ 文獻</a>
+  </nav>
 
-    <div class="arrow">↓<small>道落在人身上的三條路（戰術，畫在組藍圖裡）</small></div>
-    <div class="row r3">
-      <div class="pcard dim"><div class="name">修己</div><div class="say">抄訓即修行，先成全做文書的人</div></div>
-      <div class="pcard dim"><div class="name">育人</div><div class="say">教材見習交棒——細部見「文書育才路徑」（傳承包第四件）</div>
-        <div class="go"><a href="https://neilliao.github.io/drive-inventory/specs/2026-09-02-wenshu-training-path.html" style="color:var(--primary)">開育才路徑 →</a></div></div>
-      <div class="pcard dim"><div class="name">渡人</div><div class="say">話走到人身上，啟醒眾生</div></div>
-    </div>
+  <section class="mapblock" id="wen">
+    <div class="mapbar"><span class="s">文</span><span><div class="lv">戰略層</div><div class="nm">峨眉文書組藍圖</div></span>
+      <a class="open" href="https://neilliao.github.io/drive-inventory/specs/2026-09-01-emei-wenshu-grand-strategy-map.html">開整頁 →</a></div>
+    <iframe class="mapframe" loading="lazy" src="https://neilliao.github.io/drive-inventory/specs/2026-09-01-emei-wenshu-grand-strategy-map.html" title="峨眉文書組藍圖"></iframe>
+  </section>
 
-    <div class="arrow">↓<small>兩套系統（招式的家）</small></div>
-    <p class="lv">系統層</p>
-    <div class="row r2">
-      <a class="pcard" href="https://neilliao.github.io/drive-inventory/specs/2026-09-01-fahui-wenshu-strategy-map.html">
-        <div class="head"><span class="seal">信</span><span class="name">法會文書藍圖</span></div>
-        <div class="say">記天音：抄校歸承，古法仙佛親授。配套＝傳承包四件（道・法・例・徑）。</div>
-        <div class="go">開圖 →</div>
-      </a>
-      <a class="pcard" href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html">
-        <div class="head"><span class="seal">史</span><span class="name">道務文書藍圖</span></div>
-        <div class="say">記人事＋存找傳承：39 顆碟、24 組鑰匙、索引與機器。原名「峨眉資訊藍圖」。</div>
-        <div class="go">開圖 →</div>
-      </a>
-    </div>
+  <div class="connector"><div class="dn">↓</div><div class="why">兩套系統是招式的家——先看記天音的「信」</div></div>
 
-    <div class="arrow">↓<small>兩套系統各自的下層：信配傳承包，史分三顆印</small></div>
-    <p class="eq">史＝活＋脈＋彰</p>
-    <p class="lv">子圖層</p>
-    <div class="row r4">
-      <a class="pcard" href="https://neilliao.github.io/drive-inventory/specs/2026-09-02-wenshu-training-path.html">
-        <div class="head"><span class="name">📦 傳承包</span></div>
-        <div class="say">信的下層：道・法・例三件是文件，「徑」是育才路徑頁</div>
-        <div class="go">開育才路徑 →</div>
-      </a>
-      <a class="pcard" href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-knowledge-base-strategy-map.html">
-        <div class="head"><span class="seal">活</span><span class="name">知識庫</span></div>
-        <div class="say">檔案的家：倉庫變圖書館</div>
-        <div class="go">開圖 →</div>
-      </a>
-      <a class="pcard" href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daoji-system-strategy-map.html">
-        <div class="head"><span class="seal">脈</span><span class="name">道籍系統</span></div>
-        <div class="say">人的正本：關係與陪伴的紀錄</div>
-        <div class="go">開圖 →</div>
-      </a>
-      <a class="pcard" href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-media-strategy-map.html">
-        <div class="head"><span class="seal">彰</span><span class="name">媒體（季刊）</span></div>
-        <div class="say">故事說給外面聽</div>
-        <div class="go">開圖 →</div>
-      </a>
-    </div>
+  <section class="mapblock" id="xin">
+    <div class="mapbar"><span class="s">信</span><span><div class="lv">系統層</div><div class="nm">法會文書藍圖</div></span>
+      <a class="open" href="https://neilliao.github.io/drive-inventory/specs/2026-09-01-fahui-wenshu-strategy-map.html">開整頁 →</a></div>
+    <iframe class="mapframe" loading="lazy" src="https://neilliao.github.io/drive-inventory/specs/2026-09-01-fahui-wenshu-strategy-map.html" title="法會文書藍圖"></iframe>
+  </section>
 
-    <div class="arrow">↓<small>實作與管道（不持印）</small></div>
-    <p class="lv">實作層</p>
-    <div class="row r2">
-      <a class="pcard" href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daowu-platform-implementation-map.html">
-        <div class="head"><span class="name">🔎 道務平台</span></div>
-        <div class="say">前門服務台：LINE、信箱同屬管道層——它送的是活與脈的東西</div>
-        <div class="go">開圖 →</div>
-      </a>
-      <a class="pcard" href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-literature-platform-implementation-map.html">
-        <div class="head"><span class="name">🏛️ 文獻平台</span></div>
-        <div class="say">藏經閣：彰的典藏端，先有故事再蓋</div>
-        <div class="go">開圖 →</div>
-      </a>
-    </div>
-  </div>
+  <div class="connector"><div class="dn">↓</div><div class="why">信的下層＝傳承包四件：道、法、例是文件，「徑」是這一頁——人怎麼帶上來</div></div>
 
-  <div class="util">
-    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-map-legend.html">🧭 看圖指南 <small>三套詞怎麼讀（新人先看）</small></a>
-    <a href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map-full.html">📄 完整詳版 <small>道務文書藍圖的定稿全文</small></a>
-  </div>
+  <section class="mapblock" id="jing">
+    <div class="mapbar"><span style="font-size:20px">🌱</span><span><div class="lv">傳承包・徑</div><div class="nm">文書育才路徑</div></span>
+      <a class="open" href="https://neilliao.github.io/drive-inventory/specs/2026-09-02-wenshu-training-path.html">開整頁 →</a></div>
+    <iframe class="mapframe" loading="lazy" src="https://neilliao.github.io/drive-inventory/specs/2026-09-02-wenshu-training-path.html" title="文書育才路徑"></iframe>
+  </section>
 
-  <footer>峨眉文書全景・2026-09-02・這一頁只指路，內容都住在各自的圖裡・正本：drive-inventory/docs/specs/</footer>
+  <div class="connector"><div class="dn">↓</div><div class="why">另一套系統：記人事、管存找傳承的「史」</div></div>
+
+  <section class="mapblock" id="shi">
+    <div class="mapbar"><span class="s">史</span><span><div class="lv">系統層</div><div class="nm">道務文書藍圖（原資訊藍圖）</div></span>
+      <a class="open" href="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html">開整頁 →</a></div>
+    <iframe class="mapframe" loading="lazy" src="https://neilliao.github.io/drive-inventory/specs/2026-08-17-strategy-map.html" title="道務文書藍圖"></iframe>
+  </section>
+
+  <div class="connector"><div class="dn">↓</div><div class="eq">史＝活＋脈＋彰</div><div class="why">史的三顆印，各管一張子圖</div></div>
+
+  <section class="mapblock" id="huo">
+    <div class="mapbar"><span class="s">活</span><span><div class="lv">子圖層</div><div class="nm">知識庫策略地圖</div></span>
+      <a class="open" href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-knowledge-base-strategy-map.html">開整頁 →</a></div>
+    <iframe class="mapframe" loading="lazy" src="https://neilliao.github.io/drive-inventory/specs/2026-08-20-knowledge-base-strategy-map.html" title="知識庫策略地圖"></iframe>
+  </section>
+
+  <div class="connector"><div class="dn">↓</div><div class="why">檔案管好了，人的正本在道籍</div></div>
+
+  <section class="mapblock" id="mai">
+    <div class="mapbar"><span class="s">脈</span><span><div class="lv">子圖層</div><div class="nm">道籍系統策略地圖</div></span>
+      <a class="open" href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daoji-system-strategy-map.html">開整頁 →</a></div>
+    <iframe class="mapframe" loading="lazy" src="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daoji-system-strategy-map.html" title="道籍系統策略地圖"></iframe>
+  </section>
+
+  <div class="connector"><div class="dn">↓</div><div class="why">存住了、記住了，故事要說給外面聽</div></div>
+
+  <section class="mapblock" id="zhang">
+    <div class="mapbar"><span class="s">彰</span><span><div class="lv">子圖層</div><div class="nm">媒體（道峨眉季刊）策略地圖</div></span>
+      <a class="open" href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-media-strategy-map.html">開整頁 →</a></div>
+    <iframe class="mapframe" loading="lazy" src="https://neilliao.github.io/drive-inventory/specs/2026-08-20-media-strategy-map.html" title="媒體策略地圖"></iframe>
+  </section>
+
+  <div class="connector"><div class="dn">↓</div><div class="why">實作與管道（不持印）：前門服務台與藏經閣</div></div>
+
+  <section class="mapblock" id="pt">
+    <div class="mapbar"><span style="font-size:20px">🔎</span><span><div class="lv">實作層</div><div class="nm">道務平台實作地圖</div></span>
+      <a class="open" href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daowu-platform-implementation-map.html">開整頁 →</a></div>
+    <iframe class="mapframe" loading="lazy" src="https://neilliao.github.io/drive-inventory/specs/2026-08-20-daowu-platform-implementation-map.html" title="道務平台實作地圖"></iframe>
+  </section>
+
+  <div class="connector"><div class="dn">↓</div><div class="why">彰的典藏端：先有故事，再蓋藏經閣</div></div>
+
+  <section class="mapblock" id="wx">
+    <div class="mapbar"><span style="font-size:20px">🏛️</span><span><div class="lv">實作層</div><div class="nm">文獻平台實作地圖</div></span>
+      <a class="open" href="https://neilliao.github.io/drive-inventory/specs/2026-08-20-literature-platform-implementation-map.html">開整頁 →</a></div>
+    <iframe class="mapframe" loading="lazy" src="https://neilliao.github.io/drive-inventory/specs/2026-08-20-literature-platform-implementation-map.html" title="文獻平台實作地圖"></iframe>
+  </section>
+
+  <footer>峨眉文書全景・2026-09-02 二版（連結目錄改整串內嵌）・內容只住各自的圖，這頁是活的窗・正本：drive-inventory/docs/specs/</footer>
 </div>
