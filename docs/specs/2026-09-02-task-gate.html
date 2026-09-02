@@ -1,0 +1,198 @@
+<meta charset="utf-8">
+<title>我要做什麼・任務門</title>
+<style>
+  :root {
+    --page: #f3faf7; --card: #ffffff; --tint: #e7f3ef; --tint-2: #eef6f2;
+    --ink: #1f3b2c; --sub: #4c655a; --line: #d6e8de;
+    --deep: #26715f; --primary: #2f8d78; --seal: #a8402f;
+    --gap-bg: #fffbeb; --gap-tx: #b45309; --gap-bd: #fde68a;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--page); color: var(--ink); margin: 0; padding: 0 20px 64px;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+    line-height: 1.75; }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  header.page { padding: 40px 0 8px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: .35em; color: var(--sub); margin: 0 0 10px; }
+  h1 { font-family: "Songti TC","Noto Serif TC",serif; font-size: clamp(30px, 5vw, 44px); margin: 0 0 10px; font-weight: 700; }
+  .oneline { font-size: clamp(15px, 2.2vw, 19px); color: var(--deep); font-weight: 700; margin: 0; }
+  .cap { font-size: 13.5px; color: var(--sub); margin: 12px auto 0; max-width: 52em; text-align: center; }
+  h2 { font-family: "Songti TC","Noto Serif TC",serif; font-size: clamp(19px, 2.8vw, 23px); margin: 46px 0 14px; }
+
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .task { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px 20px; box-shadow: 0 1px 2px rgba(31,59,44,.04); }
+  .task .name { font-size: 18px; font-weight: 700; font-family: "Songti TC","Noto Serif TC",serif; margin-bottom: 10px; }
+  .task table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  .task td { padding: 5px 8px; vertical-align: top; border-top: 1px solid var(--tint); }
+  .task td.k { width: 4.5em; font-weight: 700; color: var(--deep); white-space: nowrap; }
+  .task td.gap { background: var(--gap-bg); color: var(--gap-tx); border: 1.5px dashed var(--gap-bd); border-radius: 6px; }
+  .task .why { font-size: 12.5px; color: var(--sub); }
+  .task .why b { color: var(--seal); font-weight: 700; }
+  .task a { color: var(--primary); font-weight: 700; text-decoration: none; }
+  .task a:hover { text-decoration: underline; }
+
+  .finds { background: var(--card); border: 1.5px solid var(--seal); border-radius: 16px; padding: 22px 26px; }
+  .finds ol { margin: 8px 0 0; padding-left: 22px; }
+  .finds li { margin: 10px 0; font-size: 14.5px; }
+  .finds b { font-family: "Songti TC","Noto Serif TC",serif; }
+  .finds .n { color: var(--sub); font-size: 13px; }
+
+  .links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 40px; }
+  .links a { display: flex; justify-content: center; background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 11px 16px; text-decoration: none; color: var(--ink); font-size: 14px; font-weight: 700; }
+  .links a:hover { border-color: var(--primary); color: var(--deep); }
+  footer { margin-top: 46px; padding-top: 14px; border-top: 1px solid var(--line);
+    font-size: 12px; color: var(--sub); text-align: center; }
+  @media (max-width: 760px) { .cards, .links { grid-template-columns: 1fr; } }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <p class="eyebrow">峨眉書院・文書</p>
+    <h1>我要做什麼</h1>
+    <p class="oneline">做事的人從這裡進：一件事，一張卡。</p>
+  </header>
+  <p class="cap">上往下是道找事，下往上是事找道。每張卡四格：怎麼做、交到哪、問誰、為什麼。黃色虛線格＝還沒有答案的地方——這些空格，正是從下往上才看得見的洞，逐格拍板後補上。</p>
+
+  <h2>法會場上（信）</h2>
+  <div class="cards">
+    <div class="task">
+      <div class="name">🙋 我要幫忙法會（掛號、佈置、發本子）</div>
+      <table>
+        <tr><td class="k">怎麼做</td><td>現場跟著做就會，零門檻。詳見〈D06 注意事項〉</td></tr>
+        <tr><td class="k">交到哪</td><td>名冊、表格當天交文書組長</td></tr>
+        <tr><td class="k">問誰</td><td>文書組長</td></tr>
+        <tr><td class="k">為什麼</td><td class="why">「每個人都需要機會行功了愿。」<b>（《聖佛綸音・文書篇》#25）</b></td></tr>
+      </table>
+    </div>
+    <div class="task">
+      <div class="name">✍️ 我要抄訓、校對</div>
+      <table>
+        <tr><td class="k">怎麼做</td><td>四人分工：主抄、副抄、板書、校對；以原稿校對，發放前主班過目（#50）。工法見中心《法會文書參考手冊》</td></tr>
+        <tr><td class="k">交到哪</td><td>訓文母本歸文書組，歸檔 202文史</td></tr>
+        <tr><td class="k">問誰</td><td>主抄／文書組長；有疑必請示（#49）</td></tr>
+        <tr><td class="k">為什麼</td><td class="why">「重點是咱們是否心心相印。」<b>（行德班，冊一原文）</b></td></tr>
+      </table>
+    </div>
+    <div class="task">
+      <div class="name">🎙️ 我錄了音、拍了照</div>
+      <table>
+        <tr><td class="k">怎麼做</td><td>仙佛臨壇只有文書組奉命者可錄（#55）；檔案不留私人電腦手機（#56）</td></tr>
+        <tr><td class="k">交到哪</td><td>錄音 → 204錄音碟；照片 → 206照片碟（活動年夾）</td></tr>
+        <tr><td class="k">問誰</td><td>文書組長；要加經手的人，先請示（#57）</td></tr>
+        <tr><td class="k">為什麼</td><td class="why">「不要讓它留在自己專屬的電腦。」<b>（#56）</b></td></tr>
+      </table>
+    </div>
+    <div class="task">
+      <div class="name">📝 我要寫法會檢討會記錄</div>
+      <table>
+        <tr><td class="k">怎麼做</td><td>會後寫好，呈操持確認（D06 修訂草案）</td></tr>
+        <tr><td class="k">交到哪</td><td>併入繳回項目，歸 208會議碟<span class="why">（<a href="2026-09-01-D06-fahui-wenshu-notes-2026rev-draft.md">修訂案</a>）</span></td></tr>
+        <tr><td class="k gap">問誰</td><td class="gap">細分夾位、把關人選【待拍板】</td></tr>
+        <tr><td class="k">為什麼</td><td class="why">「回去看了才會有憑有據。」<b>（#53）</b></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>道務日常（史）</h2>
+  <div class="cards">
+    <div class="task">
+      <div class="name">📋 我要寫會議記錄（策畫會、聯絡圈）</div>
+      <table>
+        <tr><td class="k gap">怎麼做</td><td class="gap">執筆是誰、用什麼格式、多久交【待拍板：工作清單第一條四格】</td></tr>
+        <tr><td class="k">交到哪</td><td>208會議碟（10 靈隱／20 峨眉／30 經理附件）</td></tr>
+        <tr><td class="k gap">問誰</td><td class="gap">把關人未指定【待拍板】</td></tr>
+        <tr><td class="k">為什麼</td><td class="why">「未來佛也得要記。」<b>（#53）</b></td></tr>
+      </table>
+    </div>
+    <div class="task">
+      <div class="name">🗂️ 我辦完活動，檔案要歸位</div>
+      <table>
+        <tr><td class="k">怎麼做</td><td>檔名以日期開頭「YYYY-MM-DD活動名」，放進自己單位碟的 90 年夾</td></tr>
+        <tr><td class="k">交到哪</td><td>各組桌／區桌碟的活動年夾</td></tr>
+        <tr><td class="k">問誰</td><td>歸檔窗口（組長、副組長、區文書）</td></tr>
+        <tr><td class="k">為什麼</td><td class="why">「註明出處、地點、時間。」<b>（#43）</b></td></tr>
+      </table>
+    </div>
+    <div class="task">
+      <div class="name">🔎 我要找一份檔案</div>
+      <table>
+        <tr><td class="k">怎麼做</td><td>先查全組織檔案地圖與目錄總表；三把鑰匙：人＝編號、事＝日期、理＝詞條</td></tr>
+        <tr><td class="k gap">入口在哪</td><td class="gap">一般人找得到的前門還沒開【道務平台開門後解決】</td></tr>
+        <tr><td class="k">問誰</td><td>歸檔窗口</td></tr>
+        <tr><td class="k">為什麼</td><td class="why">「有憑有據。」<b>（#53）</b></td></tr>
+      </table>
+    </div>
+    <div class="task">
+      <div class="name">📚 我要借書、還書</div>
+      <table>
+        <tr><td class="k gap">怎麼做</td><td class="gap">借閱流程懸空：系統有借閱模組但幾乎沒在用，實務疑仍在試算表【待與文書組確認】</td></tr>
+        <tr><td class="k">交到哪</td><td>借閱、歸還紀錄（峨眉書籍資料庫）</td></tr>
+        <tr><td class="k">問誰</td><td>文書組</td></tr>
+        <tr><td class="k gap">為什麼</td><td class="gap">圖書這條線在藍圖上還沒有位子【待拍板】</td></tr>
+      </table>
+    </div>
+    <div class="task">
+      <div class="name">📣 我要發通知給大家</div>
+      <table>
+        <tr><td class="k">怎麼做</td><td>一次發送、多路到位（檔案權限＋LINE＋信箱同一套名單）</td></tr>
+        <tr><td class="k gap">操作路徑</td><td class="gap">發布口設計好了，工具還沒接上線【待施工】</td></tr>
+        <tr><td class="k gap">問誰</td><td class="gap">發布的把關人未指定【待拍板】</td></tr>
+        <tr><td class="k">為什麼</td><td class="why">「及時給眾生，不要斷了熱度。」<b>（#44）</b></td></tr>
+      </table>
+    </div>
+    <div class="task">
+      <div class="name">🖋️ 我想投稿、寫採訪心得</div>
+      <table>
+        <tr><td class="k">怎麼做</td><td>投給道峨眉季刊；訪談與心得照日期歸年夾入庫（採集迴路）</td></tr>
+        <tr><td class="k">交到哪</td><td>701道峨眉碟；刊出後成為當代史料</td></tr>
+        <tr><td class="k">問誰</td><td>季刊編輯</td></tr>
+        <tr><td class="k">為什麼</td><td class="why">「從白話訓裡面去擷取重點。」<b>（#41）</b></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>人的路（徑）</h2>
+  <div class="cards">
+    <div class="task">
+      <div class="name">🌱 我想多學一點</div>
+      <table>
+        <tr><td class="k">怎麼做</td><td>從幫忙開始，帶的人會開口邀你。路徑見〈<a href="2026-09-02-wenshu-training-path.html">文書育才路徑</a>〉</td></tr>
+        <tr><td class="k">教材</td><td>傳承包四件：《聖佛綸音・文書篇》選輯、中心手冊、注意事項、育才路徑</td></tr>
+        <tr><td class="k">問誰</td><td>帶你的人／文書組長</td></tr>
+        <tr><td class="k">為什麼</td><td class="why">「一個人念，一個人抄，你們才有體會。」<b>（#26）</b></td></tr>
+      </table>
+    </div>
+    <div class="task">
+      <div class="name">🤝 我想帶一個新人</div>
+      <table>
+        <tr><td class="k">怎麼做</td><td>三個動作：讓他看見、邀他試一步、陪他過第一次（育才路徑第五階）</td></tr>
+        <tr><td class="k gap">名單</td><td class="gap">接棒名單、每年檢視的節奏【待拍板】</td></tr>
+        <tr><td class="k">問誰</td><td>文書組長</td></tr>
+        <tr><td class="k">為什麼</td><td class="why">「交棒要及早。」<b>（#63）</b></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>從下往上，看見了什麼</h2>
+  <div class="finds">
+    <p style="margin:0;font-size:14.5px">把每件事的四格逐一填過一遍，黃格子自己浮出來了。歸納成六個從上往下沒想到（或還沒想完）的洞：</p>
+    <ol>
+      <li><b>責任到了系統，還沒到人。</b>印是碟級的責任名牌，但「這件事卡住了問哪一位」多半沒有名字——工作清單的「誰動手、誰把關」欄整排待填。下往上看，最缺的不是規矩，是活人的窗口。<span class="n">（會議記錄、發通知、檢討會三張卡的黃格）</span></li>
+      <li><b>圖書是條孤兒線。</b>發放、借閱兩套帳都在，但活、脈、彰三顆印沒有一顆管實體書；借閱實務疑似還在試算表上跑。要嘛給它一個家，要嘛正式決定維持現狀。<span class="n">（借書卡整張偏黃）</span></li>
+      <li><b>找檔案的路蓋好了，門牌還沒掛。</b>索引、鑰匙、目錄都在，但一般人不知道從哪裡進——這正是道務平台該開的門，開門前這條路只有內行人走得到。</li>
+      <li><b>發通知有設計、沒有操作。</b>一魚多吃的名單制度到位，但「一位組長今天要發一則通知」的實際按鈕還不存在。</li>
+      <li><b>「為什麼」的窗只開了一半。</b>法會場每件事都有訓文可釘；道務日常有幾件（借書、找檔案）還接不到一句訓——意義的線越往日常越細，這是選輯下一輪可以留意的方向。</li>
+      <li><b>一般道親還沒有自己的卡。</b>這一頁的「我」多半是文書與窗口；「我想看活動照片」「我想查某年的紀念刊」這種道親視角的事，得等前門開了才有答案。</li>
+    </ol>
+  </div>
+
+  <div class="links">
+    <a href="https://neilliao.github.io/drive-inventory/">⌂ 回首頁（樹）</a>
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-09-02-emei-wenshu-panorama.html">🌐 上往下看（全景）</a>
+    <a href="https://neilliao.github.io/drive-inventory/library.html">📚 文件庫</a>
+  </div>
+
+  <footer>我要做什麼・任務門（草稿待拍板）・2026-09-02・道務平台開門後併入其首頁・正本：drive-inventory/docs/specs/</footer>
+</div>
