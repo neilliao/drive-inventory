@@ -1,7 +1,7 @@
 # Drive 整理施工 spec（第 0 批＋五步）
 
 - 日期：2026-08-20
-- 設計正本：[`2026-08-17-strategy-map.html`](./2026-08-17-strategy-map.html)（峨眉資訊藍圖）＋[`2026-08-20-deskdrive-rollout-roadmap.md`](./2026-08-20-deskdrive-rollout-roadmap.md)（六修決策全記錄）
+- 設計正本：[`2026-08-17-strategy-map.html`](./2026-08-17-strategy-map.html)（道務文書藍圖（原資訊藍圖））＋[`2026-08-20-deskdrive-rollout-roadmap.md`](./2026-08-20-deskdrive-rollout-roadmap.md)（六修決策全記錄）
 - 本文定位：**施工單**。設計問題不在此討論；此處只寫做什麼、誰做、輸入輸出、驗收證據、暫停點。
 - 執行模式：機器出清單 → Neil 批准 → 機器執行 → 數字對帳（同 204錄音 已完成的模式）。
 
