@@ -59,561 +59,612 @@
   </div>
 
   <figure class="tree">
-    <svg viewBox="0 0 1100 880" role="img" aria-label="一棵盛開的菩提樹，背後有太陽光暈：兩條根是仙佛的話與道場的事，樹幹是收得好，枝葉是傳出去，紅色果實是人受益，右邊由落果長成的小樹是帶新人">
+    <svg viewBox="0 0 1100 880" role="img" aria-label="一棵寫實風的菩提樹盛開，背後有太陽光暈：兩條根是仙佛的話與道場的事，樹幹是收得好，枝葉是傳出去，紅色果實是人受益，右邊由落果長成的小樹是帶新人">
   <defs>
-    <path id="bodhi" d="M 0 0 C -10 3 -15 11 -13 19 C -11 27 -5 30 -2 33 L 0 44 L 2 33 C 5 30 11 27 13 19 C 15 11 10 3 0 0 Z"/>
+    <path id="bodhiP" d="M 0 0 C -10 3 -15 11 -13 19 C -11 27 -5 30 -2 33 L 0 44 L 2 33 C 5 30 11 27 13 19 C 15 11 10 3 0 0 Z"/>
+    <linearGradient id="gD" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#2e7d4f"/><stop offset="1" stop-color="#173f2a"/></linearGradient>
+    <linearGradient id="gM" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#3f9a60"/><stop offset="1" stop-color="#1e5c3a"/></linearGradient>
+    <linearGradient id="gB" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#57b473"/><stop offset="1" stop-color="#2a7547"/></linearGradient>
+    <linearGradient id="gL" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#74cd8c"/><stop offset="1" stop-color="#379757"/></linearGradient>
+    <linearGradient id="gH" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#93e2a6"/><stop offset="1" stop-color="#4aa967"/></linearGradient>
+    <g id="lfD"><use href="#bodhiP" fill="url(#gD)" stroke="#123322" stroke-width="0.8"/><path d="M 0 2 L 0 40" stroke="#0f2c1d" stroke-width="1" opacity=".35"/></g>
+    <g id="lfM"><use href="#bodhiP" fill="url(#gM)" stroke="#174730" stroke-width="0.8"/><path d="M 0 2 L 0 40" stroke="#123a26" stroke-width="1" opacity=".35"/><ellipse cx="-5" cy="10" rx="3.5" ry="6" fill="#fff" opacity=".14" transform="rotate(-20)"/></g>
+    <g id="lfB"><use href="#bodhiP" fill="url(#gB)" stroke="#1e5c3a" stroke-width="0.8"/><path d="M 0 2 L 0 40" stroke="#174730" stroke-width="1" opacity=".35"/><ellipse cx="-5" cy="10" rx="3.5" ry="6" fill="#fff" opacity=".2" transform="rotate(-20)"/></g>
+    <g id="lfL"><use href="#bodhiP" fill="url(#gL)" stroke="#2a7547" stroke-width="0.8"/><path d="M 0 2 L 0 40" stroke="#1e5c3a" stroke-width="1" opacity=".3"/><ellipse cx="-5" cy="10" rx="3.5" ry="6" fill="#fff" opacity=".25" transform="rotate(-20)"/></g>
+    <g id="lfH"><use href="#bodhiP" fill="url(#gH)" stroke="#379757" stroke-width="0.8"/><path d="M 0 2 L 0 40" stroke="#2a7547" stroke-width="1" opacity=".3"/><ellipse cx="-5" cy="10" rx="3.5" ry="6" fill="#fff" opacity=".3" transform="rotate(-20)"/></g>
     <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
       <stop offset="0" stop-color="#f8ecc9" stop-opacity="0.95"/>
       <stop offset="0.55" stop-color="#f6e9c4" stop-opacity="0.55"/>
       <stop offset="1" stop-color="#f3faf7" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="trunkG" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#b08d5f"/><stop offset="1" stop-color="#8a6a44"/>
+      <stop offset="0" stop-color="#c49a68"/><stop offset="0.5" stop-color="#a37c50"/><stop offset="1" stop-color="#6f5233"/>
     </linearGradient>
+    <linearGradient id="limbG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b78e5e"/><stop offset="1" stop-color="#7d5c39"/>
+    </linearGradient>
+    <radialGradient id="fruitG" cx="0.35" cy="0.3" r="0.8">
+      <stop offset="0" stop-color="#e0745a"/><stop offset="0.55" stop-color="#b8412c"/><stop offset="1" stop-color="#7e2a1c"/>
+    </radialGradient>
+    <radialGradient id="moundG" cx="0.5" cy="0.35" r="0.8">
+      <stop offset="0" stop-color="#93c69e"/><stop offset="1" stop-color="#63a077"/>
+    </radialGradient>
+    <filter id="blur2"><feGaussianBlur stdDeviation="1.7"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
   </defs>
 
   <!-- 光暈與光芒 -->
   <circle cx="530" cy="300" r="430" fill="url(#halo)"/>
-  <path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(15 530 300)"/>
-<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(45 530 300)"/>
-<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(75 530 300)"/>
-<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(105 530 300)"/>
-<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(135 530 300)"/>
-<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(165 530 300)"/>
-<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(195 530 300)"/>
-<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(225 530 300)"/>
-<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(255 530 300)"/>
-<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(285 530 300)"/>
-<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(315 530 300)"/>
-<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(345 530 300)"/>
+  <path d="M 530 300 L 502 -180 L 558 -180 Z" fill="#f0e0b2" opacity="0.15" transform="rotate(15 530 300)"/>
+<path d="M 530 300 L 502 -180 L 558 -180 Z" fill="#f0e0b2" opacity="0.15" transform="rotate(45 530 300)"/>
+<path d="M 530 300 L 502 -180 L 558 -180 Z" fill="#f0e0b2" opacity="0.15" transform="rotate(75 530 300)"/>
+<path d="M 530 300 L 502 -180 L 558 -180 Z" fill="#f0e0b2" opacity="0.15" transform="rotate(105 530 300)"/>
+<path d="M 530 300 L 502 -180 L 558 -180 Z" fill="#f0e0b2" opacity="0.15" transform="rotate(135 530 300)"/>
+<path d="M 530 300 L 502 -180 L 558 -180 Z" fill="#f0e0b2" opacity="0.15" transform="rotate(165 530 300)"/>
+<path d="M 530 300 L 502 -180 L 558 -180 Z" fill="#f0e0b2" opacity="0.15" transform="rotate(195 530 300)"/>
+<path d="M 530 300 L 502 -180 L 558 -180 Z" fill="#f0e0b2" opacity="0.15" transform="rotate(225 530 300)"/>
+<path d="M 530 300 L 502 -180 L 558 -180 Z" fill="#f0e0b2" opacity="0.15" transform="rotate(255 530 300)"/>
+<path d="M 530 300 L 502 -180 L 558 -180 Z" fill="#f0e0b2" opacity="0.15" transform="rotate(285 530 300)"/>
+<path d="M 530 300 L 502 -180 L 558 -180 Z" fill="#f0e0b2" opacity="0.15" transform="rotate(315 530 300)"/>
+<path d="M 530 300 L 502 -180 L 558 -180 Z" fill="#f0e0b2" opacity="0.15" transform="rotate(345 530 300)"/>
   <circle cx="530" cy="300" r="310" fill="none" stroke="#eeddb0" stroke-width="2" opacity=".4"/>
   <circle cx="530" cy="300" r="385" fill="none" stroke="#eeddb0" stroke-width="1.5" opacity=".28"/>
 
   <!-- 地面 -->
   <ellipse cx="550" cy="702" rx="520" ry="52" fill="#d9e8df"/>
   <ellipse cx="510" cy="720" rx="460" ry="46" fill="#e3f0e8"/>
-  <ellipse cx="530" cy="668" rx="150" ry="16" fill="#c8ddd0"/>
+  <ellipse cx="532" cy="672" rx="240" ry="26" fill="#9db8ab" opacity=".45" filter="url(#soft)"/>
+  <ellipse cx="530" cy="656" rx="215" ry="34" fill="url(#moundG)"/>
 
-  <!-- 根 -->
-  <path d="M 500 645 C 430 685 330 706 240 716" stroke="#8a6a44" stroke-width="22" fill="none" stroke-linecap="round"/>
-  <path d="M 560 645 C 625 687 710 707 805 716" stroke="#8a6a44" stroke-width="22" fill="none" stroke-linecap="round"/>
-  <path d="M 515 652 C 485 692 445 712 405 722" stroke="#8a6a44" stroke-width="13" fill="none" stroke-linecap="round"/>
-  <path d="M 545 652 C 578 693 622 713 662 722" stroke="#8a6a44" stroke-width="13" fill="none" stroke-linecap="round"/>
+  <!-- 根（板根） -->
+  <path d="M 500 640 C 430 680 330 700 240 712 L 250 700 C 330 688 420 664 488 616 Z" fill="#8a6544"/>
+  <path d="M 560 640 C 625 682 710 702 805 712 L 795 700 C 715 688 630 664 572 616 Z" fill="#7d5c39"/>
+  <path d="M 512 648 C 482 688 445 708 405 718 L 415 704 C 450 692 482 668 502 628 Z" fill="#8a6544"/>
+  <path d="M 548 648 C 578 690 620 710 660 718 L 650 704 C 616 692 584 668 558 628 Z" fill="#6f5233"/>
 
-  <!-- 樹身：老幹與枝 -->
-  <path d="M 488 660 C 496 590 502 530 508 480 C 512 450 514 430 514 410 L 546 410 C 546 432 549 452 554 482 C 562 534 570 592 580 660 Z" fill="url(#trunkG)"/>
-  <path d="M 546 410 C 546 432 549 452 554 482 C 562 534 570 592 580 660 L 552 660 C 546 592 542 534 538 482 C 535 452 534 432 534 410 Z" fill="#75593a" opacity=".45"/>
-  <path d="M 512 470 C 478 430 448 402 408 372 C 388 356 372 342 356 330" stroke="#a3805a" stroke-width="20" fill="none" stroke-linecap="round"/>
-  <path d="M 408 372 C 392 350 380 330 372 308" stroke="#a3805a" stroke-width="11" fill="none" stroke-linecap="round"/>
-  <path d="M 548 462 C 584 424 616 396 658 368 C 678 354 694 342 712 330" stroke="#a3805a" stroke-width="20" fill="none" stroke-linecap="round"/>
-  <path d="M 658 368 C 674 346 684 326 690 304" stroke="#a3805a" stroke-width="11" fill="none" stroke-linecap="round"/>
-  <path d="M 528 440 C 528 400 526 360 522 318 C 520 296 518 278 514 258" stroke="#a3805a" stroke-width="15" fill="none" stroke-linecap="round"/>
-  <path d="M 522 318 C 542 292 558 270 572 244" stroke="#a3805a" stroke-width="9" fill="none" stroke-linecap="round"/>
-  <path d="M 522 318 C 502 296 488 276 478 254" stroke="#a3805a" stroke-width="9" fill="none" stroke-linecap="round"/>
-  <path d="M 484 500 C 462 484 440 472 416 462" stroke="#a3805a" stroke-width="9" fill="none" stroke-linecap="round"/>
-  <path d="M 574 496 C 598 480 622 468 648 458" stroke="#a3805a" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <!-- 樹身 -->
+  <path d="M 484 660 C 494 588 502 528 508 478 C 512 448 514 428 514 406 L 546 406 C 546 430 549 450 554 480 C 562 532 572 592 584 660 Z" fill="url(#trunkG)"/>
+  <path d="M 495 655 C 499 600 496 540 493 470" stroke="#5d442c" stroke-width="2" fill="none" opacity=".22"/>
+<path d="M 503 655 C 503 600 500 540 501 470" stroke="#5d442c" stroke-width="2" fill="none" opacity=".22"/>
+<path d="M 513 655 C 512 600 517 540 514 470" stroke="#5d442c" stroke-width="2" fill="none" opacity=".22"/>
+<path d="M 519 655 C 522 600 524 540 517 470" stroke="#5d442c" stroke-width="2" fill="none" opacity=".22"/>
+<path d="M 531 655 C 527 600 535 540 529 470" stroke="#5d442c" stroke-width="2" fill="none" opacity=".22"/>
+<path d="M 539 655 C 541 600 540 540 542 470" stroke="#5d442c" stroke-width="2" fill="none" opacity=".22"/>
+<path d="M 547 655 C 550 600 548 540 544 470" stroke="#5d442c" stroke-width="2" fill="none" opacity=".22"/>
+<path d="M 555 655 C 553 600 551 540 554 470" stroke="#5d442c" stroke-width="2" fill="none" opacity=".22"/>
+<path d="M 564 655 C 563 600 568 540 566 470" stroke="#5d442c" stroke-width="2" fill="none" opacity=".22"/>
+  <path d="M 546 406 C 546 430 549 450 554 480 C 562 532 572 592 584 660 L 556 660 C 548 592 543 532 539 480 C 536 450 535 430 535 406 Z" fill="#59402a" opacity=".5"/>
+  <path d="M 487 650 C 495 585 502 528 508 480" stroke="#d8b489" stroke-width="3.5" fill="none" opacity=".6"/>
+  <path d="M 512 470 C 478 430 448 402 408 372 C 388 356 372 342 356 330" stroke="url(#limbG)" stroke-width="20" fill="none" stroke-linecap="round"/>
+  <path d="M 408 372 C 392 350 380 330 372 308" stroke="url(#limbG)" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <path d="M 548 462 C 584 424 616 396 658 368 C 678 354 694 342 712 330" stroke="url(#limbG)" stroke-width="20" fill="none" stroke-linecap="round"/>
+  <path d="M 658 368 C 674 346 684 326 690 304" stroke="url(#limbG)" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <path d="M 528 440 C 528 400 526 360 522 318 C 520 296 518 278 514 258" stroke="url(#limbG)" stroke-width="15" fill="none" stroke-linecap="round"/>
+  <path d="M 522 318 C 542 292 558 270 572 244" stroke="url(#limbG)" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M 522 318 C 502 296 488 276 478 254" stroke="url(#limbG)" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M 484 500 C 462 484 440 472 416 462" stroke="url(#limbG)" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M 574 496 C 598 480 622 468 648 458" stroke="url(#limbG)" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <ellipse cx="516" cy="452" rx="26" ry="12" fill="#4b3620" opacity=".3" filter="url(#soft)"/>
+  <ellipse cx="540" cy="446" rx="24" ry="11" fill="#4b3620" opacity=".3" filter="url(#soft)"/>
 
-  <!-- 葉 -->
-  <use href="#bodhi" fill="#1e5c4d" transform="translate(552 204) rotate(-61) scale(1.07)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(577 185) rotate(-99) scale(1.03)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(580 210) rotate(-66) scale(1.06)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(577 180) rotate(-97) scale(0.71)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(416 283) rotate(-110) scale(0.85)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(395 268) rotate(-173) scale(0.85)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(431 275) rotate(-107) scale(1.09)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(391 300) rotate(19) scale(1.09)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(640 294) rotate(45) scale(0.81)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(679 241) rotate(-136) scale(0.93)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(306 357) rotate(68) scale(0.77)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(286 366) rotate(76) scale(0.79)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(741 340) rotate(-159) scale(0.73)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(749 324) rotate(-160) scale(1.10)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(496 274) rotate(-225) scale(0.81)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(473 294) rotate(-266) scale(0.83)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(515 316) rotate(47) scale(0.99)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(531 286) rotate(-172) scale(1.02)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(526 282) rotate(-198) scale(1.03)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(463 117) rotate(-225) scale(0.82)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(457 114) rotate(-231) scale(0.74)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(597 149) rotate(25) scale(0.89)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(599 213) rotate(-59) scale(0.82)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(467 169) rotate(-247) scale(0.96)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(601 232) rotate(-42) scale(0.68)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(523 155) rotate(-195) scale(0.77)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(514 199) rotate(69) scale(0.71)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(557 208) rotate(-51) scale(0.79)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(606 144) rotate(-120) scale(0.94)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(529 207) rotate(10) scale(0.90)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(505 232) rotate(58) scale(0.70)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(644 187) rotate(-108) scale(0.94)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(605 251) rotate(-67) scale(1.01)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(491 216) rotate(79) scale(0.81)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(451 222) rotate(93) scale(0.86)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(549 183) rotate(-115) scale(0.91)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(456 201) rotate(106) scale(1.10)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(513 228) rotate(52) scale(0.70)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(369 269) rotate(-236) scale(0.93)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(382 263) rotate(-237) scale(1.10)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(443 263) rotate(-122) scale(0.88)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(427 318) rotate(-28) scale(1.03)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(402 225) rotate(-164) scale(0.82)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(326 325) rotate(52) scale(0.84)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(358 332) rotate(13) scale(0.95)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(428 280) rotate(-110) scale(0.75)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(340 257) rotate(-249) scale(1.06)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(342 314) rotate(54) scale(0.90)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(322 280) rotate(-281) scale(0.68)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(311 296) rotate(89) scale(0.75)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(386 253) rotate(-221) scale(0.99)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(362 309) rotate(57) scale(0.98)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(355 253) rotate(-211) scale(0.93)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(451 312) rotate(-68) scale(1.00)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(357 334) rotate(17) scale(1.00)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(644 308) rotate(61) scale(0.87)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(618 274) rotate(-261) scale(0.79)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(611 311) rotate(74) scale(1.05)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(689 285) rotate(-78) scale(1.07)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(760 270) rotate(-75) scale(0.97)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(708 291) rotate(-90) scale(0.86)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(623 275) rotate(-237) scale(1.09)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(721 226) rotate(-142) scale(0.82)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(658 265) rotate(-179) scale(1.06)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(336 361) rotate(-66) scale(0.79)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(378 346) rotate(-113) scale(0.89)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(323 335) rotate(-196) scale(0.69)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(334 365) rotate(-54) scale(1.02)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(362 320) rotate(-105) scale(1.05)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(276 378) rotate(54) scale(0.79)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(343 361) rotate(-106) scale(0.82)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(302 365) rotate(87) scale(1.04)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(690 362) rotate(66) scale(0.72)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(755 390) rotate(-30) scale(0.86)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(802 346) rotate(-76) scale(1.05)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(750 333) rotate(-161) scale(0.76)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(743 358) rotate(-34) scale(0.95)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(755 358) rotate(-79) scale(0.80)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(460 346) rotate(84) scale(0.93)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(419 285) rotate(-257) scale(0.74)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(586 330) rotate(-99) scale(1.07)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(488 329) rotate(51) scale(0.99)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(451 286) rotate(-268) scale(0.78)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(413 330) rotate(87) scale(0.97)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(462 310) rotate(-267) scale(0.82)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(490 253) rotate(-215) scale(0.92)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(479 122) rotate(-74) scale(0.92)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(496 128) rotate(-112) scale(0.69)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(513 140) rotate(-52) scale(0.85)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(442 149) rotate(31) scale(0.70)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(494 111) rotate(-120) scale(0.77)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(465 103) rotate(-184) scale(0.71)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(416 125) rotate(69) scale(0.71)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(614 133) rotate(-98) scale(0.95)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(569 139) rotate(111) scale(0.82)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(569 123) rotate(-176) scale(0.81)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(444 210) rotate(100) scale(0.98)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(461 175) rotate(-279) scale(0.82)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(674 174) rotate(-86) scale(0.68)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(414 212) rotate(79) scale(0.76)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(565 280) rotate(-30) scale(0.87)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(644 176) rotate(-106) scale(0.94)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(500 244) rotate(13) scale(0.99)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(600 177) rotate(-98) scale(0.86)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(612 249) rotate(-50) scale(0.80)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(616 212) rotate(-101) scale(0.83)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(633 228) rotate(-48) scale(0.99)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(525 266) rotate(18) scale(0.92)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(385 232) rotate(77) scale(0.81)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(532 131) rotate(-193) scale(0.85)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(529 283) rotate(-7) scale(0.92)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(685 238) rotate(-76) scale(1.07)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(581 136) rotate(-150) scale(1.03)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(491 143) rotate(-199) scale(0.69)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(579 91) rotate(-147) scale(0.96)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(608 249) rotate(-85) scale(0.91)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(466 178) rotate(-252) scale(0.81)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(403 182) rotate(-287) scale(0.68)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(441 251) rotate(52) scale(1.02)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(615 205) rotate(-112) scale(0.76)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(611 134) rotate(-106) scale(0.94)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(581 153) rotate(-138) scale(0.76)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(402 132) rotate(-214) scale(1.05)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(606 200) rotate(-67) scale(0.83)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(617 234) rotate(-70) scale(0.93)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(672 203) rotate(-90) scale(0.99)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(444 162) rotate(-272) scale(0.99)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(618 285) rotate(-22) scale(0.97)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(426 181) rotate(-250) scale(1.00)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(314 213) rotate(-218) scale(1.08)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(345 327) rotate(76) scale(0.96)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(399 373) rotate(-5) scale(0.77)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(491 310) rotate(-97) scale(0.86)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(376 242) rotate(-222) scale(0.78)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(296 323) rotate(56) scale(1.00)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(415 345) rotate(4) scale(1.02)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(275 316) rotate(90) scale(0.84)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(473 288) rotate(-76) scale(0.89)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(461 252) rotate(-91) scale(1.07)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(474 249) rotate(-131) scale(1.09)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(382 210) rotate(-198) scale(0.83)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(456 352) rotate(-27) scale(1.05)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(322 208) rotate(-235) scale(0.91)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(463 252) rotate(-126) scale(1.09)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(476 323) rotate(-63) scale(0.98)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(424 220) rotate(-171) scale(0.75)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(371 328) rotate(13) scale(0.98)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(465 253) rotate(-139) scale(1.04)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(439 335) rotate(-23) scale(0.74)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(522 286) rotate(-115) scale(0.79)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(299 265) rotate(-263) scale(1.07)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(341 204) rotate(-243) scale(0.84)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(378 235) rotate(-183) scale(1.04)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(333 368) rotate(44) scale(0.74)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(360 217) rotate(-194) scale(0.94)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(344 370) rotate(38) scale(0.69)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(355 339) rotate(40) scale(0.77)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(777 294) rotate(-84) scale(0.86)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(656 229) rotate(-186) scale(0.92)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(633 377) rotate(10) scale(0.75)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(581 224) rotate(-242) scale(0.69)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(592 255) rotate(-238) scale(1.01)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(584 322) rotate(57) scale(0.94)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(720 227) rotate(-157) scale(1.07)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(762 214) rotate(-127) scale(0.89)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(543 239) rotate(-274) scale(1.05)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(581 248) rotate(-261) scale(0.82)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(738 301) rotate(-103) scale(0.95)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(724 238) rotate(-145) scale(1.04)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(687 218) rotate(-184) scale(0.90)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(796 266) rotate(-110) scale(0.95)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(638 369) rotate(31) scale(0.69)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(797 282) rotate(-86) scale(0.95)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(593 346) rotate(48) scale(1.04)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(612 248) rotate(-253) scale(0.98)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(652 227) rotate(-189) scale(0.89)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(655 374) rotate(-13) scale(0.95)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(725 199) rotate(-145) scale(0.97)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(626 182) rotate(-186) scale(1.09)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(723 336) rotate(-76) scale(0.85)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(774 270) rotate(-90) scale(1.10)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(724 261) rotate(-125) scale(0.83)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(707 351) rotate(-37) scale(0.93)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(671 208) rotate(-165) scale(1.04)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(742 292) rotate(-70) scale(0.90)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(590 262) rotate(-278) scale(0.77)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(733 318) rotate(-88) scale(0.69)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(680 228) rotate(-165) scale(0.89)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(733 256) rotate(-130) scale(0.85)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(609 287) rotate(85) scale(0.99)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(312 398) rotate(24) scale(1.05)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(300 329) rotate(-227) scale(1.06)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(398 366) rotate(-74) scale(0.94)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(335 325) rotate(-126) scale(1.03)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(350 400) rotate(-4) scale(1.02)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(360 329) rotate(-112) scale(0.70)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(337 313) rotate(-166) scale(0.97)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(356 414) rotate(-11) scale(0.92)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(241 320) rotate(-260) scale(0.79)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(290 317) rotate(-246) scale(0.98)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(316 389) rotate(-4) scale(0.90)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(277 301) rotate(-219) scale(1.03)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(696 377) rotate(88) scale(0.94)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(681 404) rotate(57) scale(1.06)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(668 348) rotate(-254) scale(0.99)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(680 369) rotate(65) scale(0.91)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(664 312) rotate(-254) scale(0.79)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(710 329) rotate(-240) scale(1.04)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(823 372) rotate(-96) scale(0.83)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(676 378) rotate(74) scale(1.06)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(825 380) rotate(-81) scale(1.08)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(735 308) rotate(-205) scale(0.71)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(734 393) rotate(5) scale(0.89)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(792 335) rotate(-106) scale(0.73)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(804 396) rotate(-57) scale(1.07)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(718 319) rotate(-210) scale(1.04)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(465 238) rotate(-193) scale(0.85)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(444 232) rotate(-223) scale(0.89)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(591 244) rotate(-162) scale(0.75)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(686 276) rotate(-108) scale(0.92)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(682 295) rotate(-95) scale(0.73)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(463 293) rotate(-234) scale(1.08)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(667 292) rotate(-109) scale(0.77)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(466 271) rotate(-247) scale(0.86)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(426 319) rotate(62) scale(0.81)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(461 302) rotate(-269) scale(0.77)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(617 347) rotate(-40) scale(0.90)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(568 399) rotate(-23) scale(0.90)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(563 228) rotate(-158) scale(0.85)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(532 230) rotate(-180) scale(0.82)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(412 239) rotate(-264) scale(0.97)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(601 287) rotate(-129) scale(1.08)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(401 319) rotate(75) scale(0.69)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(568 407) rotate(7) scale(1.06)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(545 356) rotate(-28) scale(0.75)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(556 350) rotate(-42) scale(1.08)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(511 254) rotate(-222) scale(0.83)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(439 315) rotate(113) scale(0.74)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(490 374) rotate(34) scale(0.88)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(481 351) rotate(76) scale(0.96)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(541 145) rotate(-47) scale(0.76)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(414 117) rotate(-260) scale(0.83)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(430 125) rotate(68) scale(0.76)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(500 115) rotate(-122) scale(0.90)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(466 170) rotate(-23) scale(0.89)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(392 107) rotate(-238) scale(0.69)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(500 153) rotate(-58) scale(1.07)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(645 165) rotate(-77) scale(0.96)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(591 178) rotate(28) scale(0.96)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(634 153) rotate(-60) scale(0.91)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(563 125) rotate(-249) scale(1.04)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(568 139) rotate(54) scale(1.00)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(626 123) rotate(-92) scale(1.00)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(643 125) rotate(-124) scale(1.08)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(538 139) rotate(83) scale(0.72)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(614 114) rotate(-165) scale(1.06)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(408 219) rotate(100) scale(0.76)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(659 248) rotate(-62) scale(0.85)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(390 223) rotate(50) scale(0.90)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(571 297) rotate(-9) scale(0.86)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(509 303) rotate(34) scale(0.77)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(406 258) rotate(36) scale(0.74)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(589 119) rotate(-117) scale(1.09)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(660 126) rotate(-117) scale(1.08)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(392 138) rotate(-236) scale(1.08)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(487 101) rotate(-194) scale(1.06)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(589 94) rotate(-130) scale(0.79)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(497 102) rotate(-219) scale(0.79)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(450 271) rotate(76) scale(0.75)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(461 131) rotate(-218) scale(0.77)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(503 97) rotate(-218) scale(0.78)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(663 140) rotate(-140) scale(0.82)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(651 213) rotate(-103) scale(0.74)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(386 185) rotate(-239) scale(0.89)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(415 264) rotate(80) scale(1.09)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(420 165) rotate(-229) scale(0.87)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(664 148) rotate(-111) scale(0.73)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(390 235) rotate(51) scale(0.86)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(550 285) rotate(-28) scale(0.89)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(400 195) rotate(103) scale(0.97)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(647 166) rotate(-110) scale(0.97)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(492 111) rotate(-193) scale(0.76)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(664 246) rotate(-65) scale(0.76)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(546 99) rotate(-189) scale(1.01)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(506 302) rotate(22) scale(0.92)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(339 350) rotate(45) scale(1.10)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(292 352) rotate(37) scale(0.89)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(399 361) rotate(-24) scale(1.08)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(305 235) rotate(-224) scale(0.90)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(532 283) rotate(-92) scale(0.89)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(359 355) rotate(34) scale(0.98)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(486 324) rotate(-69) scale(1.03)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(470 356) rotate(-34) scale(0.89)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(349 220) rotate(-241) scale(0.94)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(512 311) rotate(-107) scale(0.84)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(319 220) rotate(-234) scale(0.80)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(497 253) rotate(-122) scale(1.05)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(389 202) rotate(-205) scale(1.00)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(525 251) rotate(-130) scale(0.81)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(461 211) rotate(-130) scale(1.07)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(395 182) rotate(-205) scale(0.76)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(326 365) rotate(23) scale(0.74)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(480 240) rotate(-117) scale(0.92)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(438 381) rotate(2) scale(0.92)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(653 380) rotate(-16) scale(1.03)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(770 248) rotate(-86) scale(1.06)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(620 195) rotate(-178) scale(1.03)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(616 346) rotate(26) scale(0.70)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(645 182) rotate(-202) scale(1.01)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(595 337) rotate(34) scale(0.99)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(787 318) rotate(-81) scale(0.93)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(631 206) rotate(-223) scale(1.05)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(750 340) rotate(-70) scale(0.96)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(782 336) rotate(-90) scale(1.06)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(772 284) rotate(-70) scale(0.72)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(624 211) rotate(-194) scale(0.75)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(615 353) rotate(30) scale(0.87)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(561 237) rotate(-259) scale(0.70)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(622 356) rotate(46) scale(0.89)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(606 219) rotate(-244) scale(0.97)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(614 200) rotate(-224) scale(0.73)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(657 201) rotate(-205) scale(1.04)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(592 228) rotate(-241) scale(1.07)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(779 329) rotate(-44) scale(0.96)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(643 367) rotate(15) scale(0.83)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(593 222) rotate(-221) scale(1.07)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(689 365) rotate(0) scale(0.84)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(770 228) rotate(-104) scale(0.91)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(360 401) rotate(-53) scale(0.85)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(268 397) rotate(36) scale(0.82)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(250 383) rotate(54) scale(0.75)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(343 408) rotate(-42) scale(0.69)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(245 393) rotate(44) scale(0.71)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(238 379) rotate(67) scale(0.94)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(329 286) rotate(-190) scale(0.80)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(374 403) rotate(-54) scale(1.02)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(244 341) rotate(-244) scale(0.81)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(810 369) rotate(-54) scale(0.94)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(828 368) rotate(-82) scale(0.93)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(806 400) rotate(-72) scale(1.07)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(821 376) rotate(-71) scale(0.83)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(803 373) rotate(-96) scale(0.89)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(810 340) rotate(-79) scale(0.97)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(792 294) rotate(-126) scale(0.76)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(698 396) rotate(72) scale(0.97)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(678 389) rotate(66) scale(0.83)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(704 396) rotate(26) scale(0.97)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(506 225) rotate(-177) scale(1.05)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(597 235) rotate(-165) scale(1.10)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(448 243) rotate(-221) scale(1.09)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(368 326) rotate(55) scale(1.04)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(392 291) rotate(-263) scale(0.95)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(659 243) rotate(-92) scale(0.72)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(382 295) rotate(-236) scale(0.68)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(387 253) rotate(-237) scale(1.03)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(662 281) rotate(-115) scale(0.97)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(679 363) rotate(-81) scale(1.02)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(627 380) rotate(-77) scale(0.81)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(495 224) rotate(-175) scale(0.92)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(453 220) rotate(-203) scale(0.89)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(593 234) rotate(-139) scale(0.84)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(387 267) rotate(-274) scale(0.98)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(629 393) rotate(-74) scale(1.01)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(607 398) rotate(-56) scale(0.74)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(408 371) rotate(70) scale(0.91)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(517 234) rotate(-184) scale(0.95)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(531 132) rotate(-55) scale(1.07)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(444 81) rotate(-183) scale(1.04)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(502 90) rotate(-120) scale(0.96)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(419 155) rotate(56) scale(0.78)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(487 84) rotate(-173) scale(1.06)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(652 109) rotate(-125) scale(0.73)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(538 119) rotate(-280) scale(0.95)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(678 139) rotate(-107) scale(0.82)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(637 107) rotate(-121) scale(0.81)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(555 168) rotate(50) scale(0.93)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(599 179) rotate(30) scale(1.04)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(653 120) rotate(-97) scale(0.85)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(528 136) rotate(65) scale(0.89)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(498 243) rotate(38) scale(0.73)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(597 170) rotate(-116) scale(0.78)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(664 207) rotate(-96) scale(0.74)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(434 252) rotate(35) scale(0.73)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(613 120) rotate(-106) scale(0.98)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(585 235) rotate(-61) scale(0.86)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(468 222) rotate(84) scale(0.82)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(454 299) rotate(-91) scale(0.80)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(528 272) rotate(-122) scale(0.79)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(441 363) rotate(-8) scale(0.71)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(512 237) rotate(-114) scale(1.02)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(502 337) rotate(-69) scale(0.89)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(279 303) rotate(60) scale(0.96)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(562 226) rotate(-261) scale(1.09)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(771 298) rotate(-83) scale(1.05)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(689 342) rotate(-35) scale(1.08)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(649 227) rotate(-183) scale(1.01)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(710 319) rotate(-60) scale(0.84)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(630 357) rotate(3) scale(0.93)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(268 379) rotate(63) scale(0.87)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(229 346) rotate(-262) scale(1.04)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(276 324) rotate(-250) scale(0.89)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(383 353) rotate(-70) scale(1.08)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(310 354) rotate(-274) scale(1.00)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(664 386) rotate(69) scale(0.78)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(698 402) rotate(17) scale(0.81)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(807 353) rotate(-60) scale(1.03)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(795 392) rotate(-66) scale(0.79)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(477 301) rotate(-268) scale(0.84)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(533 391) rotate(-19) scale(0.87)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(462 350) rotate(36) scale(0.81)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(581 355) rotate(-53) scale(0.84)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(434 146) rotate(68) scale(0.71)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(506 109) rotate(-112) scale(1.08)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(472 101) rotate(-168) scale(0.74)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(587 141) rotate(62) scale(1.03)"/>
-<use href="#bodhi" fill="#57bd99" transform="translate(550 134) rotate(-295) scale(1.04)"/>
+  <!-- 葉：後層霧化做景深，前層清晰 -->
+  <g filter="url(#blur2)" opacity=".9">
+  <use href="#lfM" transform="translate(515 126) rotate(-220) scale(1.06)"/>
+<use href="#lfM" transform="translate(522 157) rotate(-198) scale(0.84)"/>
+<use href="#lfD" transform="translate(587 190) rotate(-75) scale(0.84)"/>
+<use href="#lfM" transform="translate(426 199) rotate(73) scale(0.94)"/>
+<use href="#lfM" transform="translate(503 264) rotate(44) scale(0.97)"/>
+<use href="#lfD" transform="translate(526 177) rotate(-200) scale(0.76)"/>
+<use href="#lfM" transform="translate(637 217) rotate(-73) scale(0.87)"/>
+<use href="#lfD" transform="translate(551 227) rotate(-42) scale(0.77)"/>
+<use href="#lfM" transform="translate(476 238) rotate(65) scale(0.92)"/>
+<use href="#lfM" transform="translate(558 242) rotate(-38) scale(0.91)"/>
+<use href="#lfM" transform="translate(418 177) rotate(-271) scale(0.88)"/>
+<use href="#lfD" transform="translate(535 206) rotate(-42) scale(0.75)"/>
+<use href="#lfM" transform="translate(474 187) rotate(-284) scale(0.99)"/>
+<use href="#lfM" transform="translate(441 332) rotate(-34) scale(1.08)"/>
+<use href="#lfM" transform="translate(325 266) rotate(-235) scale(1.11)"/>
+<use href="#lfD" transform="translate(366 284) rotate(-264) scale(0.93)"/>
+<use href="#lfM" transform="translate(366 294) rotate(48) scale(1.00)"/>
+<use href="#lfD" transform="translate(432 294) rotate(-78) scale(0.90)"/>
+<use href="#lfD" transform="translate(431 267) rotate(-102) scale(0.88)"/>
+<use href="#lfD" transform="translate(643 318) rotate(3) scale(0.72)"/>
+<use href="#lfM" transform="translate(586 263) rotate(-229) scale(0.88)"/>
+<use href="#lfM" transform="translate(734 258) rotate(-119) scale(1.05)"/>
+<use href="#lfD" transform="translate(649 271) rotate(-245) scale(1.03)"/>
+<use href="#lfD" transform="translate(675 248) rotate(-149) scale(0.73)"/>
+<use href="#lfD" transform="translate(624 274) rotate(-263) scale(1.02)"/>
+<use href="#lfD" transform="translate(683 277) rotate(-109) scale(0.89)"/>
+<use href="#lfM" transform="translate(621 345) rotate(15) scale(1.07)"/>
+<use href="#lfM" transform="translate(648 270) rotate(-253) scale(0.86)"/>
+<use href="#lfM" transform="translate(622 287) rotate(87) scale(1.09)"/>
+<use href="#lfD" transform="translate(705 297) rotate(-83) scale(0.91)"/>
+<use href="#lfD" transform="translate(713 260) rotate(-111) scale(0.95)"/>
+<use href="#lfD" transform="translate(719 283) rotate(-88) scale(1.09)"/>
+<use href="#lfD" transform="translate(674 245) rotate(-152) scale(1.06)"/>
+<use href="#lfD" transform="translate(637 281) rotate(78) scale(0.74)"/>
+<use href="#lfD" transform="translate(332 351) rotate(-118) scale(1.01)"/>
+<use href="#lfD" transform="translate(330 370) rotate(-46) scale(1.07)"/>
+<use href="#lfM" transform="translate(277 323) rotate(-213) scale(0.79)"/>
+<use href="#lfD" transform="translate(294 338) rotate(-216) scale(1.00)"/>
+<use href="#lfM" transform="translate(347 342) rotate(-100) scale(0.87)"/>
+<use href="#lfD" transform="translate(333 348) rotate(-134) scale(1.01)"/>
+<use href="#lfM" transform="translate(730 348) rotate(-242) scale(0.90)"/>
+<use href="#lfM" transform="translate(750 363) rotate(-35) scale(0.88)"/>
+<use href="#lfD" transform="translate(742 326) rotate(-146) scale(0.79)"/>
+<use href="#lfD" transform="translate(758 347) rotate(-88) scale(1.11)"/>
+<use href="#lfD" transform="translate(571 332) rotate(-40) scale(0.71)"/>
+<use href="#lfM" transform="translate(434 280) rotate(-273) scale(1.06)"/>
+<use href="#lfM" transform="translate(529 377) rotate(26) scale(1.12)"/>
+<use href="#lfM" transform="translate(507 302) rotate(-239) scale(0.80)"/>
+<use href="#lfD" transform="translate(500 314) rotate(85) scale(0.82)"/>
+<use href="#lfM" transform="translate(542 372) rotate(-27) scale(1.04)"/>
+<use href="#lfD" transform="translate(542 290) rotate(-139) scale(0.87)"/>
+<use href="#lfM" transform="translate(512 319) rotate(54) scale(0.93)"/>
+<use href="#lfD" transform="translate(514 270) rotate(-226) scale(1.10)"/>
+<use href="#lfD" transform="translate(498 327) rotate(50) scale(0.70)"/>
+<use href="#lfM" transform="translate(609 276) rotate(-120) scale(0.78)"/>
+<use href="#lfD" transform="translate(492 299) rotate(-283) scale(1.11)"/>
+<use href="#lfD" transform="translate(491 311) rotate(94) scale(0.72)"/>
+<use href="#lfM" transform="translate(455 129) rotate(58) scale(0.96)"/>
+<use href="#lfM" transform="translate(522 127) rotate(-105) scale(0.96)"/>
+<use href="#lfM" transform="translate(584 129) rotate(-270) scale(0.74)"/>
+  </g>
+  <use href="#lfL" transform="translate(602 274) rotate(-22) scale(1.12)"/>
+<use href="#lfB" transform="translate(365 212) rotate(68) scale(0.70)"/>
+<use href="#lfB" transform="translate(440 256) rotate(71) scale(1.09)"/>
+<use href="#lfB" transform="translate(491 127) rotate(-215) scale(0.89)"/>
+<use href="#lfL" transform="translate(650 173) rotate(-73) scale(0.85)"/>
+<use href="#lfB" transform="translate(617 277) rotate(-75) scale(0.77)"/>
+<use href="#lfB" transform="translate(545 146) rotate(-148) scale(0.94)"/>
+<use href="#lfB" transform="translate(440 182) rotate(-272) scale(0.90)"/>
+<use href="#lfB" transform="translate(515 295) rotate(38) scale(0.91)"/>
+<use href="#lfL" transform="translate(404 199) rotate(92) scale(0.83)"/>
+<use href="#lfB" transform="translate(542 89) rotate(-199) scale(1.04)"/>
+<use href="#lfH" transform="translate(548 129) rotate(-164) scale(0.98)"/>
+<use href="#lfB" transform="translate(539 300) rotate(1) scale(1.07)"/>
+<use href="#lfB" transform="translate(408 247) rotate(40) scale(0.81)"/>
+<use href="#lfB" transform="translate(614 271) rotate(-20) scale(0.92)"/>
+<use href="#lfL" transform="translate(429 266) rotate(76) scale(0.83)"/>
+<use href="#lfH" transform="translate(443 183) rotate(-251) scale(1.10)"/>
+<use href="#lfL" transform="translate(660 207) rotate(-57) scale(0.88)"/>
+<use href="#lfB" transform="translate(470 108) rotate(-239) scale(0.74)"/>
+<use href="#lfH" transform="translate(642 207) rotate(-107) scale(0.82)"/>
+<use href="#lfL" transform="translate(475 296) rotate(12) scale(0.77)"/>
+<use href="#lfB" transform="translate(572 257) rotate(-19) scale(0.95)"/>
+<use href="#lfB" transform="translate(383 192) rotate(-298) scale(0.89)"/>
+<use href="#lfB" transform="translate(667 232) rotate(-91) scale(1.10)"/>
+<use href="#lfB" transform="translate(414 137) rotate(-255) scale(1.08)"/>
+<use href="#lfL" transform="translate(496 270) rotate(29) scale(0.93)"/>
+<use href="#lfL" transform="translate(652 226) rotate(-87) scale(0.99)"/>
+<use href="#lfB" transform="translate(404 182) rotate(-274) scale(0.78)"/>
+<use href="#lfL" transform="translate(656 231) rotate(-100) scale(0.73)"/>
+<use href="#lfL" transform="translate(588 107) rotate(-120) scale(0.99)"/>
+<use href="#lfB" transform="translate(498 122) rotate(-210) scale(0.79)"/>
+<use href="#lfB" transform="translate(562 129) rotate(-147) scale(1.10)"/>
+<use href="#lfB" transform="translate(631 234) rotate(-63) scale(0.79)"/>
+<use href="#lfL" transform="translate(401 222) rotate(100) scale(0.99)"/>
+<use href="#lfB" transform="translate(496 145) rotate(-208) scale(1.05)"/>
+<use href="#lfB" transform="translate(695 170) rotate(-116) scale(1.07)"/>
+<use href="#lfH" transform="translate(519 163) rotate(-210) scale(1.10)"/>
+<use href="#lfM" transform="translate(524 120) rotate(-204) scale(0.88)"/>
+<use href="#lfB" transform="translate(440 255) rotate(83) scale(0.84)"/>
+<use href="#lfB" transform="translate(526 296) rotate(3) scale(0.80)"/>
+<use href="#lfB" transform="translate(475 109) rotate(-214) scale(0.88)"/>
+<use href="#lfM" transform="translate(463 156) rotate(-232) scale(0.74)"/>
+<use href="#lfB" transform="translate(552 259) rotate(-7) scale(0.71)"/>
+<use href="#lfM" transform="translate(496 195) rotate(-285) scale(0.70)"/>
+<use href="#lfB" transform="translate(608 229) rotate(-96) scale(0.77)"/>
+<use href="#lfL" transform="translate(383 150) rotate(-280) scale(0.78)"/>
+<use href="#lfB" transform="translate(426 242) rotate(85) scale(0.95)"/>
+<use href="#lfL" transform="translate(382 215) rotate(57) scale(1.08)"/>
+<use href="#lfB" transform="translate(527 99) rotate(-182) scale(0.92)"/>
+<use href="#lfL" transform="translate(414 178) rotate(-271) scale(0.81)"/>
+<use href="#lfH" transform="translate(474 243) rotate(68) scale(0.98)"/>
+<use href="#lfB" transform="translate(453 166) rotate(-277) scale(0.80)"/>
+<use href="#lfM" transform="translate(567 150) rotate(-134) scale(0.97)"/>
+<use href="#lfB" transform="translate(632 204) rotate(-64) scale(1.04)"/>
+<use href="#lfB" transform="translate(647 145) rotate(-104) scale(0.96)"/>
+<use href="#lfM" transform="translate(485 173) rotate(-217) scale(1.09)"/>
+<use href="#lfB" transform="translate(631 200) rotate(-116) scale(0.86)"/>
+<use href="#lfB" transform="translate(529 148) rotate(-186) scale(0.80)"/>
+<use href="#lfB" transform="translate(439 190) rotate(-244) scale(0.85)"/>
+<use href="#lfM" transform="translate(624 230) rotate(-59) scale(1.06)"/>
+<use href="#lfL" transform="translate(692 191) rotate(-62) scale(1.01)"/>
+<use href="#lfB" transform="translate(526 144) rotate(-161) scale(0.92)"/>
+<use href="#lfB" transform="translate(590 233) rotate(-60) scale(0.91)"/>
+<use href="#lfM" transform="translate(581 235) rotate(-59) scale(0.70)"/>
+<use href="#lfL" transform="translate(417 154) rotate(-266) scale(1.01)"/>
+<use href="#lfH" transform="translate(575 124) rotate(-122) scale(0.76)"/>
+<use href="#lfB" transform="translate(479 252) rotate(48) scale(0.99)"/>
+<use href="#lfL" transform="translate(628 124) rotate(-112) scale(0.89)"/>
+<use href="#lfL" transform="translate(644 269) rotate(-34) scale(0.73)"/>
+<use href="#lfB" transform="translate(482 277) rotate(57) scale(0.74)"/>
+<use href="#lfL" transform="translate(429 136) rotate(-240) scale(1.00)"/>
+<use href="#lfL" transform="translate(558 284) rotate(-16) scale(0.70)"/>
+<use href="#lfB" transform="translate(580 146) rotate(-140) scale(0.75)"/>
+<use href="#lfB" transform="translate(631 134) rotate(-137) scale(1.00)"/>
+<use href="#lfL" transform="translate(406 201) rotate(95) scale(0.97)"/>
+<use href="#lfB" transform="translate(463 243) rotate(51) scale(0.92)"/>
+<use href="#lfB" transform="translate(555 291) rotate(9) scale(1.05)"/>
+<use href="#lfH" transform="translate(555 92) rotate(-167) scale(0.77)"/>
+<use href="#lfB" transform="translate(560 135) rotate(-126) scale(0.89)"/>
+<use href="#lfB" transform="translate(518 295) rotate(-109) scale(0.79)"/>
+<use href="#lfL" transform="translate(283 241) rotate(-230) scale(0.87)"/>
+<use href="#lfL" transform="translate(517 261) rotate(-84) scale(0.71)"/>
+<use href="#lfL" transform="translate(263 286) rotate(62) scale(0.97)"/>
+<use href="#lfB" transform="translate(408 233) rotate(-164) scale(0.77)"/>
+<use href="#lfL" transform="translate(333 357) rotate(66) scale(0.82)"/>
+<use href="#lfL" transform="translate(475 338) rotate(-39) scale(1.02)"/>
+<use href="#lfL" transform="translate(392 190) rotate(-174) scale(0.90)"/>
+<use href="#lfH" transform="translate(316 263) rotate(-247) scale(0.96)"/>
+<use href="#lfB" transform="translate(282 322) rotate(54) scale(0.71)"/>
+<use href="#lfH" transform="translate(424 380) rotate(-1) scale(1.06)"/>
+<use href="#lfB" transform="translate(463 273) rotate(-107) scale(0.82)"/>
+<use href="#lfL" transform="translate(289 232) rotate(-265) scale(0.85)"/>
+<use href="#lfL" transform="translate(488 236) rotate(-101) scale(0.98)"/>
+<use href="#lfB" transform="translate(523 263) rotate(-111) scale(0.94)"/>
+<use href="#lfL" transform="translate(449 201) rotate(-140) scale(0.81)"/>
+<use href="#lfL" transform="translate(382 378) rotate(-8) scale(0.75)"/>
+<use href="#lfB" transform="translate(458 292) rotate(-83) scale(0.99)"/>
+<use href="#lfL" transform="translate(258 276) rotate(-273) scale(1.09)"/>
+<use href="#lfB" transform="translate(408 210) rotate(-200) scale(0.74)"/>
+<use href="#lfH" transform="translate(278 311) rotate(67) scale(0.77)"/>
+<use href="#lfL" transform="translate(297 243) rotate(-231) scale(1.10)"/>
+<use href="#lfB" transform="translate(340 243) rotate(-242) scale(0.92)"/>
+<use href="#lfB" transform="translate(330 217) rotate(-204) scale(0.82)"/>
+<use href="#lfH" transform="translate(397 279) rotate(-147) scale(0.99)"/>
+<use href="#lfL" transform="translate(470 207) rotate(-130) scale(0.78)"/>
+<use href="#lfL" transform="translate(450 365) rotate(-52) scale(0.87)"/>
+<use href="#lfL" transform="translate(428 191) rotate(-188) scale(0.83)"/>
+<use href="#lfB" transform="translate(413 379) rotate(-36) scale(1.11)"/>
+<use href="#lfB" transform="translate(478 250) rotate(-132) scale(1.00)"/>
+<use href="#lfB" transform="translate(443 262) rotate(-109) scale(0.70)"/>
+<use href="#lfL" transform="translate(409 181) rotate(-164) scale(0.96)"/>
+<use href="#lfL" transform="translate(521 324) rotate(-78) scale(1.11)"/>
+<use href="#lfL" transform="translate(476 214) rotate(-150) scale(0.83)"/>
+<use href="#lfM" transform="translate(401 235) rotate(-195) scale(1.09)"/>
+<use href="#lfL" transform="translate(280 252) rotate(-277) scale(0.92)"/>
+<use href="#lfB" transform="translate(327 280) rotate(-249) scale(0.99)"/>
+<use href="#lfL" transform="translate(351 361) rotate(25) scale(0.80)"/>
+<use href="#lfB" transform="translate(500 226) rotate(-91) scale(0.92)"/>
+<use href="#lfH" transform="translate(327 274) rotate(-254) scale(1.04)"/>
+<use href="#lfL" transform="translate(504 234) rotate(-133) scale(0.93)"/>
+<use href="#lfL" transform="translate(362 214) rotate(-187) scale(0.97)"/>
+<use href="#lfL" transform="translate(321 217) rotate(-234) scale(0.96)"/>
+<use href="#lfB" transform="translate(421 327) rotate(-39) scale(0.78)"/>
+<use href="#lfL" transform="translate(328 193) rotate(-195) scale(0.91)"/>
+<use href="#lfB" transform="translate(282 234) rotate(-260) scale(1.10)"/>
+<use href="#lfL" transform="translate(296 271) rotate(-235) scale(0.80)"/>
+<use href="#lfM" transform="translate(427 341) rotate(-25) scale(0.83)"/>
+<use href="#lfB" transform="translate(490 245) rotate(-92) scale(0.90)"/>
+<use href="#lfB" transform="translate(464 222) rotate(-140) scale(0.83)"/>
+<use href="#lfB" transform="translate(426 184) rotate(-158) scale(0.97)"/>
+<use href="#lfB" transform="translate(311 306) rotate(86) scale(0.79)"/>
+<use href="#lfM" transform="translate(336 281) rotate(-294) scale(1.11)"/>
+<use href="#lfB" transform="translate(349 342) rotate(14) scale(1.01)"/>
+<use href="#lfL" transform="translate(296 338) rotate(41) scale(0.92)"/>
+<use href="#lfL" transform="translate(504 336) rotate(-56) scale(1.04)"/>
+<use href="#lfB" transform="translate(405 187) rotate(-166) scale(0.72)"/>
+<use href="#lfL" transform="translate(427 200) rotate(-173) scale(0.94)"/>
+<use href="#lfB" transform="translate(332 267) rotate(-261) scale(0.84)"/>
+<use href="#lfB" transform="translate(521 252) rotate(-84) scale(0.82)"/>
+<use href="#lfB" transform="translate(447 207) rotate(-171) scale(0.82)"/>
+<use href="#lfL" transform="translate(327 199) rotate(-201) scale(1.11)"/>
+<use href="#lfH" transform="translate(363 329) rotate(57) scale(0.77)"/>
+<use href="#lfM" transform="translate(395 256) rotate(-178) scale(1.11)"/>
+<use href="#lfH" transform="translate(262 291) rotate(95) scale(1.10)"/>
+<use href="#lfB" transform="translate(366 186) rotate(-213) scale(0.82)"/>
+<use href="#lfB" transform="translate(411 326) rotate(-31) scale(0.87)"/>
+<use href="#lfM" transform="translate(374 241) rotate(-218) scale(0.74)"/>
+<use href="#lfB" transform="translate(378 389) rotate(29) scale(0.80)"/>
+<use href="#lfH" transform="translate(309 291) rotate(115) scale(1.01)"/>
+<use href="#lfH" transform="translate(662 295) rotate(10) scale(1.10)"/>
+<use href="#lfL" transform="translate(562 346) rotate(82) scale(0.94)"/>
+<use href="#lfB" transform="translate(651 363) rotate(-1) scale(0.78)"/>
+<use href="#lfB" transform="translate(797 307) rotate(-59) scale(0.91)"/>
+<use href="#lfB" transform="translate(723 350) rotate(-11) scale(0.81)"/>
+<use href="#lfL" transform="translate(622 193) rotate(-208) scale(1.03)"/>
+<use href="#lfB" transform="translate(664 353) rotate(-9) scale(0.92)"/>
+<use href="#lfM" transform="translate(663 282) rotate(47) scale(0.87)"/>
+<use href="#lfM" transform="translate(682 280) rotate(-115) scale(0.78)"/>
+<use href="#lfL" transform="translate(751 357) rotate(-23) scale(0.97)"/>
+<use href="#lfL" transform="translate(706 377) rotate(-1) scale(0.75)"/>
+<use href="#lfB" transform="translate(613 336) rotate(36) scale(0.79)"/>
+<use href="#lfB" transform="translate(690 239) rotate(-176) scale(1.03)"/>
+<use href="#lfB" transform="translate(667 333) rotate(-8) scale(0.97)"/>
+<use href="#lfL" transform="translate(570 298) rotate(81) scale(1.05)"/>
+<use href="#lfB" transform="translate(573 272) rotate(-263) scale(1.12)"/>
+<use href="#lfB" transform="translate(620 343) rotate(16) scale(1.00)"/>
+<use href="#lfL" transform="translate(557 314) rotate(82) scale(0.78)"/>
+<use href="#lfB" transform="translate(610 249) rotate(-234) scale(0.86)"/>
+<use href="#lfL" transform="translate(782 326) rotate(-47) scale(0.93)"/>
+<use href="#lfH" transform="translate(761 278) rotate(-99) scale(0.94)"/>
+<use href="#lfL" transform="translate(707 211) rotate(-138) scale(1.03)"/>
+<use href="#lfH" transform="translate(723 205) rotate(-160) scale(0.99)"/>
+<use href="#lfM" transform="translate(698 267) rotate(-129) scale(0.89)"/>
+<use href="#lfL" transform="translate(689 195) rotate(-186) scale(0.99)"/>
+<use href="#lfB" transform="translate(716 253) rotate(-89) scale(0.94)"/>
+<use href="#lfM" transform="translate(615 231) rotate(-219) scale(0.96)"/>
+<use href="#lfL" transform="translate(562 230) rotate(-256) scale(0.97)"/>
+<use href="#lfB" transform="translate(538 322) rotate(71) scale(0.99)"/>
+<use href="#lfB" transform="translate(708 234) rotate(-146) scale(1.00)"/>
+<use href="#lfH" transform="translate(757 212) rotate(-97) scale(0.84)"/>
+<use href="#lfM" transform="translate(731 317) rotate(-79) scale(0.89)"/>
+<use href="#lfL" transform="translate(698 209) rotate(-151) scale(0.76)"/>
+<use href="#lfH" transform="translate(748 271) rotate(-79) scale(0.97)"/>
+<use href="#lfB" transform="translate(765 224) rotate(-114) scale(0.90)"/>
+<use href="#lfH" transform="translate(613 296) rotate(91) scale(0.89)"/>
+<use href="#lfM" transform="translate(656 244) rotate(-207) scale(0.78)"/>
+<use href="#lfB" transform="translate(720 310) rotate(-71) scale(0.72)"/>
+<use href="#lfL" transform="translate(692 371) rotate(-46) scale(1.00)"/>
+<use href="#lfL" transform="translate(575 210) rotate(-204) scale(0.76)"/>
+<use href="#lfB" transform="translate(790 297) rotate(-60) scale(1.04)"/>
+<use href="#lfL" transform="translate(707 369) rotate(-1) scale(1.04)"/>
+<use href="#lfL" transform="translate(753 359) rotate(-67) scale(0.86)"/>
+<use href="#lfL" transform="translate(532 276) rotate(-283) scale(0.94)"/>
+<use href="#lfL" transform="translate(769 260) rotate(-109) scale(0.94)"/>
+<use href="#lfH" transform="translate(655 287) rotate(74) scale(0.78)"/>
+<use href="#lfB" transform="translate(642 226) rotate(-174) scale(0.76)"/>
+<use href="#lfL" transform="translate(669 379) rotate(-9) scale(0.92)"/>
+<use href="#lfL" transform="translate(589 339) rotate(64) scale(0.90)"/>
+<use href="#lfB" transform="translate(747 325) rotate(-72) scale(1.08)"/>
+<use href="#lfL" transform="translate(553 306) rotate(51) scale(0.71)"/>
+<use href="#lfB" transform="translate(762 354) rotate(-40) scale(0.98)"/>
+<use href="#lfL" transform="translate(792 247) rotate(-110) scale(0.88)"/>
+<use href="#lfB" transform="translate(724 308) rotate(-51) scale(0.71)"/>
+<use href="#lfB" transform="translate(725 302) rotate(-44) scale(0.80)"/>
+<use href="#lfM" transform="translate(574 275) rotate(-292) scale(0.88)"/>
+<use href="#lfB" transform="translate(757 324) rotate(-94) scale(1.02)"/>
+<use href="#lfL" transform="translate(626 366) rotate(50) scale(0.70)"/>
+<use href="#lfB" transform="translate(689 227) rotate(-158) scale(0.79)"/>
+<use href="#lfL" transform="translate(745 204) rotate(-108) scale(1.08)"/>
+<use href="#lfB" transform="translate(624 227) rotate(-210) scale(0.94)"/>
+<use href="#lfM" transform="translate(301 379) rotate(41) scale(0.74)"/>
+<use href="#lfL" transform="translate(251 397) rotate(56) scale(0.96)"/>
+<use href="#lfM" transform="translate(299 368) rotate(54) scale(0.94)"/>
+<use href="#lfL" transform="translate(384 312) rotate(-107) scale(0.80)"/>
+<use href="#lfH" transform="translate(350 295) rotate(-156) scale(1.12)"/>
+<use href="#lfB" transform="translate(363 370) rotate(-49) scale(0.73)"/>
+<use href="#lfB" transform="translate(228 369) rotate(68) scale(0.78)"/>
+<use href="#lfL" transform="translate(262 398) rotate(69) scale(0.89)"/>
+<use href="#lfB" transform="translate(388 370) rotate(-63) scale(0.91)"/>
+<use href="#lfB" transform="translate(332 413) rotate(-18) scale(1.03)"/>
+<use href="#lfB" transform="translate(282 343) rotate(-260) scale(1.07)"/>
+<use href="#lfB" transform="translate(310 420) rotate(-21) scale(1.10)"/>
+<use href="#lfB" transform="translate(302 405) rotate(36) scale(0.76)"/>
+<use href="#lfL" transform="translate(244 375) rotate(90) scale(1.08)"/>
+<use href="#lfB" transform="translate(255 354) rotate(-258) scale(1.10)"/>
+<use href="#lfM" transform="translate(328 312) rotate(-195) scale(0.76)"/>
+<use href="#lfM" transform="translate(358 349) rotate(-110) scale(0.94)"/>
+<use href="#lfB" transform="translate(264 307) rotate(-250) scale(1.08)"/>
+<use href="#lfB" transform="translate(334 313) rotate(-154) scale(1.10)"/>
+<use href="#lfL" transform="translate(241 385) rotate(40) scale(0.81)"/>
+<use href="#lfB" transform="translate(400 367) rotate(-62) scale(0.75)"/>
+<use href="#lfM" transform="translate(348 390) rotate(-58) scale(0.98)"/>
+<use href="#lfM" transform="translate(264 369) rotate(83) scale(0.76)"/>
+<use href="#lfB" transform="translate(367 379) rotate(-66) scale(0.75)"/>
+<use href="#lfH" transform="translate(237 340) rotate(-276) scale(1.03)"/>
+<use href="#lfB" transform="translate(379 319) rotate(-96) scale(0.78)"/>
+<use href="#lfB" transform="translate(246 377) rotate(81) scale(0.73)"/>
+<use href="#lfL" transform="translate(404 334) rotate(-96) scale(0.88)"/>
+<use href="#lfH" transform="translate(252 397) rotate(85) scale(0.80)"/>
+<use href="#lfL" transform="translate(263 312) rotate(-247) scale(0.95)"/>
+<use href="#lfL" transform="translate(345 412) rotate(-44) scale(0.89)"/>
+<use href="#lfL" transform="translate(227 363) rotate(110) scale(0.92)"/>
+<use href="#lfB" transform="translate(709 390) rotate(42) scale(1.10)"/>
+<use href="#lfL" transform="translate(732 409) rotate(-13) scale(0.77)"/>
+<use href="#lfB" transform="translate(795 374) rotate(-54) scale(1.00)"/>
+<use href="#lfL" transform="translate(768 291) rotate(-178) scale(0.70)"/>
+<use href="#lfB" transform="translate(742 381) rotate(-16) scale(0.77)"/>
+<use href="#lfL" transform="translate(733 280) rotate(-160) scale(0.83)"/>
+<use href="#lfL" transform="translate(820 386) rotate(-67) scale(1.00)"/>
+<use href="#lfL" transform="translate(782 406) rotate(-48) scale(0.74)"/>
+<use href="#lfB" transform="translate(794 349) rotate(-62) scale(1.10)"/>
+<use href="#lfB" transform="translate(716 395) rotate(14) scale(1.00)"/>
+<use href="#lfM" transform="translate(750 366) rotate(-8) scale(0.73)"/>
+<use href="#lfB" transform="translate(674 364) rotate(61) scale(1.02)"/>
+<use href="#lfM" transform="translate(745 368) rotate(-27) scale(0.87)"/>
+<use href="#lfB" transform="translate(742 409) rotate(0) scale(1.01)"/>
+<use href="#lfL" transform="translate(661 321) rotate(-258) scale(0.91)"/>
+<use href="#lfB" transform="translate(740 379) rotate(-14) scale(0.82)"/>
+<use href="#lfH" transform="translate(690 291) rotate(-213) scale(1.04)"/>
+<use href="#lfB" transform="translate(779 304) rotate(-143) scale(0.85)"/>
+<use href="#lfM" transform="translate(721 373) rotate(69) scale(0.74)"/>
+<use href="#lfB" transform="translate(711 294) rotate(-192) scale(1.02)"/>
+<use href="#lfB" transform="translate(787 306) rotate(-147) scale(0.95)"/>
+<use href="#lfB" transform="translate(786 367) rotate(-54) scale(0.84)"/>
+<use href="#lfB" transform="translate(713 287) rotate(-216) scale(0.73)"/>
+<use href="#lfB" transform="translate(729 381) rotate(42) scale(1.11)"/>
+<use href="#lfL" transform="translate(823 368) rotate(-84) scale(1.01)"/>
+<use href="#lfB" transform="translate(721 412) rotate(6) scale(0.79)"/>
+<use href="#lfL" transform="translate(803 398) rotate(-51) scale(0.85)"/>
+<use href="#lfB" transform="translate(728 410) rotate(-1) scale(0.99)"/>
+<use href="#lfM" transform="translate(720 356) rotate(96) scale(0.84)"/>
+<use href="#lfL" transform="translate(657 361) rotate(77) scale(0.84)"/>
+<use href="#lfL" transform="translate(716 284) rotate(-205) scale(0.76)"/>
+<use href="#lfM" transform="translate(803 335) rotate(-95) scale(1.11)"/>
+<use href="#lfM" transform="translate(758 325) rotate(-120) scale(0.82)"/>
+<use href="#lfL" transform="translate(815 373) rotate(-45) scale(0.89)"/>
+<use href="#lfL" transform="translate(371 354) rotate(72) scale(1.02)"/>
+<use href="#lfM" transform="translate(578 376) rotate(-15) scale(1.04)"/>
+<use href="#lfH" transform="translate(535 330) rotate(-36) scale(0.72)"/>
+<use href="#lfM" transform="translate(563 287) rotate(-145) scale(0.92)"/>
+<use href="#lfB" transform="translate(372 353) rotate(76) scale(0.76)"/>
+<use href="#lfB" transform="translate(526 365) rotate(24) scale(0.92)"/>
+<use href="#lfL" transform="translate(593 378) rotate(-63) scale(0.73)"/>
+<use href="#lfL" transform="translate(364 303) rotate(-293) scale(0.99)"/>
+<use href="#lfB" transform="translate(684 261) rotate(-92) scale(1.01)"/>
+<use href="#lfL" transform="translate(402 304) rotate(-290) scale(1.06)"/>
+<use href="#lfL" transform="translate(641 359) rotate(-47) scale(1.07)"/>
+<use href="#lfM" transform="translate(533 275) rotate(-153) scale(0.86)"/>
+<use href="#lfB" transform="translate(411 353) rotate(43) scale(0.99)"/>
+<use href="#lfB" transform="translate(542 359) rotate(-20) scale(0.97)"/>
+<use href="#lfB" transform="translate(557 359) rotate(-32) scale(1.09)"/>
+<use href="#lfB" transform="translate(404 289) rotate(-290) scale(0.80)"/>
+<use href="#lfL" transform="translate(695 292) rotate(-76) scale(0.73)"/>
+<use href="#lfH" transform="translate(531 233) rotate(-205) scale(0.90)"/>
+<use href="#lfB" transform="translate(442 325) rotate(64) scale(1.08)"/>
+<use href="#lfM" transform="translate(582 305) rotate(-97) scale(1.09)"/>
+<use href="#lfM" transform="translate(583 297) rotate(-125) scale(1.02)"/>
+<use href="#lfL" transform="translate(373 292) rotate(-285) scale(0.90)"/>
+<use href="#lfL" transform="translate(603 384) rotate(-39) scale(1.01)"/>
+<use href="#lfL" transform="translate(377 351) rotate(90) scale(0.91)"/>
+<use href="#lfB" transform="translate(540 223) rotate(-200) scale(0.91)"/>
+<use href="#lfL" transform="translate(672 262) rotate(-90) scale(0.79)"/>
+<use href="#lfB" transform="translate(467 371) rotate(19) scale(1.08)"/>
+<use href="#lfB" transform="translate(469 246) rotate(-199) scale(0.72)"/>
+<use href="#lfM" transform="translate(540 290) rotate(-171) scale(0.74)"/>
+<use href="#lfM" transform="translate(599 291) rotate(-96) scale(1.00)"/>
+<use href="#lfL" transform="translate(470 226) rotate(-192) scale(0.71)"/>
+<use href="#lfM" transform="translate(587 344) rotate(-41) scale(1.03)"/>
+<use href="#lfL" transform="translate(627 378) rotate(-57) scale(0.76)"/>
+<use href="#lfH" transform="translate(531 350) rotate(22) scale(1.04)"/>
+<use href="#lfB" transform="translate(498 258) rotate(-239) scale(0.84)"/>
+<use href="#lfL" transform="translate(519 225) rotate(-161) scale(1.05)"/>
+<use href="#lfB" transform="translate(615 358) rotate(-73) scale(1.01)"/>
+<use href="#lfL" transform="translate(404 313) rotate(112) scale(0.86)"/>
+<use href="#lfL" transform="translate(374 347) rotate(90) scale(0.71)"/>
+<use href="#lfB" transform="translate(380 356) rotate(94) scale(0.89)"/>
+<use href="#lfH" transform="translate(519 254) rotate(-187) scale(1.02)"/>
+<use href="#lfL" transform="translate(640 270) rotate(-108) scale(0.76)"/>
+<use href="#lfH" transform="translate(582 402) rotate(-30) scale(0.84)"/>
+<use href="#lfL" transform="translate(641 241) rotate(-148) scale(0.81)"/>
+<use href="#lfL" transform="translate(660 289) rotate(-83) scale(1.08)"/>
+<use href="#lfL" transform="translate(491 215) rotate(-224) scale(0.95)"/>
+<use href="#lfM" transform="translate(442 344) rotate(96) scale(0.92)"/>
+<use href="#lfL" transform="translate(519 224) rotate(-162) scale(0.87)"/>
+<use href="#lfM" transform="translate(582 311) rotate(-105) scale(0.74)"/>
+<use href="#lfL" transform="translate(390 107) rotate(-249) scale(0.97)"/>
+<use href="#lfB" transform="translate(448 158) rotate(34) scale(0.85)"/>
+<use href="#lfB" transform="translate(453 96) rotate(-203) scale(1.11)"/>
+<use href="#lfL" transform="translate(500 156) rotate(-18) scale(0.82)"/>
+<use href="#lfB" transform="translate(486 157) rotate(-59) scale(0.78)"/>
+<use href="#lfB" transform="translate(530 108) rotate(-111) scale(0.79)"/>
+<use href="#lfB" transform="translate(423 104) rotate(-270) scale(1.03)"/>
+<use href="#lfB" transform="translate(411 138) rotate(101) scale(0.95)"/>
+<use href="#lfH" transform="translate(552 122) rotate(-70) scale(1.09)"/>
+<use href="#lfL" transform="translate(534 148) rotate(-64) scale(0.86)"/>
+<use href="#lfB" transform="translate(520 116) rotate(-106) scale(0.92)"/>
+<use href="#lfL" transform="translate(521 92) rotate(-103) scale(0.76)"/>
+<use href="#lfH" transform="translate(472 99) rotate(-143) scale(0.85)"/>
+<use href="#lfL" transform="translate(505 164) rotate(-56) scale(0.90)"/>
+<use href="#lfB" transform="translate(477 146) rotate(-9) scale(0.76)"/>
+<use href="#lfL" transform="translate(528 146) rotate(-62) scale(0.80)"/>
+<use href="#lfL" transform="translate(404 113) rotate(-277) scale(0.75)"/>
+<use href="#lfM" transform="translate(478 134) rotate(-56) scale(0.72)"/>
+<use href="#lfL" transform="translate(449 82) rotate(-194) scale(1.08)"/>
+<use href="#lfH" transform="translate(467 168) rotate(10) scale(1.07)"/>
+<use href="#lfB" transform="translate(405 116) rotate(-248) scale(1.11)"/>
+<use href="#lfL" transform="translate(405 113) rotate(-278) scale(1.07)"/>
+<use href="#lfH" transform="translate(476 77) rotate(-196) scale(1.06)"/>
+<use href="#lfB" transform="translate(420 164) rotate(31) scale(0.77)"/>
+<use href="#lfL" transform="translate(537 133) rotate(-242) scale(0.87)"/>
+<use href="#lfB" transform="translate(561 153) rotate(89) scale(0.95)"/>
+<use href="#lfL" transform="translate(649 157) rotate(-75) scale(0.72)"/>
+<use href="#lfL" transform="translate(551 108) rotate(-228) scale(0.85)"/>
+<use href="#lfH" transform="translate(605 122) rotate(-160) scale(1.01)"/>
+<use href="#lfL" transform="translate(662 148) rotate(-77) scale(1.06)"/>
+<use href="#lfB" transform="translate(563 138) rotate(105) scale(0.79)"/>
+<use href="#lfL" transform="translate(546 159) rotate(41) scale(0.94)"/>
+<use href="#lfL" transform="translate(546 138) rotate(89) scale(0.91)"/>
+<use href="#lfB" transform="translate(605 104) rotate(-192) scale(0.86)"/>
+<use href="#lfB" transform="translate(625 153) rotate(-58) scale(1.08)"/>
+<use href="#lfM" transform="translate(555 138) rotate(98) scale(0.78)"/>
+<use href="#lfM" transform="translate(549 132) rotate(-260) scale(1.00)"/>
+<use href="#lfB" transform="translate(636 118) rotate(-137) scale(0.94)"/>
+<use href="#lfL" transform="translate(562 164) rotate(49) scale(0.90)"/>
+<use href="#lfM" transform="translate(605 120) rotate(-148) scale(0.94)"/>
+<use href="#lfB" transform="translate(656 165) rotate(-41) scale(0.70)"/>
+<use href="#lfB" transform="translate(583 151) rotate(34) scale(0.87)"/>
+<use href="#lfB" transform="translate(628 116) rotate(-128) scale(1.06)"/>
+<use href="#lfM" transform="translate(638 119) rotate(-91) scale(0.73)"/>
+<use href="#lfB" transform="translate(554 141) rotate(83) scale(1.08)"/>
+<use href="#lfL" transform="translate(595 171) rotate(23) scale(1.08)"/>
+<use href="#lfB" transform="translate(621 164) rotate(-40) scale(0.97)"/>
 
   <!-- 果實 -->
-  <g>
-    <line x1="400" y1="368" x2="400" y2="382" stroke="#6b4f36" stroke-width="2.5"/>
-    <circle cx="400" cy="394" r="13" fill="#a8402f"/><circle cx="396" cy="390" r="4" fill="#d98a75"/>
-    <line x1="438" y1="412" x2="438" y2="426" stroke="#6b4f36" stroke-width="2.5"/>
-    <circle cx="438" cy="438" r="13" fill="#a8402f"/><circle cx="434" cy="434" r="4" fill="#d98a75"/>
-    <line x1="612" y1="408" x2="612" y2="422" stroke="#6b4f36" stroke-width="2.5"/>
-    <circle cx="612" cy="434" r="13" fill="#a8402f"/><circle cx="608" cy="430" r="4" fill="#d98a75"/>
-    <line x1="652" y1="376" x2="652" y2="390" stroke="#6b4f36" stroke-width="2.5"/>
-    <circle cx="652" cy="402" r="13" fill="#a8402f"/><circle cx="648" cy="398" r="4" fill="#d98a75"/>
-    <line x1="722" y1="336" x2="722" y2="350" stroke="#6b4f36" stroke-width="2.5"/>
-    <circle cx="722" cy="362" r="13" fill="#a8402f"/><circle cx="718" cy="358" r="4" fill="#d98a75"/>
-  </g>
+  <line x1="400" y1="368" x2="400" y2="382" stroke="#5d442c" stroke-width="2.5"/><circle cx="400" cy="394" r="13" fill="url(#fruitG)"/><ellipse cx="396" cy="389" rx="4.5" ry="3.5" fill="#ffffff" opacity=".45"/><line x1="438" y1="412" x2="438" y2="426" stroke="#5d442c" stroke-width="2.5"/><circle cx="438" cy="438" r="13" fill="url(#fruitG)"/><ellipse cx="434" cy="433" rx="4.5" ry="3.5" fill="#ffffff" opacity=".45"/><line x1="612" y1="408" x2="612" y2="422" stroke="#5d442c" stroke-width="2.5"/><circle cx="612" cy="434" r="13" fill="url(#fruitG)"/><ellipse cx="608" cy="429" rx="4.5" ry="3.5" fill="#ffffff" opacity=".45"/><line x1="652" y1="376" x2="652" y2="390" stroke="#5d442c" stroke-width="2.5"/><circle cx="652" cy="402" r="13" fill="url(#fruitG)"/><ellipse cx="648" cy="397" rx="4.5" ry="3.5" fill="#ffffff" opacity=".45"/><line x1="722" y1="336" x2="722" y2="350" stroke="#5d442c" stroke-width="2.5"/><circle cx="722" cy="362" r="13" fill="url(#fruitG)"/><ellipse cx="718" cy="357" rx="4.5" ry="3.5" fill="#ffffff" opacity=".45"/>
 
   <!-- 落果到小樹 -->
-  <path d="M 728 372 C 812 452 866 520 898 578" stroke="#a8402f" stroke-width="2" fill="none" stroke-dasharray="2 7" opacity=".65"/>
-  <circle cx="856" cy="500" r="8" fill="#a8402f" opacity=".85"/>
+  <path d="M 728 372 C 812 452 866 520 898 578" stroke="#b8412c" stroke-width="2" fill="none" stroke-dasharray="2 7" opacity=".65"/>
+  <circle cx="856" cy="500" r="8" fill="url(#fruitG)"/>
 
   <!-- 小樹 -->
-  <ellipse cx="912" cy="678" rx="64" ry="10" fill="#c8ddd0"/>
-  <path d="M 912 674 C 911 646 909 624 906 602" stroke="#8a6a44" stroke-width="10" fill="none" stroke-linecap="round"/>
-  <path d="M 909 636 C 897 626 887 620 877 616" stroke="#8a6a44" stroke-width="5" fill="none" stroke-linecap="round"/>
-  <use href="#bodhi" fill="#43ab8b" transform="translate(918 589) rotate(-38) scale(0.44)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(895 586) rotate(45) scale(0.44)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(884 580) rotate(90) scale(0.44)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(891 548) rotate(-222) scale(0.44)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(894 603) rotate(36) scale(0.44)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(899 589) rotate(44) scale(0.44)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(890 556) rotate(-217) scale(0.44)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(938 558) rotate(-95) scale(0.44)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(921 572) rotate(-102) scale(0.44)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(899 593) rotate(-0) scale(0.44)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(893 548) rotate(-200) scale(0.44)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(929 593) rotate(-52) scale(0.44)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(884 585) rotate(62) scale(0.44)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(935 565) rotate(-117) scale(0.44)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(903 568) rotate(-186) scale(0.44)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(865 574) rotate(95) scale(0.44)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(910 548) rotate(-171) scale(0.44)"/>
-<use href="#bodhi" fill="#27775f" transform="translate(872 580) rotate(84) scale(0.44)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(890 545) rotate(-218) scale(0.44)"/>
-<use href="#bodhi" fill="#1e5c4d" transform="translate(911 576) rotate(-57) scale(0.44)"/>
-<use href="#bodhi" fill="#339a7c" transform="translate(886 565) rotate(-237) scale(0.44)"/>
-<use href="#bodhi" fill="#43ab8b" transform="translate(894 589) rotate(57) scale(0.44)"/>
-  <circle cx="932" cy="596" r="6" fill="#a8402f"/><circle cx="930" cy="594" r="2" fill="#d98a75"/>
+  <ellipse cx="912" cy="680" rx="66" ry="11" fill="#9db8ab" opacity=".5" filter="url(#soft)"/>
+  <path d="M 912 676 C 911 648 909 626 906 604" stroke="url(#limbG)" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M 909 636 C 897 626 887 620 877 616" stroke="url(#limbG)" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <use href="#lfL" transform="translate(917 581) rotate(-49) scale(0.46)"/>
+<use href="#lfD" transform="translate(898 582) rotate(46) scale(0.46)"/>
+<use href="#lfM" transform="translate(870 580) rotate(71) scale(0.46)"/>
+<use href="#lfM" transform="translate(880 585) rotate(64) scale(0.46)"/>
+<use href="#lfL" transform="translate(912 558) rotate(-134) scale(0.46)"/>
+<use href="#lfB" transform="translate(915 589) rotate(-46) scale(0.46)"/>
+<use href="#lfL" transform="translate(874 569) rotate(-254) scale(0.46)"/>
+<use href="#lfB" transform="translate(879 586) rotate(89) scale(0.46)"/>
+<use href="#lfM" transform="translate(933 553) rotate(-144) scale(0.46)"/>
+<use href="#lfB" transform="translate(925 590) rotate(-63) scale(0.46)"/>
+<use href="#lfM" transform="translate(924 572) rotate(-120) scale(0.46)"/>
+<use href="#lfB" transform="translate(926 583) rotate(-62) scale(0.46)"/>
+<use href="#lfB" transform="translate(932 579) rotate(-72) scale(0.46)"/>
+<use href="#lfM" transform="translate(887 569) rotate(-274) scale(0.46)"/>
+<use href="#lfB" transform="translate(889 574) rotate(80) scale(0.46)"/>
+<use href="#lfD" transform="translate(912 574) rotate(-71) scale(0.46)"/>
+<use href="#lfB" transform="translate(892 563) rotate(-211) scale(0.46)"/>
+<use href="#lfL" transform="translate(921 579) rotate(-61) scale(0.46)"/>
+<use href="#lfB" transform="translate(918 563) rotate(-137) scale(0.46)"/>
+<use href="#lfL" transform="translate(878 594) rotate(42) scale(0.46)"/>
+<use href="#lfM" transform="translate(919 547) rotate(-143) scale(0.46)"/>
+<use href="#lfB" transform="translate(929 578) rotate(-101) scale(0.46)"/>
+<use href="#lfL" transform="translate(891 547) rotate(-230) scale(0.46)"/>
+<use href="#lfB" transform="translate(878 565) rotate(-270) scale(0.46)"/>
+  <circle cx="932" cy="598" r="6" fill="url(#fruitG)"/>
 
-  <!-- 草與小花 -->
-  <path d="M 207 654 q 2 -13 5 -16" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 196 680 q 2 -12 5 -15" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 368 687 q 2 -11 5 -14" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 473 666 q 2 -10 5 -13" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 850 662 q 2 -14 5 -17" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 777 671 q 2 -10 5 -13" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 822 682 q 2 -14 5 -17" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 217 667 q 2 -11 5 -14" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 459 675 q 2 -14 5 -17" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 826 670 q 2 -15 5 -18" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 582 667 q 2 -8 5 -11" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 223 657 q 2 -15 5 -18" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 603 657 q 2 -15 5 -18" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 727 673 q 2 -15 5 -18" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 353 682 q 2 -8 5 -11" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 202 652 q 2 -15 5 -18" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 845 658 q 2 -10 5 -13" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 811 672 q 2 -8 5 -11" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 495 675 q 2 -14 5 -17" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 877 670 q 2 -13 5 -16" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 336 683 q 2 -10 5 -13" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 782 666 q 2 -9 5 -12" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 566 660 q 2 -12 5 -15" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 450 665 q 2 -13 5 -16" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 686 675 q 2 -9 5 -12" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<path d="M 337 680 q 2 -15 5 -18" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
-<circle cx="768" cy="686" r="3.2" fill="#c96a55"/>
-<circle cx="278" cy="665" r="3.2" fill="#d98a75"/>
-<circle cx="743" cy="679" r="3.2" fill="#c96a55"/>
-<circle cx="467" cy="668" r="3.2" fill="#d98a75"/>
-<circle cx="367" cy="681" r="3.2" fill="#c96a55"/>
-<circle cx="374" cy="662" r="3.2" fill="#c96a55"/>
-<circle cx="484" cy="670" r="3.2" fill="#e7c46a"/>
-<circle cx="337" cy="656" r="3.2" fill="#e7c46a"/>
-<circle cx="604" cy="658" r="3.2" fill="#c96a55"/>
-<circle cx="508" cy="684" r="3.2" fill="#e7c46a"/>
+  <!-- 苔丘草花 -->
+  <path d="M 499 652 q 2 -8 5 -11" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 359 656 q 2 -11 5 -14" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 634 651 q 2 -8 5 -11" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 538 645 q 2 -12 5 -15" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 422 662 q 2 -11 5 -14" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 452 655 q 2 -7 5 -10" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 443 659 q 2 -7 5 -10" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 552 665 q 2 -13 5 -16" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 633 662 q 2 -9 5 -12" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 476 644 q 2 -7 5 -10" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 372 638 q 2 -8 5 -11" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 466 648 q 2 -10 5 -13" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 657 648 q 2 -10 5 -13" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 645 650 q 2 -11 5 -14" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 708 665 q 2 -9 5 -12" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 659 666 q 2 -8 5 -11" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 395 659 q 2 -11 5 -14" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 418 667 q 2 -10 5 -13" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 713 652 q 2 -11 5 -14" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 392 662 q 2 -10 5 -13" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 423 650 q 2 -11 5 -14" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 677 660 q 2 -13 5 -16" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 629 648 q 2 -8 5 -11" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 685 650 q 2 -13 5 -16" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 596 661 q 2 -11 5 -14" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 416 652 q 2 -11 5 -14" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 382 648 q 2 -12 5 -15" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 422 636 q 2 -8 5 -11" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 505 645 q 2 -10 5 -13" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<path d="M 443 650 q 2 -13 5 -16" stroke="#4f9a68" stroke-width="2" fill="none" opacity=".85"/>
+<circle cx="649" cy="661" r="3" fill="#f0ad76"/><circle cx="649" cy="660" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="606" cy="643" r="3" fill="#d95f6d"/><circle cx="606" cy="642" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="424" cy="650" r="3" fill="#e7c46a"/><circle cx="424" cy="649" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="391" cy="649" r="3" fill="#e7c46a"/><circle cx="391" cy="648" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="592" cy="650" r="3" fill="#f0ad76"/><circle cx="592" cy="649" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="505" cy="652" r="3" fill="#e7c46a"/><circle cx="505" cy="651" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="416" cy="645" r="3" fill="#e2795f"/><circle cx="416" cy="644" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="452" cy="665" r="3" fill="#f0ad76"/><circle cx="452" cy="664" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="637" cy="666" r="3" fill="#f0ad76"/><circle cx="637" cy="665" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="637" cy="642" r="3" fill="#d95f6d"/><circle cx="637" cy="641" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="424" cy="664" r="3" fill="#f0ad76"/><circle cx="424" cy="663" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="443" cy="640" r="3" fill="#e7c46a"/><circle cx="443" cy="639" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="434" cy="664" r="3" fill="#e2795f"/><circle cx="434" cy="663" r="1.2" fill="#fff" opacity=".5"/>
+<circle cx="518" cy="647" r="3" fill="#d95f6d"/><circle cx="518" cy="646" r="1.2" fill="#fff" opacity=".5"/>
 
   <!-- 標籤 -->
   <line class="lead" x1="255" y1="420" x2="386" y2="396"/>
