@@ -59,110 +59,590 @@
   </div>
 
   <figure class="tree">
-    <svg viewBox="0 0 1100 860" role="img" aria-label="一棵枝繁葉茂的大樹：兩條根是仙佛的話與道場的事，樹幹是收得好，枝葉是傳出去，紅色果實是人受益，右邊一棵由落果長成的小樹是帶新人">
-      <defs>
-        <linearGradient id="trunkG" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#96754f"/><stop offset="1" stop-color="#7d5f43"/>
-        </linearGradient>
-      </defs>
+    <svg viewBox="0 0 1100 880" role="img" aria-label="一棵盛開的菩提樹，背後有太陽光暈：兩條根是仙佛的話與道場的事，樹幹是收得好，枝葉是傳出去，紅色果實是人受益，右邊由落果長成的小樹是帶新人">
+  <defs>
+    <path id="bodhi" d="M 0 0 C -10 3 -15 11 -13 19 C -11 27 -5 30 -2 33 L 0 44 L 2 33 C 5 30 11 27 13 19 C 15 11 10 3 0 0 Z"/>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f8ecc9" stop-opacity="0.95"/>
+      <stop offset="0.55" stop-color="#f6e9c4" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f3faf7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="trunkG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b08d5f"/><stop offset="1" stop-color="#8a6a44"/>
+    </linearGradient>
+  </defs>
 
-      <!-- 地面 -->
-      <ellipse cx="550" cy="712" rx="530" ry="54" fill="#d9e8df" />
-      <ellipse cx="510" cy="730" rx="470" ry="48" fill="#e3f0e8" />
-      <ellipse cx="522" cy="678" rx="140" ry="16" fill="#cfe2d6" />
+  <!-- 光暈與光芒 -->
+  <circle cx="530" cy="300" r="430" fill="url(#halo)"/>
+  <path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(15 530 300)"/>
+<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(45 530 300)"/>
+<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(75 530 300)"/>
+<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(105 530 300)"/>
+<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(135 530 300)"/>
+<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(165 530 300)"/>
+<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(195 530 300)"/>
+<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(225 530 300)"/>
+<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(255 530 300)"/>
+<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(285 530 300)"/>
+<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(315 530 300)"/>
+<path d="M 530 300 L 505 -180 L 555 -180 Z" fill="#f0e0b2" opacity="0.16" transform="rotate(345 530 300)"/>
+  <circle cx="530" cy="300" r="310" fill="none" stroke="#eeddb0" stroke-width="2" opacity=".4"/>
+  <circle cx="530" cy="300" r="385" fill="none" stroke="#eeddb0" stroke-width="1.5" opacity=".28"/>
 
-      <!-- 根 -->
-      <path d="M 495 650 C 430 690 330 712 235 722" stroke="#7d5f43" stroke-width="22" fill="none" stroke-linecap="round"/>
-      <path d="M 545 650 C 615 692 705 712 800 722" stroke="#7d5f43" stroke-width="22" fill="none" stroke-linecap="round"/>
-      <path d="M 505 655 C 475 695 435 715 395 727" stroke="#7d5f43" stroke-width="13" fill="none" stroke-linecap="round"/>
-      <path d="M 535 655 C 568 696 612 716 652 727" stroke="#7d5f43" stroke-width="13" fill="none" stroke-linecap="round"/>
+  <!-- 地面 -->
+  <ellipse cx="550" cy="702" rx="520" ry="52" fill="#d9e8df"/>
+  <ellipse cx="510" cy="720" rx="460" ry="46" fill="#e3f0e8"/>
+  <ellipse cx="530" cy="668" rx="150" ry="16" fill="#c8ddd0"/>
 
-      <!-- 樹幹 -->
-      <path d="M 468 664 C 483 570 492 486 500 424 C 505 400 505 380 504 356 L 548 356 C 547 380 548 400 553 426 C 562 488 572 572 588 664 Z" fill="url(#trunkG)"/>
-      <path d="M 548 356 C 547 380 548 400 553 426 C 562 488 572 572 588 664 L 556 664 C 546 572 540 488 536 426 C 533 400 532 380 532 356 Z" fill="#6b4f36" opacity=".4"/>
+  <!-- 根 -->
+  <path d="M 500 645 C 430 685 330 706 240 716" stroke="#8a6a44" stroke-width="22" fill="none" stroke-linecap="round"/>
+  <path d="M 560 645 C 625 687 710 707 805 716" stroke="#8a6a44" stroke-width="22" fill="none" stroke-linecap="round"/>
+  <path d="M 515 652 C 485 692 445 712 405 722" stroke="#8a6a44" stroke-width="13" fill="none" stroke-linecap="round"/>
+  <path d="M 545 652 C 578 693 622 713 662 722" stroke="#8a6a44" stroke-width="13" fill="none" stroke-linecap="round"/>
 
-      <!-- 大枝 -->
-      <path d="M 505 435 C 472 396 432 362 388 336" stroke="#7d5f43" stroke-width="17" fill="none" stroke-linecap="round"/>
-      <path d="M 545 430 C 580 392 622 358 668 330" stroke="#7d5f43" stroke-width="17" fill="none" stroke-linecap="round"/>
-      <path d="M 524 420 C 526 386 526 356 524 326" stroke="#7d5f43" stroke-width="12" fill="none" stroke-linecap="round"/>
-      <path d="M 470 400 C 452 378 436 362 418 350" stroke="#7d5f43" stroke-width="9" fill="none" stroke-linecap="round"/>
-      <path d="M 590 398 C 606 380 622 366 640 356" stroke="#7d5f43" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <!-- 樹身：老幹與枝 -->
+  <path d="M 488 660 C 496 590 502 530 508 480 C 512 450 514 430 514 410 L 546 410 C 546 432 549 452 554 482 C 562 534 570 592 580 660 Z" fill="url(#trunkG)"/>
+  <path d="M 546 410 C 546 432 549 452 554 482 C 562 534 570 592 580 660 L 552 660 C 546 592 542 534 538 482 C 535 452 534 432 534 410 Z" fill="#75593a" opacity=".45"/>
+  <path d="M 512 470 C 478 430 448 402 408 372 C 388 356 372 342 356 330" stroke="#a3805a" stroke-width="20" fill="none" stroke-linecap="round"/>
+  <path d="M 408 372 C 392 350 380 330 372 308" stroke="#a3805a" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <path d="M 548 462 C 584 424 616 396 658 368 C 678 354 694 342 712 330" stroke="#a3805a" stroke-width="20" fill="none" stroke-linecap="round"/>
+  <path d="M 658 368 C 674 346 684 326 690 304" stroke="#a3805a" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <path d="M 528 440 C 528 400 526 360 522 318 C 520 296 518 278 514 258" stroke="#a3805a" stroke-width="15" fill="none" stroke-linecap="round"/>
+  <path d="M 522 318 C 542 292 558 270 572 244" stroke="#a3805a" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M 522 318 C 502 296 488 276 478 254" stroke="#a3805a" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M 484 500 C 462 484 440 472 416 462" stroke="#a3805a" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M 574 496 C 598 480 622 468 648 458" stroke="#a3805a" stroke-width="9" fill="none" stroke-linecap="round"/>
 
-      <!-- 樹冠：後中前三層 -->
-      <ellipse cx="395" cy="255" rx="160" ry="110" fill="#1e5c4d"/>
-      <ellipse cx="660" cy="262" rx="158" ry="112" fill="#1e5c4d"/>
-      <ellipse cx="525" cy="185" rx="190" ry="115" fill="#1e5c4d"/>
-      <ellipse cx="330" cy="315" rx="105" ry="78" fill="#26715f"/>
-      <ellipse cx="730" cy="312" rx="116" ry="84" fill="#26715f"/>
-      <ellipse cx="525" cy="275" rx="215" ry="125" fill="#26715f"/>
-      <ellipse cx="430" cy="318" rx="125" ry="88" fill="#2f8d78"/>
-      <ellipse cx="625" cy="322" rx="125" ry="88" fill="#2f8d78"/>
-      <ellipse cx="525" cy="225" rx="150" ry="100" fill="#2f8d78"/>
-      <ellipse cx="455" cy="175" rx="60" ry="38" fill="#3ba187"/>
-      <ellipse cx="610" cy="198" rx="54" ry="34" fill="#3ba187"/>
-      <ellipse cx="352" cy="262" rx="48" ry="32" fill="#3ba187"/>
-      <ellipse cx="700" cy="250" rx="44" ry="30" fill="#3ba187"/>
+  <!-- 葉 -->
+  <use href="#bodhi" fill="#1e5c4d" transform="translate(552 204) rotate(-61) scale(1.07)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(577 185) rotate(-99) scale(1.03)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(580 210) rotate(-66) scale(1.06)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(577 180) rotate(-97) scale(0.71)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(416 283) rotate(-110) scale(0.85)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(395 268) rotate(-173) scale(0.85)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(431 275) rotate(-107) scale(1.09)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(391 300) rotate(19) scale(1.09)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(640 294) rotate(45) scale(0.81)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(679 241) rotate(-136) scale(0.93)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(306 357) rotate(68) scale(0.77)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(286 366) rotate(76) scale(0.79)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(741 340) rotate(-159) scale(0.73)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(749 324) rotate(-160) scale(1.10)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(496 274) rotate(-225) scale(0.81)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(473 294) rotate(-266) scale(0.83)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(515 316) rotate(47) scale(0.99)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(531 286) rotate(-172) scale(1.02)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(526 282) rotate(-198) scale(1.03)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(463 117) rotate(-225) scale(0.82)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(457 114) rotate(-231) scale(0.74)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(597 149) rotate(25) scale(0.89)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(599 213) rotate(-59) scale(0.82)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(467 169) rotate(-247) scale(0.96)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(601 232) rotate(-42) scale(0.68)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(523 155) rotate(-195) scale(0.77)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(514 199) rotate(69) scale(0.71)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(557 208) rotate(-51) scale(0.79)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(606 144) rotate(-120) scale(0.94)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(529 207) rotate(10) scale(0.90)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(505 232) rotate(58) scale(0.70)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(644 187) rotate(-108) scale(0.94)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(605 251) rotate(-67) scale(1.01)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(491 216) rotate(79) scale(0.81)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(451 222) rotate(93) scale(0.86)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(549 183) rotate(-115) scale(0.91)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(456 201) rotate(106) scale(1.10)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(513 228) rotate(52) scale(0.70)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(369 269) rotate(-236) scale(0.93)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(382 263) rotate(-237) scale(1.10)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(443 263) rotate(-122) scale(0.88)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(427 318) rotate(-28) scale(1.03)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(402 225) rotate(-164) scale(0.82)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(326 325) rotate(52) scale(0.84)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(358 332) rotate(13) scale(0.95)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(428 280) rotate(-110) scale(0.75)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(340 257) rotate(-249) scale(1.06)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(342 314) rotate(54) scale(0.90)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(322 280) rotate(-281) scale(0.68)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(311 296) rotate(89) scale(0.75)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(386 253) rotate(-221) scale(0.99)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(362 309) rotate(57) scale(0.98)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(355 253) rotate(-211) scale(0.93)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(451 312) rotate(-68) scale(1.00)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(357 334) rotate(17) scale(1.00)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(644 308) rotate(61) scale(0.87)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(618 274) rotate(-261) scale(0.79)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(611 311) rotate(74) scale(1.05)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(689 285) rotate(-78) scale(1.07)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(760 270) rotate(-75) scale(0.97)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(708 291) rotate(-90) scale(0.86)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(623 275) rotate(-237) scale(1.09)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(721 226) rotate(-142) scale(0.82)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(658 265) rotate(-179) scale(1.06)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(336 361) rotate(-66) scale(0.79)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(378 346) rotate(-113) scale(0.89)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(323 335) rotate(-196) scale(0.69)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(334 365) rotate(-54) scale(1.02)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(362 320) rotate(-105) scale(1.05)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(276 378) rotate(54) scale(0.79)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(343 361) rotate(-106) scale(0.82)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(302 365) rotate(87) scale(1.04)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(690 362) rotate(66) scale(0.72)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(755 390) rotate(-30) scale(0.86)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(802 346) rotate(-76) scale(1.05)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(750 333) rotate(-161) scale(0.76)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(743 358) rotate(-34) scale(0.95)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(755 358) rotate(-79) scale(0.80)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(460 346) rotate(84) scale(0.93)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(419 285) rotate(-257) scale(0.74)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(586 330) rotate(-99) scale(1.07)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(488 329) rotate(51) scale(0.99)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(451 286) rotate(-268) scale(0.78)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(413 330) rotate(87) scale(0.97)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(462 310) rotate(-267) scale(0.82)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(490 253) rotate(-215) scale(0.92)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(479 122) rotate(-74) scale(0.92)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(496 128) rotate(-112) scale(0.69)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(513 140) rotate(-52) scale(0.85)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(442 149) rotate(31) scale(0.70)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(494 111) rotate(-120) scale(0.77)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(465 103) rotate(-184) scale(0.71)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(416 125) rotate(69) scale(0.71)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(614 133) rotate(-98) scale(0.95)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(569 139) rotate(111) scale(0.82)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(569 123) rotate(-176) scale(0.81)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(444 210) rotate(100) scale(0.98)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(461 175) rotate(-279) scale(0.82)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(674 174) rotate(-86) scale(0.68)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(414 212) rotate(79) scale(0.76)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(565 280) rotate(-30) scale(0.87)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(644 176) rotate(-106) scale(0.94)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(500 244) rotate(13) scale(0.99)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(600 177) rotate(-98) scale(0.86)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(612 249) rotate(-50) scale(0.80)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(616 212) rotate(-101) scale(0.83)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(633 228) rotate(-48) scale(0.99)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(525 266) rotate(18) scale(0.92)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(385 232) rotate(77) scale(0.81)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(532 131) rotate(-193) scale(0.85)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(529 283) rotate(-7) scale(0.92)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(685 238) rotate(-76) scale(1.07)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(581 136) rotate(-150) scale(1.03)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(491 143) rotate(-199) scale(0.69)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(579 91) rotate(-147) scale(0.96)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(608 249) rotate(-85) scale(0.91)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(466 178) rotate(-252) scale(0.81)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(403 182) rotate(-287) scale(0.68)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(441 251) rotate(52) scale(1.02)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(615 205) rotate(-112) scale(0.76)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(611 134) rotate(-106) scale(0.94)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(581 153) rotate(-138) scale(0.76)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(402 132) rotate(-214) scale(1.05)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(606 200) rotate(-67) scale(0.83)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(617 234) rotate(-70) scale(0.93)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(672 203) rotate(-90) scale(0.99)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(444 162) rotate(-272) scale(0.99)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(618 285) rotate(-22) scale(0.97)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(426 181) rotate(-250) scale(1.00)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(314 213) rotate(-218) scale(1.08)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(345 327) rotate(76) scale(0.96)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(399 373) rotate(-5) scale(0.77)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(491 310) rotate(-97) scale(0.86)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(376 242) rotate(-222) scale(0.78)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(296 323) rotate(56) scale(1.00)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(415 345) rotate(4) scale(1.02)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(275 316) rotate(90) scale(0.84)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(473 288) rotate(-76) scale(0.89)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(461 252) rotate(-91) scale(1.07)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(474 249) rotate(-131) scale(1.09)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(382 210) rotate(-198) scale(0.83)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(456 352) rotate(-27) scale(1.05)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(322 208) rotate(-235) scale(0.91)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(463 252) rotate(-126) scale(1.09)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(476 323) rotate(-63) scale(0.98)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(424 220) rotate(-171) scale(0.75)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(371 328) rotate(13) scale(0.98)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(465 253) rotate(-139) scale(1.04)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(439 335) rotate(-23) scale(0.74)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(522 286) rotate(-115) scale(0.79)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(299 265) rotate(-263) scale(1.07)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(341 204) rotate(-243) scale(0.84)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(378 235) rotate(-183) scale(1.04)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(333 368) rotate(44) scale(0.74)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(360 217) rotate(-194) scale(0.94)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(344 370) rotate(38) scale(0.69)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(355 339) rotate(40) scale(0.77)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(777 294) rotate(-84) scale(0.86)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(656 229) rotate(-186) scale(0.92)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(633 377) rotate(10) scale(0.75)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(581 224) rotate(-242) scale(0.69)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(592 255) rotate(-238) scale(1.01)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(584 322) rotate(57) scale(0.94)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(720 227) rotate(-157) scale(1.07)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(762 214) rotate(-127) scale(0.89)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(543 239) rotate(-274) scale(1.05)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(581 248) rotate(-261) scale(0.82)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(738 301) rotate(-103) scale(0.95)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(724 238) rotate(-145) scale(1.04)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(687 218) rotate(-184) scale(0.90)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(796 266) rotate(-110) scale(0.95)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(638 369) rotate(31) scale(0.69)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(797 282) rotate(-86) scale(0.95)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(593 346) rotate(48) scale(1.04)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(612 248) rotate(-253) scale(0.98)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(652 227) rotate(-189) scale(0.89)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(655 374) rotate(-13) scale(0.95)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(725 199) rotate(-145) scale(0.97)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(626 182) rotate(-186) scale(1.09)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(723 336) rotate(-76) scale(0.85)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(774 270) rotate(-90) scale(1.10)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(724 261) rotate(-125) scale(0.83)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(707 351) rotate(-37) scale(0.93)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(671 208) rotate(-165) scale(1.04)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(742 292) rotate(-70) scale(0.90)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(590 262) rotate(-278) scale(0.77)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(733 318) rotate(-88) scale(0.69)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(680 228) rotate(-165) scale(0.89)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(733 256) rotate(-130) scale(0.85)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(609 287) rotate(85) scale(0.99)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(312 398) rotate(24) scale(1.05)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(300 329) rotate(-227) scale(1.06)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(398 366) rotate(-74) scale(0.94)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(335 325) rotate(-126) scale(1.03)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(350 400) rotate(-4) scale(1.02)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(360 329) rotate(-112) scale(0.70)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(337 313) rotate(-166) scale(0.97)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(356 414) rotate(-11) scale(0.92)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(241 320) rotate(-260) scale(0.79)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(290 317) rotate(-246) scale(0.98)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(316 389) rotate(-4) scale(0.90)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(277 301) rotate(-219) scale(1.03)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(696 377) rotate(88) scale(0.94)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(681 404) rotate(57) scale(1.06)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(668 348) rotate(-254) scale(0.99)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(680 369) rotate(65) scale(0.91)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(664 312) rotate(-254) scale(0.79)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(710 329) rotate(-240) scale(1.04)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(823 372) rotate(-96) scale(0.83)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(676 378) rotate(74) scale(1.06)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(825 380) rotate(-81) scale(1.08)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(735 308) rotate(-205) scale(0.71)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(734 393) rotate(5) scale(0.89)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(792 335) rotate(-106) scale(0.73)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(804 396) rotate(-57) scale(1.07)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(718 319) rotate(-210) scale(1.04)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(465 238) rotate(-193) scale(0.85)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(444 232) rotate(-223) scale(0.89)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(591 244) rotate(-162) scale(0.75)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(686 276) rotate(-108) scale(0.92)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(682 295) rotate(-95) scale(0.73)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(463 293) rotate(-234) scale(1.08)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(667 292) rotate(-109) scale(0.77)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(466 271) rotate(-247) scale(0.86)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(426 319) rotate(62) scale(0.81)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(461 302) rotate(-269) scale(0.77)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(617 347) rotate(-40) scale(0.90)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(568 399) rotate(-23) scale(0.90)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(563 228) rotate(-158) scale(0.85)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(532 230) rotate(-180) scale(0.82)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(412 239) rotate(-264) scale(0.97)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(601 287) rotate(-129) scale(1.08)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(401 319) rotate(75) scale(0.69)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(568 407) rotate(7) scale(1.06)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(545 356) rotate(-28) scale(0.75)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(556 350) rotate(-42) scale(1.08)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(511 254) rotate(-222) scale(0.83)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(439 315) rotate(113) scale(0.74)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(490 374) rotate(34) scale(0.88)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(481 351) rotate(76) scale(0.96)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(541 145) rotate(-47) scale(0.76)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(414 117) rotate(-260) scale(0.83)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(430 125) rotate(68) scale(0.76)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(500 115) rotate(-122) scale(0.90)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(466 170) rotate(-23) scale(0.89)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(392 107) rotate(-238) scale(0.69)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(500 153) rotate(-58) scale(1.07)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(645 165) rotate(-77) scale(0.96)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(591 178) rotate(28) scale(0.96)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(634 153) rotate(-60) scale(0.91)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(563 125) rotate(-249) scale(1.04)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(568 139) rotate(54) scale(1.00)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(626 123) rotate(-92) scale(1.00)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(643 125) rotate(-124) scale(1.08)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(538 139) rotate(83) scale(0.72)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(614 114) rotate(-165) scale(1.06)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(408 219) rotate(100) scale(0.76)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(659 248) rotate(-62) scale(0.85)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(390 223) rotate(50) scale(0.90)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(571 297) rotate(-9) scale(0.86)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(509 303) rotate(34) scale(0.77)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(406 258) rotate(36) scale(0.74)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(589 119) rotate(-117) scale(1.09)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(660 126) rotate(-117) scale(1.08)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(392 138) rotate(-236) scale(1.08)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(487 101) rotate(-194) scale(1.06)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(589 94) rotate(-130) scale(0.79)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(497 102) rotate(-219) scale(0.79)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(450 271) rotate(76) scale(0.75)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(461 131) rotate(-218) scale(0.77)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(503 97) rotate(-218) scale(0.78)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(663 140) rotate(-140) scale(0.82)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(651 213) rotate(-103) scale(0.74)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(386 185) rotate(-239) scale(0.89)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(415 264) rotate(80) scale(1.09)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(420 165) rotate(-229) scale(0.87)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(664 148) rotate(-111) scale(0.73)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(390 235) rotate(51) scale(0.86)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(550 285) rotate(-28) scale(0.89)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(400 195) rotate(103) scale(0.97)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(647 166) rotate(-110) scale(0.97)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(492 111) rotate(-193) scale(0.76)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(664 246) rotate(-65) scale(0.76)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(546 99) rotate(-189) scale(1.01)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(506 302) rotate(22) scale(0.92)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(339 350) rotate(45) scale(1.10)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(292 352) rotate(37) scale(0.89)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(399 361) rotate(-24) scale(1.08)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(305 235) rotate(-224) scale(0.90)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(532 283) rotate(-92) scale(0.89)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(359 355) rotate(34) scale(0.98)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(486 324) rotate(-69) scale(1.03)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(470 356) rotate(-34) scale(0.89)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(349 220) rotate(-241) scale(0.94)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(512 311) rotate(-107) scale(0.84)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(319 220) rotate(-234) scale(0.80)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(497 253) rotate(-122) scale(1.05)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(389 202) rotate(-205) scale(1.00)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(525 251) rotate(-130) scale(0.81)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(461 211) rotate(-130) scale(1.07)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(395 182) rotate(-205) scale(0.76)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(326 365) rotate(23) scale(0.74)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(480 240) rotate(-117) scale(0.92)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(438 381) rotate(2) scale(0.92)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(653 380) rotate(-16) scale(1.03)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(770 248) rotate(-86) scale(1.06)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(620 195) rotate(-178) scale(1.03)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(616 346) rotate(26) scale(0.70)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(645 182) rotate(-202) scale(1.01)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(595 337) rotate(34) scale(0.99)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(787 318) rotate(-81) scale(0.93)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(631 206) rotate(-223) scale(1.05)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(750 340) rotate(-70) scale(0.96)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(782 336) rotate(-90) scale(1.06)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(772 284) rotate(-70) scale(0.72)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(624 211) rotate(-194) scale(0.75)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(615 353) rotate(30) scale(0.87)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(561 237) rotate(-259) scale(0.70)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(622 356) rotate(46) scale(0.89)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(606 219) rotate(-244) scale(0.97)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(614 200) rotate(-224) scale(0.73)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(657 201) rotate(-205) scale(1.04)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(592 228) rotate(-241) scale(1.07)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(779 329) rotate(-44) scale(0.96)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(643 367) rotate(15) scale(0.83)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(593 222) rotate(-221) scale(1.07)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(689 365) rotate(0) scale(0.84)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(770 228) rotate(-104) scale(0.91)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(360 401) rotate(-53) scale(0.85)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(268 397) rotate(36) scale(0.82)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(250 383) rotate(54) scale(0.75)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(343 408) rotate(-42) scale(0.69)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(245 393) rotate(44) scale(0.71)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(238 379) rotate(67) scale(0.94)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(329 286) rotate(-190) scale(0.80)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(374 403) rotate(-54) scale(1.02)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(244 341) rotate(-244) scale(0.81)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(810 369) rotate(-54) scale(0.94)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(828 368) rotate(-82) scale(0.93)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(806 400) rotate(-72) scale(1.07)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(821 376) rotate(-71) scale(0.83)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(803 373) rotate(-96) scale(0.89)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(810 340) rotate(-79) scale(0.97)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(792 294) rotate(-126) scale(0.76)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(698 396) rotate(72) scale(0.97)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(678 389) rotate(66) scale(0.83)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(704 396) rotate(26) scale(0.97)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(506 225) rotate(-177) scale(1.05)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(597 235) rotate(-165) scale(1.10)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(448 243) rotate(-221) scale(1.09)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(368 326) rotate(55) scale(1.04)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(392 291) rotate(-263) scale(0.95)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(659 243) rotate(-92) scale(0.72)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(382 295) rotate(-236) scale(0.68)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(387 253) rotate(-237) scale(1.03)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(662 281) rotate(-115) scale(0.97)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(679 363) rotate(-81) scale(1.02)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(627 380) rotate(-77) scale(0.81)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(495 224) rotate(-175) scale(0.92)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(453 220) rotate(-203) scale(0.89)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(593 234) rotate(-139) scale(0.84)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(387 267) rotate(-274) scale(0.98)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(629 393) rotate(-74) scale(1.01)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(607 398) rotate(-56) scale(0.74)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(408 371) rotate(70) scale(0.91)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(517 234) rotate(-184) scale(0.95)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(531 132) rotate(-55) scale(1.07)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(444 81) rotate(-183) scale(1.04)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(502 90) rotate(-120) scale(0.96)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(419 155) rotate(56) scale(0.78)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(487 84) rotate(-173) scale(1.06)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(652 109) rotate(-125) scale(0.73)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(538 119) rotate(-280) scale(0.95)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(678 139) rotate(-107) scale(0.82)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(637 107) rotate(-121) scale(0.81)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(555 168) rotate(50) scale(0.93)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(599 179) rotate(30) scale(1.04)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(653 120) rotate(-97) scale(0.85)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(528 136) rotate(65) scale(0.89)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(498 243) rotate(38) scale(0.73)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(597 170) rotate(-116) scale(0.78)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(664 207) rotate(-96) scale(0.74)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(434 252) rotate(35) scale(0.73)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(613 120) rotate(-106) scale(0.98)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(585 235) rotate(-61) scale(0.86)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(468 222) rotate(84) scale(0.82)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(454 299) rotate(-91) scale(0.80)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(528 272) rotate(-122) scale(0.79)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(441 363) rotate(-8) scale(0.71)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(512 237) rotate(-114) scale(1.02)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(502 337) rotate(-69) scale(0.89)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(279 303) rotate(60) scale(0.96)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(562 226) rotate(-261) scale(1.09)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(771 298) rotate(-83) scale(1.05)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(689 342) rotate(-35) scale(1.08)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(649 227) rotate(-183) scale(1.01)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(710 319) rotate(-60) scale(0.84)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(630 357) rotate(3) scale(0.93)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(268 379) rotate(63) scale(0.87)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(229 346) rotate(-262) scale(1.04)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(276 324) rotate(-250) scale(0.89)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(383 353) rotate(-70) scale(1.08)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(310 354) rotate(-274) scale(1.00)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(664 386) rotate(69) scale(0.78)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(698 402) rotate(17) scale(0.81)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(807 353) rotate(-60) scale(1.03)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(795 392) rotate(-66) scale(0.79)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(477 301) rotate(-268) scale(0.84)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(533 391) rotate(-19) scale(0.87)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(462 350) rotate(36) scale(0.81)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(581 355) rotate(-53) scale(0.84)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(434 146) rotate(68) scale(0.71)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(506 109) rotate(-112) scale(1.08)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(472 101) rotate(-168) scale(0.74)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(587 141) rotate(62) scale(1.03)"/>
+<use href="#bodhi" fill="#57bd99" transform="translate(550 134) rotate(-295) scale(1.04)"/>
 
-      <!-- 果實 -->
-      <g>
-        <line x1="395" y1="330" x2="395" y2="344" stroke="#6b4f36" stroke-width="2.5"/>
-        <circle cx="395" cy="356" r="13" fill="#a8402f"/><circle cx="391" cy="352" r="4" fill="#d98a75"/>
-        <line x1="470" y1="356" x2="470" y2="370" stroke="#6b4f36" stroke-width="2.5"/>
-        <circle cx="470" cy="382" r="13" fill="#a8402f"/><circle cx="466" cy="378" r="4" fill="#d98a75"/>
-        <line x1="560" y1="360" x2="560" y2="374" stroke="#6b4f36" stroke-width="2.5"/>
-        <circle cx="560" cy="386" r="13" fill="#a8402f"/><circle cx="556" cy="382" r="4" fill="#d98a75"/>
-        <line x1="645" y1="340" x2="645" y2="354" stroke="#6b4f36" stroke-width="2.5"/>
-        <circle cx="645" cy="366" r="13" fill="#a8402f"/><circle cx="641" cy="362" r="4" fill="#d98a75"/>
-        <line x1="715" y1="300" x2="715" y2="314" stroke="#6b4f36" stroke-width="2.5"/>
-        <circle cx="715" cy="326" r="13" fill="#a8402f"/><circle cx="711" cy="322" r="4" fill="#d98a75"/>
-      </g>
+  <!-- 果實 -->
+  <g>
+    <line x1="400" y1="368" x2="400" y2="382" stroke="#6b4f36" stroke-width="2.5"/>
+    <circle cx="400" cy="394" r="13" fill="#a8402f"/><circle cx="396" cy="390" r="4" fill="#d98a75"/>
+    <line x1="438" y1="412" x2="438" y2="426" stroke="#6b4f36" stroke-width="2.5"/>
+    <circle cx="438" cy="438" r="13" fill="#a8402f"/><circle cx="434" cy="434" r="4" fill="#d98a75"/>
+    <line x1="612" y1="408" x2="612" y2="422" stroke="#6b4f36" stroke-width="2.5"/>
+    <circle cx="612" cy="434" r="13" fill="#a8402f"/><circle cx="608" cy="430" r="4" fill="#d98a75"/>
+    <line x1="652" y1="376" x2="652" y2="390" stroke="#6b4f36" stroke-width="2.5"/>
+    <circle cx="652" cy="402" r="13" fill="#a8402f"/><circle cx="648" cy="398" r="4" fill="#d98a75"/>
+    <line x1="722" y1="336" x2="722" y2="350" stroke="#6b4f36" stroke-width="2.5"/>
+    <circle cx="722" cy="362" r="13" fill="#a8402f"/><circle cx="718" cy="358" r="4" fill="#d98a75"/>
+  </g>
 
-      <!-- 落果到小樹 -->
-      <path d="M 722 340 C 810 440 868 520 900 582" stroke="#a8402f" stroke-width="2" fill="none" stroke-dasharray="2 7" opacity=".65"/>
-      <circle cx="858" cy="502" r="8" fill="#a8402f" opacity=".85"/>
+  <!-- 落果到小樹 -->
+  <path d="M 728 372 C 812 452 866 520 898 578" stroke="#a8402f" stroke-width="2" fill="none" stroke-dasharray="2 7" opacity=".65"/>
+  <circle cx="856" cy="500" r="8" fill="#a8402f" opacity=".85"/>
 
-      <!-- 小樹 -->
-      <ellipse cx="915" cy="682" rx="64" ry="10" fill="#cfe2d6"/>
-      <path d="M 915 678 C 914 650 912 628 909 606" stroke="#7d5f43" stroke-width="10" fill="none" stroke-linecap="round"/>
-      <path d="M 912 640 C 900 630 890 624 880 620" stroke="#7d5f43" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <ellipse cx="908" cy="585" rx="52" ry="38" fill="#26715f"/>
-      <ellipse cx="890" cy="575" rx="34" ry="26" fill="#2f8d78"/>
-      <ellipse cx="924" cy="565" rx="24" ry="17" fill="#3ba187"/>
-      <circle cx="934" cy="598" r="6" fill="#a8402f"/><circle cx="932" cy="596" r="2" fill="#d98a75"/>
+  <!-- 小樹 -->
+  <ellipse cx="912" cy="678" rx="64" ry="10" fill="#c8ddd0"/>
+  <path d="M 912 674 C 911 646 909 624 906 602" stroke="#8a6a44" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M 909 636 C 897 626 887 620 877 616" stroke="#8a6a44" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <use href="#bodhi" fill="#43ab8b" transform="translate(918 589) rotate(-38) scale(0.44)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(895 586) rotate(45) scale(0.44)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(884 580) rotate(90) scale(0.44)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(891 548) rotate(-222) scale(0.44)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(894 603) rotate(36) scale(0.44)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(899 589) rotate(44) scale(0.44)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(890 556) rotate(-217) scale(0.44)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(938 558) rotate(-95) scale(0.44)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(921 572) rotate(-102) scale(0.44)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(899 593) rotate(-0) scale(0.44)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(893 548) rotate(-200) scale(0.44)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(929 593) rotate(-52) scale(0.44)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(884 585) rotate(62) scale(0.44)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(935 565) rotate(-117) scale(0.44)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(903 568) rotate(-186) scale(0.44)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(865 574) rotate(95) scale(0.44)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(910 548) rotate(-171) scale(0.44)"/>
+<use href="#bodhi" fill="#27775f" transform="translate(872 580) rotate(84) scale(0.44)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(890 545) rotate(-218) scale(0.44)"/>
+<use href="#bodhi" fill="#1e5c4d" transform="translate(911 576) rotate(-57) scale(0.44)"/>
+<use href="#bodhi" fill="#339a7c" transform="translate(886 565) rotate(-237) scale(0.44)"/>
+<use href="#bodhi" fill="#43ab8b" transform="translate(894 589) rotate(57) scale(0.44)"/>
+  <circle cx="932" cy="596" r="6" fill="#a8402f"/><circle cx="930" cy="594" r="2" fill="#d98a75"/>
 
-      <!-- ⑤ 果 -->
-      <line class="lead" x1="252" y1="388" x2="380" y2="360"/>
-      <circle class="badge" cx="95" cy="384" r="15"/><text class="badge-n" x="95" y="390" text-anchor="middle">5</text>
-      <text class="lbl" x="117" y="392">果・人受益</text>
-      <text class="lbl2" x="117" y="418">後人讀得到、聽得到</text>
+  <!-- 草與小花 -->
+  <path d="M 207 654 q 2 -13 5 -16" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 196 680 q 2 -12 5 -15" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 368 687 q 2 -11 5 -14" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 473 666 q 2 -10 5 -13" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 850 662 q 2 -14 5 -17" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 777 671 q 2 -10 5 -13" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 822 682 q 2 -14 5 -17" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 217 667 q 2 -11 5 -14" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 459 675 q 2 -14 5 -17" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 826 670 q 2 -15 5 -18" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 582 667 q 2 -8 5 -11" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 223 657 q 2 -15 5 -18" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 603 657 q 2 -15 5 -18" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 727 673 q 2 -15 5 -18" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 353 682 q 2 -8 5 -11" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 202 652 q 2 -15 5 -18" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 845 658 q 2 -10 5 -13" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 811 672 q 2 -8 5 -11" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 495 675 q 2 -14 5 -17" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 877 670 q 2 -13 5 -16" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 336 683 q 2 -10 5 -13" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 782 666 q 2 -9 5 -12" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 566 660 q 2 -12 5 -15" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 450 665 q 2 -13 5 -16" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 686 675 q 2 -9 5 -12" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M 337 680 q 2 -15 5 -18" stroke="#3ba187" stroke-width="2" fill="none" opacity=".8"/>
+<circle cx="768" cy="686" r="3.2" fill="#c96a55"/>
+<circle cx="278" cy="665" r="3.2" fill="#d98a75"/>
+<circle cx="743" cy="679" r="3.2" fill="#c96a55"/>
+<circle cx="467" cy="668" r="3.2" fill="#d98a75"/>
+<circle cx="367" cy="681" r="3.2" fill="#c96a55"/>
+<circle cx="374" cy="662" r="3.2" fill="#c96a55"/>
+<circle cx="484" cy="670" r="3.2" fill="#e7c46a"/>
+<circle cx="337" cy="656" r="3.2" fill="#e7c46a"/>
+<circle cx="604" cy="658" r="3.2" fill="#c96a55"/>
+<circle cx="508" cy="684" r="3.2" fill="#e7c46a"/>
 
-      <!-- ③ 幹 -->
-      <line class="lead" x1="318" y1="478" x2="462" y2="502"/>
-      <circle class="badge" cx="120" cy="470" r="15"/><text class="badge-n" x="120" y="476" text-anchor="middle">3</text>
-      <text class="lbl" x="142" y="478">幹・收得好</text>
-      <text class="lbl2" x="142" y="504">收進雲端庫房，隨時找得到</text>
+  <!-- 標籤 -->
+  <line class="lead" x1="255" y1="420" x2="386" y2="396"/>
+  <circle class="badge" cx="98" cy="416" r="15"/><text class="badge-n" x="98" y="422" text-anchor="middle">5</text>
+  <text class="lbl" x="120" y="424">果・人受益</text>
+  <text class="lbl2" x="120" y="450">後人讀得到、聽得到</text>
 
-      <!-- ④ 枝 -->
-      <line class="lead" x1="828" y1="188" x2="740" y2="238"/>
-      <circle class="badge" cx="828" cy="170" r="15"/><text class="badge-n" x="828" y="176" text-anchor="middle">4</text>
-      <text class="lbl" x="850" y="178">枝・傳出去</text>
-      <text class="lbl2" x="850" y="204">LINE、季刊、上台講課</text>
+  <line class="lead" x1="310" y1="520" x2="482" y2="540"/>
+  <circle class="badge" cx="112" cy="512" r="15"/><text class="badge-n" x="112" y="518" text-anchor="middle">3</text>
+  <text class="lbl" x="134" y="520">幹・收得好</text>
+  <text class="lbl2" x="134" y="546">收進雲端庫房，隨時找得到</text>
 
-      <!-- ① 左根 -->
-      <circle class="badge" cx="128" cy="772" r="15"/><text class="badge-n" x="128" y="778" text-anchor="middle">1</text>
-      <text class="lbl" x="150" y="780">根・仙佛的話</text>
-      <text class="lbl2" x="150" y="806">法會上，一字一句抄下來</text>
+  <line class="lead" x1="840" y1="188" x2="748" y2="240"/>
+  <circle class="badge" cx="840" cy="170" r="15"/><text class="badge-n" x="840" y="176" text-anchor="middle">4</text>
+  <text class="lbl" x="862" y="178">枝・傳出去</text>
+  <text class="lbl2" x="862" y="204">LINE、季刊、上台講課</text>
 
-      <!-- ② 右根 -->
-      <circle class="badge" cx="598" cy="772" r="15"/><text class="badge-n" x="598" y="778" text-anchor="middle">2</text>
-      <text class="lbl" x="620" y="780">根・道場的事</text>
-      <text class="lbl2" x="620" y="806">活動、名冊、會議，都記下來</text>
+  <circle class="badge" cx="128" cy="772" r="15"/><text class="badge-n" x="128" y="778" text-anchor="middle">1</text>
+  <text class="lbl" x="150" y="780">根・仙佛的話</text>
+  <text class="lbl2" x="150" y="806">法會上，一字一句抄下來</text>
 
-      <!-- ⑥ 新樹 -->
-      <circle class="badge" cx="838" cy="742" r="15"/><text class="badge-n" x="838" y="748" text-anchor="middle">6</text>
-      <text class="lbl" x="860" y="750">新樹・帶新人</text>
-      <text class="lbl2" x="860" y="776">仙佛說：「交棒要及早」</text>
-    </svg>
+  <circle class="badge" cx="598" cy="772" r="15"/><text class="badge-n" x="598" y="778" text-anchor="middle">2</text>
+  <text class="lbl" x="620" y="780">根・道場的事</text>
+  <text class="lbl2" x="620" y="806">活動、名冊、會議，都記下來</text>
+
+  <circle class="badge" cx="838" cy="742" r="15"/><text class="badge-n" x="838" y="748" text-anchor="middle">6</text>
+  <text class="lbl" x="860" y="750">新樹・帶新人</text>
+  <text class="lbl2" x="860" y="776">仙佛說：「交棒要及早」</text>
+</svg>
   </figure>
 
   <p class="takeaway">話記得真，事收得好，傳到人身上，代代有人接，樹就不斷根。</p>
