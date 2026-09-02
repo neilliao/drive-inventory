@@ -1,74 +1,176 @@
-<title>峨眉檔案治理文件</title>
+<meta charset="utf-8">
+<title>峨眉文書・一棵傳家的樹</title>
 <style>
   :root {
-    --bg: #f3faf7; --surface: #ffffff; --surface-2: #eef6f2;
-    --ink: #1f3b2c; --ink-soft: #4c655a; --line: #d6e8de;
-    --accent: #26715f; --accent-tint: #e7f3ef; --seal: #A8402F; --seal-ink: #ffffff;
+    --page: #f3faf7; --card: #ffffff; --tint: #e7f3ef;
+    --ink: #1f3b2c; --sub: #4c655a; --line: #d6e8de;
+    --deep: #26715f; --primary: #2f8d78; --seal: #a8402f; --wood: #7d5f43;
   }
-  body { background: var(--bg); color: var(--ink); margin: 0; padding: 0 20px 56px;
-    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif; line-height: 1.75; }
-  .wrap { max-width: 760px; margin: 0 auto; }
-  h1 { font-family: "Songti TC","Noto Serif TC","Source Han Serif TC",serif;
-    font-size: clamp(26px, 4vw, 36px); margin: 44px 0 8px; }
-  .lede { color: var(--ink-soft); font-size: 14px; max-width: 62ch; margin: 0 0 34px; }
-  h2 { font-size: 15px; letter-spacing: .08em; color: var(--accent); text-transform: uppercase;
-    margin: 32px 0 10px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
-  ul { list-style: none; padding: 0; margin: 0; }
-  li { border-bottom: 1px solid var(--line); }
-  li:last-child { border-bottom: none; }
-  a.doc { display: block; padding: 12px 4px; text-decoration: none; color: var(--ink); font-size: 15px; }
-  a.doc:hover { color: var(--accent); }
-  a.doc .tag { display: inline-block; font-size: 11.5px; color: var(--ink-soft); margin-left: 8px; }
-  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
-    font-size: 12px; color: var(--ink-soft); }
+  * { box-sizing: border-box; }
+  body { background: var(--page); color: var(--ink); margin: 0; padding: 0 20px 60px;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+    line-height: 1.8; }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  header.page { padding: 40px 0 6px; text-align: center; }
+  .eyebrow { font-size: 14px; letter-spacing: .35em; color: var(--sub); margin: 0 0 10px; }
+  h1 { font-family: "Songti TC","Noto Serif TC",serif; font-size: clamp(32px, 6vw, 46px); margin: 0 0 8px; font-weight: 700; }
+  .oneline { font-size: clamp(17px, 2.6vw, 21px); color: var(--deep); font-weight: 700; margin: 0; }
+
+  .bless { background: var(--card); border: 2px solid var(--seal); border-radius: 16px;
+    padding: 20px 26px; margin: 26px auto 0; max-width: 700px; text-align: center;
+    box-shadow: 0 2px 8px rgba(31,59,44,.06); }
+  .bless .q { font-size: clamp(19px, 3vw, 24px); font-weight: 700;
+    font-family: "Songti TC","Noto Serif TC",serif; }
+  .bless .src { font-size: 14px; color: var(--sub); margin-top: 6px; }
+
+  figure.tree { margin: 0; overflow-x: auto; }
+  figure.tree svg { min-width: 760px; width: 100%; height: auto; display: block; }
+  .lbl { font-size: 23px; font-weight: 700; fill: var(--ink); font-family: "Songti TC","Noto Serif TC",serif; }
+  .lbl2 { font-size: 15.5px; font-weight: 600; fill: var(--sub); }
+  .lead { stroke: #9db8ab; stroke-width: 1.6; fill: none; stroke-dasharray: 3 4; }
+  .badge { fill: var(--seal); }
+  .badge-n { font-size: 16px; font-weight: 700; fill: #fff; }
+
+  .takeaway { text-align: center; font-size: clamp(18px, 2.8vw, 23px); font-weight: 700;
+    font-family: "Songti TC","Noto Serif TC",serif; color: var(--deep); margin: 6px 0 0; }
+
+  .more { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+  .more a.big { display: inline-block; background: var(--deep); color: #fff; border-radius: 999px;
+    padding: 12px 30px; text-decoration: none; font-size: 17px; font-weight: 700; }
+  .more a.big:hover { background: var(--primary); }
+  .more a.small { display: inline-block; background: var(--card); border: 1px solid var(--line);
+    border-radius: 999px; padding: 12px 22px; text-decoration: none; color: var(--sub);
+    font-size: 15px; font-weight: 700; }
+  .more a.small:hover { border-color: var(--primary); color: var(--deep); }
+  footer { margin-top: 40px; padding-top: 14px; border-top: 1px solid var(--line);
+    font-size: 12px; color: var(--sub); text-align: center; }
 </style>
 
 <div class="wrap">
-  <h1>峨眉檔案治理文件</h1>
-  <p class="lede">峨眉文書藍圖體系與各工具策略地圖、施工 spec 的正本存放處。文件間彼此互連，從總圖開始讀最完整。</p>
+  <header class="page">
+    <p class="eyebrow">峨眉書院・文書</p>
+    <h1>一棵傳家的樹</h1>
+    <p class="oneline">峨眉文書在做的事，一張圖看懂。</p>
+  </header>
 
-  <h2>總圖</h2>
-  <ul>
-    <li><a class="doc" href="specs/2026-09-02-emei-wenshu-simple-map.html">一棵傳家的樹 <span class="tag">白話版・一張圖</span></a></li>
-    <li><a class="doc" href="specs/2026-09-01-emei-wenshu-grand-strategy-map.html">峨眉文書組藍圖 <span class="tag">頂圖・文以載道</span></a></li>
-    <li><a class="doc" href="specs/2026-09-02-emei-wenshu-panorama.html">峨眉文書全景 <span class="tag">九圖整串</span></a></li>
-    <li><a class="doc" href="specs/2026-08-17-strategy-map.html">道務文書藍圖（原資訊藍圖） <span class="tag">六工具總覽</span></a></li>
-    <li><a class="doc" href="specs/2026-08-20-map-legend.html">看圖指南 <span class="tag">名詞與圖例</span></a></li>
-  </ul>
+  <div class="bless">
+    <div class="q">「你們的功課，是記載白陽的一切。」</div>
+    <div class="src">——濟公活佛（2010年泰國鳳德佛宮三天法會）</div>
+  </div>
 
-  <h2>道籍系統</h2>
-  <ul>
-    <li><a class="doc" href="specs/2026-08-20-daoji-system-strategy-map.html">道籍系統策略地圖</a></li>
-  </ul>
+  <figure class="tree">
+    <svg viewBox="0 0 1100 860" role="img" aria-label="一棵枝繁葉茂的大樹：兩條根是仙佛的話與道場的事，樹幹是收得好，枝葉是傳出去，紅色果實是人受益，右邊一棵由落果長成的小樹是帶新人">
+      <defs>
+        <linearGradient id="trunkG" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#96754f"/><stop offset="1" stop-color="#7d5f43"/>
+        </linearGradient>
+      </defs>
 
-  <h2>道務平台</h2>
-  <ul>
-    <li><a class="doc" href="specs/2026-08-20-daowu-platform-implementation-map.html">道務平台實作地圖 <span class="tag">總覽</span></a></li>
-    <li><a class="doc" href="specs/2026-08-22-announcement-management-spec.html">首頁公告管理設計規格 <span class="tag">2026-08-22</span></a></li>
-    <li><a class="doc" href="specs/2026-08-22-announcement-cc-handoff.md">公告管理・CC 道籍系統交接 <span class="tag">責任與資料契約</span></a></li>
-  </ul>
+      <!-- 地面 -->
+      <ellipse cx="550" cy="712" rx="530" ry="54" fill="#d9e8df" />
+      <ellipse cx="510" cy="730" rx="470" ry="48" fill="#e3f0e8" />
+      <ellipse cx="522" cy="678" rx="140" ry="16" fill="#cfe2d6" />
 
-  <h2>知識庫／文獻</h2>
-  <ul>
-    <li><a class="doc" href="specs/2026-08-20-knowledge-base-strategy-map.html">峨眉知識庫策略地圖</a></li>
-    <li><a class="doc" href="specs/2026-08-20-media-strategy-map.html">峨眉媒體策略地圖</a></li>
-    <li><a class="doc" href="specs/2026-08-20-literature-platform-implementation-map.html">文獻平台實作地圖</a></li>
-  </ul>
+      <!-- 根 -->
+      <path d="M 495 650 C 430 690 330 712 235 722" stroke="#7d5f43" stroke-width="22" fill="none" stroke-linecap="round"/>
+      <path d="M 545 650 C 615 692 705 712 800 722" stroke="#7d5f43" stroke-width="22" fill="none" stroke-linecap="round"/>
+      <path d="M 505 655 C 475 695 435 715 395 727" stroke="#7d5f43" stroke-width="13" fill="none" stroke-linecap="round"/>
+      <path d="M 535 655 C 568 696 612 716 652 727" stroke="#7d5f43" stroke-width="13" fill="none" stroke-linecap="round"/>
 
-  <h2>施工與治理紀錄</h2>
-  <ul>
-    <li><a class="doc" href="specs/2026-08-20-drive-execution-spec.md">施工執行 spec <span class="tag">.md</span></a></li>
-    <li><a class="doc" href="specs/2026-08-20-deskdrive-rollout-roadmap.md">桌面碟推行路線圖 <span class="tag">.md</span></a></li>
-    <li><a class="doc" href="specs/2026-08-20-governance-decisions-round3.md">治理決策・第三輪 <span class="tag">.md</span></a></li>
-    <li><a class="doc" href="specs/2026-08-20-governance-corrections-round4.md">治理修正・第四輪 <span class="tag">.md</span></a></li>
-    <li><a class="doc" href="specs/2026-08-17-archive-governance-strategy.md">檔案治理策略 <span class="tag">.md</span></a></li>
-  </ul>
+      <!-- 樹幹 -->
+      <path d="M 468 664 C 483 570 492 486 500 424 C 505 400 505 380 504 356 L 548 356 C 547 380 548 400 553 426 C 562 488 572 572 588 664 Z" fill="url(#trunkG)"/>
+      <path d="M 548 356 C 547 380 548 400 553 426 C 562 488 572 572 588 664 L 556 664 C 546 572 540 488 536 426 C 533 400 532 380 532 356 Z" fill="#6b4f36" opacity=".4"/>
 
-  <h2>簡報</h2>
-  <ul>
-    <li><a class="doc" href="specs/2026-08-20-leadership-briefing-deck.html">主管簡報</a></li>
-    <li><a class="doc" href="specs/2026-08-20-warehouse-to-library-deck.html">倉庫到圖書館簡報</a></li>
-  </ul>
+      <!-- 大枝 -->
+      <path d="M 505 435 C 472 396 432 362 388 336" stroke="#7d5f43" stroke-width="17" fill="none" stroke-linecap="round"/>
+      <path d="M 545 430 C 580 392 622 358 668 330" stroke="#7d5f43" stroke-width="17" fill="none" stroke-linecap="round"/>
+      <path d="M 524 420 C 526 386 526 356 524 326" stroke="#7d5f43" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <path d="M 470 400 C 452 378 436 362 418 350" stroke="#7d5f43" stroke-width="9" fill="none" stroke-linecap="round"/>
+      <path d="M 590 398 C 606 380 622 366 640 356" stroke="#7d5f43" stroke-width="9" fill="none" stroke-linecap="round"/>
 
-  <footer>drive-inventory・正本：docs/specs/</footer>
+      <!-- 樹冠：後中前三層 -->
+      <ellipse cx="395" cy="255" rx="160" ry="110" fill="#1e5c4d"/>
+      <ellipse cx="660" cy="262" rx="158" ry="112" fill="#1e5c4d"/>
+      <ellipse cx="525" cy="185" rx="190" ry="115" fill="#1e5c4d"/>
+      <ellipse cx="330" cy="315" rx="105" ry="78" fill="#26715f"/>
+      <ellipse cx="730" cy="312" rx="116" ry="84" fill="#26715f"/>
+      <ellipse cx="525" cy="275" rx="215" ry="125" fill="#26715f"/>
+      <ellipse cx="430" cy="318" rx="125" ry="88" fill="#2f8d78"/>
+      <ellipse cx="625" cy="322" rx="125" ry="88" fill="#2f8d78"/>
+      <ellipse cx="525" cy="225" rx="150" ry="100" fill="#2f8d78"/>
+      <ellipse cx="455" cy="175" rx="60" ry="38" fill="#3ba187"/>
+      <ellipse cx="610" cy="198" rx="54" ry="34" fill="#3ba187"/>
+      <ellipse cx="352" cy="262" rx="48" ry="32" fill="#3ba187"/>
+      <ellipse cx="700" cy="250" rx="44" ry="30" fill="#3ba187"/>
+
+      <!-- 果實 -->
+      <g>
+        <line x1="395" y1="330" x2="395" y2="344" stroke="#6b4f36" stroke-width="2.5"/>
+        <circle cx="395" cy="356" r="13" fill="#a8402f"/><circle cx="391" cy="352" r="4" fill="#d98a75"/>
+        <line x1="470" y1="356" x2="470" y2="370" stroke="#6b4f36" stroke-width="2.5"/>
+        <circle cx="470" cy="382" r="13" fill="#a8402f"/><circle cx="466" cy="378" r="4" fill="#d98a75"/>
+        <line x1="560" y1="360" x2="560" y2="374" stroke="#6b4f36" stroke-width="2.5"/>
+        <circle cx="560" cy="386" r="13" fill="#a8402f"/><circle cx="556" cy="382" r="4" fill="#d98a75"/>
+        <line x1="645" y1="340" x2="645" y2="354" stroke="#6b4f36" stroke-width="2.5"/>
+        <circle cx="645" cy="366" r="13" fill="#a8402f"/><circle cx="641" cy="362" r="4" fill="#d98a75"/>
+        <line x1="715" y1="300" x2="715" y2="314" stroke="#6b4f36" stroke-width="2.5"/>
+        <circle cx="715" cy="326" r="13" fill="#a8402f"/><circle cx="711" cy="322" r="4" fill="#d98a75"/>
+      </g>
+
+      <!-- 落果到小樹 -->
+      <path d="M 722 340 C 810 440 868 520 900 582" stroke="#a8402f" stroke-width="2" fill="none" stroke-dasharray="2 7" opacity=".65"/>
+      <circle cx="858" cy="502" r="8" fill="#a8402f" opacity=".85"/>
+
+      <!-- 小樹 -->
+      <ellipse cx="915" cy="682" rx="64" ry="10" fill="#cfe2d6"/>
+      <path d="M 915 678 C 914 650 912 628 909 606" stroke="#7d5f43" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M 912 640 C 900 630 890 624 880 620" stroke="#7d5f43" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="908" cy="585" rx="52" ry="38" fill="#26715f"/>
+      <ellipse cx="890" cy="575" rx="34" ry="26" fill="#2f8d78"/>
+      <ellipse cx="924" cy="565" rx="24" ry="17" fill="#3ba187"/>
+      <circle cx="934" cy="598" r="6" fill="#a8402f"/><circle cx="932" cy="596" r="2" fill="#d98a75"/>
+
+      <!-- ⑤ 果 -->
+      <line class="lead" x1="252" y1="388" x2="380" y2="360"/>
+      <circle class="badge" cx="95" cy="384" r="15"/><text class="badge-n" x="95" y="390" text-anchor="middle">5</text>
+      <text class="lbl" x="117" y="392">果・人受益</text>
+      <text class="lbl2" x="117" y="418">後人讀得到、聽得到</text>
+
+      <!-- ③ 幹 -->
+      <line class="lead" x1="318" y1="478" x2="462" y2="502"/>
+      <circle class="badge" cx="120" cy="470" r="15"/><text class="badge-n" x="120" y="476" text-anchor="middle">3</text>
+      <text class="lbl" x="142" y="478">幹・收得好</text>
+      <text class="lbl2" x="142" y="504">收進雲端庫房，隨時找得到</text>
+
+      <!-- ④ 枝 -->
+      <line class="lead" x1="828" y1="188" x2="740" y2="238"/>
+      <circle class="badge" cx="828" cy="170" r="15"/><text class="badge-n" x="828" y="176" text-anchor="middle">4</text>
+      <text class="lbl" x="850" y="178">枝・傳出去</text>
+      <text class="lbl2" x="850" y="204">LINE、季刊、上台講課</text>
+
+      <!-- ① 左根 -->
+      <circle class="badge" cx="128" cy="772" r="15"/><text class="badge-n" x="128" y="778" text-anchor="middle">1</text>
+      <text class="lbl" x="150" y="780">根・仙佛的話</text>
+      <text class="lbl2" x="150" y="806">法會上，一字一句抄下來</text>
+
+      <!-- ② 右根 -->
+      <circle class="badge" cx="598" cy="772" r="15"/><text class="badge-n" x="598" y="778" text-anchor="middle">2</text>
+      <text class="lbl" x="620" y="780">根・道場的事</text>
+      <text class="lbl2" x="620" y="806">活動、名冊、會議，都記下來</text>
+
+      <!-- ⑥ 新樹 -->
+      <circle class="badge" cx="838" cy="742" r="15"/><text class="badge-n" x="838" y="748" text-anchor="middle">6</text>
+      <text class="lbl" x="860" y="750">新樹・帶新人</text>
+      <text class="lbl2" x="860" y="776">仙佛說：「交棒要及早」</text>
+    </svg>
+  </figure>
+
+  <p class="takeaway">話記得真，事收得好，傳到人身上，代代有人接，樹就不斷根。</p>
+
+  <div class="more">
+    <a class="big" href="specs/2026-09-02-emei-wenshu-panorama.html">看完整藍圖（全景）→</a>
+    <a class="small" href="library.html">📚 文件庫</a>
+  </div>
+
+  <footer>峨眉文書首頁・一棵傳家的樹・正本：drive-inventory/docs/</footer>
 </div>
