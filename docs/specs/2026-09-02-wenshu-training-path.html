@@ -20,6 +20,7 @@
   h1 { font-size: clamp(30px, 5vw, 44px); margin: 0 0 12px; font-weight: 700; text-wrap: balance; }
   .oneline { font-size: clamp(15px, 2vw, 18px); color: var(--deep); font-weight: 700; margin: 0; }
   h2 { font-size: clamp(20px, 3vw, 24px); margin: 56px 0 16px; text-wrap: balance; }
+  h3 { font-size: 16.5px; margin: 28px 0 10px; }
   .cap { font-size: 13px; color: var(--sub); margin: 10px 0 0; max-width: 60ch; }
 
   .opening { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--seal);
@@ -29,9 +30,10 @@
   .opening .src { font-size: 12.5px; color: var(--sub); margin-top: 6px; }
 
   figure.map { margin: 0; overflow-x: auto; }
-  figure.map svg { min-width: 860px; width: 100%; height: auto; display: block; }
+  figure.map svg { min-width: 980px; width: 100%; height: auto; display: block; }
   .node { fill: var(--card); stroke: var(--line); stroke-width: 1.3; }
   .node-key { fill: var(--tint); stroke: var(--primary); stroke-width: 1.5; }
+  .node-porch { fill: var(--card); stroke: var(--primary); stroke-width: 1.5; stroke-dasharray: 6 5; }
   .t-word { font-size: 21px; font-weight: 700; fill: var(--deep); font-family: "Songti TC","Noto Serif TC",serif; }
   .t-s2 { font-size: 11.5px; fill: var(--sub); }
   .t-lane { font-size: 11px; font-weight: 700; fill: var(--primary); }
@@ -43,6 +45,7 @@
 
   .stage { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
     padding: 20px 22px; margin-bottom: 14px; box-shadow: 0 1px 2px rgba(31,59,44,.04); }
+  .stage.porch { border-style: dashed; border-color: var(--primary); }
   .stage .head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
   .stage .no { font-size: 13px; font-weight: 700; color: var(--primary); letter-spacing: .08em; }
   .stage .name { font-size: 20px; font-weight: 700; font-family: "Songti TC","Noto Serif TC",serif; }
@@ -89,7 +92,7 @@
   <header class="page">
     <p class="eyebrow">峨眉書院・文書育才</p>
     <h1>文書育才路徑</h1>
-    <p class="oneline">從見習到傳承五階，養出又文又武的文書。</p>
+    <p class="oneline">前庭敞開、核心守緊：從幫忙到傳承，養出又文又武的文書。</p>
   </header>
 
   <div class="opening">
@@ -97,10 +100,10 @@
     <div class="src">——濟公活佛・西元2011年泰國北欖府奉恩樓三天法會（垂訓選輯 #72）。帶人的心法，也是這條路存在的理由。</div>
   </div>
 
-  <h2>路徑圖：雙軌入門，一條路上去</h2>
-  <p class="cap" style="margin:0 0 14px">前兩階分兩條軌道入門——法會軌練抄校的手藝，道務軌練記事歸檔的規矩；到第三階合流，因為修己、渡人、傳承是同一條路。走到最後一階的人，回頭帶新人，路就成了迴圈。</p>
+  <h2>路徑圖：前庭敞開，雙軌入門，一條路上去</h2>
+  <p class="cap" style="margin:0 0 14px">現代人多半從幫忙開始，不是從拜師開始——所以路的最前面是敞開的前庭（第零階）：零門檻、看得見手藝。往上走靠帶的人開口邀請，不靠自己報名。前兩階分法會軌與道務軌，第三階合流；走到最後的人回頭帶人，路成迴圈。</p>
   <figure class="map">
-    <svg viewBox="0 0 1040 370" role="img" aria-label="文書育才路徑圖：見習與承擔分法會軌與道務軌兩行，到深化合流，經轉化到傳承，傳承回頭帶新人形成迴圈">
+    <svg viewBox="0 0 1180 415" role="img" aria-label="文書育才路徑圖：最左是敞開的第零階幫忙前庭，經邀請進入見習與承擔（分法會軌與道務軌），到深化合流，經轉化到傳承，傳承回頭帶新人形成迴圈；轉化的出口也是新的入口（多門）">
       <defs>
         <marker id="pm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" class="m-accent" />
@@ -110,74 +113,111 @@
         </marker>
       </defs>
 
-      <!-- 傳承迴圈（先畫在底層） -->
-      <path class="flow-loop" d="M 940 112 C 800 18 300 18 112 50" marker-end="url(#pd)" />
-      <text class="t-lbl-a" x="520" y="30" text-anchor="middle">回頭帶人——傳承的迴圈</text>
+      <!-- 傳承迴圈 -->
+      <path class="flow-loop" d="M 1080 112 C 920 14 320 14 100 48" marker-end="url(#pd)" />
+      <text class="t-lbl-a" x="590" y="28" text-anchor="middle">回頭帶人——傳承的迴圈</text>
+
+      <!-- 第零階：前庭 -->
+      <rect class="node-porch" x="16" y="56" width="150" height="234" rx="12" />
+      <text class="t-lane" x="32" y="80">第零階・敞開</text>
+      <text class="t-word" x="32" y="108">幫忙</text>
+      <text class="t-s2" x="32" y="130">掛號、佈置、發本子</text>
+      <text class="t-s2" x="32" y="148">行功了愿，零門檻</text>
+      <text class="t-s2" x="32" y="172">安排在看得見</text>
+      <text class="t-s2" x="32" y="188">抄訓現場的位置</text>
+      <text class="t-s2" x="32" y="212">往上＝帶的人開口邀</text>
+      <text class="t-s2" x="32" y="230">不是自己報名</text>
+      <text class="t-s2" x="32" y="258">錄音、訓文檔不經手</text>
+      <text class="t-s2" x="32" y="276">（#56、#57 閘門）</text>
+
+      <line class="flow" x1="166" y1="110" x2="200" y2="105" marker-end="url(#pm)" />
+      <line class="flow" x1="166" y1="240" x2="200" y2="241" marker-end="url(#pm)" />
+      <text class="t-lbl-a" x="184" y="180" text-anchor="middle">邀請</text>
 
       <!-- 第一階：見習（雙軌） -->
-      <rect class="node" x="20" y="56" width="170" height="98" rx="12" />
-      <text class="t-lane" x="36" y="78">第一階・法會軌</text>
-      <text class="t-word" x="36" y="106">見習</text>
-      <text class="t-s2" x="36" y="126">跟班：掛號、板書、護持</text>
-      <text class="t-s2" x="36" y="142">練法：一個念、一個抄</text>
-      <rect class="node" x="20" y="192" width="170" height="98" rx="12" />
-      <text class="t-lane" x="36" y="214">第一階・道務軌</text>
-      <text class="t-word" x="36" y="242">見習</text>
-      <text class="t-s2" x="36" y="262">跟班：會議記錄跟寫</text>
-      <text class="t-s2" x="36" y="278">歸檔跟做、認識規矩</text>
+      <rect class="node" x="204" y="56" width="160" height="98" rx="12" />
+      <text class="t-lane" x="220" y="78">第一階・法會軌</text>
+      <text class="t-word" x="220" y="106">見習</text>
+      <text class="t-s2" x="220" y="126">跟班：掛號、板書、護持</text>
+      <text class="t-s2" x="220" y="142">練法：一個念、一個抄</text>
+      <rect class="node" x="204" y="192" width="160" height="98" rx="12" />
+      <text class="t-lane" x="220" y="214">第一階・道務軌</text>
+      <text class="t-word" x="220" y="242">見習</text>
+      <text class="t-s2" x="220" y="262">跟班：會議記錄跟寫</text>
+      <text class="t-s2" x="220" y="278">歸檔跟做、認識規矩</text>
 
-      <line class="flow" x1="190" y1="105" x2="228" y2="105" marker-end="url(#pm)" />
-      <line class="flow" x1="190" y1="241" x2="228" y2="241" marker-end="url(#pm)" />
+      <line class="flow" x1="364" y1="105" x2="398" y2="105" marker-end="url(#pm)" />
+      <line class="flow" x1="364" y1="241" x2="398" y2="241" marker-end="url(#pm)" />
 
       <!-- 第二階：承擔（雙軌） -->
-      <rect class="node" x="232" y="56" width="170" height="98" rx="12" />
-      <text class="t-lane" x="248" y="78">第二階・法會軌</text>
-      <text class="t-word" x="248" y="106">承擔</text>
-      <text class="t-s2" x="248" y="126">四人分工正式上場</text>
-      <text class="t-s2" x="248" y="142">主抄副抄板書校對</text>
-      <rect class="node" x="232" y="192" width="170" height="98" rx="12" />
-      <text class="t-lane" x="248" y="214">第二階・道務軌</text>
-      <text class="t-word" x="248" y="242">承擔</text>
-      <text class="t-s2" x="248" y="262">獨立成稿、照規繳回</text>
-      <text class="t-s2" x="248" y="278">註明出處、時地</text>
+      <rect class="node" x="402" y="56" width="160" height="98" rx="12" />
+      <text class="t-lane" x="418" y="78">第二階・法會軌</text>
+      <text class="t-word" x="418" y="106">承擔</text>
+      <text class="t-s2" x="418" y="126">四人分工正式上場</text>
+      <text class="t-s2" x="418" y="142">主抄副抄板書校對</text>
+      <rect class="node" x="402" y="192" width="160" height="98" rx="12" />
+      <text class="t-lane" x="418" y="214">第二階・道務軌</text>
+      <text class="t-word" x="418" y="242">承擔</text>
+      <text class="t-s2" x="418" y="262">獨立成稿、照規繳回</text>
+      <text class="t-s2" x="418" y="278">註明出處、時地</text>
 
-      <line class="flow" x1="402" y1="105" x2="466" y2="156" marker-end="url(#pm)" />
-      <line class="flow" x1="402" y1="241" x2="466" y2="196" marker-end="url(#pm)" />
+      <line class="flow" x1="562" y1="105" x2="620" y2="156" marker-end="url(#pm)" />
+      <line class="flow" x1="562" y1="241" x2="620" y2="196" marker-end="url(#pm)" />
 
       <!-- 第三階：深化（合流） -->
-      <rect class="node-key" x="470" y="114" width="164" height="120" rx="12" />
-      <text class="t-lane" x="486" y="136">第三階・合流</text>
-      <text class="t-word" x="486" y="164">深化</text>
-      <text class="t-s2" x="486" y="184">修己：道學充實、心靜</text>
-      <text class="t-s2" x="486" y="200">抄訓當修行</text>
-      <text class="t-s2" x="486" y="216">聖訓＝自己的準繩</text>
+      <rect class="node-key" x="624" y="114" width="156" height="120" rx="12" />
+      <text class="t-lane" x="640" y="136">第三階・合流</text>
+      <text class="t-word" x="640" y="164">深化</text>
+      <text class="t-s2" x="640" y="184">修己：道學充實、心靜</text>
+      <text class="t-s2" x="640" y="200">抄訓當修行</text>
+      <text class="t-s2" x="640" y="216">聖訓＝自己的準繩</text>
 
-      <line class="flow" x1="634" y1="174" x2="672" y2="174" marker-end="url(#pm)" />
+      <line class="flow" x1="780" y1="174" x2="814" y2="174" marker-end="url(#pm)" />
 
       <!-- 第四階：轉化 -->
-      <rect class="node-key" x="676" y="114" width="164" height="120" rx="12" />
-      <text class="t-lane" x="692" y="136">第四階</text>
-      <text class="t-word" x="692" y="164">轉化</text>
-      <text class="t-s2" x="692" y="184">擷取啟示、上台講課</text>
-      <text class="t-s2" x="692" y="200">走入人群渡人</text>
-      <text class="t-s2" x="692" y="216">出口按性向配</text>
+      <rect class="node-key" x="818" y="114" width="156" height="120" rx="12" />
+      <text class="t-lane" x="834" y="136">第四階</text>
+      <text class="t-word" x="834" y="164">轉化</text>
+      <text class="t-s2" x="834" y="184">擷取啟示、上台講課</text>
+      <text class="t-s2" x="834" y="200">走入人群渡人</text>
+      <text class="t-s2" x="834" y="216">出口按性向配</text>
 
-      <line class="flow" x1="840" y1="174" x2="878" y2="174" marker-end="url(#pm)" />
+      <line class="flow" x1="974" y1="174" x2="1008" y2="174" marker-end="url(#pm)" />
 
       <!-- 第五階：傳承 -->
-      <rect class="node-key" x="882" y="114" width="142" height="120" rx="12" />
-      <text class="t-lane" x="898" y="136">第五階</text>
-      <text class="t-word" x="898" y="164">傳承</text>
-      <text class="t-s2" x="898" y="184">帶見習、辦培訓</text>
-      <text class="t-s2" x="898" y="200">列接棒名單</text>
-      <text class="t-s2" x="898" y="216">交棒要及早</text>
+      <rect class="node-key" x="1012" y="114" width="152" height="120" rx="12" />
+      <text class="t-lane" x="1028" y="136">第五階</text>
+      <text class="t-word" x="1028" y="164">傳承</text>
+      <text class="t-s2" x="1028" y="184">帶見習、辦培訓</text>
+      <text class="t-s2" x="1028" y="200">列接棒名單</text>
+      <text class="t-s2" x="1028" y="216">交棒要及早</text>
 
-      <text class="t-lbl-a" x="520" y="330" text-anchor="middle">五階是一條路，不是五個關卡——往前走一階，由帶的人判斷，不是考核表</text>
+      <!-- 多門 -->
+      <path class="flow-loop" d="M 896 320 C 700 330 300 330 92 296" marker-end="url(#pd)" />
+      <text class="t-lbl-a" x="590" y="352" text-anchor="middle">多門：從文獻採訪、季刊寫手、誦經帶動這些出口的門走進來也行——繞一圈才碰抄訓，或永遠不碰，都是路</text>
+      <line class="flow-loop" x1="896" y1="234" x2="896" y2="316" />
+
+      <text class="t-lbl-a" x="590" y="392" text-anchor="middle">階梯是一條路，不是關卡——往前走一階，由帶的人判斷，不是考核表；耐心是這條路的產出，不是入場的門檻</text>
     </svg>
-    <figcaption class="cap">實線＝成長方向；虛線＝傳承迴圈。淺綠底的三階（深化、轉化、傳承）兩軌共用——不管從哪條軌進來，路的後半段是同一條。</figcaption>
+    <figcaption class="cap">實線＝成長方向；虛線＝兩個迴圈（傳承回頭帶人、出口變入口）。前庭用虛線框＝門是開的；淺綠底三階（深化、轉化、傳承）兩軌共用。</figcaption>
   </figure>
 
-  <h2>五階細目：做什麼、用什麼教材、憑什麼訓文</h2>
+  <h2>六階細目：做什麼、用什麼教材、憑什麼訓文</h2>
+
+  <div class="stage porch">
+    <div class="head"><span class="no">第零階</span><span class="name">幫忙（前庭）</span><span class="chip c-gy">不用教材・不設門檻</span></div>
+    <ul>
+      <li>零門檻的事：掛號、佈置、發本子、齋務支援——來的人是來行功了愿的，不是來拜師的</li>
+      <li>刻意安排在<span class="lane">看得見抄訓現場</span>的位置：不用學，但看得見這門手藝在發生</li>
+      <li>閘門照守：錄音檔、訓文檔不經手，要加人先請示（#56、#57）——前庭的門開多大，這道閘就要多硬</li>
+      <li>往上走靠<span class="lane">邀請</span>：帶的人看見有心的人，開口邀他試一次——仙佛自己示範過：行德班當場「派三個人出來」上台抄訓，先讓人嚐，再談學</li>
+    </ul>
+    <div class="qbox">
+      <div class="q">「要知道自己扮演什麼角色，才能達到人多好用，而不是人多卻不好用。人多當然可以，因為每個人都需要機會行功了愿，可是要怎麼讓人多而達到用處呢？」</div>
+      <div class="src">哪吒師兄・西元2011年馬來西亞柔佛州聖義壇三天法會（垂訓選輯 #25）</div>
+    </div>
+    <div class="ebox"><b>編者按（設計，非訓文）：</b>第零階不是學習的開始，是因緣的開始。以前是「先拜師、再學藝」，現在是「先結緣、再引路」——這是對志工時代的回應，訓文給的底是「行功了愿」四個字。</div>
+  </div>
 
   <div class="stage">
     <div class="head"><span class="no">第一階</span><span class="name">見習</span><span class="chip c-em">教材：峨眉注意事項</span></div>
@@ -185,6 +225,10 @@
       <li><span class="lane">法會軌</span>：跟班做掛號、板書、現場護持；配對練習——一個人念、一個人抄，每週或每月固定練</li>
       <li><span class="lane">道務軌</span>：跟著寫會議記錄、跟著做歸檔，把繳回的規矩認一遍</li>
     </ul>
+    <div class="qbox">
+      <div class="q">「雖然你們沒上來抄，在自己本子上抄一抄也可以，抄錯也沒關係，重點不在抄對與抄錯。重點是咱們是否心心相印，而且在抄的一筆一劃、一字一句當中，是否了解？了解多少？這跟辦事一樣，分工合作！」</div>
+      <div class="src">濟公活佛・中華民國九十三年歲次甲申七月二十日三峽靈隱寺二天行德班（《文書篇》第一冊原文，建議覆核時補收進選輯）——這句是整條路的地基：抄訓的本體不是生產紀錄，是以心印心。錄音機沒讓它消失，AI 也不會。</div>
+    </div>
     <div class="qbox">
       <div class="q">「所謂的抄訓，不是拿一篇訓自己在那裡抄，這達不到效果，要同修之間互相一個念一個抄，你們才有體會，才能達到效果。」</div>
       <div class="src">濟公活佛・西元2008年印尼三寶壟濟化壇三天法會（垂訓選輯 #26）</div>
@@ -226,6 +270,7 @@
     <ul>
       <li>從抄到講：擷取聖訓重點（#41）、寫上啟示（#42）、上台講課</li>
       <li>走入人群開始成全人；出口按性向配——講師、文獻採訪、季刊寫手、誦經帶動（出口清單為設計，訓文給的是方向）</li>
+      <li>出口同時是別人的入口：多門的門，就開在這一階（見路徑圖虛線）</li>
     </ul>
     <div class="qbox">
       <div class="q">「送你們四個字：『文武之書』，叫做文書。為什麼要文武？一動一靜，文書不是只當文書，而不去渡人成全辦道。」</div>
@@ -241,8 +286,9 @@
     <div class="head"><span class="no">第五階</span><span class="name">傳承（帶人）</span><span class="chip c-em">教材：傳承包全套</span></div>
     <ul>
       <li>回頭帶見習、辦培訓（#68 全體培訓、#69 關起門來真正做培訓、#73 栽培當地人才）</li>
-      <li>列接棒名單，交棒要及早（#63）；帶人的心法＝愛心裡的威嚴（#72）</li>
-      <li>你會的，就要教導下去（#64）；栽培人才，不要一下子讓他站太高（#70）</li>
+      <li>列接棒名單，交棒要及早（#63）；你會的，就要教導下去（#64）</li>
+      <li><span class="lane">帶人者三動作</span>：讓他看見（把這頁攤開，指給他「你在這裡，後面長這樣」）→ 邀他試一步（一次只邀一階，#70 不要一下子站太高）→ 陪他過第一次（#72 愛心裡的威嚴）</li>
+      <li>系統幫最後一把：道籍足跡看得出「這個人已經幫忙五場了」，提醒帶的人該開口了——提醒的是帶人者，不是給人打分數</li>
     </ul>
     <div class="qbox">
       <div class="q">「老師希望下回見到你，不是抄板書而已，要懂得栽培下一代，道棒一棒接一棒，人才一代培育一代，道場不是永遠你站在那個位置上。」</div>
@@ -250,24 +296,58 @@
     </div>
   </div>
 
+  <h2>AI 時代的分階規矩</h2>
+  <p class="cap" style="margin:0 0 14px">AI 拿走的是藍圖本來就要給機器的那一段（機械工）；修行、判斷、渡人它碰不到。抄訓的理由，錄音機時代就考驗過一次——仙佛留了它二十年，理由是「心心相印」。以下四條是工具的規矩：</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="t">✍️ 抄訓從工序變功課</div>
+      <div class="s">跟書法一樣：打字機沒有殺死書法，只是卸下它實用的擔子，讓它變成純粹的修行。現場四人團照跑——第一手、莊嚴在場、練功，一樣不少。</div>
+    </div>
+    <div class="rule">
+      <div class="t">🤖 AI 排進「校」那格當第五人</div>
+      <div class="s">事後轉錄一份與手抄稿互校，兩稿對出來的正確率比單軌高。AI 的產出＝另一種「重抄稿」——校對永遠以原稿（錄音）為準（#32），不確定的照樣有疑必請示（#49）。</div>
+    </div>
+    <div class="rule">
+      <div class="t">🗝️ 工具按階給，先走路再上車</div>
+      <div class="s">第零到二階禁用 AI 代工——練的就是那雙手那對耳（「為什麼不練一練自己的記憶呢？」）；第三階起當檢索練功房；第四階才當放大器（備課、擷取）。</div>
+    </div>
+    <div class="rule">
+      <div class="t">🕰️ 耐心是產出，不是門檻</div>
+      <div class="s">AI 時代最稀缺的能力是靜下來十分鐘——抄訓正是注意力的鍛鍊，道場的慢功夫是外面沒有的東西。設計上：零階的事要短、練習要短，由帶的人陪著慢慢加長。</div>
+    </div>
+  </div>
+
+  <h2>接進排班的三個卡榫</h2>
+  <p class="cap" style="margin:0 0 14px">育人不另辦活動，直接長在既有的節奏裡：</p>
+  <div class="tblwrap">
+    <table class="ev">
+      <tr><th>卡榫</th><th>接在哪裡</th><th>做法</th></tr>
+      <tr><td>見習位</td><td>每場法會的排班表</td><td>四人分工外固定排第五人跟看（校對位本來就是「第四個來的人」的延伸）</td></tr>
+      <tr><td>育才觀察</td><td>檢討會記錄模板</td><td>加一行「這場有沒有人可以邀」——檢討會記錄歸 208會議，觀察就留了痕</td></tr>
+      <tr><td>一主一副</td><td>道務文書工作清單「誰動手」欄</td><td>每條工作流填人時直接一主一副，副手就是在學的人——交棒內建在排班裡</td></tr>
+    </table>
+  </div>
+
   <h2>證據總表：每一階踩在哪幾則訓文上</h2>
   <div class="tblwrap">
     <table class="ev">
       <tr><th>階段</th><th>逐字訓文（垂訓選輯則號）</th><th>編者推論（畫面一律虛線標示）</th></tr>
-      <tr><td>一、見習</td><td>#26 一個念一個抄／#70 不要一下子站太高／#72 必須經歷這一段</td><td>—</td></tr>
+      <tr><td>零、幫忙</td><td>#25 行功了愿／#56、#57 閘門／行德班「派三個人出來」（冊一原文）</td><td class="inf">前庭與邀請制（對志工時代的設計）</td></tr>
+      <tr><td>一、見習</td><td>行德班「心心相印」（冊一原文，建議補收）／#26 一個念一個抄／#70 不要一下子站太高／#72 必須經歷這一段</td><td>—</td></tr>
       <tr><td>二、承擔</td><td>#25 四人分工／#38、#39 主抄副抄默契／#14 每次當第一次／#67 十足把握才上場／#53 未來佛也得要記（道務軌）</td><td class="inf">四位輪替（自 #72 推）</td></tr>
       <tr><td>三、深化</td><td>#16 四書／#17 經典涉獵／#21 心靜／#22 壓傲氣／#11 位高則卑／#74 聖訓當準繩</td><td class="inf">寫日記、做文獻＝應用延伸</td></tr>
-      <tr><td>四、轉化</td><td>#41 擷取重點／#42 寫上啟示／#66 文武之書／#19 防文字障／#65另參 臺上講課／#74另參 能文能武</td><td class="inf">出口清單按性向配（設計）</td></tr>
-      <tr><td>五、傳承</td><td>#63 交棒要及早／#64 教導下去／#65 一代培育一代／#68 全體培訓／#69 關門培訓／#72 帶人心法／#73 栽培當地人才</td><td>—</td></tr>
+      <tr><td>四、轉化</td><td>#41 擷取重點／#42 寫上啟示／#66 文武之書／#19 防文字障／#65另參 臺上講課／#74另參 能文能武</td><td class="inf">出口清單按性向配、多門（設計）</td></tr>
+      <tr><td>五、傳承</td><td>#63 交棒要及早／#64 教導下去／#65 一代培育一代／#68 全體培訓／#69 關門培訓／#72 帶人心法／#73 栽培當地人才</td><td class="inf">帶人者三動作、道籍足跡提醒（設計）</td></tr>
+      <tr><td>AI 規矩</td><td>行德班「心心相印」／#32 原稿校對／#49 有疑必問／「為什麼不練一練自己的記憶呢？」（冊二原文）</td><td class="inf">功課化、第五校對、按階給（設計）</td></tr>
     </table>
   </div>
-  <p class="cap">則號皆指《法會文書垂訓選輯》（81 則，草稿覆核中）。「編者推論」欄是設計判斷、不是訓文——本頁與選輯同一套紀律：逐字引文用實線紅邊框，推論用虛線黃框，一眼分得開。</p>
+  <p class="cap">則號皆指《法會文書垂訓選輯》（81 則，草稿覆核中）；標「冊一／冊二原文」者為選輯未收的原書段落，覆核時建議補收。「編者推論」欄是設計判斷、不是訓文——本頁與選輯同一套紀律：逐字引文用實線紅邊框，推論用虛線黃框，一眼分得開。</p>
 
   <h2>兩條護欄</h2>
   <div class="rules">
     <div class="rule">
       <div class="t">🧭 是地圖，不是考核表</div>
-      <div class="s">誰可以往前走一階，由帶他的人判斷，不由數字判斷。道場跨人的本質是關懷，不是績效。</div>
+      <div class="s">誰可以往前走一階，由帶他的人判斷，不由數字判斷。道場跨人的本質是關懷，不是績效——所以也不搞積分、徽章那套遊戲化。</div>
     </div>
     <div class="rule">
       <div class="t">🤝 帶人為主，開班為輔</div>
@@ -281,5 +361,5 @@
     <a href="https://neilliao.github.io/drive-inventory/specs/2026-09-01-fahui-wenshu-strategy-map.html">📜 法會文書藍圖 <small>法會軌的手藝細節</small></a>
   </div>
 
-  <footer>文書育才路徑・傳承包第四件「徑」・2026-09-02 草稿待覆核・正本：drive-inventory/docs/specs/（垂訓選輯在 docs/drafts/）</footer>
+  <footer>文書育才路徑・傳承包第四件「徑」・2026-09-02 二版（加前庭、邀請制、多門、帶人者三動作、AI 分階規矩、排班卡榫）・草稿待覆核・正本：drive-inventory/docs/specs/</footer>
 </div>
