@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中心文獻手冊對照</title>
+<style>
+  :root {
+    --page: #f3faf7; --card: #ffffff; --tint: #e7f3ef; --tint-2: #eef6f2;
+    --ink: #1f3b2c; --sub: #4c655a; --line: #d6e8de;
+    --deep: #26715f; --primary: #2f8d78; --seal: #a8402f;
+    --gap-bg: #fffbeb; --gap-tx: #b45309; --gap-bd: #fde68a;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--page); color: var(--ink); margin: 0; padding: 0 20px 64px;
+    font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif; line-height: 1.8; font-size: 16px; }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  header.page { padding: 40px 0 8px; text-align: center; }
+  .eyebrow { font-size: 14px; letter-spacing: .35em; color: var(--sub); margin: 0 0 10px; }
+  h1 { font-family: "Songti TC","Noto Serif TC",serif; font-size: clamp(30px, 5vw, 44px); margin: 0 0 10px; font-weight: 700; }
+  .oneline { font-size: clamp(16px, 2.2vw, 20px); color: var(--deep); font-weight: 700; margin: 0; }
+  .cap { font-size: 15px; color: var(--sub); margin: 14px auto 0; max-width: 46em; text-align: center; }
+  h2 { font-family: "Songti TC","Noto Serif TC",serif; font-size: clamp(20px, 2.8vw, 24px); margin: 46px 0 14px; }
+  p { max-width: 62em; }
+
+  .note { background: var(--card); border: 1.5px solid var(--seal); border-radius: 16px; padding: 20px 26px; }
+  .note b { font-family: "Songti TC","Noto Serif TC",serif; color: var(--seal); }
+
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .fact { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+  .fact .k { font-size: 13.5px; color: var(--sub); letter-spacing: .08em; }
+  .fact .v { font-size: 17px; font-weight: 700; margin-top: 4px; font-family: "Songti TC","Noto Serif TC",serif; }
+
+  .xw { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; font-size: 15px; }
+  .xw th { background: var(--tint); text-align: left; padding: 12px 14px; font-size: 14.5px; letter-spacing: .06em; color: var(--deep); }
+  .xw td { padding: 12px 14px; vertical-align: top; border-top: 1px solid var(--line); }
+  .xw td.f { font-weight: 700; font-family: "Songti TC","Noto Serif TC",serif; white-space: nowrap; }
+  .xw td.j { color: var(--deep); font-weight: 700; }
+  .xw td.j.gap { background: var(--gap-bg); color: var(--gap-tx); }
+  .tbl-wrap { overflow-x: auto; }
+
+  .cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .feed { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  .feed .name { font-size: 18px; font-weight: 700; font-family: "Songti TC","Noto Serif TC",serif; margin-bottom: 8px; }
+  .feed .st { display: inline-block; font-size: 13px; padding: 2px 10px; border-radius: 999px; margin-bottom: 10px; }
+  .st.ok { background: var(--tint); color: var(--deep); }
+  .st.gap { background: var(--gap-bg); color: var(--gap-tx); border: 1px dashed var(--gap-bd); }
+  .feed p { font-size: 15px; margin: 6px 0; }
+  .feed a { color: var(--primary); font-weight: 700; text-decoration: none; }
+  .feed a:hover { text-decoration: underline; }
+
+  .rules { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 26px; }
+  .rules li { margin: 8px 0; font-size: 15px; }
+
+  .links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 40px; }
+  .links a { display: flex; justify-content: center; background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 12px 16px; text-decoration: none; color: var(--ink); font-size: 15px; font-weight: 700; }
+  .links a:hover { border-color: var(--primary); color: var(--deep); }
+  footer { margin-top: 46px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13px; color: var(--sub); text-align: center; }
+  @media (max-width: 760px) {
+    .xw thead, .xw tr:first-child { display: none; }
+    .xw, .xw tbody, .xw tr, .xw td { display: block; width: 100%; }
+    .xw tr { border-top: 6px solid var(--tint); }
+    .xw td { border-top: 1px solid var(--line); padding: 10px 14px; }
+    .xw td.f { white-space: normal; background: var(--tint); font-size: 17px; }
+    .xw td::before { content: attr(data-l); display: block; font-size: 12.5px; letter-spacing: .1em; color: var(--sub); margin-bottom: 2px; }
+    .xw td.f::before { display: none; }
+  }
+  @media (max-width: 760px) { .facts { grid-template-columns: 1fr 1fr; } .cards, .links { grid-template-columns: 1fr; } }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <p class="eyebrow">峨眉書院・文書</p>
+    <h1>中心文獻手冊對照</h1>
+    <p class="oneline">靈隱中心《傳承永續：道場文獻工作參考手冊》與峨眉文書組藍圖，逐項對讀。</p>
+  </header>
+  <p class="cap">中心這本手冊 2026 年仍在編輯中。這一頁不抄它的內文，只做三件事：說明它是什麼、把它跟峨眉藍圖對過一遍、標出峨眉要從它補上的地方。</p>
+
+  <h2>這本是什麼</h2>
+  <div class="facts">
+    <div class="fact"><div class="k">出處</div><div class="v">靈隱中心・編輯中</div></div>
+    <div class="fact"><div class="k">架構</div><div class="v">四篇二十二章＋附錄</div></div>
+    <div class="fact"><div class="k">四篇</div><div class="v">蒐集・整理・運用・管理</div></div>
+    <div class="fact"><div class="k">對象</div><div class="v">中心與各單位共同推動</div></div>
+  </div>
+  <p style="margin-top:16px">序曲四章講認識文獻、十三條基本原則、四個階段、團隊分工。四篇依序是蒐集（資料蒐集、佛堂登錄、行程回報、活動採訪、人物訪談）、整理（數位工程、電子檔案、影音上傳、開壇訓文）、運用（道務紀要、人物表格、傳記年譜、特刊、電子期刊、年鑑、網站）、管理（數位典藏館與圖書、文獻、視聽、道史四館）。附錄收李如翼經理〈道場資料的收集和保存〉與道場訪談要領。</p>
+
+  <div class="note" style="margin-top:22px">
+    <b>一個前提換了。</b> 文獻平台實作地圖上「不對齊、不等中心」這條，原來的理由是中心沒有成文標準。這本手冊一旦定稿，中心就有了。要不要對齊仍是峨眉自己的路線，只是往後不能再拿「中心沒標準」當理由。峨眉的做法維持不變：自己做齊，格式對得上就對，中心要什麼就匯出給它。
+  </div>
+
+  <h2>逐項對讀</h2>
+  <div class="tbl-wrap">
+  <table class="xw">
+    <tr><th>面向</th><th>中心手冊</th><th>峨眉藍圖現況</th><th>判讀</th></tr>
+    <tr><td data-l="面向" class="f">本質</td><td data-l="中心手冊">文獻是道場的記憶，工作分蒐集、整理、運用、管理四階段</td><td data-l="峨眉藍圖現況">記、存、傳三動作，北極星是讓後人得以飲水思源</td><td data-l="判讀" class="j">同一件事，切法不同，可互相引用</td></tr>
+    <tr><td data-l="面向" class="f">鐵則</td><td data-l="中心手冊">十三條原則：當下記、原始不刪、留來源、待查不猜、保存不等於公開</td><td data-l="峨眉藍圖現況">兩條鐵則加母本對版</td><td data-l="判讀" class="j">幾乎一致，中心講得更細，可直接引</td></tr>
+    <tr><td data-l="面向" class="f">檔名</td><td data-l="中心手冊">日期加單位加事件加性質，以底線分隔；原則章另用括號流水號與直線分隔，手冊內部尚未統一</td><td data-l="峨眉藍圖現況">日期開頭加活動名，進年夾；系統靠日期開頭認活動</td><td data-l="判讀" class="j">日期開頭相容，其餘不同；峨眉規則較簡，不改</td></tr>
+    <tr><td data-l="面向" class="f">資料夾</td><td data-l="中心手冊">依類型：佛堂、人物、聖訓、道務、活動、照片、影音、出版品</td><td data-l="峨眉藍圖現況">依編號碟：202文史、204錄音、206照片、208會議、304文書組</td><td data-l="判讀" class="j">軸不同，都是媒材優先，做一張對照表即可映射</td></tr>
+    <tr><td data-l="面向" class="f">會議紀錄</td><td data-l="中心手冊">附錄給了議題、說明、決議三段式；隱惡揚善，人事、財務、護道、道盤不寫；請前賢檢閱後才發</td><td data-l="峨眉藍圖現況">工作清單第一條四格仍是紅虛線</td><td data-l="判讀" class="j gap">成稿格式與把關兩格有中心依據可引，執筆與傳達仍待拍板</td></tr>
+    <tr><td data-l="面向" class="f">訓文</td><td data-l="中心手冊">只寫開壇訓文；校對走原稿、掃描檔、電子檔三方比對，字跡不清標待查</td><td data-l="峨眉藍圖現況">法會文書另冊傳承，訓文工法仙佛親授</td><td data-l="判讀" class="j">不衝突，中心沒碰法會訓文工法</td></tr>
+    <tr><td data-l="面向" class="f">AI</td><td data-l="中心手冊">聽打與文字辨識只是輔助，聖號、人名、道場用語必人工校對</td><td data-l="峨眉藍圖現況">AI 是校那格的第五人，零至二階不代工</td><td data-l="判讀" class="j">相容，中心沒有育才分階</td></tr>
+    <tr><td data-l="面向" class="f">數位典藏</td><td data-l="中心手冊">十三個基本欄位、佛堂與人物的資料關聯、四級公開層級</td><td data-l="峨眉藍圖現況">文獻典藏收錄標準與報導庫</td><td data-l="判讀" class="j gap">幾乎就是報導庫的欄位，逐欄比對待做</td></tr>
+    <tr><td data-l="面向" class="f">道務紀要</td><td data-l="中心手冊">手冊主軸：行程回報、道務紀要、道務報導、電子期刊、年鑑，一條線</td><td data-l="峨眉藍圖現況">工作清單沒有這條，最接近的是活動總表</td><td data-l="判讀" class="j gap">峨眉的漏洞，本次補上（見下）</td></tr>
+  </table>
+  </div>
+
+  <h2>這次從中心補上的</h2>
+  <div class="cards">
+    <div class="feed">
+      <div class="name">📖 道務紀要</div>
+      <span class="st gap">新列入工作清單第十條・待拍板</span>
+      <p>一場活動一段話：日期、地點、單位、事件、人物、要點。活動總表只認得日期與名字，紀要才留得住事情本身。中心手冊把它當年鑑與沿革的基礎，峨眉此前沒有這條。</p>
+      <p><a href="../drafts/2026-09-01-304-wenshu-worklist-draft.md">工作清單</a>・<a href="2026-09-02-task-gate.html">任務門新卡</a></p>
+    </div>
+    <div class="feed">
+      <div class="name">📋 會議紀錄兩格</div>
+      <span class="st ok">有依據可引</span>
+      <p>成稿格式：議題、說明、決議三段。把關：請前賢檢閱後才發，人事、財務、護道、道盤不入紀錄。這兩格從此不是空白，是中心的做法。執筆是誰、多久交、傳給誰，仍等拍板。</p>
+      <p><a href="2026-09-02-task-gate.html">任務門會議記錄卡</a></p>
+    </div>
+    <div class="feed">
+      <div class="name">🗄️ 典藏欄位比對</div>
+      <span class="st gap">待做</span>
+      <p>中心列的十三個欄位：名稱、日期、類型、人物、佛堂、單位、地點、摘要、提供者、原件保存處、數位化日期、可否公開、備註。跟峨眉報導庫逐欄對一遍，缺的補、多的留。</p>
+      <p><a href="2026-08-20-literature-platform-implementation-map.html">文獻平台實作地圖</a></p>
+    </div>
+  </div>
+
+  <h2>引用的規矩</h2>
+  <div class="rules">
+    <ul>
+      <li>稱《道場文獻工作參考手冊》（靈隱中心，編輯中）。定稿後改稱定稿版，本頁同步更新。</li>
+      <li>不抄內文上藍圖。要引，引做法，不引段落；手冊定稿前，凡引用皆加註「編輯中」。</li>
+      <li>與《聖佛綸音・文書篇》並列時，訓文在前，手冊在後。訓文講為什麼，手冊講怎麼做。</li>
+      <li>峨眉存一份副本在交接包 sources，正本由中心保管。</li>
+    </ul>
+  </div>
+
+  <div class="links">
+    <a href="https://neilliao.github.io/drive-inventory/">⌂ 回首頁（樹）</a>
+    <a href="https://neilliao.github.io/drive-inventory/specs/2026-09-01-emei-wenshu-grand-strategy-map.html">🗺 峨眉文書組藍圖</a>
+    <a href="https://neilliao.github.io/drive-inventory/library.html">📚 文件庫</a>
+  </div>
+
+  <footer>中心文獻手冊對照・2026-09-15・正本：drive-inventory/docs/specs/</footer>
+</div>
+</html>
