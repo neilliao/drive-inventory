@@ -4,8 +4,8 @@
 <script defer src="blueprint-common.js?v=1"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="wenshu-atlas.css">
-<link rel="stylesheet" href="daowu-atlas.css">
-<script src="daowu-atlas.js" defer></script>
+<link rel="stylesheet" href="daowu-atlas.css?v=20260915">
+<script src="daowu-atlas.js?v=20260915" defer></script>
 <link rel="stylesheet" href="daowu-illustrated.css?v=6">
 <script src="daowu-illustrated.js?v=8" defer></script>
 <title>道務文書藍圖</title>
@@ -90,6 +90,14 @@
   .always { margin-top: 12px; background: var(--tint-2); border: 1px solid var(--line); border-radius: 12px;
     padding: 10px 16px; font-size: 13.5px; color: var(--sub); }
 
+  .echo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .echo .e { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; }
+  .echo .d { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .echo .d small { font-weight: 400; color: var(--seal); font-size: 12.5px; margin-left: 6px; }
+  .echo .q { font-size: 14px; color: var(--sub); font-family: "Songti TC","Noto Serif TC",serif; }
+  .echo .q b { color: var(--deep); font-family: "PingFang TC","Noto Sans TC",sans-serif; font-weight: 700; }
+  .echo-cap { font-size: 13.5px; color: var(--sub); margin: 0 0 12px; }
+  @media (max-width: 760px) { .echo { grid-template-columns: 1fr; } }
   .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .rule { background: var(--card); border: 1.5px solid var(--seal); border-radius: 16px; padding: 18px; }
   .rule .t { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
@@ -377,6 +385,25 @@
       <div class="t">🔑 不能只有一個人會</div>
       <div class="s">文件要寫到「沒參與過的人，照著做也能接手」。每半年演練一次，卡住的地方就是文件的洞。</div>
     </div>
+  </div>
+
+  <h2>與《聖佛綸音・文書篇》的呼應</h2>
+  <p class="echo-cap">這張圖上每一條設計，都能對回一則訓文。引文逐字敬錄自《聖佛綸音・文書篇》選輯（覆核中，不對外發放），括號內為則號。2026-09-15 對照靈隱中心文獻手冊後新補的幾條，也一併對回訓文。</p>
+  <div class="echo">
+    <div class="e"><div class="d">修一部活的史</div><div class="q">「在白陽歷史上也唯有你們才能粒粒血汗、歷歷記載這一切」<b>（#01）</b></div></div>
+    <div class="e"><div class="d">記人事，不只記天音</div><div class="q">「未來佛也得要記」<b>（#53）</b></div></div>
+    <div class="e"><div class="d">道務紀要：一場活動一段話<small>9/15 補</small></div><div class="q">「回去看了才會有憑有據，才知道你們講過什麼」<b>（#53）</b></div></div>
+    <div class="e"><div class="d">正本歸家、加人先請示</div><div class="q">「不要讓它留在自己專屬的電腦」<b>（#56）</b></div></div>
+    <div class="e"><div class="d">檔名日期開頭、照片附說明單<small>照片說明 9/15 補</small></div><div class="q">「註明出處、地點、時間，整理好了就寄回去」<b>（#43）</b></div></div>
+    <div class="e"><div class="d">母本對版</div><div class="q">「校對要以原稿校對，不是以重抄的校對」<b>（#32）</b></div></div>
+    <div class="e"><div class="d">改過的檔尾巴標版本<small>9/15 補</small></div><div class="q">「訓文發了就發了，不要增加你們的困擾，但是正版要再整理過」<b>（#37）</b></div></div>
+    <div class="e"><div class="d">及時傳</div><div class="q">「一定要能夠把它及時給眾生，這樣才不會斷了這個熱度」<b>（#44）</b></div></div>
+    <div class="e"><div class="d">把關欄、會議紀錄請前賢檢閱後才發<small>會議 9/15 補</small></div><div class="q">「是不是最後沒有把關的人？那這個人是誰？」<b>（#45）</b></div></div>
+    <div class="e"><div class="d">中心把關、地方認領</div><div class="q">「有很多的工作可以釋放到地方，我們中心做把關」<b>（#62）</b></div></div>
+    <div class="e"><div class="d">四樣匯出交回中心<small>9/15 補</small></div><div class="q">「你們要校對看一下，一樣要交到福山」<b>（#66）</b></div></div>
+    <div class="e"><div class="d">找：擷取重點</div><div class="q">「要從白話訓裡面去擷取重點」<b>（#41）</b></div></div>
+    <div class="e"><div class="d">不繫於一人</div><div class="q">「交棒要及早，傳承工作及早做準備」<b>（#63）</b></div></div>
+    <div class="e"><div class="d">道籍：名單引擎</div><div class="q">「道棒一棒接一棒，人才一代培育一代」<b>（#65）</b></div></div>
   </div>
 
   <h2>什麼時候算成功？</h2>

@@ -24,6 +24,7 @@
  <section class="daowu-plan"><div class="subsection-title"><span>02</span><div><p class="map-label">落實順序</p><h2>先整理，再接入，逐步成為可用的系統</h2></div></div><p class="plan-note">依原藍圖規劃排列，並非即時進度。原頁的粗估百分比保留於完整原圖。</p><ol>${[['整理知識庫','開碟、搬檔、處理個資、配置權限','檔案有家'],['道務平台接入','連接資料、設權限，再開放入口','資料找得到'],['策展與典藏','先選第一批內容，再建文獻平台','故事傳下去'],['全部連結','道籍與知識庫互相連結','人事可對照']].map((s,i)=>`<li><span class="plan-step">${i+1}</span><h3>${s[0]}</h3><p>${s[1]}</p><strong>${s[2]}</strong></li>`).join('')}</ol></section>
  <section class="daowu-rules"><div><h2>共同守住的原則</h2><ul><li>交接文件要讓沒參與過的人也能接手。</li><li>文書整理時間應減少；增加時，回頭改善系統。</li><li>權限跟著職務走，個資由系統管理。</li></ul></div><div><h2>持續改善的兩個循環</h2><p><b>依使用調整投入</b><br>看使用情況 → 常用的做深 → 少用的保留不擴建</p><p><b>維持資料秩序</b><br>巡檢 → 整理既有問題 → 改善問題來源</p></div></section>
  <p class="fahui-boundary">法會文書另冊傳承，訓文歸檔於 202 文史。</p>
+ <p class="fahui-boundary">2026-09-15 起對照靈隱中心《道場文獻工作參考手冊》（編輯中）：欄位已對齊、交付走四樣匯出，見<a href="2026-09-15-lingyin-wenxian-handbook-crosswalk.html">中心文獻手冊對照</a>；訓文呼應見<a href="#original">原頁</a>。</p>
  <footer class="atlas-footer"><span class="footer-seal">史</span><div><p>讓後人得以飲水思源。</p><span>前人一生的示現，活著時就一筆一筆留下。</span></div><a href="#original">敬讀原頁慈訓與完整說明 ↗</a></footer>`;
  source.before(root);
  root.querySelector('.plan-note').textContent='依原藍圖規劃排列，並非即時進度；原頁粗估百分比尚未重新核實。';
