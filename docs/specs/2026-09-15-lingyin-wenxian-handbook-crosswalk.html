@@ -100,7 +100,7 @@
     <tr><td data-l="面向" class="f">會議紀錄</td><td data-l="中心手冊">附錄給了議題、說明、決議三段式；隱惡揚善，人事、財務、護道、道盤不寫；請前賢檢閱後才發</td><td data-l="峨眉藍圖現況">工作清單第一條四格仍是紅虛線</td><td data-l="判讀" class="j gap">成稿格式與把關兩格有中心依據可引，執筆與傳達仍待拍板</td></tr>
     <tr><td data-l="面向" class="f">訓文</td><td data-l="中心手冊">只寫開壇訓文；校對走原稿、掃描檔、電子檔三方比對，字跡不清標待查</td><td data-l="峨眉藍圖現況">法會文書另冊傳承，訓文工法仙佛親授</td><td data-l="判讀" class="j">不衝突，中心沒碰法會訓文工法</td></tr>
     <tr><td data-l="面向" class="f">AI</td><td data-l="中心手冊">聽打與文字辨識只是輔助，聖號、人名、道場用語必人工校對</td><td data-l="峨眉藍圖現況">AI 是校那格的第五人，零至二階不代工</td><td data-l="判讀" class="j">相容，中心沒有育才分階</td></tr>
-    <tr><td data-l="面向" class="f">數位典藏</td><td data-l="中心手冊">十三個基本欄位、佛堂與人物的資料關聯、四級公開層級</td><td data-l="峨眉藍圖現況">文獻典藏收錄標準與報導庫</td><td data-l="判讀" class="j gap">幾乎就是報導庫的欄位，逐欄比對待做</td></tr>
+    <tr><td data-l="面向" class="f">數位典藏</td><td data-l="中心手冊">十三個基本欄位、佛堂與人物的資料關聯、四級公開層級</td><td data-l="峨眉藍圖現況">文獻典藏收錄標準與報導庫</td><td data-l="判讀" class="j">已逐欄對齊，報導庫補三欄（9/15）</td></tr>
     <tr><td data-l="面向" class="f">道務紀要</td><td data-l="中心手冊">手冊主軸：行程回報、道務紀要、道務報導、電子期刊、年鑑，一條線</td><td data-l="峨眉藍圖現況">工作清單沒有這條，最接近的是活動總表</td><td data-l="判讀" class="j gap">峨眉的漏洞，本次補上（見下）</td></tr>
   </table>
   </div>
@@ -121,10 +121,68 @@
     </div>
     <div class="feed">
       <div class="name">🗄️ 典藏欄位比對</div>
-      <span class="st gap">待做</span>
-      <p>中心列的十三個欄位：名稱、日期、類型、人物、佛堂、單位、地點、摘要、提供者、原件保存處、數位化日期、可否公開、備註。跟峨眉報導庫逐欄對一遍，缺的補、多的留。</p>
+      <span class="st ok">已對齊・9/15</span>
+      <p>中心十三欄逐欄對過：六欄本來就對得上；相關佛堂、原件保存處、公開層級（公開、道場內部、限制、暫不公開）三欄峨眉沒有，已補進報導庫；資料類型中心按文獻類型、峨眉按切面，匯出時換算；數位化日期與備註不另開，狀態與缺什麼已涵蓋。峨眉多的編號、狀態、缺什麼、道籍錨點是完整度機制，保留。</p>
       <p><a href="2026-08-20-literature-platform-implementation-map.html">文獻平台實作地圖</a></p>
     </div>
+  </div>
+
+  <h2>怎麼接上中心</h2>
+  <p>對齊不是把峨眉改成中心的樣子，是讓峨眉的正本能一鍵交出中心要的東西。分四層看，每層一句話：資料對得上、檔案找得到、流程接得起、東西交得出。</p>
+
+  <h3 style="font-family:'Songti TC','Noto Serif TC',serif;font-size:19px;margin:28px 0 10px">資料層：欄位對得上</h3>
+  <div class="tbl-wrap">
+  <table class="xw">
+    <tr><th>中心要的表</th><th>中心欄位（摘要）</th><th>峨眉的正本</th><th>怎麼接</th></tr>
+    <tr><td data-l="中心要的表" class="f">數位典藏</td><td data-l="中心欄位（摘要）">名稱、日期、類型、人物、佛堂、單位、地點、摘要、提供者、原件保存處、可否公開</td><td data-l="峨眉的正本">文獻報導庫（Sheet）</td><td data-l="怎麼接" class="j">已是超集，直接匯出</td></tr>
+    <tr><td data-l="中心要的表" class="f">人物表格</td><td data-l="中心欄位（摘要）">姓名、出生、成道、求道日期與佛堂、引保師、清口、開壇、壇名、領命、修辦職務、開荒地區、紀事、文獻索引</td><td data-l="峨眉的正本">道籍系統 members、orgPositions、memorialNiches</td><td data-l="怎麼接" class="j">道籍匯出，不另建表；個資欄走道籍權限，紀事與文獻索引由報導庫供</td></tr>
+    <tr><td data-l="中心要的表" class="f">佛堂基本登錄</td><td data-l="中心欄位（摘要）">單位、壇名、開壇日期、主持開壇、開壇因緣、壇主、副壇主、地址、電話、沿革記事</td><td data-l="峨眉的正本">道籍 temples＋報導庫「道場沿革」型</td><td data-l="怎麼接" class="j">基本欄從道籍出，因緣與沿革從報導庫出</td></tr>
+    <tr><td data-l="中心要的表" class="f">行程回報</td><td data-l="中心欄位（摘要）">事前：單位、時間、地點、活動、對象、主班、助班、操持、窗口；事後：人數、蒞臨前賢、要點、照片影片</td><td data-l="峨眉的正本">活動總表（日期開頭自動串）＋道籍 events</td><td data-l="怎麼接" class="j gap">事後欄位有；事前的主班、助班、操持、窗口活動總表沒有，要不要加待拍板</td></tr>
+    <tr><td data-l="中心要的表" class="f">開壇訓文清單</td><td data-l="中心欄位（摘要）">佛堂、開壇日期、紙本有無、電子檔、掃描檔、開沙稿、保存處</td><td data-l="峨眉的正本">202文史（訓文、母本對版）</td><td data-l="怎麼接" class="j">清單一張表即可，母本對版本來就在做</td></tr>
+  </table>
+  </div>
+
+  <h3 style="font-family:'Songti TC','Noto Serif TC',serif;font-size:19px;margin:28px 0 10px">檔案層：碟對類型</h3>
+  <div class="tbl-wrap">
+  <table class="xw">
+    <tr><th>峨眉編號碟</th><th>中心資料夾類型</th><th>峨眉編號碟</th><th>中心資料夾類型</th></tr>
+    <tr><td data-l="峨眉編號碟" class="f">202文史</td><td data-l="中心資料夾類型">仙佛聖訓、開壇訓文、出版品</td><td data-l="峨眉編號碟" class="f">208會議</td><td data-l="中心資料夾類型">道務紀錄（會議紀錄）</td></tr>
+    <tr><td data-l="峨眉編號碟" class="f">204錄音、207影音</td><td data-l="中心資料夾類型">影音</td><td data-l="峨眉編號碟" class="f">304文書組</td><td data-l="中心資料夾類型">道務紀錄、其他文獻</td></tr>
+    <tr><td data-l="峨眉編號碟" class="f">206照片</td><td data-l="中心資料夾類型">照片</td><td data-l="峨眉編號碟" class="f">道籍系統</td><td data-l="中心資料夾類型">佛堂資料、人物資料</td></tr>
+  </table>
+  </div>
+  <p style="font-size:15px;color:var(--sub)">檔名不改：兩邊都是日期開頭，排序一致。匯出時原檔名照舊，另附一份照片說明（流水號、事件、人物），這是中心手冊要的格式。</p>
+
+  <h3 style="font-family:'Songti TC','Noto Serif TC',serif;font-size:19px;margin:28px 0 10px">流程層：一條鏈接一條鏈</h3>
+  <div class="tbl-wrap">
+  <table class="xw">
+    <tr><th>中心的鏈</th><th>峨眉對應</th><th>判讀</th></tr>
+    <tr><td data-l="中心的鏈" class="f">行程回報</td><td data-l="峨眉對應">活動總表（自動）</td><td data-l="判讀" class="j">有</td></tr>
+    <tr><td data-l="中心的鏈" class="f">道務紀要</td><td data-l="峨眉對應">工作清單第十條（9/15 新列）</td><td data-l="判讀" class="j gap">待拍板交到哪、誰寫</td></tr>
+    <tr><td data-l="中心的鏈" class="f">道務報導</td><td data-l="峨眉對應">媒體線（彰）</td><td data-l="判讀" class="j">有，走媒體圖</td></tr>
+    <tr><td data-l="中心的鏈" class="f">電子期刊、年鑑</td><td data-l="峨眉對應">峨眉不自辦</td><td data-l="判讀" class="j">交紀要給中心，中心編《靈隱年鑑》</td></tr>
+  </table>
+  </div>
+
+  <h3 style="font-family:'Songti TC','Noto Serif TC',serif;font-size:19px;margin:28px 0 10px">交付層：四樣東西，一個地方</h3>
+  <div class="cards">
+    <div class="feed">
+      <div class="name">📦 交什麼</div>
+      <p>年度道務紀要表、開壇訓文清單與掃描檔、人物表格（道籍匯出，敏感欄不出）、影音清單（204、207 索引）。</p>
+    </div>
+    <div class="feed">
+      <div class="name">📍 交到哪</div>
+      <p>中心 Drive 已有「13.峨眉文獻」資料夾（2023 年中心平台為峨眉開的位置）。峨眉正本不動，匯出放那裡。</p>
+    </div>
+    <div class="feed">
+      <div class="name">🕰 什麼時候</div>
+      <span class="st gap">工作清單第十一條・待拍板</span>
+      <p>年底一次配中心年鑑；重大行程事後即時。誰負責，就是中心手冊說的「各單位窗口」，峨眉尚未指定人。</p>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:22px">
+    <b>不接的。</b> 峨眉檔名規則、編號碟結構、任務門、育才分階，都不改。中心平台不當正本，峨眉不長分支版本。對齊的是交出去的東西，不是家裡的擺法。
   </div>
 
   <h2>引用的規矩</h2>
