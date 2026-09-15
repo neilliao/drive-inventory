@@ -8,3 +8,5 @@
 .di-dialog .di-tool-list .tool-node p{margin:4px 0;font-size:16px}
 .di-dialog .di-tool-list .tool-node a{padding:8px 0}
 .di-route-links{display:flex;flex-wrap:wrap;gap:8px 20px;border-top:1px solid #bccbbb;padding-top:16px}.di-route-links a{font-size:17px;line-height:1.6;padding:8px 0;min-height:44px;color:#264d3d;text-underline-offset:5px}
+
+.di-quotes{margin-top:18px;padding:14px 16px;border:1px solid #bacbb7;background:#eef3ea;border-radius:10px}.di-quotes h3{font:600 20px/1.5 'Songti TC',serif;margin:0 0 8px;color:#a54130}.di-quotes ul{list-style:none;margin:0;padding:0}.di-quotes li{margin:8px 0;font-size:16px;line-height:1.7}.di-quotes li b{display:block;font-weight:700}.di-quotes li span{font-family:'Songti TC','Noto Serif TC',serif;color:#405c4d}.di-quotes a{display:inline-block;margin-top:8px;font-size:16px}

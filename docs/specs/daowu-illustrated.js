@@ -28,6 +28,7 @@
  dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)close();});
  function openTools(button,index){opener=button;const lane=lanes[index];dialog.querySelector('h2').textContent=`${lane.word}｜${lane.title}`;const copy=dialog.querySelector('.di-dialog-copy');copy.replaceChildren();
   if(lane){const intro=document.createElement('p');intro.textContent=lane.work;copy.append(intro);const result=document.createElement('p');result.className='di-result';result.textContent='預期成效（編者整理）：'+lane.result;copy.append(result);}
+  const echoes=Array.from(document.querySelectorAll('#echo-list .e[data-lane="'+index+'"]'));if(echoes.length){const q=document.createElement('section');q.className='di-quotes';q.innerHTML='<h3>敬錄慈訓</h3><ul>'+echoes.map(e=>'<li><b>'+e.querySelector('.d').firstChild.textContent+'</b><span>'+e.querySelector('.q').textContent+'</span></li>').join('')+'</ul><a href="#echo">看全部十四條呼應 ↓</a>';copy.append(q);}
   if(index===2){const channels=document.createElement('p');channels.textContent='傳達分工：LINE 推送、信箱寄正式件、誦經頁供共修；公告由平台留底。';copy.append(channels);}
   const list=document.createElement('nav');list.className='di-route-links';list.setAttribute('aria-label','相關細部策略圖');toolNodes.filter(el=>systemIds.includes(el.dataset.tool)&&el.querySelector(`[data-for-lane="${index}"]`)).forEach(el=>{const a=document.createElement('a');a.href=el.querySelector('a').getAttribute('href');a.textContent=el.querySelector('h4').textContent+'・看落實 ↗';list.append(a);});copy.append(list);dialog.showModal();dialog.scrollTop=0;
  }
@@ -39,6 +40,8 @@
  // The overview ends at the map. Retain supplementary implementation notes only inside the source disclosure.
  const source=document.getElementById('original');
  if(source){const archive=document.createElement('details');archive.className='di-background';archive.innerHTML='<summary>補充實施順序與資料流（舊版說明）</summary>';archive.append(plan,extra);source.append(archive);}else{plan.remove();extra.remove();}
+ document.addEventListener('click',event=>{const a=event.target.closest('a[href="#echo"]');if(!a)return;event.preventDefault();if(dialog.open)dialog.close();const source=document.getElementById('original');if(source)source.open=true;document.getElementById('echo')?.scrollIntoView({block:'start'});history.replaceState(null,'','#echo');});
+ if(location.hash==='#echo'){const source=document.getElementById('original');if(source)source.open=true;setTimeout(()=>document.getElementById('echo')?.scrollIntoView({block:'start'}),50);}
  root.querySelectorAll('a[href="#original"]').forEach(a=>a.addEventListener('click',event=>{event.preventDefault();const source=document.getElementById('original');source.open=true;source.scrollIntoView({block:'start'});history.replaceState(null,'','#original');}));
  // Supplement remains the verbatim source; no generated words are presented as scripture.
  document.querySelectorAll('a[href^="https://neilliao.github.io/drive-inventory/specs/"]').forEach(a=>{a.setAttribute('href',a.getAttribute('href').split('/specs/')[1]);});
